@@ -1,0 +1,203 @@
+/* -------------------框架--------------- */
+
+/* 系统好像自带了
+ * @import url('../js/font-awesome.css');  */
+/* ---------------------------------------*/
+
+/* 底部的扩展按钮 */
+@import url('extension.css');
+/* TODO 未加载完时遮罩 */
+/* @import url('loading.css'); */
+
+
+
+
+:root {
+  --h1-color: brown;
+  --h2-color: #226A98;
+  --h3-color: #5F87D7;
+  --h4-color: #866FAB;
+  --h5-color: #5F87D7;
+  --h6-color: #0F7961;
+  --h1-font-size: 2.2rem;
+  --h2-font-size: 1.9rem;
+  --h3-font-size: 1.6rem;
+  --h4-font-size: 1.4rem;
+  --h5-font-size: 1.2rem;
+  --h6-font-size: 1.1rem;
+}
+
+body {
+    word-break: break-all;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "sans-serif"
+}
+
+h1 .anchor span {
+	font-size: var(--h1-font-size);
+    color: var(--h1-color);
+}
+
+h2 .anchor span {
+	font-size: var(--h2-font-size);
+    color: var(--h2-color);
+}
+
+h3 .anchor span {
+	font-size: var(--h3-font-size);
+    color: var(--h3-color);
+}
+
+h4 .anchor span {
+	font-size: var(--h4-font-size);
+    color: var(--h4-color);
+}
+
+h5 .anchor span {
+	font-size: var(--h5-font-size);
+    color: var(--h5-color);
+}
+
+h6 .anchor span {
+	font-size: var(--h6-font-size);
+    color: var(--h6-color);
+}
+
+/* ---------  文件树 ---------------*/
+.sidebar-nav {
+    color: brown;
+}
+
+
+.sidebar ul li a {
+    color: currentColor;
+    font-size: 1rem;
+    font-weight: normal;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar-nav .side-title {
+    font-size: 1.3rem;
+}
+
+.side-title ul li p {
+	cursor: pointer;
+}
+
+
+/*  --------------------------------*/
+
+
+/*  --------------------------------*/
+.myImage {
+	text-align: center;
+}
+
+.imageTitle {
+    font-size: 0.8rem;
+}
+
+.myNote, .myWarning, .myTip, .myExample {
+/*
+  border: solid cornsilk;
+  box-shadow: 0 0 10px gray; 
+*/
+  padding: 0.2rem 1rem;   
+}
+
+.myNote {
+  background-color: #FFFFA3;
+}
+
+.myWarning {
+  background-color: #FDDAD8;
+}
+
+.myTip {
+  background-color: #DCEFDC;
+}
+
+.myExample {
+  border: 1px solid currentColor;
+}
+
+
+/* --- 内容折叠区域   ---*/
+h1.header-part {
+	font-size: var(--h1-font-size);
+    color: var(--h1-color);
+	margin-top: 2rem;
+}
+
+div.collapse {
+	border: 1px solid antiquewhite;
+	margin: 0  -1rem;
+	display: flex;
+	background: aliceblue;
+}
+
+div.collapse button {
+	font-size: 1.5rem;
+	border: none;
+    color: #226A98;
+	background: beige;
+}
+
+h2.section-title {
+	font-size: var(--h2-font-size);
+	margin: auto 10px;
+    color: var(--h2-color);
+}
+
+h3.section-title {
+	font-size: var(--h3-font-size);
+	margin: auto 10px;
+    color: var(--h3-color);
+}
+
+h4.autosort {
+	color: #866FAB;
+}
+
+.data-section {
+	border: 1px solid azure;
+	padding: 0 1rem;
+	margin: 0rem 0;
+}
+
+.data-section .toHide {
+	border: none;
+	width: 100%;
+	font-size: 1.5rem;
+	background: aliceblue;
+
+color: cadetblue;
+}
+
+
+/* --- 标题编号   ---*/
+h3.auto-sort, h3.auto-sort-sub {
+	font-size: var(--h3-font-size);
+    color: var(--h3-color);
+}
+
+h4.auto-sort-sub1 {
+	font-size: var(--h4-font-size);
+    color: var(--h4-color);
+}
+
+h5.auto-sort-sub2 {
+	font-size: var(--h5-font-size);
+    color: var(--h5-color);
+}
+
+h6.auto-sort-sub3 {
+	font-size: var(--h6-font-size);
+    color: var(--h6-color);
+}
+
