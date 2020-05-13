@@ -1,9 +1,9 @@
 <br>
 <div style="text-align: center">
-<a href="#" style="font-size: 6rem">🐱</a>
+<a href="#"><img style="width:7rem;border-radius:50%;" src="favicon.gif"></img></a>
 <br>
 <p>
-<a href="#" class="name">你好，生活</a>
+<a href="#/Volume_I/welcome" class="name">Volume I</a>
 </div>
 <style>
 a {

@@ -1,22 +1,8 @@
-<br>
 <div style="text-align: center">
-<a href="#" style="font-size: 6rem">🐱</a>
-
-<br>
+<a href="#"><img style="width:7rem;border-radius:50%;" src="favicon.gif"></img></a>
 <p>
-<a href="#" class="name">你好，生活</a>
+<a href="#" class="name">Home</a>
 </div>
-
-
-<br>
-<br>
-<div>
-<a href="#/Volume_I/welcome" class="volume"><img style="width:2rem" src="images/volume_I.gif"></img> VOLUME I </a>
-<br>
-<a href="#/Volume_II/welcome" class="volume"><img style="width:2rem" src="images/volume_I.gif"></img> VOLUME II </a>
-
-</div>
-
 
 <style>
 a {
@@ -36,3 +22,14 @@ a {
     margin: 2rem;
 }
 </style>
+
+<br>
+<div>
+<a href="#/Volume_I/welcome" class="volume"> VOLUME I </a>
+<br>
+<a href="#/Volume_II/welcome" class="volume"> VOLUME II </a>
+
+</div>
+
+
+

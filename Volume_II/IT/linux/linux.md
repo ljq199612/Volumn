@@ -14,6 +14,14 @@ $ sudo ln -s /usr/local/rar/unrar /usr/local/bin/unrar
 </div>
 </diV>
 
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>Flatpak</h2>
+<div class = 'folding-area'>
+
+[使用手册](https://wiki.archlinux.org/index.php/Flatpak_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
+
+</div>
+</div>
 
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>snapper</h2>

@@ -562,15 +562,16 @@ function foldSide(){
 
     // 折叠、显示目录树
     $title.each(function(){
-        $(this).html("<span>🍒 </span> " + $(this).html());
+        //$(this).html("<span>🍒 </span> " + $(this).html());
 
         let toggle = 0;
         $(this).on('click', function(){
             if(toggle == 0){
-                $(this).children('span').first().html('🌶 ');
+                //$(this).children('span').first().html('🌶 ');
                 $(this).siblings('ul').css({'display': 'block'});
             }else{
-                $(this).children().first().html('🍒 ');
+                //$(this).children().first().html('🍒 ');
+                $(this).children().first().html('');
                 $(this).siblings('ul').css({'display': 'none'});
             }
             toggle = !toggle;
@@ -579,7 +580,7 @@ function foldSide(){
         // 显示当前文件所在的目录
         let isActive = $(this).siblings('ul').children('li').hasClass('active');
         if(isActive){
-            $(this).children('span').first().html('🌶 ');
+            //$(this).children('span').first().html('🌶 ');
             $(this).siblings('ul').css({'display': 'block'});
             toggle = !toggle;
         }
