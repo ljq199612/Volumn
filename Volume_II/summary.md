@@ -26,6 +26,7 @@ a {
 <ul>
 <li>
 <a href="#/Volume_II/IT/welcome" class="volume"><i class="fa fa-book" style="font-size:1.1rem"></i> 计算机</a>
+<a href="#/Volume_II/math/welcome" class="volume"><i class="fa fa-book" style="font-size:1.1rem"></i> 数学</a>
 <a href="#/Volume_II/chemistry/welcome.md" class="volume"><i class="fa fa-book" style="font-size:1.1rem"></i> 化学</a>
 </li>
 </ul>
