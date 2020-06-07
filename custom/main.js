@@ -9,7 +9,7 @@ function customComponents(){
         componentsInit();
 //        sidebar();               // 左侧文件树    //TODO 样式bug
 //        slideMeunToggle();       // 主菜单
-        extBtnToggle();            // 右下角拓展按钮
+        extNav();                  // 右侧导航
 //        componentsKeyBind();     // 快捷键操作绑定
     });
 } 
@@ -26,6 +26,8 @@ function addcomponents(){
 //        +" <div class='slide-meun'></div>     "
 //        +" <div class='mask-window'><button class='close-meun'> <i class='fa fa-close'></i></button> </div>              "
           +" <div id='ext-btn'></div> "  // 右下脚拓展按钮                                    
+          +" <div id='ext-nav'></div> "  // 右侧拓展导航                                    
+        
     );
 }
 
@@ -291,70 +293,6 @@ function _slideMeun(){
     });
 }
 
-// 右下角拓展按钮
-function extBtnToggle(){
-    $('#ext-btn').html(
-         "          <div id='ss_menu'>                                                     "
-        +"            <div id='goto-top-button'>                                           "
-        +"              <i class='goto-top-icon fa fa-angle-up' aria-hidden='true'></i>    "
-        +"            </div>                                                               "
-        +"            <div id='fold-all'>                                                  "
-        +"              <i class='fa fa-compress' aria-hidden='true'></i>                  "
-        +"            </div>                                                               "
-        +"            <div id='unfold-all'>                                                "
-        +"              <i class='fa fa-expand' aria-hidden='true'></i>                    "
-        +"            </div>                                                               "
-        +"            <div class='menu'>                                                   "
-        +"              <div class='share' id='ss_toggle' data-rot='180'>                  "
-        +"                  <i class='fa fa-circle' aria-hidden='true'></i>                "
-        +"              </div>                                                             "
-        +"            </div>                                                               "
-        +"          </div>                                                                 "
-        +"                                                                                 "
-    );
-    let toggle = $('#ss_toggle');
-    let menu = $('#ss_menu');
-    let rot;
-    $('#ss_toggle').on('click', function (ev) {
-        rot = parseInt($(this).data('rot')) - 180;
-        menu.css('transform', 'rotate(' + rot + 'deg)');
-        menu.css('webkitTransform', 'rotate(' + rot + 'deg)');
-        if (rot / 180 % 2 == 0) {
-            toggle.parent().addClass('ss_active');
-            toggle.addClass('close');
-        } else {
-            toggle.parent().removeClass('ss_active');
-            toggle.removeClass('close');
-        }
-        $(this).data('rot', rot);
-    });
-    menu.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
-        if (rot / 180 % 2 == 0) {
-            $('#ss_menu div i').addClass('ss_animate');
-        } else {
-            $('#ss_menu div i').removeClass('ss_animate');
-        }
-    });
-
-    
-    // 回到顶部
-    _gotoTop();
-
-    // 全部折叠
-    $('#fold-all').click(function(){
-        _foldAll();
-        window.scrollTo(0,0);
-    });
-    
-    // 全部展开
-    $('#unfold-all').click(function(){
-        _unfoldAll();
-        window.scrollTo(0,0);
-    });
-}
-
-
-
 function _gotoTop(){
     $('#goto-top-button').click(function(){
         window.scrollTo(0,0);
@@ -425,12 +363,149 @@ function componentsKeyBind(){
     });
 }
 
+
+function extNav(){
+    $('#ext-nav').html(
+
+         "          <div class='nav'>                                                      "
+        +"            <div class='contents-button nav-button' title='目录'>                "
+        +"              <i class='nav-icon iconfont icon-contents'></i>                   "
+        +"            </div>                                                               "
+
+        +"            <div class='fold-button nav-button' title='全部折叠'>                "
+        +"              <i class='nav-icon iconfont icon-fold'></i>                       "
+        +"            </div>                                                               "
+
+        +"            <div class='unfold-button nav-button' title='全部展开'>              "
+        +"              <i class='nav-icon iconfont icon-unfold'></i>                     "
+        +"            </div>                                                               "
+
+        +"            <div class='top-button nav-button' title='回到顶部'>                 "
+        +"              <i class='nav-icon iconfont icon-top' ></i>                        "
+        +"            </div>                                                               "
+
+        +"          </div>                                                                 "
+
+        +"          <div id='js-getNav'                                                    "
+        +"               style='position:fixed; width:2rem; z-index:-1;                     "
+        +"                     height:80%; right:0; margin-top:2rem;' >                    "
+        +"          </div>                                                                 "
+
+        +"          <div class='contents'>                                                 "
+        +"          </div>                                                                 "
+
+        +"          <div class='right-bottom-button'>                                      "
+        +"            <div class='circle-button' title='全部展开'>              "
+        +"              <i class='iconfont icon-circle'></i>                     "
+        +"            </div>                                                               "
+        +"          </div>                                                                 "
+
+        +"                                                                                 "
+    );
+
+    let oTimer = null;
+    let $nav = $('#ext-nav .nav');
+    $('#js-getNav').hover(
+        function(){
+            $nav.removeClass('nav-unhover'); 
+            $nav.addClass('nav-hover'); 
+        },
+        function(){
+            $nav.hover(
+                function(){},
+                function(){ 
+                    let contentsIsNotActive = $('.contents').css('display') == 'none';
+                    if(contentsIsNotActive) {      
+                        $nav.addClass('nav-unhover');
+                        $nav.removeClass('nav-hover');
+                    } 
+                }
+            );
+        }
+    );
+
+    $('.contents-button').click(function(){
+        // 目录
+        _contents();
+        $('.contents').fadeToggle();
+
+    });
+
+    $('.fold-button').click(function(){
+        _foldAll();
+    });
+
+    $('.unfold-button').click(function(){
+        _unfoldAll();
+    });
+
+    $('.top-button').click(function(){
+        window.scrollTo(0, 0);
+    });
+
+    $('.right-bottom-button').click(function(){
+        if(! $nav.hasClass('nav-hover')){
+            $nav.removeClass('nav-unhover'); 
+            $nav.addClass('nav-hover'); 
+        }else{
+            $nav.removeClass('nav-hover'); 
+            $nav.addClass('nav-unhover'); 
+        }
+        $('.contents').fadeOut();
+    });
+
+}
+
+function _contents() {
+    let contents = "<ul class='contents-list'>";
+
+    $('h2, h3, h4, h5, h6').each(function(){
+        let id = '_' + $(this).html().split(" ")[0].replace(/\./g, "_");
+        let isH2 = $(this).prop('tagName') == 'H2';
+
+        if($(this).attr('id') == undefined){
+            if(isH2) id = '_' + Math.floor(Math.random()*1000000);
+            $(this).attr('id', id);
+        }
+
+
+        let className = 'content-'+ $(this).prop('tagName')+' ';
+        $(this).addClass(className);
+
+        let temp = $(this).html();
+        
+        id = $(this).attr('id');
+        let click = "scrollToThis( '#"+id +"' );";
+        contents += '<li class=' + className + 'onClick="' + click + '">' + temp +'</li>';
+
+    });
+
+    contents += "</ul>";
+    
+    $('#ext-nav .contents').html(contents);
+
+}
+
+function scrollToThis(id){
+    let isH2 = $(id).prop('tagName') == 'H2';
+    let $collapse = $(id).parent().prev();
+    let isCollapse = $collapse.hasClass('collapse');
+    // 如果目录对应的内容被折叠了，需要先打开折叠
+    if(!isH2 && isCollapse){
+        $collapse.children('button.toShow').click();
+    }
+
+    $.scrollTo(id, 500);
+}
+
 //=======================================================
 function customContent(){
     foldModule();
     myNote();
     myWarning();
     myTip();
+    myProblem();
+    myAnnotate();
     foldSide();
 }
 
@@ -520,6 +595,7 @@ function foldModule(){
         });
     }
 
+
 })();
 // ---------------------------------
 
@@ -533,6 +609,7 @@ function foldModule(){
         $(this).toggleClass('toShow');
 
     });
+
     $('button.toHide').on('click', function(){
         let $collapseButton = $(this).siblings('.collapse').children('button');
         $collapseButton.click();
@@ -609,4 +686,116 @@ function myWarning(){
     });
 }
 
+/* 鼠标点击、悬停在关键字的时候，解释关键字*/
+function myAnnotate(){
+    $('.myAnnotate').each(function () {
+        let $annotate;
+        let flag = 1;
+        
+        $(this).hover(
+            function () { 
+                let flag = 1;
+                $annotate = $(this).next();
+                for(let t=1; t<1000; t++){
+                    let isAnnotate = $annotate.hasClass('js-annotate');
+                    if(isAnnotate){ break; }
+                    $annotate = $annotate.next();
+                } 
+                // TODO 想用 fadeIn() fadeOut() 做淡入淡出效果，
+                // 但是发现存在以下 bug：
+                // 对于大的弹出框，会有显示 2 次的动作
+                $annotate.show();
+
+                $(this).mousemove(function(e){
+                    let left = e.clientX + 25;
+                    let top = e.clientY + 25;
+                    let overScreenX = left+$annotate[0].clientWidth > document.body.clientWidth;
+                    let overScreenY = top+$annotate[0].clientHeight > document.body.clientHeight;
+
+                    //alert(left + " " + $annotate[0].clientWidth + " " + document.body.clientWidth);
+                    if(flag == 1){
+                        if(!overScreenX && !overScreenY){
+                            top = top + 'px';
+                            left = left + 'px';
+                            $annotate.css({'left': left, 'top': top, 'right':'unset', 'bottom':'unset'});
+                        }else if(overScreenX && !overScreenY){
+                            top = top + 'px';
+                            $annotate.css({'left': 'unset', 'top': top, 'right':'3rem', 'bottom':'unset'});
+                        }else if(!overScreenX && overScreenY){
+                            left = left + 'px';
+                            $annotate.css({'left': left, 'top': 'unset', 'right':'unset', 'bottom':'3rem'});
+                        }else if(overScreenX && overScreenY){
+                            $annotate.css({'left': 'unset', 'top': 'unset', 'right':'3rem', 'bottom':'3rem'});
+                        }
+
+                    }
+                    flag = 0;
+                });
+
+                $annotate.hover(
+                    function(){ $annotate.show() }, 
+                    function(){ $annotate.hide() } 
+                );
+            },
+            function () { 
+                $annotate.hide();
+
+            }
+        );
+
+        $(this).click(
+            function () { 
+                if(flag==1){
+                    $annotate = $(this).next();
+                    for(let t=1; t<1000; t++){
+                        let isAnnotate = $annotate.hasClass('js-annotate');
+                        if(isAnnotate){ break; }
+                        $annotate = $annotate.next();
+                    } 
+                    $annotate.show(); 
+                    $(this).mousemove(function(e){
+                        let left = e.clientX + 25;
+                        let top = e.clientY + 25;
+                        let overScreenX = left+$annotate[0].clientWidth > document.body.clientWidth;
+                        let overScreenY = top+$annotate[0].clientHeight > document.body.clientHeight;
+
+                        //alert(left + " " + $annotate[0].clientWidth + " " + document.body.clientWidth);
+                        if(flag == 1){
+                            if(!overScreenX && !overScreenY){
+                                top = top + 'px';
+                                left = left + 'px';
+                                $annotate.css({'left': left, 'top': top, 'right':'unset', 'bottom':'unset'});
+                            }else if(overScreenX && !overScreenY){
+                                top = top + 'px';
+                                $annotate.css({'left': 'unset', 'top': top, 'right':'3rem', 'bottom':'unset'});
+                            }else if(!overScreenX && overScreenY){
+                                left = left + 'px';
+                                $annotate.css({'left': left, 'top': 'unset', 'right':'unset', 'bottom':'3rem'});
+                            }else if(overScreenX && overScreenY){
+                                $annotate.css({'left': 'unset', 'top': 'unset', 'right':'3rem', 'bottom':'3rem'});
+                            }
+
+                        }
+                    });
+                    flag = 0;
+                }else{
+                    $annotate.hide(); 
+                    flag = 1;
+                }
+            });
+    });
+
+}
+
+function myProblem(){
+    $('.myProblem .toggleAnswer').each(function(){
+        $(this).click(function(){
+            $(this).next().slideToggle('slow');
+        });
+    });
+
+
+
+
+}
 

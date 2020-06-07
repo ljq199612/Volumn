@@ -19,14 +19,6 @@ a {
 <!----------->
 <span class='side-title'>
 
-* mathematic
-</span>
-
-    * [微积分和数学分析引论 第一卷](Volume_II/IT/math/Introduction_to_Calculus_and_Analysis_I.md) 
-
-<!----------->
-<span class='side-title'>
-
 * JavaScript
 </span>
 

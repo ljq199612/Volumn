@@ -1,8 +1,8 @@
 :root {
   --menu-width: 3.5rem;
   --menu-height: 3.5rem;
-  --menu-background: gray;
-  --menu-background-hover: #31e1c8;
+  --menu-background: #ccc;
+  --menu-background-hover: #777;
   
 }
 @-webkit-keyframes badbounce {
