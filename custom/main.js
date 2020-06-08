@@ -621,68 +621,65 @@ function foldModule(){
 }
 
 
-// ----------------------------------------
+// ------------ 左侧菜单栏折叠和点击效果 --------------------
+
 function foldSide(){
-
-    let $title = $('.side-title > ul > li > p');
-
-    // 隐藏二级目录
-    $title.siblings('ul').css({'display': 'none'});
     
-    /*
-    // 加序号
-    let number = 1;
-    $title.each(function(){
-        $(this).html(number++ + ". " + $(this).html());
+    $('.sidebar-nav .icon-books1').click(function(){
+        $(this).siblings('.book-list-sub1').slideToggle();
     });
-    */
 
-    // 折叠、显示目录树
-    $title.each(function(){
-        //$(this).html("<span>🍒 </span> " + $(this).html());
+    $('.sidebar-nav .icon-dir').click(function(){
+        $(this).siblings('.book-list-sub2').slideToggle();
+    });
 
-        let toggle = 0;
-        $(this).on('click', function(){
-            if(toggle == 0){
-                //$(this).children('span').first().html('🌶 ');
-                $(this).siblings('ul').css({'display': 'block'});
-            }else{
-                //$(this).children().first().html('🍒 ');
-                $(this).children().first().html('');
-                $(this).siblings('ul').css({'display': 'none'});
-            }
-            toggle = !toggle;
-        });
+    $('.sidebar-nav .icon-book-open').click(function(){
+        $(this).siblings('.book-list-sub3').slideToggle();
+    });
 
-        // 显示当前文件所在的目录
-        let isActive = $(this).siblings('ul').children('li').hasClass('active');
-        if(isActive){
-            //$(this).children('span').first().html('🌶 ');
-            $(this).siblings('ul').css({'display': 'block'});
-            toggle = !toggle;
+    let isFold = true;
+    $('.js-name').click(function(){
+        if(isFold){
+            $('.icon-book-open').siblings('.book-list-sub3').slideUp();
+            $('.icon-dir').siblings('.book-list-sub2').slideUp();
+            $('.icon-books1').siblings('.book-list-sub1').slideUp();
+            isFold = false;
+        }else{
+            $('.icon-book-open').siblings('.book-list-sub3').slideDown();
+            $('.icon-dir').siblings('.book-list-sub2').slideDown();
+            $('.icon-books1').siblings('.book-list-sub1').slideDown();
+            isFold = true;
         }
-
     });
+    
+    $('.book-list-sub3').click(function(){
+        $('.book-list-sub3').removeClass('title-active');
+        $(this).addClass('title-active');
+    });
+
 }
 
 function myTip(){
     $('.myTip').each(function(){
         let $content = $(this).children().first();
-        $content.html( "<span style='font-size:1.2rem'>📌&nbsp;&nbsp;[TIP]</span><p>" + $content.html() );
+        let temp = "<div class='tip'><i class='iconfont icon-tips'></i>&nbsp;Tip</div>";  
+        $content.html( temp + $content.html() );
     });
 }
 
 function myNote(){
     $('.myNote').each(function(){
         let $content = $(this).children().first();
-        $content.html( "<span style='font-size:1.2rem'>📝&nbsp;&nbsp;[NOTE]</span><p>" + $content.html() );
+        let temp = "<div class='note'><i class='iconfont icon-note'></i>&nbsp;Note</div>";  
+        $content.html( temp + $content.html() );
     });
 }
 
 function myWarning(){
     $('.myWarning').each(function(){
         let $content = $(this).children().first();
-        $content.html( "<span style='font-size:1.2rem'>❗&nbsp;&nbsp;[WARNING]</span></p>" + $content.html() );
+        let temp = "<div class='warning'><i class='iconfont icon-warning'></i>&nbsp;Warning</div>";  
+        $content.html( temp + $content.html() );
     });
 }
 

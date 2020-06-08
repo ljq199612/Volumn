@@ -4,7 +4,6 @@
  * @import url('../js/font-awesome.css');  */
 /* ---------------------------------------*/
 
-@import url('extension.css');    /* 底部的扩展按钮 */
 @import url('icons.css');        /* 各种按钮 */
 /* TODO 未加载完时遮罩 */
 /* @import url('loading.css'); */
@@ -113,17 +112,6 @@ h6 .anchor span {
  
 /* ---------  文件树 ---------------*/
 
-.sidebar-nav .name {
-    color: currentColor;
-}
-
-.sidebar-nav .name:hover {
-    animation-name: name-hover;
-    animation-duration: 1s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-}
-
 
 @keyframes name-hover {
     from {color: currentColor;}
@@ -135,26 +123,96 @@ h6 .anchor span {
     color: var(--sidebar-color) !important;
 }
 
+.sidebar-nav a {
+    text-decoration: none;
+}
 
-.sidebar ul li a {
+.sidebar-nav .name {
+    font-size: 1.7rem;
     color: currentColor;
+}
+
+.sidebar-nav .name i{
+    font-size: 1.7rem;
+    color: currentColor;
+}
+
+.sidebar-nav .name-sub{
+    font-size: 1.3rem;
+    display: block;
+    color: currentColor;
+}
+
+
+.sidebar-nav .book-list {
+    margin-left: 1rem;
+    font-size: 2rem;
+	padding: 0.5rem 0;
+}
+
+.sidebar-nav .book-list-sub1 {
+    margin-left: 1.5rem;
+    font-size: 1.5rem;
+	padding: 0.2rem 0;
+}
+
+.sidebar-nav .book-list-sub2 {
+    margin-left: 2rem;
+    font-size: 1.2rem;
+}
+
+.sidebar-nav .book-list-sub3 {
+    margin-left: 1rem;
     font-size: 1rem;
-    font-weight: normal;
+}
+
+.sidebar-nav .name a,
+.sidebar-nav .book-list a,
+.sidebar-nav .book-list-sub1 a,
+.sidebar-nav .book-list-sub2 a,
+.sidebar-nav .book-list-sub3 a {
+    color: currentColor;
+}
+
+.sidebar-nav .book-list i {
+    font-size: 2rem;
+}
+
+.sidebar-nav .book-list-sub1 i {
+    font-size: 1.5rem;
+}
+
+.sidebar-nav .book-list-sub2 i {
+    font-size: 1.2rem;
+}
+
+.sidebar-nav .book-list-sub3 i {
+    font-size: 1rem;
+}
+
+
+.sidebar-nav .alive:hover {
+    animation-name: name-hover;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.sidebar-nav .book-list,
+.sidebar-nav .book-list-sub1,
+.sidebar-nav .book-list-sub2,
+.sidebar-nav .book-list-sub3 {
     overflow: hidden;
     text-decoration: none;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.sidebar-nav .side-title {
-    font-size: 1.3rem;
-}
+.title-active{
+    color: black;
+    border-right: 3px solid;
 
-.side-title ul li p {
-    cursor: pointer;
-}
-
-
+}    
 /*  --------------------------------*/
 
 .hidden {
@@ -175,16 +233,37 @@ h6 .anchor span {
   border-left: 3px solid;
 }
 
-.myNote {
-  border-left-color: #ffc542;
+.myNote .note,
+.myWarning .warning,
+.myTip .tip {
+	font-size: 1rem;
+	margin-bottom: 1rem;
 }
 
+
+.myNote {
+    border-left-color: green;
+}
+
+.myNote .note{
+    color: green;
+}
+
+
 .myWarning {
-  border-left-color: #dc3545;
+    border-left-color: #dc3545;
+}
+
+.myWarning .warning{
+    color: #dc3545;
 }
 
 .myTip {
-  border-left-color: #17a2b8;
+    border-left-color: #17a2b8;
+}
+
+.myTip .tip{
+	color: #17a2b8;
 }
 
 .myExample {
@@ -350,12 +429,12 @@ h6.auto-sort-sub3 {
 
 .nav-icon {
     font-size: 2rem;
-    margin-left: 0.49rem;
+    margin-left: 0.5rem;
 }
 
 .nav-icon:hover {
-    padding: 0.2rem;
-    margin-left: 0.34rem;
+    padding: 0.3rem;
+    margin-left: 0.3rem;
     color: #ddd;
     background: #222;
     border-radius: 50%;
@@ -366,8 +445,6 @@ h6.auto-sort-sub3 {
 #ext-nav > .contents {
     background-color: #f8f8f8;
     position: fixed;
-    min-width: 200px;
-    min-height: 200px;
     max-width: 320px;
     max-height: 500px;
     right: 3rem;
