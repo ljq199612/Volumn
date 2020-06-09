@@ -46,6 +46,12 @@ body {
     background-image: linear-gradient(to right, #eee, #ddd, #eee);
 }
 
+section {
+    /*---- 加载过程中，页面不显示,
+     * F5 刷新页面时有效----*/
+    display: none;
+}
+
 .sidebar {
     background-image: var(--sidebar-background);
 }
@@ -147,13 +153,13 @@ h6 .anchor span {
 .sidebar-nav .book-list {
     margin-left: 1rem;
     font-size: 2rem;
-	padding: 0.5rem 0;
+    padding: 0.5rem 0;
 }
 
 .sidebar-nav .book-list-sub1 {
     margin-left: 1.5rem;
     font-size: 1.5rem;
-	padding: 0.2rem 0;
+    padding: 0.2rem 0;
 }
 
 .sidebar-nav .book-list-sub2 {
@@ -208,7 +214,8 @@ h6 .anchor span {
     white-space: nowrap;
 }
 
-.title-active{
+.to-active {
+    background: #ccc;
     color: black;
     border-right: 3px solid;
 
@@ -236,8 +243,8 @@ h6 .anchor span {
 .myNote .note,
 .myWarning .warning,
 .myTip .tip {
-	font-size: 1rem;
-	margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 
@@ -263,7 +270,7 @@ h6 .anchor span {
 }
 
 .myTip .tip{
-	color: #17a2b8;
+    color: #17a2b8;
 }
 
 .myExample {

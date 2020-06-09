@@ -61,7 +61,7 @@ cnpm config set prefix `npm config get prefix`
 <h2 class = 'section-title'>docsify</h2>
 <div class = 'folding-area'>
 
-![docsify 4.3.0](https://www.npmjs.com/package/docsify-cli/v/4.3.0)
+[docsify 4.3.0](https://www.npmjs.com/package/docsify-cli/v/4.3.0)
 
 ```
 # 切换到 root 后执行，sudo 执行好像不行
@@ -244,13 +244,13 @@ $ sudo update-alternatives --config javac
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>curl</h2>
 <div class = 'folding-area'>
-curl是linux系统自带的命令行工具，通过指定的URL来上传或下载数据，并将数据展示出来。
+curl 是 linux 系统自带的命令行工具，通过指定的 URL 来上传或下载数据，并将数据展示出来。
 
 **使用指南**  
 **@blog** [curl 使用指南](https://www.jianshu.com/p/fc0eb6c60816)   
 **@blog** [curl 命令详解](https://www.jianshu.com/p/07c4dddae43a)
 
-示例1: 下载jqurey
+示例1: 下载 jqurey
 ```bash
 $ curl https://code.jquery.com/jquery-3.4.1.js > jquery.js
 

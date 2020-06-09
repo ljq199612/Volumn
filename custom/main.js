@@ -1,17 +1,19 @@
 function customRun(){
-    customComponents();
-    customContent();
+    $(document).ready(function(){
+        customComponents();
+        customContent();
+
+
+    });
+
 }
 
 function customComponents(){
-    $(document).ready(function(){
         addcomponents();         // 目录按钮、主菜单及按钮等的添加
         componentsInit();
-//        sidebar();               // 左侧文件树    //TODO 样式bug
-//        slideMeunToggle();       // 主菜单
         extNav();                  // 右侧导航
+//        slideMeunToggle();       // 主菜单
 //        componentsKeyBind();     // 快捷键操作绑定
-    });
 } 
 
 function addcomponents(){
@@ -25,7 +27,6 @@ function addcomponents(){
 //        +" <button class='sidebar-toggle-button'> <i class='sidebar-toggle-icon fa fa-angle-double-left'></i></button>              "
 //        +" <div class='slide-meun'></div>     "
 //        +" <div class='mask-window'><button class='close-meun'> <i class='fa fa-close'></i></button> </div>              "
-          +" <div id='ext-btn'></div> "  // 右下脚拓展按钮                                    
           +" <div id='ext-nav'></div> "  // 右侧拓展导航                                    
         
     );
@@ -55,134 +56,6 @@ function componentsInit(){
 
 }
 
-function sidebar(){
-    $('.sidebar-toggle').css('display', 'none');     //隐藏原有按钮
-
-    let $sidebar = $('.sidebar');
-    let $sidebarToggle = $('.sidebar-toggle-button');
-
-    $sidebarToggle.focus(function(){this.blur()});  //去除点击后虚线边框
-
-    $sidebarToggle.css({
-        'padding':'unset',
-        'background-color': 'unset',
-        'font-size': '1.3rem',
-        'color': 'black',
-        'cursor': 'pointer',
-        'position': 'fixed',
-        'width': 'unset',
-        'bottom': 'unset',
-        'opacity': '0.3',
-        'top': $sidebar.height()/5 +'px',
-        'left': $sidebar.width()-30 + 'px'
-    });
-
-    $('.sidebar').css({
-       // 'box-shadow': '0px 0px 15px',
-        'z-index': '30'
-    });
-
-    $sidebarToggle.hover(
-        function () {
-            $sidebarToggle.css('opacity','1');
-        },
-        function () {
-            $sidebarToggle.css('opacity','0.3');
-        }
-    );
-
-    _sidebarScreenResize(); 
-    _sidebarBtnClick();
-    $(window).resize(function(){
-        _sidebarScreenResize(); 
-    });
-
-}
-
-function _sidebarScreenResize(){    
-    let $sidebar = $('.sidebar');
-    let $sidebarToggle = $('.sidebar-toggle-button');
-    let isLargeScreen = $(window).width() > 768;
-
-    if(isLargeScreen){
-        $sidebarToggle.html("<i class='sidebar-toggle-icon fa fa-angle-double-left'></i>");
-        $sidebarToggle.css('left', $sidebar.width()-30 + 'px');
-        $('.slide-nav').css({
-            'margin-left': '2rem',
-            'left': $sidebarToggle.css('left')
-        });
-        $('.sidebar').css({
-            'margin-left': '0'
-        });
-
-    }else{
-        $sidebarToggle.html("<i class='sidebar-toggle-icon fa fa-angle-double-right'></i>");
-        $sidebarToggle.css('left', '0px');
-        $('.slide-nav').css({
-            'margin-left': '0.7rem',
-            'left': '0px'
-        });
-        $('.sidebar').css({
-            'margin-left': '0'
-        });
-    }
-}
-
-function _sidebarBtnClick(){
-    let $sidebar = $('.sidebar');
-    let $sidebarToggle = $('.sidebar-toggle-button');
-    let sidebarIcon = document.querySelector(".sidebar-toggle-icon");
-
-    $sidebarToggle.click( function () {
-
-        let toClose = sidebarIcon.classList.contains('fa-angle-double-left');
-        let isLargeScreen = $(window).width() > 768;
-        if(toClose){
-            sidebarIcon.classList.remove('fa-angle-double-left');
-            sidebarIcon.classList.add('fa-angle-double-right');
-            $sidebarToggle.css('left','0px');
-            if(isLargeScreen){ 
-                $('.sidebar-toggle').click();
-
-            }else{
-                $('.sidebar').css({
-                    'margin-left': '0',
-                 //   'box-shadow': '0  0  15px',
-                    'z-index': '30'
-                });
-
-                $('.slide-nav').css({
-                    'display': 'unset'
-                });
-            }
-
-            $('.slide-nav').css({
-                'margin-left': '0.7rem',
-                'left': $sidebarToggle.css('left')
-            });
-
-        }else{
-            sidebarIcon.classList.remove('fa-angle-double-right');
-            sidebarIcon.classList.add('fa-angle-double-left');
-            $sidebarToggle.css('left', $sidebar.width()-30 + 'px');
-
-            if(isLargeScreen){
-                $('.sidebar-toggle').click();
-                $('.slide-nav').css({
-                    'margin-left': '2rem',
-                    'left': $sidebarToggle.css('left')
-                });
-            }else{
-                $('.sidebar').css({
-                    'margin-left': '300px'
-                });
-                $('.slide-nav').css({
-                    'display': 'none'
-                });
-            }
-        }
-    });
-}
 
 function slideMeunToggle() {
     let $slideNav =  $('.slide-nav');
@@ -311,6 +184,7 @@ function _foldAll(){
             $(this).addClass('toShow');
         }
     });
+    window.scrollTo(0,0);
 }
 
 function _unfoldAll(){
@@ -403,7 +277,6 @@ function extNav(){
         +"                                                                                 "
     );
 
-    let oTimer = null;
     let $nav = $('#ext-nav .nav');
     $('#js-getNav').hover(
         function(){
@@ -510,7 +383,6 @@ function customContent(){
 }
 
 function foldModule(){
-
     // 添加模块底部折叠按钮
     $('.data-section').each(function(){
         $(this).html( $(this).html() + "<button class='toHide fa fa-angle-up'></button>");
@@ -522,81 +394,80 @@ function foldModule(){
         $(this).html(" <button class=''>⊟</button>" + $(this).html() + "");
     });
 
-// ------------------------------
-// 标题加序号
-(function(){
+    // ------------------------------
+    // 标题加序号
+    (function(){
 
-    // 内容加序号,全局
-    if(true){
-        let number = 1;
-        $('.auto-sort').each(function(){
-            $(this).html(number++ + ".&nbsp;" + $(this).html());
-        });
-        subNumber($('.auto-sort'), 'auto-sort-sub-', 'auto-sort-sub1');
-    }
-
-    // 内容加序号,块级
-    if(document.querySelector('.data-section') != null){
-        $('.data-section').each(function(){
+        // 内容加序号,全局
+        if(true){
             let number = 1;
-
-            let blockNumber = $(this).find('.block-number').text();
-            if(blockNumber == null || blockNumber == ''){
-                blockNumber = 1
-            }
-            let $Blocks = $(this).find('.auto-sort-sub');
-
-            $Blocks.each(function(){
-                $(this).html(blockNumber+"."+number++ + " &nbsp;&nbsp;" + $(this).html());
+            $('.auto-sort').each(function(){
+                $(this).html(number++ + ".&nbsp;" + $(this).html());
             });
-            subNumber($Blocks, 'auto-sort-sub-', 'auto-sort-sub1');
-        });
+            subNumber($('.auto-sort'), 'auto-sort-sub-', 'auto-sort-sub1');
+        }
 
-    }
+        // 内容加序号,块级
+        if(document.querySelector('.data-section') != null){
+            $('.data-section').each(function(){
+                let number = 1;
 
-    // 加序号，二级子级
-    // subNumber($('.auto-sort-sub1'), 'auto-sort-sub1-', 'auto-sort-sub2');
+                let blockNumber = $(this).find('.block-number').text();
+                if(blockNumber == null || blockNumber == ''){
+                    blockNumber = 1
+                }
+                let $Blocks = $(this).find('.auto-sort-sub');
 
-    function subNumber($headerElements, elementData, subElementClass){
-        let i = 0;
-        let j = 1;
-        let pattern = /^[1-9]\d*([.][1-9]\d*([.][1-9]\d*)?)?/;
-        $headerElements.each(function(){
-            $(this).attr('data', elementData+ ++i);
-        });
-        $headerElements.each(function(){
-            let number = 1;
-            let text = $(this).text();
-            let baseNum = "";
-            if (pattern.exec(text) != null){
-                baseNum = pattern.exec(text)[0];
-            }
-            let $next = $(this).next();
+                $Blocks.each(function(){
+                    $(this).html(blockNumber+"."+number++ + " &nbsp;&nbsp;" + $(this).html());
+                });
+                subNumber($Blocks, 'auto-sort-sub-', 'auto-sort-sub1');
+            });
 
-            let nextElementData = elementData + ++j;
+        }
 
-            if ($next.attr('data') === nextElementData){ return; }
+        // 加序号，二级子级
+        // subNumber($('.auto-sort-sub1'), 'auto-sort-sub1-', 'auto-sort-sub2');
 
-            let isTrue = $next.hasClass(subElementClass);
-            if (isTrue){
-                $next.html(baseNum + "." + number++ + " &nbsp;&nbsp;" + $next.html());
-            }
-            for(let t=1;t<10000;t++){
-                $next = $next.next();
-                isTrue = $next.hasClass(subElementClass);
+        function subNumber($headerElements, elementData, subElementClass){
+            let i = 0;
+            let j = 1;
+            let pattern = /^[1-9]\d*([.][1-9]\d*([.][1-9]\d*)?)?/;
+            $headerElements.each(function(){
+                $(this).attr('data', elementData+ ++i);
+            });
+            $headerElements.each(function(){
+                let number = 1;
+                let text = $(this).text();
+                let baseNum = "";
+                if (pattern.exec(text) != null){
+                    baseNum = pattern.exec(text)[0];
+                }
+                let $next = $(this).next();
+
+                let nextElementData = elementData + ++j;
+
+                if ($next.attr('data') === nextElementData){ return; }
+
+                let isTrue = $next.hasClass(subElementClass);
                 if (isTrue){
                     $next.html(baseNum + "." + number++ + " &nbsp;&nbsp;" + $next.html());
                 }
-                let isBreak = ($next.attr('data')==nextElementData);
-                if(isBreak){break;}
+                for(let t=1;t<10000;t++){
+                    $next = $next.next();
+                    isTrue = $next.hasClass(subElementClass);
+                    if (isTrue){
+                        $next.html(baseNum + "." + number++ + " &nbsp;&nbsp;" + $next.html());
+                    }
+                    let isBreak = ($next.attr('data')==nextElementData);
+                    if(isBreak){break;}
 
-                if(t==10000){alert(" bug !")}
-            }
-        });
-    }
+                    if(t==10000){alert(" bug !")}
+                }
+            });
+        }
 
-
-})();
+    })();
 // ---------------------------------
 
     $('.collapse button').on('click', function(){
@@ -617,6 +488,9 @@ function foldModule(){
 
     // 默认折叠
     _foldAll();
+
+    // 折叠完成，显示页面
+    $('section').show();
 
 }
 
@@ -652,10 +526,22 @@ function foldSide(){
         }
     });
     
+
+    let thisHash = window.location.hash;
+    $("a[href='"+thisHash+"']").parent().addClass("to-active");
+    
     $('.book-list-sub3').click(function(){
-        $('.book-list-sub3').removeClass('title-active');
-        $(this).addClass('title-active');
+        let isThisPage = thisHash == $(this).find('a').attr('href');
+        if(isThisPage){
+            _foldAll();
+        }else{
+            // 跳到其他页面时，先把页面内容隐藏，
+            // 待折叠操作 foldModule() 完成后，再显示
+            $('section').hide();
+        }
     });
+
+
 
 }
 
@@ -683,7 +569,7 @@ function myWarning(){
     });
 }
 
-/* 鼠标点击、悬停在关键字的时候，解释关键字*/
+/* 鼠标点击、悬停在关键字的时候，弹出解释框*/
 function myAnnotate(){
     $('.myAnnotate').each(function () {
         let $annotate;
