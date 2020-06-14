@@ -335,12 +335,11 @@ h1.header-part {
 }
 
 div.collapse {
-    /*border: 1px solid #eee;*/
+    border: 1px solid #eee;
     margin: 0.6rem  -1.1rem;
     display: flex;
     background-image: linear-gradient(#ededed, #999);
     border-radius: 0 5rem 5rem 0;
-    padding-right: 0.3rem;
 }
 
 
