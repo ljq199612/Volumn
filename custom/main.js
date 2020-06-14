@@ -19,8 +19,7 @@ function customComponents(){
 function addcomponents(){
     let $customComponents = $(".custom-components");
     $customComponents.html(
-         " <div id='loading' class='active'></div> "  //TODO 加载期间的遮盖              
-        +" <div class='slide-nav'>    "
+         " <div class='slide-nav'>    "
 //        +"     <button class='slide-meun-button'> <i class='slide-meun-icon fa fa-navicon'></i> </button>    "
 //        +"     <button class='theme-button'> <i class='theme-icon fa fa-font'></i> </button>              "
         +" </div>   "
@@ -402,7 +401,7 @@ function foldModule(){
         if(true){
             let number = 1;
             $('.auto-sort').each(function(){
-                $(this).html(number++ + ".&nbsp;" + $(this).html());
+                $(this).html(number++ + ". &nbsp;" + $(this).html());
             });
             subNumber($('.auto-sort'), 'auto-sort-sub-', 'auto-sort-sub1');
         }
@@ -528,10 +527,15 @@ function foldSide(){
     
 
     let thisHash = window.location.hash;
-    $("a[href='"+thisHash+"']").parent().addClass("to-active");
+    // 需要解码获得的URI，不然非字母无法比较
+    thisHash = decodeURI(thisHash);
     
-    $('.book-list-sub3').click(function(){
-        let isThisPage = thisHash == $(this).find('a').attr('href');
+    let $getPage = $("a[href='"+thisHash+"']").parent();
+    let isTarget = $getPage.hasClass("book-list-sub3") || $getPage.hasClass("book-list-sub2");
+    if(isTarget) $getPage.addClass("to-active");
+    
+    $('.book-list-sub2 a, .book-list-sub3 a').click(function(){
+        let isThisPage = thisHash == $(this).attr('href');
         if(isThisPage){
             _foldAll();
         }else{

@@ -111,6 +111,7 @@ h6 .anchor span {
 }
 
 /* --------- `标记区` --------*/
+.myImportant,
 .markdown-section code {
     color: #222;
     background-color: #bbb;
@@ -231,8 +232,16 @@ h6 .anchor span {
     text-align: center;
 }
 
+.myFormula {
+    border: 1px solid;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
 .imageTitle {
     font-size: 0.8rem;
+    margin-top: 0;
+    display: block;
 }
 
 .myNote, .myWarning, .myTip, .myExample {
@@ -281,6 +290,7 @@ h6 .anchor span {
     cursor: help;
     padding-bottom: 1px;
     border-bottom: 1px dotted;
+    margin: 0 0.25rem;
 }
 
 .annotate {
@@ -453,7 +463,7 @@ h6.auto-sort-sub3 {
     background-color: #f8f8f8;
     position: fixed;
     max-width: 320px;
-    max-height: 500px;
+    max-height: 80%;
     right: 3rem;
     top: 2rem;
     overflow: auto;
@@ -522,8 +532,8 @@ li.content-H6:hover {
 /* --------- 右下角按钮 ---------- */
 .right-bottom-button {
     position: fixed;
-    right: 2rem;
-    bottom: 2rem;
+    right: 0.5rem;
+    bottom: 1rem;
     z-index: -1;
 }
 

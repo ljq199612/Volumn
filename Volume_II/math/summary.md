@@ -19,7 +19,7 @@
     <i class='nav-icon iconfont icon-book-open'></i>
     <span> JavaScript</span>
     <div class='book-list-sub3'>
-        <a href="#/Volume_II/math/calculus/Introduction_to_Calculus_and_Analysis_I.md" class="alive">
+        <a href="#/Volume_II/math/calculus/Introduction_to_Calculus_and_Analysis_I" class="alive">
         <i class='iconfont icon-page'></i>
         微积分和数学分析引论 第一卷</a>
     </div>                                                            

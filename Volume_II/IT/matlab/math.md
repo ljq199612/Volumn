@@ -74,7 +74,7 @@
          ```
    <br/>
 
-<h4 class='auto-sort'> （Simpson 积分法）编制一给定步长Simpson 法数值积分程序, 计算公式为: $ I \approx S_n = \frac{h}{3} (f_1 + 4f_2 + 2f_3 + 4f_4 + ... + 2f_{n-1} + 4f_n + f_{n+1}) $ ,其中 n 为偶数， $ n = \frac{b - a}{n}, f_i = f(a + (i-1)h), i = 1, 2, 3, ... , n+1. $  </h4> 
+<h4 class='auto-sort'>（Simpson 积分法）编制一给定步长Simpson 法数值积分程序, 计算公式为: $ I \approx S_n = \frac{h}{3} (f_1 + 4f_2 + 2f_3 + 4f_4 + ... + 2f_{n-1} + 4f_n + f_{n+1}) $ ,其中 n 为偶数， $ n = \frac{b - a}{n}, f_i = f(a + (i-1)h), i = 1, 2, 3, ... , n+1. $  </h4> 
 
   - 编写一个 simpson.m 函数文件实现指定功能
     ```matlab
@@ -90,9 +90,8 @@
     ```
     <br/>
 
-<h4 class='auto-sort'> （假奇异积分）用trapz, integral, quald 计算积分 $\int_{-1}^{1} x^{0.3}cos(x) dx$ 会出现什么问题？</h4>
-
 <!-- TODO 格式问题
+<h4 class='auto-sort'>（假奇异积分）用trapz, integral, quald 计算积分 $\int_{-1}^{1} x^{0.3}cos(x) dx$ 会出现什么问题？</h4>
   <table class="tg">
 	<tr>
       <th><br></th>
@@ -159,7 +158,12 @@ quadl(fun2, 0, 1)</td>
     %===================================
     ```
 
-  ![结果](../images/matlab/math-曲线绘图01.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-曲线绘图01.jpg)
+<label class="imageTitle">图示 </label>
+</div>
 
   <br/>
 
@@ -174,8 +178,12 @@ quadl(fun2, 0, 1)</td>
     ezplot(x^3 + y^3 - 3*a*x*y);
     % set(gca, 'color', 'k');  %设置背景颜色
     ```
-    **取 a = 2**
-    ![结果](../images/matlab/math-曲线绘图02.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-曲线绘图02.jpg)
+<label class="imageTitle">图示: 取 $a=2$ </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 蔓叶线 $x = \frac{at^2}{1 + t^2}, y = \frac{at^3}{1 + t^2} ( y^2 = \frac{x^3}{a-x} ) .$ </h4>
@@ -188,8 +196,12 @@ quadl(fun2, 0, 1)</td>
     ezplot(x^3 - y^2*(a-x), [-10, 10]);
     % set(gca, 'color', 'k');  %设置背景颜色   % set(gca, 'color', 'k');  %设置背景颜色
     ```
-    **取 a = 2**
-    ![结果](../images/matlab/math-曲线绘图03.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-曲线绘图03.jpg)
+<label class="imageTitle">图示: 取 $a=2$ </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 摆线 $x = a(t - sin t), y = b(1 - cost) .$ </h4>
@@ -214,8 +226,12 @@ quadl(fun2, 0, 1)</td>
     % set(gca, 'color', 'k');  %设置背景颜色
     %===============================================================
     ```
-    **取 a = 2**
-    ![结果](../images/matlab/math-曲线绘图04.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-曲线绘图04.jpg)
+<label class="imageTitle">图示: 取 $a=2$ </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 圆的渐近线（渐开线） $x = a(cost + tsint), y = a(sint - tcost) .$ </h4>
@@ -240,8 +256,12 @@ quadl(fun2, 0, 1)</td>
     % set(gca, 'color', 'k');  %设置背景颜色
     %===================================
     ```
-    **取 a = 5**
-    ![结果](../images/matlab/math-曲线绘图05.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-曲线绘图05.jpg)
+<label class="imageTitle">图示: 取 $a=5$ </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 空间螺线 $x = acost, y = bsint, z = ct .$ </h4>
@@ -271,8 +291,12 @@ quadl(fun2, 0, 1)</td>
     %grid off  %掩藏格栅
     %===================================================
     ```
-    **取 a = 2, b = 2, c = 2**
-    ![结果](../images/matlab/math-曲线绘图06.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-曲线绘图06.jpg)
+<label class="imageTitle">图示: 取 $a=2\,,b=2\,,c=2$ </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 阿基米德线 $r = a\varphi .$ </h4>
@@ -289,8 +313,12 @@ quadl(fun2, 0, 1)</td>
         set( polar( phi, rho(i, :), '--r'), 'linewidth', 2);
     end
     ```
-    **取 a = -5 \ a = 5**
-    ![结果](../images/matlab/math-曲线绘图07.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-曲线绘图07.jpg)
+<label class="imageTitle">图示: 取 $a=-5, a=5$ </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 双纽线 $r^2 = a^2 cos2\varphi, ((x^2 + y^2) = a^2(x^2-y^2)) .$ </h4>
@@ -304,8 +332,12 @@ quadl(fun2, 0, 1)</td>
     r = sqrt( a^2 * cos( 2*phi ) );
     polar(phi, r, '--k');
     ```
-    **取 a = 2**
-    ![结果](../images/matlab/math-曲线绘图08.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-曲线绘图08.jpg)
+<label class="imageTitle">图示: 取 $a=2$ </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 三叶玫瑰线 $r = asin3\varphi, r \ge 0 .$ </h4>
@@ -319,8 +351,12 @@ quadl(fun2, 0, 1)</td>
     y = a * sin( 3*phi );
     polar(phi, y);
     ```
-    **取 a = 2**
-    ![结果](../images/matlab/math-曲线绘图09.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-曲线绘图09.jpg)
+<label class="imageTitle">图示: 取 $a=2$ </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 四叶玫瑰线 $r = asin2\varphi, r \ge 0 .$ </h4>
@@ -334,8 +370,12 @@ quadl(fun2, 0, 1)</td>
     y = a * sin( 2*phi );
     polar(phi, y);
     ```
-    **取 a = 2**
-    ![结果](../images/matlab/math-曲线绘图10.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-曲线绘图10.jpg)
+<label class="imageTitle">图示: 取 $a=2$ </label>
+</div>
     <br/>
 
 </div>
@@ -363,7 +403,12 @@ quadl(fun2, 0, 1)</td>
     title('');
     % grid off;       %网格线
     ```
-    ![结果](../images/matlab/math-二元函数图形01.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-二元函数图形01.jpg)
+<label class="imageTitle"> </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 椭球面 $x = 3cosu*sinv, y = 2cosu*cosv, z = sinu .$ </h4>
@@ -379,7 +424,12 @@ quadl(fun2, 0, 1)</td>
     % mesh(x, y, z);
     surf(x, y, z, 'EdgeColor', 'none');
     ```
-    ![结果](../images/matlab/math-二元函数图形02.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-二元函数图形02.jpg)
+<label class="imageTitle"> </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 椭圆抛物面 $x = 3u*sinv, y = 2u*cosv, z = 4u^2 .$ </h4>
@@ -395,7 +445,12 @@ quadl(fun2, 0, 1)</td>
     % mesh(x, y, z);
     surf(x, y, z, 'EdgeColor', 'none');
     ```
-    ![结果](../images/matlab/math-二元函数图形03.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-二元函数图形03.jpg)
+<label class="imageTitle"> </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 单叶双曲面 $x = 3secu*sinv, y = 2secu*cosv, z = 4tanu .$ </h4>
@@ -412,7 +467,12 @@ quadl(fun2, 0, 1)</td>
     z = 4 * tan(u);
     surf(x, y, z, 'EdgeColor', 'none');
     ```
-    ![结果](../images/matlab/math-二元函数图形04.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-二元函数图形04.jpg)
+<label class="imageTitle"> </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 双曲抛物面 $x = u, y = v, z = \frac{u^2 - v^2}{3} .$ </h4>
@@ -429,7 +489,12 @@ quadl(fun2, 0, 1)</td>
     z = ( u.^2 - v.^2 )/3;
     surf(x, y, z);
     ```
-    ![结果](../images/matlab/math-二元函数图形05.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-二元函数图形05.jpg)
+<label class="imageTitle"> </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 旋转面 $x = ln(u)*sinv, y = ln(u)*cosv, z = u .$ </h4>
@@ -446,7 +511,12 @@ quadl(fun2, 0, 1)</td>
     z = u;
     surf(x, y, z, 'EdgeColor', 'none');
     ```
-    ![结果](../images/matlab/math-二元函数图形06.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-二元函数图形06.jpg)
+<label class="imageTitle"> </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 环面 $x = (3 + 0.4cosu)cosv, y = (3 + 0.4cosu)sinv, z = 0.4sinv .$ </h4>
@@ -463,7 +533,12 @@ quadl(fun2, 0, 1)</td>
     z = 0.4 * sin(v);
     surf(x, y, z, 'EdgeColor', 'none');
     ```
-    ![结果](../images/matlab/math-二元函数图形07.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-二元函数图形07.jpg)
+<label class="imageTitle"> </label>
+</div>
     <br/>
 
 <h4 class='auto-sort'> 在一丘陵地带测量高程,x和y方向每隔100米测一个点, 高程数据见下表,试拟合一曲面,确定合适的模型,并由此找出最高点和该点的高程. </h4>
@@ -540,7 +615,12 @@ quadl(fun2, 0, 1)</td>
     MAX_HIGH
     MAX_POSITION
     ```
-    ![结果](../images/matlab/math-二元函数图形08.jpg)
+
+<div class="myImage">
+
+![-image-](../images/matlab/math-二元函数图形08.jpg)
+<label class="imageTitle"> </label>
+</div>
     <br/>
 
 </div>
@@ -573,7 +653,12 @@ quadl(fun2, 0, 1)</td>
      xlabel('x'); ylabel('y');
      grid on;
      ```
-     ![结果](../images/matlab/math-平面图形的几何变换01.jpg)
+
+<div class="myImage">
+
+![i-image-](../images/matlab/math-平面图形的几何变换01.jpg)
+<label class="imageTitle"> </label>
+</div>
    <br/>
 
 <h4 class='auto-sort'> $y = sinx, x \in (0, 2\pi)$ 绕（1, 1）逆时针旋转$60^\circ$. </h4>
@@ -599,7 +684,12 @@ quadl(fun2, 0, 1)</td>
      xlabel('x'); ylabel('y');
      grid on;
      ```
-     ![结果](../images/matlab/math-平面图形的几何变换02.jpg)
+
+<div class="myImage">
+
+![i-image-](../images/matlab/math-平面图形的几何变换02.jpg)
+<label class="imageTitle"> </label>
+</div>
    <br/>
 
 </div>
@@ -905,7 +995,11 @@ quadl(fun2, 0, 1)</td>
      ```
      **结果：**[1.3247179572447460256419340197423, 25]
 
-     ![结果](../images/matlab/math-牛顿迭代法01.jpg)
+<div class="myImage">
+
+ ![-image-](../images/matlab/math-牛顿迭代法01.jpg)
+<label class="imageTitle"> </label>
+</div>
 
      <br/>
 
@@ -1014,7 +1108,11 @@ quadl(fun2, 0, 1)</td>
      % =============================================================
      ```
 
-   ![结果](../images/matlab/math-多元函数的极值01.jpg)
+<div class="myImage">
+
+![-image-](../images/matlab/math-多元函数的极值01.jpg)
+<label class="imageTitle"> </label>
+</div>
    <br/>
 
 <h4 class='auto-sort'> 在球面 $x^2 + y^2 + z^2 = 1$ 求出与点（3, 1, -1）距离最近和最远点。</h4>
@@ -1133,7 +1231,11 @@ quadl(fun2, 0, 1)</td>
      最大值 2  坐标（1，1）
      最大值 0.5  坐标（0.5，0.5）
 
-   ![结果](../images/matlab/math-多元函数的极值02.jpg)
+<div class="myImage">
+
+![-image-](../images/matlab/math-多元函数的极值02.jpg)
+<label class="imageTitle"> </label>
+</div>
    <br/>
 
 </div>
@@ -1172,7 +1274,11 @@ quadl(fun2, 0, 1)</td>
      % =====================================
      ```
 
-    ![结果](../images/matlab/math-简单应用01.jpg)
+<div class="myImage">
+
+![-image-](../images/matlab/math-简单应用01.jpg)
+<label class="imageTitle"> </label>
+</div>
 
      <br/>
 
@@ -1197,7 +1303,11 @@ quadl(fun2, 0, 1)</td>
      plot(p(:,1),p(:,2))
      % ==========================================
      ```
+<div class="myImage">
 
-    ![结果](../images/matlab/math-简单应用02.jpg)
+![-image-](../images/matlab/math-简单应用02.jpg)
+<label class="imageTitle"> </label>
+</div>
+
 </div>
 </div>
