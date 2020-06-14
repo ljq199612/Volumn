@@ -60,6 +60,12 @@ section {
     background-color: rgba(224, 224, 224, 0.7);
 }
 
+@media screen and (max-width: 768px)
+.sidebar-toggle {
+    padding: 1rem !important;
+}
+
+
 .sidebar-toggle span{
     background-color: var(--sidebar-color);
 }
@@ -334,7 +340,8 @@ div.collapse {
     margin: 0.6rem  -1.1rem;
     display: flex;
     background-image: linear-gradient(#ededed, #999);
-    border-radius: 3rem;
+    border-radius: 0 5rem 5rem 0;
+    padding-right: 0.3rem;
 }
 
 
