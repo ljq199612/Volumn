@@ -1,0 +1,680 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jsMind</title>
+    
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>    
+
+    <script type="text/javascript" src="../js/jsmind.js"></script>
+    <script type="text/javascript" src="../js/jsmind.draggable.js"></script>
+    <script type="text/javascript" src="../js/jsmind.screenshot.js"></script>
+    
+    <script src="jsmind.js"></script>    
+
+    <link type="text/css" rel="stylesheet" href="icons.css" />
+
+    <link type="text/css" rel="stylesheet" href="jsmind.css" />
+    <link type="text/css" rel="stylesheet" href="../style/jsmind.css" />
+        
+</head>
+<style type='text/css'>
+
+</style>
+
+<body>
+
+<div id="layout">
+    <div id='jsmind_nav' class="jsmind-nav">
+        <div class="jsmind-meun">
+            <div style="display:inline-flex">
+
+                <li onclick="save_file();" title="保存"><i class='iconfont icon-save jsmind-top'></i></li>
+                <li onclick="show_data();" title="查看"><i class='iconfont icon-eye jsmind-top'></i></li>
+   
+                <li><input id="file_input" name="default" class="file_input" type="file"/></li>
+                
+                
+            </div>
+
+            <li id='js-meun'><i class='jsmind-icon iconfont icon-menu-1' title="点开"></i></li>
+            
+        </div>
+
+        <ul class="jsmind-list">
+            <li id='jsmind-edit'><i class='jsmind-icon iconfont icon-edit' title="编辑"></i></li>
+            <li id='jsmind-style'><i class='jsmind-icon iconfont icon-color-style' title="风格"></i></li>
+            <li id='jsmind-theme'><i class='jsmind-icon iconfont icon-style' title="主题"></i></li>
+            <li id='jsmind-other'><i class='jsmind-icon iconfont icon-add' title=""></i></li>
+            <li id='jsmind-zoom-in' onclick="zoomIn();"><i class='jsmind-icon iconfont icon-zoom-in' title="放大"></i></li>
+            <li id='jsmind-zoom-out' onclick="zoomOut();"><i class='jsmind-icon iconfont icon-zoom-out' title="缩小"></i></li>
+            <li id='jsmind-save'><i class='jsmind-icon iconfont icon-save' title="保存"></i></li>
+            
+        </ul>
+
+        <div class='div-jsmind-edit hidden'>
+            <div class='circle-list' onclick="toggle_editable(this);" title='能否编辑'><i class='jsmind-icon iconfont icon-toggle-on'></i></div>
+            <div class='circle-list' onclick="add_node();" title='添加节点| Tab'><i class='jsmind-icon iconfont icon-add'></i></div>
+            <div class='circle-list' onclick="remove_node();" title='删除节点| Delete'><i class='jsmind-icon iconfont icon-dangerous'></i></div>
+            <div class='circle-list' onclick="add_tips();"  title='添加tips| F4 '><i class='jsmind-icon iconfont icon-note'></i></div>
+            <div class='circle-list' onclick="add_link();" title='添加link| F5'><i class='jsmind-icon iconfont icon-link'></i></div>
+            
+        </div>  
+
+        <div class='div-jsmind-style hidden'>
+            <div class='circle-list' onclick="change_text_font(2);"><i class='jsmind-icon iconfont icon-font-zoom-in'></i></div>
+            <div class='circle-list' onclick="change_text_font(-2);"><i class='jsmind-icon iconfont icon-font-zoom-out'></i></div>
+            <div class='circle-list' onclick="change_text_color();"><i class='jsmind-icon iconfont icon-font-color'></i></div>
+            <div class='circle-list' onclick="change_background_color();"><i class='jsmind-icon iconfont icon-font-background-color'></i></div>
+            
+            <div class='circle-list' onclick="change_background_image();"><i class='jsmind-icon iconfont icon-font-background-color'></i></div>
+            
+        </div>  
+
+        <div class='div-jsmind-theme hidden'>
+ 
+            <div class='hello circle-list' onclick="set_theme('#428BCA');">
+                <i class='jsmind-icon iconfont icon-circle' style="color:#428BCA"></i>
+            </div>
+            <div class='circle-list' onclick="set_theme('#9B59B6');">
+                <i class='jsmind-icon iconfont icon-circle' style="color:#9B59B6"></i>
+            </div>
+            <div class='circle-list' onclick="set_theme('#5DC0DE');">
+                <i class='jsmind-icon iconfont icon-circle' style="color:#5DC0DE"></i>
+            </div>
+            <div class='circle-list' onclick="set_theme('#FFFFFF');">
+                <i class='jsmind-icon iconfont icon-circle' style="color:#FFFFFF"></i>
+            </div>
+            <div class='circle-list' onclick="set_theme('#95A5A6');">
+                <i class='jsmind-icon iconfont icon-circle' style="color:#95A5A6"></i>
+            </div>
+            <div class='circle-list' onclick="set_theme('#1ABC9C');">
+                <i class='jsmind-icon iconfont icon-circle' style="color:#1ABC9C"></i>
+            </div>
+            <input type="color" id="user_color" onchange='set_theme(this.value)' style="display:none;"/>
+            <label for="user_color" >
+                <div class='circle-list' onclick=""><i class='jsmind-icon iconfont icon-color-select'></i></div>
+            </label>
+            <input type="color" id="user_font_color" onchange='set_theme(null, this.value);' style="display:none;"/>
+            <label for="user_font_color" >
+                <div class='circle-list' onclick=""><i class='jsmind-icon iconfont icon-font-color-1'></i></div>
+            </label>
+    
+            
+    
+        </div>          
+
+        <div class='div-jsmind-other hidden'>
+            <div class='circle-list' onclick="toggle();"><i class='jsmind-icon iconfont icon-font-zoom-in'></i></div>
+            <div class='circle-list' onclick="expand_to_level2();"><i class='jsmind-icon iconfont icon-right-expand'>2</i></div>
+            <div class='circle-list' onclick="expand_to_level3();"><i class='jsmind-icon iconfont icon-right-expand'>3</i></div>
+            <div class='circle-list' onclick="expand_all();"><i class='jsmind-icon iconfont icon-right-expand'></i></div>
+            <div class='circle-list' onclick="collapse_all();"><i class='jsmind-icon iconfont icon-left-expand'></i></div>
+        </div>  
+
+        <div class='div-jsmind-save hidden'>
+            <div class='circle-list' onclick="save_file();"><i class='jsmind-icon iconfont icon-save'></i></div>
+            <div class='circle-list' onclick="show_data();"><i class='jsmind-icon iconfont icon-eye'></i></div>
+            
+        </div>  
+
+        
+        
+        
+        
+    </div>
+    
+    
+    <br><br>
+
+    <div id="jsmind_container" class="jsmind-container"></div>
+    
+    <div style="display:none">
+      <input class="file" type="file" id="image-chooser" accept="image/*"/>
+    </div>
+    
+    <div class='edit-tips'></div> 
+    
+    <button class='edit-save' onclick='save_tips();'>保存</button>
+      
+</div>
+
+
+<script type="text/javascript">
+
+    var _jm = null;
+    open_empty();
+
+    var _jsmind = {}
+    // 利用已有的 author 作为信息的存储器
+    _jsmind.author = "";
+   
+    //jm.format.node_tree.get_data(this.jm.mind);
+
+    load_file();
+    $("#file_input").change(function() {
+        load_file();
+    });
+
+
+    setTimeout(function() {init_show_unit();}, 1000);    
+
+
+/*
+    function _addTipsContent(id){
+        _jsmind.author += "<textarea class='edit-area' tips-content-id='"+id+"'></textarea>\n";
+    }
+*/
+    
+    function init_show_unit() {
+         _jsmind.author += _jm.mind.author;
+        
+        $('[style*=background-image]').each(function() {
+            let id = $(this).attr("nodeid");
+            $(this).html(_tips_span(id) + '&nbsp'+$(this).html());
+        });       
+    }
+
+
+    function uuid(){
+        function S4(){
+            return ( (1 + Math.random()) * 0x10000 | 0 ).toString(16).substring(1);
+        }
+        return S4()+S4()+'-'+S4()+'-'+S4()+'-'+S4()+'-'+S4()+S4()+S4();
+    }
+    
+    
+    function load_file() {
+        let inputFile = document.querySelector('#file_input');
+        
+        let loadFiles = inputFile.files;
+        open_file();
+    }
+    
+    
+    function open_empty(){
+        var options = {
+            container:'jsmind_container',
+            theme:'greensea',
+            editable:true
+        }
+        _jm = jsMind.show(options);
+        // _jm = jsMind.show(options,mind);
+    }
+
+    function open_json(url){
+        let mind = url || "default";
+        $.ajax({
+            url: mind+'.json',
+            success: function(mind){
+                    _jm.show(mind);
+            }
+		});
+        
+    }
+
+    function show_data(){
+        
+        _jm.mind.author = _jsmind.author;
+        
+        var mind_data = _jm.get_data();
+        var mind_string = jsMind.util.json.json2string(mind_data);
+        prompt_info(mind_string);
+        
+    }
+
+    function save_file(){
+        _jm.mind.author = _jsmind.author;
+        
+        var mind_data = _jm.get_data();
+        //var mind_name = mind_data.meta.name;
+        var mind_name = document.querySelector('#file_input').name;
+        var mind_str = jsMind.util.json.json2string(mind_data);
+        jsMind.util.file.save(mind_str,'text/jsmind',mind_name+'.json');
+    }
+    
+    function open_file(){
+        var file_input = document.getElementById('file_input');
+        var files = file_input.files || "default";
+        
+        if(files.length > 0){
+            var file_data = files[0];
+            jsMind.util.file.read(file_data,function(jsmind_data, jsmind_name){
+                var mind = jsMind.util.json.string2json(jsmind_data);
+                if(!!mind){
+                    _jm.show(mind);
+                }else{
+                    prompt_info('can not open this file as mindmap');
+                }
+            });
+        }else{
+            prompt_info('please choose a file first')
+        }
+    }
+/*
+    function select_node(){
+        var nodeid = 'other';
+        _jm.select_node(nodeid);
+    }
+*/
+
+    function show_selected(){
+        var selected_node = _jm.get_selected_node();
+        if(!!selected_node){
+            prompt_info(selected_node.topic);
+        }else{
+            prompt_info('nothing');
+        }
+    }
+
+    function get_selected_nodeid(){
+        var selected_node = _jm.get_selected_node();
+        if(!!selected_node){
+            return selected_node.id;
+        }else{
+            return null;
+        }
+    }
+
+    function add_node(){
+        let selected_node = _jm.get_selected_node(); // as parent of new node
+        if(!selected_node){prompt_info('please select a node first.');return;}
+
+        let nodeid = jsMind.util.uuid.newid();
+        let topic = '* Node_'+nodeid.substr(nodeid.length-6)+' *';
+        let node = _jm.add_node(selected_node, nodeid, topic);
+    }
+
+/*
+    function add_image_node(){
+        var selected_node = _jm.get_selected_node(); // as parent of new node
+        if(!selected_node){
+            prompt_info('please select a node first.');
+            return;
+        }
+
+        imageChooser.focus();
+        imageChooser.click();
+    }
+
+    function modify_node(){
+        var selected_id = get_selected_nodeid();
+        if(!selected_id){prompt_info('please select a node first.');return;}
+
+        // modify the topic
+        _jm.update_node(selected_id, '--- modified ---');
+    }
+*/
+    function move_to_first(){
+        var selected_id = get_selected_nodeid();
+        if(!selected_id){prompt_info('please select a node first.');return;}
+
+        _jm.move_node(selected_id,'_first_');
+    }
+
+    function move_to_last(){
+        var selected_id = get_selected_nodeid();
+        if(!selected_id){prompt_info('please select a node first.');return;}
+
+        _jm.move_node(selected_id,'_last_');
+    }
+/*
+    function move_node(){
+        // move a node before another
+        _jm.move_node('other','open');
+    }
+*/
+    function remove_node(){
+        var selected_id = get_selected_nodeid();
+        if(!selected_id){prompt_info('please select a node first.');return;}
+        
+        $('[nodeid*='+selected_id+']').each(function() {
+            let target = $(this).attr('style').indexOf('background-image: url("tips")');
+            if(target>0) {
+                _jsmind.author = _jsmind.author.replace(_tips_area(selected_id), "");
+                _jsmind.author = _jsmind.author.replace(_tips_span(selected_id), "");
+            }
+                            
+        });
+    
+        _jm.mind.author = _jsmind.author;
+        _jm.remove_node(selected_id);
+    }
+
+    function change_text_font(step){
+        //let fontsize = size || 16;
+        var selected_id = get_selected_nodeid();
+        
+        let $nodeid = $('[nodeid='+selected_id+']:last');
+        let fontSize = $nodeid.attr('style').split('font-size:')[1];
+        
+        if(fontSize == undefined){
+            fontSize = 16;
+        }else {
+            fontSize = fontSize.split('px')[0];
+            fontSize = new Number(fontSize);
+        }
+                
+        if(!selected_id){prompt_info('please select a node first.');return;}
+        _jm.set_node_font_style(selected_id, fontSize+step);
+    }
+    
+    function change_text_color(){
+        var selected_id = get_selected_nodeid();
+        if(!selected_id){prompt_info('please select a node first.');return;}
+
+        _jm.set_node_color(selected_id, null, '#000');
+    }
+    
+ /*   
+    function _add_tips(){
+        var selected_id = get_selected_nodeid();
+        if(!selected_id){prompt_info('please select a node first.');return;}
+        let $nodeid = $('[nodeid='+selected_id+']:last');
+        let content = '';
+        content += "<span class='' onclick='edit_tips();'><i class='iconfont icon-note'></i></span>";
+        
+        $nodeid.html(content +"&nbsp;" + $nodeid.html());
+        
+    }
+    
+ */   
+    
+    
+    
+
+    function change_background_color(){
+        var selected_id = get_selected_nodeid();
+        if(!selected_id){prompt_info('please select a node first.');return;}
+
+        _jm.set_node_color(selected_id, '#eee', null);
+    }
+    
+    
+    
+    function set_theme(_backgroundColor, _fontColor){
+        let backgroundColor = _backgroundColor;
+        let fontColor = _fontColor || null;
+        let jmnode = document.querySelectorAll('jmnode');
+        
+        $(jmnode).each(function () {
+            _jm.set_node_color($(this).attr('nodeid'), backgroundColor, fontColor);
+        });
+    }
+        
+    // 添加部件，如 tips, link
+    function add_tips(){
+        
+        let unit = "tips";
+        let selected_id = get_selected_nodeid();
+        
+        if(!selected_id){prompt_info('please select a node first.');return;}
+        // WARNING: 此处利用 原来的 background-image, 作为 添加 tips 的钩子     
+        _jm.set_node_background_image(selected_id, unit, null, null);
+
+        let $nodeid = $('[nodeid='+selected_id+']:last');
+        
+        let content = '';
+        content += "<span tips-id='"+ selected_id +"'  onclick='edit_tips(\""+selected_id+"\");'><i class='iconfont icon-note'></i></span>";
+        
+        $nodeid.html(content +"&nbsp;" + $nodeid.html());
+
+        content += "<textarea class='edit-area' tips-content-id='"+selected_id+"'></textarea>";
+        _jsmind.author += content;
+        _jm.mind.author = _jsmind.author;
+
+    }
+
+    
+    function edit_tips(id) {
+        
+        $('.edit-tips').html(_tips_area(id));
+        $('.edit-tips').slideDown('slow');
+        
+    }
+    
+    function save_tips() {
+        
+        let id = $('.edit-area').attr('tips-content-id');
+        
+        let area = _tips_area(id);
+        let reg = new RegExp("\(<textarea \[\\s\\S\]\*\?>\)");
+        let new_area = area.match(reg)[1] + $('.edit-area').val()+"<\/textarea>";
+        _jsmind.author = _jsmind.author.replace(area, new_area);
+        _jm.mind.author = _jsmind.author;
+        
+    }
+    
+/*    
+    function _tips_content(id) {
+        let reg = new RegExp("<textarea \[\\s\\S\]\*\?"+id+"\[\\s\\S\]\*\?>\(\[\\s\\S\]\*\?\)<\/textarea>");
+        return _jsmind.author.match(reg)[1];
+    }
+*/
+
+    function _tips_area(id) {
+        let reg = new RegExp("\(<textarea \[\\s\\S\]\*\?"+id+"\[\\s\\S\]\*\?<\/textarea>\)");
+        //alert(_jsmind.author.match(reg)[1]);
+        return _jsmind.author.match(reg)[1];
+    }
+    
+    
+    function _tips_span(id) {
+        let reg = new RegExp("\(<span \[\\s\\S\]\*\?"+id+"\[\\s\\S\]\*\?>\[\\s\\S\]\*\?<\/span>\)");
+        return _jsmind.author.match(reg)[1];
+    }    
+    
+    
+/*
+    function set_theme(theme_name){
+        _jm.set_theme(theme_name);
+    }
+*/
+    var zoomInButton = document.getElementById("zoom-in-button");
+    var zoomOutButton = document.getElementById("zoom-out-button");
+
+    function zoomIn() {
+        if (_jm.view.zoomIn()) {
+            zoomOutButton.disabled = false;
+        } else {
+            zoomInButton.disabled = true;
+        };
+    };
+
+    function zoomOut() {
+        if (_jm.view.zoomOut()) {
+            zoomInButton.disabled = false;
+        } else {
+            zoomOutButton.disabled = true;
+        };
+    };
+
+    function toggle_editable(btn){
+        var editable = _jm.get_editable();
+        if(editable){
+            _jm.disable_edit();
+            btn.innerHTML = 'enable editable';
+        }else{
+            _jm.enable_edit();
+            btn.innerHTML = 'disable editable';
+        }
+    }
+
+/*
+    // this method change size of container, perpare for adjusting jsmind
+    function change_container(){
+        var c = document.getElementById('jsmind_container');
+        c.style.width = '800px';
+        c.style.height = '500px';
+    }
+
+    function resize_jsmind(){
+        _jm.resize();
+    }
+*/
+    
+    function expand(){
+        var selected_id = get_selected_nodeid();
+        if(!selected_id){prompt_info('please select a node first.');return;}
+
+        _jm.expand_node(selected_id);
+    }
+
+    function collapse(){
+        var selected_id = get_selected_nodeid();
+        if(!selected_id){prompt_info('please select a node first.');return;}
+
+        _jm.collapse_node(selected_id);
+    }
+
+    function toggle(){
+        var selected_id = get_selected_nodeid();
+        if(!selected_id){prompt_info('please select a node first.');return;}
+
+        _jm.toggle_node(selected_id);
+    }
+
+    function expand_all(){
+        _jm.expand_all();
+    }
+
+    function expand_to_level2(){
+        _jm.expand_to_depth(2);
+    }
+
+    function expand_to_level3(){
+        _jm.expand_to_depth(3);
+    }
+
+    function collapse_all(){
+        _jm.collapse_all();
+    }
+
+/*
+    function get_nodearray_data(){
+        var mind_data = _jm.get_data('node_array');
+        var mind_string = jsMind.util.json.json2string(mind_data);
+        prompt_info(mind_string);
+    }
+
+    function save_nodearray_file(){
+        var mind_data = _jm.get_data('node_array');
+        var mind_name = mind_data.meta.name;
+        var mind_str = jsMind.util.json.json2string(mind_data);
+        jsMind.util.file.save(mind_str,'text/jsmind',mind_name+'.jm');
+    }
+    
+    function open_nodearray(){
+        var file_input = document.getElementById('file_input_nodearray');
+        var files = file_input.files;
+        if(files.length > 0){
+            var file_data = files[0];
+  
+  
+  
+  jsMind.util.file.read(file_data,function(jsmind_data, jsmind_name){
+                var mind = jsMind.util.json.string2json(jsmind_data);
+                if(!!mind){
+                    _jm.show(mind);
+                }else{
+                    prompt_info('can not open this file as mindmap');
+                }
+            });
+        }else{
+            prompt_info('please choose a file first')
+        }
+    }
+ */   
+/*
+    function get_freemind_data(){
+        var mind_data = _jm.get_data('freemind');
+        var mind_string = jsMind.util.json.json2string(mind_data);
+        alert(mind_string);
+    }
+
+    function save_freemind_file(){
+        var mind_data = _jm.get_data('freemind');
+        var mind_name = mind_data.meta.name || 'freemind';
+        var mind_str = mind_data.data;
+        jsMind.util.file.save(mind_str,'text/xml',mind_name+'.mm');
+    }
+    
+    function open_freemind(){
+        var file_input = document.getElementById('file_input_freemind');
+        var files = file_input.files;
+        if(files.length > 0){
+            var file_data = files[0];
+            jsMind.util.file.read(file_data, function(freemind_data, freemind_name){
+                if(freemind_data){
+                    var mind_name = freemind_name;
+                    if(/.*\.mm$/.test(mind_name)){
+                        mind_name = freemind_name.substring(0,freemind_name.length-3);
+                    }
+                    var mind = {
+                        "meta":{
+                            "name":mind_name,
+                            "author":"hizzgdev@163.com",
+                            "version":"1.0.1"
+                        },
+                        "format":"freemind",
+                        "data":freemind_data
+                    };
+                    _jm.show(mind);
+                }else{
+                    prompt_info('can not open this file as mindmap');
+                }
+            });
+        }else{
+            prompt_info('please choose a file first')
+        }
+    }
+*/
+    function prompt_info(msg){
+        alert(msg);
+    }
+
+ /*   
+    var imageChooser = document.getElementById('image-chooser');
+
+    imageChooser.addEventListener('change', function (event) {
+        // Read file here.
+        var reader = new FileReader();
+        reader.onloadend = (function () {
+            var selected_node = _jm.get_selected_node();
+            var nodeid = jsMind.util.uuid.newid();
+            var topic = undefined;
+            var data = {
+                "background-image": reader.result,
+                "width": "100",
+                "height": "100"};
+            var node = _jm.add_node(selected_node, nodeid, topic, data);
+            //var node = _jm.add_image_node(selected_node, nodeid, reader.result, 100, 100);
+        //add_image_node:function(parent_node, nodeid, image, width, height, data, idx, direction, expanded){
+        });
+
+        var file = imageChooser.files[0];
+        if (file) {
+            reader.readAsDataURL(file);
+        };
+
+    }, false);
+*/
+
+    
+    
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -4,6 +4,17 @@ function customRun(){
         customContent();
 
 
+        $(".ttt").click(function(){
+            //alert(111);
+            $.ajax({
+                url: "summary.md",
+                success: function(result){
+                    //$(".ttt").html(result);
+                    alert(result);                          
+                }
+            });
+       });
+                                                                                               
     });
 
 }
@@ -347,7 +358,7 @@ function _contents() {
         let temp = $(this).html();
         
         id = $(this).attr('id');
-        let click = "scrollToThis( '#"+id +"' );";
+        let click = "scrollToThis( '#"+id +"' );$('.right-bottom-button').click()";
         contents += '<li class=' + className + 'onClick="' + click + '">' + temp +'</li>';
 
     });

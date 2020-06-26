@@ -901,25 +901,41 @@ ECMAScript 中的 Date 类型是在早期 Java 中的 java.util.Date 类基础�
 <div class="myNote">
 
 **var expression = / pattern / flags ;**  
+
 **flags 有三个值**  
 - `g` 表示全局(global)模式,即模式将被应用于所有字符串,而非在发现第一个匹配项时立即停止;  
 - `i` 表示不区分大小写(case-insensitive)模式;  
 - `m` 表示多行(multiline)模式,即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。
 </div>
 
-```javascript
-// [1] 使用字面量定义
+<div class="myTip">
 
+**贪婪匹配和非贪婪匹配**  
+
+例如： {ab}{cd}{de}{ef}
+
+{[\s\S]*} ==>  {ab}{bc}{cd}{de}  
+
+{[\s\S]*?} ==> {ab}
+
+</div>
+
+**[1] 使用字面量定义**
+```javascript
 // 匹配第一个" [bc]at",不区分大小写
 var pattern2 = /\[bc\]at/i;
+
 // 匹配所有以"at"结尾的 3 个字符的组合,不区分大小写
 var pattern3 = /.at/gi;
+
 // 匹配所有".at",不区分大小写
 var pattern4 = /\.at/gi;
+```
 
-// [2] 使用构造函数
+**[2] 使用构造函数**
+```javascript
 // NOTICE 需双重转义
-var pattern2 = new RegExp(""\\[bc\\]at", "i");
+var pattern2 = new RegExp("\"\[bc\\]at", "i");
 ```
 
 <h4 class = 'auto-sort-sub1'>RegExp 实例方法</h4>
@@ -966,7 +982,6 @@ alert(pattern2.lastIndex); //8
 <div class="myImage">
 
 ![-image-](../images/javascript/01/ch05_01.png)
-
 <label class="imageTitle">图示5-1: RegExp 构造函数的属性 </label>
 </div>
 
@@ -992,8 +1007,6 @@ if (pattern.test(text)){
 // [2]
 if (pattern.test(text)){
     alert(RegExp.$_);
-    alert(RegExp["$`"]);
-    alert(RegExp["$'"]);
     alert(RegExp["$&"]);
     alert(RegExp["$+"]);
     alert(RegExp["$*"]);
@@ -1086,13 +1099,13 @@ function factorial(num){
 }
 
 var trueFactorial = factorial;
-    factorial = function(){
+factorial = function(){
     return 0;
 };
 alert(trueFactorial(5)); //120
 alert(factorial(5)); //0
 ```
-this 引用的是函数据以执行的环境对象——或者也可以说是 this 值(当在网页的全局作用域中调用函数时, this 对象引用的就是 window)
+this 引用的是函数据以执行的环境对象——或者也可以说是 this 值(`当在网页的全局作用域中调用函数时, this 对象引用的就是 window`)
 ```javascript
 window.color = "red";
 var o = { color: "blue" };
@@ -1167,7 +1180,7 @@ alert(callSum(10,10)); //20
 在严格模式下,未指定环境对象而调用函数,则 this 值不会转型为 window。除非明确把函数添加到某个对象或者调用 apply()或 call(),否则 this 值将是 undefined。
 </div>
 
-`apply()` `call()`真正强大的地方是能够扩充函数 赖以运行的作用域。
+`apply()` `call()`真正强大的地方是能够扩充函数赖以运行的作用域。
 ```javascript
 window.color = "red";
 var o = { color: "blue" };
@@ -1230,21 +1243,26 @@ alert(String.fromCharCode(104, 101, 108, 108, 111)); //"hello"
 ECMAScript 中的 Global 对象在某种意义上是作为一个终极的“兜底儿对象”
 来定义的。事实上,没有全局变量或全局函数;所有在全局作用域中定义的属性和函数,都是 Global 对象的属性。
 
-**URI 编码方法**
+##### URI 编码方法
 ```javascript
 // [1]
 var uri = "http://www.wrox.com/illegal value.htm#start";
+
+// [-] 只有空格被替换成 %20
+alert(encodeURI(uri));
 //"http://www.wrox.com/illegal%20value.htm#start"
-alert(encodeURI(uri)); // [-] 只有空格被替换成 %20
+
+// 所有非字母数字都替换
+alert(encodeURIComponent(uri));
 //"http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start"
-alert(encodeURIComponent(uri));  // 所有非字母数字都替换
 
 // [2]
 var uri = "http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start";
 //http%3A%2F%2Fwww.wrox.com%2Fillegal value.htm%23start
 alert(decodeURI(uri));
-//http://www.wrox.com/illegal value.htm#start
+
 alert(decodeURIComponent(uri));
+//http://www.wrox.com/illegal value.htm#start
 ```
 
 <div class="myTip">
@@ -1252,7 +1270,9 @@ alert(decodeURIComponent(uri));
 URI 方法 encodeURI()、 encodeURIComponent()、 decodeURI()和 decode-URIComponent()用于替代已经被 ECMA-262 第 3 版废弃的 escape()和 unescape()方法。URI 方法能够编码所有 Unicode 字符,而原来的方法只能正确地编码 ASCII 字符。因此在开发实践中,特别是在产品级的代码中,一定要使用 URI 方法,不要使用 escape()和 unescape()方法。
 </div>
 
-**eval()方法**:整个 ECMAScript 语言中最强大的一个方法  
+##### eval()方法 
+整个 ECMAScript 语言中最强大的一个方法  
+
 ```javascript
 // [1]
 eval("function sayHi() { alert('hi'); }");
@@ -1266,7 +1286,7 @@ alert(msg); //"hello world"
 严格模式下,在外部访问不到 eval()中创建的任何变量或函数,因此前面两个例子都会导致错误。
 </div>
 
-**window 对象**
+##### window 对象
 ```javascript
 var color = "red";
 function sayColor(){
@@ -1287,7 +1307,8 @@ window.sayColor(); //"red"
 
 <h3 class = 'auto-sort-sub'>理解对象</h3>
 
-**ECMAScript 中没有类的概念,因此它的对象也与基于类的语言中的对象有所不同。**
+`ECMAScript 中没有类的概念`,因此它的对象也与基于类的语言中的对象有所不同。
+
 ```javascript
 var person = {
     name: "Nicholas",
@@ -1464,8 +1485,7 @@ alert(Person.prototype.isPrototypeOf(person2)); //true
 
 原型最初只包含 constructor 属性,而该属性也是共享的,因此可以通过对象实例访问。  
 
-ECMAScript 5 的 Object.getOwnPropertyDescriptor()方法只能用于实例属性,要取得原型属性的描述符,必须直接在原型对象上调用 Object.getOwnProperty-
-Descriptor()方法。
+ECMAScript 5 的 Object.getOwnPropertyDescriptor()方法只能用于实例属性,要取得原型属性的描述符,必须直接在原型对象上调用 Object.getOwnPropertyDescriptor()方法。
 </div>
 
 **运行与 in 操作符**

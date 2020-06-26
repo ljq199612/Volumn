@@ -10,7 +10,7 @@
 <!-- VOLUME I -->
 
 <div class='book-list'>
-    <i class='nav-icon iconfont icon-books1'></i>
+    <i class='nav-icon iconfont icon-books-1'></i>
     <a href="#/Volume_I/welcome" class="alive"> VOLUME I </a>
     <!---->
     <div class='book-list-sub1'>
@@ -31,7 +31,7 @@
 <!-- VOLUME II -->
 
 <div class='book-list'>
-    <i class='nav-icon iconfont icon-books1'></i>
+    <i class='nav-icon iconfont icon-books-1'></i>
     <a href="#/Volume_II/welcome" class="alive"> VOLUME II </a>
     <div class='book-list-sub1'>
         <a href="#/Volume_II/IT/welcome" class="alive">

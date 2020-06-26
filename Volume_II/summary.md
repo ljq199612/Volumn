@@ -4,7 +4,7 @@
 <p>
 
 <a href="#/Volume_II/welcome" class="js-name name alive">
-    <i class='iconfont icon-books1'></i> Volume II</a>
+    <i class='iconfont icon-books-1'></i> Volume II</a>
 </div>
 
 <hr>

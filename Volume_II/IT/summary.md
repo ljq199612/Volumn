@@ -4,7 +4,7 @@
 <br>
 
 <a href="#/Volume_II/welcome" class="name alive">
-    <i class='iconfont icon-books1'></i> Volume II
+    <i class='iconfont icon-books-1'></i> Volume II
 </a>
 
 <a href="#/Volume_II/IT/welcome" class="js-name name alive name-sub">

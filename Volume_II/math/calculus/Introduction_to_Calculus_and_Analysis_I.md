@@ -7,23 +7,50 @@
 
 <h3 class = 'auto-sort-sub'>常见公式</h3>
 
-**平方和**
-$$1^2+2^2+3^2+\dots + n^2=\frac{n(n+1)(2n+1)}{6}$$
+$$
+\begin{aligned}
 
-**立方和**
-$$1^3+2^3+3^3+\dots +n^3=[\frac{n(n+1)}{2}]^2$$
+&\textbf{平方和}\\
+&\qquad 
+1^2+2^2+3^2+\dots + n^2=\frac{n(n+1)(2n+1)}{6}\\
+\\
+&\textbf{立方和}\\
+&\qquad 
+1^3+2^3+3^3+\dots +n^3=[\frac{n(n+1)}{2}]^2\\
+\\
+&\textbf{二项式定理}\\ 
+&\qquad 
+(a+b)^n  = \dbinom{n}{0}a^n+\dbinom{n}{1}a^{n-1}b+\dbinom{n}{2}a^{n-2}b^2+\dots+\dbinom{n}{n}b^n\\
+\\
+&\qquad其中，\dbinom{n}{k}=\frac{n!}{k!(n-k)!}\\
+\\
+&\textbf{超越数 e}\\
+&\qquad
+e = 1+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}\dots\\
+&\qquad e = (1+\frac{1}{n})^n\\
+\\
+\end{aligned}
+$$
 
-**二项式定理** 
-$$(a+b)^n  = \dbinom{n}{0}a^n+\dbinom{n}{1}a^{n-1}b+\dbinom{n}{2}a^{n-2}b^2+\dots+\dbinom{n}{n}b^n\,,$$
-其中， 
-$$\dbinom{n}{k}=\frac{n!}{k!(n-k)!}$$
+<h4 class = 'auto-sort-sub1'>三角函数</h4>
 
-**超越数e**
-$$e = 1+\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}\dots$$
-$$e = (1+\frac{1}{n})^n$$
+$$
+\begin{aligned}
+&\textbf{}\\
+&\qquad\displaystyle\lim_{x\to 0}\frac{\sin x}{x} = 1\\
+\\
+&\qquad\cos n\theta = \cos^n \theta - \dbinom{n}{2}\cos^{n-2}\theta\sin^2\theta + \dbinom{n}{4}\cos^{n-4}\theta\sin^4\theta \\
+\\
+&\qquad\sin n\theta=\dbinom{n}{1}\cos^{n-1}\theta\sin\theta-\dbinom{n}{3}\cos^{n-3}\theta\sin^3\theta\\
+\\
+&\textbf{德  莫阿弗尔定理}\\
+&\qquad (\cos\theta+i\sin\theta)^n = \cos n\theta+i\sin n\theta\\
+\\
+\end{aligned}
+$$
 
-**极限**
-$$\displaystyle\lim_{x\to 0}\frac{\sin x}{x} = 1$$
+
+
 
 
 </div>
@@ -46,7 +73,7 @@ $$\displaystyle\lim_{x\to 0}\frac{\sin x}{x} = 1$$
 </div>
 
 
-<h3 class = 'auto-sort-sub'>实数连续统</h3>
+<h3 class = 'auto-sort-sub'>数的概念</h3>
 
 > 自然数：1,2,3,...  
 > 自然数是计算一个总体或集合中元素的一种合适工具
@@ -113,12 +140,40 @@ $$\displaystyle\lim_{x\to 0}\frac{\sin x}{x} = 1$$
 
 <h4 class = 'auto-sort-sub1'>实数和区间套</h4>
 
-// TODO
+<div class="myFormula">
+<b>区间套公理</b>
+如果 $I_1, I_2, I_3,\dots$ 是一个具有有理端点的
+<span class="myAnnotate">
+区间套序列
+</span>
+，则存在一个点 $x$ 包含于所有的 $I_n$ 中。
+<div class="js-annotate annotate hidden">
+一个闭区间 $I_1, I_2,I_3,\dots$ 的集合, 其中每一个都包含着下一个并且长度趋于0
+</div>
+</div>
+
+<div class="myTip">
+
+这是一个`连续性公理`，这个公理保证了实轴上没有空隙存在, 我们把这个公理作为实数连续统的特征。这个公理还有许多其他的表达方式。
+</div>
 
 
-<h3 class = 'auto-sort-sub'>复数</h3>
+<h4 class = 'auto-sort-sub1'>复数</h4>
 
 为了使每一个代数方程都有具体的解，我们不得不引入复数，如希望方程 $x^2=1=0$ 具有根，我们不得不引入新的符号 $i$ 和 $-i$ 作为根。
+
+<div class="myImage">
+
+![-image-](..\images\calculus_I\01_19.png)
+<label class="imageTitle">图示: 复数 $c = x+iy$ 及其共轭复数的几何表示</label>
+</div>
+
+<div class="myWarning">
+
+**极坐标表示**  
+$\qquad c = r(\cos\theta+i\sin\theta)$  
+$\qquad\bar{c} = r(\cos\theta-i\sin\theta)$  
+</div>
 
 
 <h3 class = 'auto-sort-sub'>函数的概念</h3>
@@ -297,7 +352,7 @@ $$|f(x_2)-f(x_1)|\le L|x_2-x_1|^\alpha$$
 <div class="myProblem">
 <div class="myQuestion">
 </div>
-<button class="toggleAnswer">证明:</button>
+<button class="toggleAnswer answer-button">证明:</button>
 <div class="myAnswer hidden">
 
 //TODO
@@ -460,7 +515,7 @@ $\xLeftrightarrow{等价于}$ 实数的连续性公理
 <div class="myQuestion">
 
 </div>
-<button class="toggleAnswer">证明:</button>
+<button class="toggleAnswer answer-button">证明:</button>
 <div class="myAnswer hidden">
 
 //TODO
