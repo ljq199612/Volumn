@@ -25,6 +25,26 @@
 </div>                                                            
 
 <div class='book-list-sub2'>
+    <i class='nav-icon iconfont icon-book-open'></i>
+    <span> Java</span>
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/java/effctive_java" class="alive">
+        <i class='iconfont icon-page'></i>
+        高效 java</a>
+    </div>                                                            
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/java/head_first_design_pattern" class="alive">
+        <i class='iconfont icon-page'></i>
+        深入浅出设计模式</a>
+    </div>                                                            
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/java/tools" class="alive">
+        <i class='iconfont icon-page'></i>
+        工具</a>
+    </div>                                                            
+</div>                                                            
+
+<div class='book-list-sub2'>
     <i class='nav-icon iconfont icon-book-open' ></i>
     <span> linux</span>
     <div class='book-list-sub3'>
@@ -87,7 +107,7 @@
 
 <div class='book-list-sub2'>
     <i class='nav-icon iconfont icon-book-open' ></i>
-    <span> WEB</span>
+    <span> HTML </span>
     <div class='book-list-sub3'>
         <a href="#/Volume_II/IT/web/html5+css3" class="alive">
         <i class='iconfont icon-page' ></i> HTML5 + CSS3</a>

@@ -1570,7 +1570,7 @@ function Person(name, age, job){
 <h3 class = 'auto-sort-sub'>继承</h3>
 <h4 class = 'auto-sort-sub1'>原型链</h4>
 
-ECMAScript 中描述了原型链的概念,并将原型链作为实现继承的主要方法。
+ECMAScript 中描述了原型链的概念,并将`原型链作为实现继承的主要方法`。
 ```javascript
 function SuperType(){
     this.property = true;
@@ -1656,7 +1656,7 @@ if(condition){
 </div>
 
 ```javascript
-// [1]
+// [1] 不推荐
 function factorial(num){
     if (num <= 1){
         return 1;
@@ -1666,7 +1666,7 @@ function factorial(num){
     }
 }
 
-// [2]
+// [2]  推荐
 var factorial = (function f(num){
     if (num <= 1){
         return 1;
@@ -1965,12 +1965,11 @@ if (matchesSelector(document.querySelector('#id'), '.hello')){
 }
 ```
 <h3 class = 'auto-sort-sub'>元素遍历</h3>
-<div class="myNote">
+<div class="myWarning">
 
 对于元素间的空格, IE9 及之前版本不会返回文本节点,而其他所有浏览器都会返回文本节点。这样,就导致了在使用 childNodes 和 firstChild 等属性时的行为不一致。
 
-因此 Element Traversal API 为 DOM 元素添加了以下 5 个属性:  
-`childElementCount``firstElementChild``lastElementChild``previousElementSibling``nextElementSibling`
+因此 Element Traversal API 为 DOM 元素添加了以下 5 个属性:`childElementCount``firstElementChild``lastElementChild``previousElementSibling``nextElementSibling`
 
 </div>
  
