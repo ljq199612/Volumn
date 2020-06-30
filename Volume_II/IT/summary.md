@@ -28,6 +28,11 @@
     <i class='nav-icon iconfont icon-book-open'></i>
     <span> Java</span>
     <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/java/javase" class="alive">
+        <i class='iconfont icon-page'></i>
+        java 基础</a>
+    </div>                                                            
+    <div class='book-list-sub3'>
         <a href="#/Volume_II/IT/java/effctive_java" class="alive">
         <i class='iconfont icon-page'></i>
         高效 java</a>
@@ -36,6 +41,21 @@
         <a href="#/Volume_II/IT/java/head_first_design_pattern" class="alive">
         <i class='iconfont icon-page'></i>
         深入浅出设计模式</a>
+    </div>                                                            
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/java/mybatis" class="alive">
+        <i class='iconfont icon-page'></i>
+        mybatis</a>
+    </div>                                                            
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/java/springBoot" class="alive">
+        <i class='iconfont icon-page'></i>
+        springBoot</a>
+    </div>                                                            
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/java/springCloud" class="alive">
+        <i class='iconfont icon-page'></i>
+        springCloud</a>
     </div>                                                            
     <div class='book-list-sub3'>
         <a href="#/Volume_II/IT/java/tools" class="alive">
@@ -54,19 +74,6 @@
     <div class='book-list-sub3'>
         <a href="#/Volume_II/IT/linux/problem" class="alive">
         <i class='iconfont icon-page' ></i> 常见问题</a>
-    </div>                                                            
-</div>                                                            
-
-<div class='book-list-sub2'>
-    <i class='nav-icon iconfont icon-book-open' ></i>
-    <span> Spring</span>
-    <div class='book-list-sub3'>
-        <a href="#/Volume_II/IT/springBoot/springBoot" class="alive">
-        <i class='iconfont icon-page' ></i> Spring Boot 入门指南</a>
-    </div>                                                            
-    <div class='book-list-sub3'>
-        <a href="#/Volume_II/IT/springCloud/springCloud" class="alive">
-        <i class='iconfont icon-page' ></i> Spring Cloud 入门指南</a>
     </div>                                                            
 </div>                                                            
 
