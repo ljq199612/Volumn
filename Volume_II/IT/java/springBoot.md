@@ -1694,12 +1694,11 @@ mockMvc.perform(get("/user/1"))
 
 <div class="myTip">
 
-**[源码](https://github.com/ljq199612/00/tree/master/code/java/springboot)**
+**[源码](https://github.com/ljq199612/main/tree/master/code/java/springboot)**
 </div>
 
 **进一步阅读：**  
 [Spring Boot 2.x基础教程](http://blog.didispace.com/spring-boot-learning-2x/)
 
-[hutool](https://hutool.cn/docs/#/)
 </div>
 </div>

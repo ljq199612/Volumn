@@ -63,7 +63,7 @@ cnpm config set prefix `npm config get prefix`
 
 [docsify 4.3.0](https://www.npmjs.com/package/docsify-cli/v/4.3.0)
 
-```
+```bash
 # 切换到 root 后执行，sudo 执行好像不行
 # 安装 docsify 4.3.0
 cnpm install docsify-cli@4.3.0 -g
@@ -86,6 +86,8 @@ docsify serve
 </div>
 </div>
 
+</div>
+</div>
 
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>Redis</h2>

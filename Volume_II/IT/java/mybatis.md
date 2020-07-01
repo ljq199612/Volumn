@@ -1,5 +1,3 @@
-# MyBatis 基础使用
-
 
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章： MyBatis 基础使用</h2>

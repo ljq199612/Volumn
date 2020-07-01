@@ -3,7 +3,7 @@
 
 > 说明：凡是带有`*`标记的答案都不保证其正确性，如`证明*`
 
-<div class="myProblem">
+<div class="myProblem  no-shadow">
 <div class="myQuestion">
 <b class = 'auto-sort'>
 试证明任何两个有理数之间至少存在一个无理数。
@@ -16,7 +16,7 @@
 </div>
 </div>
 
-<div class="myProblem">
+<div class="myProblem  no-shadow">
 <div class="myQuestion">
 <b class = 'auto-sort'>
 试证明 $\sqrt n $ 是无理数，其中 $n$ 不是完全平方数
@@ -35,7 +35,7 @@ $\therefore \sqrt n$ 是无理数
 </div>
 
 
-<div class="myProblem">
+<div class="myProblem  no-shadow">
 <div class="myQuestion">
 <b class = 'auto-sort'>
 $\bigstar$ 对于整系数多项式 $a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0 = 0\quad(a_n\not = 0)$ 的任一有理根，
@@ -62,7 +62,7 @@ $\therefore a_0\mid p$
 这一法则，能使我们得到所有的有理实根，同时也能说明其他任一实根的无理性
 </div>
 
-<div class="myProblem">
+<div class="myProblem  no-shadow">
 <div class="myQuestion">
 <b class='auto-sort'>
 试证明 区间套公理不可用于对有孔实直线，如,定义域 $x\in\R, x\not=a$

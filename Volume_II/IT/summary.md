@@ -38,6 +38,11 @@
         高效 java</a>
     </div>                                                            
     <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/java/jvm" class="alive">
+        <i class='iconfont icon-page'></i>
+        JVM</a>
+    </div>                                                            
+    <div class='book-list-sub3'>
         <a href="#/Volume_II/IT/java/head_first_design_pattern" class="alive">
         <i class='iconfont icon-page'></i>
         深入浅出设计模式</a>
