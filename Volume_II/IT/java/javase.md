@@ -5,7 +5,7 @@
 
 String 底层是 `final char[]`, 它是不可变的
 
-StringBuild 底层是 `char[]`, 默认下会初始化长度为 16, 当插入的 char 达到一定数量时，就会自动扩容 为原来的 2倍 + 2 
+StringBuild 底层是 `char[]`, 默认情况下初始化长度为 16, 当插入的 char 达到一定数量时，就会自动扩容 为原来的 2倍 + 2 
 
 ```java
 private int newCapacity(int minCapacity) {
@@ -63,7 +63,7 @@ private int newCapacity(int minCapacity) {
 
 一个好的哈希函数满足两个基本属性：  
 1）计算速度应该非常快；
-2）应尽量减少输出值（冲突）的重复。
+2）应尽量减少输出值重复(冲突)。
 </div>
 
 ##### hash 表的性能
@@ -182,9 +182,9 @@ JDK 8 开始采用尾插法，之前采用头插法。
 ##### HashMap 遍历方式
 一个槽（包括槽下面的列表）一个槽地遍历
 
-<h4 class = 'auto-sort-sub1'>HashMap 与 Hashtable 的比较</h4>
+<h4 class = 'auto-sort-sub1'>HashMap 与 HashTable 的比较</h4>
 
-HashMap类与Hashtable大致等效，不同之处在于它是不同步的，并且允许为 null 和 null 键
+HashMap类与HashTable大致等效，不同之处在于它是不同步的，并且允许为 null 和 null 键
 - 如果需要线程安全，最好在创建的时候进行同步
 ```java
 Map m = Collections.synchronizedMap(new HashMap(...));

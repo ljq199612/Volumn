@@ -7,16 +7,16 @@
 **参见:**
  ✿ [@blog : 学习Spring Boot : (一) 入门](https://www.cnblogs.com/qnight/p/8997507.html)
 
-`Spring Boot 简化了spring 全家桶的配置，它使用“习惯优于配置”（Convention Over Configuration 项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。使用Spring Boot很容易创建一个独立运行（运行jar,内嵌Servlet容器）、准生产级别的基于Spring框架的项目，使用Spring Boot你可以不用或者只需要很少的Spring配置。`
+Spring Boot `简化`了spring 全家桶的配置，它使用`习惯优于配置`（Convention Over Configuration 项目中存在大量的配置，此外还内置了一个习惯性的配置，让你无需手动进行配置）的理念让你的项目快速运行起来。使用Spring Boot很容易创建一个独立运行（运行jar,内嵌Servlet容器）、准生产级别的基于Spring框架的项目，使用Spring Boot你可以不用或者只需要很少的Spring配置。
 
 ### 核心
-- `自动配置` 针对很多Spring应用程序常见的应用功能，Spring Boot能自动提供相关配置。
-- `起步依赖` 告诉Spring Boot需要什么功能，它就能引入需要的库。
-- `命令行界面` 这是Spring Boot的可选特性，借此你只需写代码就能完成完整的应用程序，无需传统项目构建。
-- `Actuator` 让你能够深入运行中的Spring Boot应用程序，一探究竟。
+- `自动配置` 针对很多 Spring 应用程序常见的应用功能，Spring Boot 能自动提供相关配置。
+- `起步依赖` 告诉 Spring Boot 需要什么功能，它就能引入需要的库。
+- `命令行界面` 这是 Spring Boot 的可选特性，借此你只需写代码就能完成完整的应用程序，无需传统项目构建。
+- `Actuator` 让你能够深入运行中的 Spring Boot 应用程序，一探究竟。
 
 ### pom.xml
-1. Spring Boot 父级依赖 `spring-boot-starter-parent` 是一个特殊的starter,它用来提供相关的Maven默认依赖，使用它之后，常用的包依赖可以省去version标签。
+1. Spring Boot 父级依赖 `spring-boot-starter-parent` 是一个特殊的 starter, 它用来提供相关的 Maven 默认依赖，使用它之后，常用的包依赖可以省去 version 标签。
 ```xml
 <parent>
     <groupId>org.springframework.boot</groupId>
@@ -27,7 +27,7 @@
 ```
 
 1. 起步依赖 `spring-boot-starter-xx`   
-Spring Boot提供了很多”开箱即用“的依赖模块，都是以spring-boot-starter-xx作为命名的。 起步依赖本质上是一个Maven项目对象模型（Project Object Model，POM），定义了对其他库的传递依赖，这些东西加在一起即支持某项功能。
+Spring Boot 提供了很多`开箱即用`的依赖模块，都是以 spring-boot-starter-xx 作为命名的。 起步依赖本质上是一个 Maven 项目对象模型（Project Object Model，POM），定义了对其他库的传递依赖，这些东西加在一起即支持某项功能。
 
 1. `Spring Boot Maven` 插件
 ```xml
@@ -41,8 +41,8 @@ Spring Boot提供了很多”开箱即用“的依赖模块，都是以spring-bo
 </build>
 ```
 **作用**
-  - 把项目打包成一个可执行的超级JAR（uber-JAR）,包括把应用程序的所有依赖打入JAR文件内，并为JAR添加一个描述文件，其中的内容能让你用java -jar来运行应用程序。
-  - 搜索public static void main()方法来标记为可运行类。
+  - 把项目打包成一个可执行的超级 JAR（uber-JAR）,包括把应用程序的所有依赖打入 JAR 文件内，并为 JAR 添加一个描述文件，其中的内容能让你用 java -jar 来运行应用程序。
+  - 搜索 public static void main() 方法来标记为可运行类。
 
 
 ### 启动
@@ -75,15 +75,15 @@ public class SpringbootApplication {
  @SpringBootApplication
     =  @ComponentScan + @SpringBootConfiguration + @EnableAutoConfiguration。
 
-1) @SpringBootConfiguration继承自@Configuration，二者功能也一致，标注当前类是配置类，
-   并会将当前类内声明的一个或多个以@Bean注解标记的方法的实例纳入到srping容器中，并且实例名就是方法名。
+1) @SpringBootConfiguration 继承自 @Configuration，二者功能也一致，标注当前类是配置类，
+   并会将当前类内声明的一个或多个以 @Bean 注解标记的方法的实例纳入到 srping 容器中，并且实例名就是方法名。
 
-2) @EnableAutoConfiguration的作用启动自动的配置。
-   @EnableAutoConfiguration注解的意思就是Springboot根据你添加的jar包来配置你项目的默认配置，
-   比如根据spring-boot-starter-web，来判断你的项目是否需要添加了webmvc和tomcat，
-   就会自动的帮你配置web项目中所需要的默认配置。
+2) @EnableAutoConfiguration
+   @EnableAutoConfiguration 注解的意思就是 Springboot 根据你添加的jar包来配置你项目的默认配置，
+   比如根据 spring-boot-starter-web，来判断你的项目是否需要添加了 webmvc和tomcat，
+   就会自动的帮你配置 web 项目中所需要的默认配置。
 
-3) @ComponentScan，扫描当前包及其子包下被 @Component，@Controller，@Service，@Repository注解标记的类
+3) @ComponentScan，扫描当前包及其子包下被 @Component，@Controller，@Service，@Repository 注解标记的类
    并纳入到spring容器中进行管理。是以前的<context:component-scan>
 
 -----------------------------------------------------------------------------------
@@ -229,8 +229,8 @@ spring.mvc.view.suffix=.jsp
  ✿ [Lombok 官方手册](https://projectlombok.org/features/all)
  ✿ [@blog : Lombok 介绍](https://www.cnblogs.com/heyonggang/p/8638374.html)
 
-`Lombok 是一种 Java™ 实用工具，可用来帮助开发人员消除 Java 的冗长，尤其是对于简单的 Java 对象（POJO）。   
-Lombok能通过注解的方式，在编译时自动为属性生成构造器、getter/setter、equals、hashcode、toString方法。出现的神奇就是在源码中没有getter和setter方法，但是在编译生成的字节码文件中有getter和setter方法。`
+Lombok 是一种 Java™ 实用工具，可用来帮助开发人员消除 Java 的冗长，尤其是对于简单的 Java 对象（POJO）。   
+Lombok能通过注解的方式，在编译时自动为属性生成构造器、getter/setter、equals、hashcode、toString方法。出现的神奇就是在源码中没有getter和setter方法，但是在编译生成的字节码文件中有getter和setter方法。
 
 ### 在`pom.xml` 文件添加依赖
 ```xml
@@ -252,8 +252,10 @@ IDE 需要下载对应插件来支持语法解析，以 idea 为例，需安装 
 
 - `@Date` = `@ToString` + `@Getter` + `@Setter` + `@EqualsAndHashCode` + `@NoArgConstructor`
 
-> [!Warning]
-> 注意， 同时使用 @Date 和 @AllArgsConstructor后，@NoArgconstructor 失效， 需重新注解上 @NoArgconstructor
+<div class="myWarning">
+
+同时使用 @Date 和 @AllArgsConstructor后，@NoArgconstructor 失效， 需重新注解上 @NoArgconstructor
+</div>
 
 - `@RequiredArgsConstructor` 会生成一个包含常量 `final`，和标识了`@NotNull`的变量 的构造方法。
 
@@ -445,12 +447,11 @@ log.info(xxxx);
 
 
 ### 总结
-`
-  Lombok虽然有很多优点，但Lombok更类似于一种IDE插件，项目也需要依赖相应的jar包。Lombok依赖jar包是因为编译时要用它的注解，为什么说它又类似插件？因为在使用时，eclipse或IntelliJ IDEA都需要安装相应的插件，在编译器编译时通过操作AST（抽象语法树）改变字节码生成，变向的就是说它在改变java语法。它不像spring的依赖注入或者mybatis的ORM一样是运行时的特性，而是编译时的特性。这里我个人最感觉不爽的地方就是对插件的依赖！因为Lombok只是省去了一些人工生成代码的麻烦，但IDE都有快捷键来协助生成getter/setter等方法，也非常方便。
-  虽然非常不建议在属性的getter/setter写一些业务代码，但在多年项目的实战中，有时通过给getter/setter加一点点业务代码，能极大的简化某些业务场景的代码。所谓取舍，也许就是这时的舍弃一定的规范，取得极大的方便。
-  我现在非常坚信一条理念，任何编程语言或插件，都仅仅只是工具而已，即使工具再强大也在于用的人，就如同小米加步枪照样能赢飞机大炮的道理一样。结合具体业务场景和项目实际情况，无需一味追求高大上的技术，适合的才是王道。
-  Lombok有它的得天独厚的优点，也有它避之不及的缺点，熟知其优缺点，在实战中灵活运用才是王道。
-`
+
+  Lombok 虽然有很多优点，但 Lombok 更类似于一种 IDE 插件，项目也需要依赖相应的 jar 包。Lombok 依赖 jar 包是因为编译时要用它的注解，为什么说它又类似插件？因为在使用时，`eclipse 或 IntelliJ IDEA 都需要安装相应的插件`，在编译器编译时通过操作AST（抽象语法树）改变字节码生成，变向的就是说它在改变 java 语法。它不像 spring 的依赖注入或者 mybatis 的 ORM 一样是运行时的特性，而是`编译时`的特性。这里我个人最感觉不爽的地方就是对插件的依赖！因为 Lombok 只是省去了一些人工生成代码的麻烦，但 IDE 都有快捷键来协助生成 getter/setter 等方法，也非常方便。
+  虽然非常不建议在属性的 getter/setter 写一些业务代码，但在多年项目的实战中，有时通过给 getter/setter 加一点点业务代码，能极大的简化某些业务场景的代码。所谓取舍，也许就是这时的舍弃一定的规范，取得极大的方便。
+  Lombok 有它的得天独厚的优点，也有它避之不及的缺点，熟知其优缺点，在实战中灵活运用才是王道。
+
 </div>
 </div>
 
@@ -465,8 +466,8 @@ log.info(xxxx);
  ✿ [@blog : springboot日志输出到文件](https://blog.csdn.net/lchq1995/article/details/80080642)
 
 
-`日志分为日志抽象层与日志实现层。类似于 JDBC 与数据库的形式，不管连接的是什么数据库，只需将 JDBC 中对应的数据库信息修改即可。这里的日志抽象层是类似 JDBC 的效果，只需修改相应的日志实现层的信息即可。
-`
+日志分为日志`抽象层`与日志`实现层`。类似于 JDBC 与数据库的形式，不管连接的是什么数据库，只需将 JDBC 中对应的数据库信息修改即可。这里的日志抽象层是类似 JDBC 的效果，只需修改相应的日志实现层的信息即可。
+
 - 常用日志抽象层分类：`JCL` `SLF4j` `jboss-logging`
 - 常用日志实现层分类：`Log4j` `JUL` `Log4j2` `Logback`
 
@@ -485,7 +486,7 @@ SpringBoot 底层采用的是 Spring 框架，Spring 默认采用`JCL`。但 Spr
 
 <div class="myTip">
 
-使用过Spring Boot就会发现每次项目启动时，控制台都会有一个大大的Spring的字符画。
+使用过 Spring Boot 就会发现每次项目启动时，控制台都会有一个大大的 Spring 的字符画。
 Spring Boot也提供了自定义的方法, 在 `resource/banner.txt` 写入想显示的字符画, 就可以自动加载并显示出来。  
 **生成 bar 的工具：** ✿ [Springboot bar 生成器](https://devops.datenkollektiv.de/banner.txt/index.html)
  ✿ [ASCLL Generator](http://www.network-science.de/ascii/)
@@ -515,12 +516,12 @@ spring.output.ansi.enabled=detect
 **[FIXME] 注意点(道听途说)：**   
 `NEVER：`禁用 ANSI-colored 输出（默认项）  
 `DETECT：`会检查终端是否支持 ANSI ，是的话就采用彩色输出（推荐项）  
-`ALWAYS：`总是使用ANSI-colored格式输出，若终端不支持的时候，会有很多干扰信息，不推荐使用  
+`ALWAYS：`总是使用 ANSI-colored 格式输出，若终端不支持的时候，会有很多干扰信息，不推荐使用  
 </div>
 
 <div class="myTip">
 
-IDEA提供了个曲线救国的插件[Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console), 安装即可, 在IDEA的控制台渲染彩色日志, 在Tomcat不显示彩色日志。
+IDEA提供了个曲线救国的插件 [Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console), 安装即可, 在 IDEA 的控制台渲染彩色日志, 在Tomcat不显示彩色日志。
 </div>
 
 - **输入到文件**  
@@ -655,7 +656,7 @@ mybatis-spring-boot-starter主要有两种解决方案，一种是使用注解�
        <version>1.3.1</version>
    </dependency>
 
-   <!-- dom 层 测试 -->
+   <!-- dao 层 测试 -->
    <dependency>
        <groupId>org.mybatis.spring.boot</groupId>
        <artifactId>mybatis-spring-boot-starter-test</artifactId>
@@ -1055,7 +1056,7 @@ public class FilterDemo implements Filter {
 
 ```
 
-**2.入口文件添加`@ServletComponentScan`注解
+**2.入口文件添加`@ServletComponentScan`注解**
 
 ```java
 @ServletComponentScan(basePackages = {
