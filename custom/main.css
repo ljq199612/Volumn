@@ -394,10 +394,11 @@ h4.autosort {
 .data-section .toHide {
     border: none;
     width: 100%;
-    font-size: 1.5rem;
     background-image: linear-gradient(white, grey);
     color: #1b1d1d;
     border-radius: 1rem;
+    padding-top: 6px;
+    font-weight: bolder;
 }
 
 

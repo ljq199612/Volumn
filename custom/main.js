@@ -395,7 +395,7 @@ function customContent(){
 function foldModule(){
     // 添加模块底部折叠按钮
     $('.data-section').each(function(){
-        $(this).html( $(this).html() + "<button class='toHide fa fa-angle-up'></button>");
+        $(this).html( $(this).html() + "<button class='toHide iconfont icon-up'></button>");
     });
     
     // 模块显示头部设置

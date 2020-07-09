@@ -192,12 +192,44 @@ Map m = Collections.synchronizedMap(new HashMap(...));
 
 <h3 class = 'auto-sort-sub'>List</h3>
 
+
+
+
+<h4 class = 'auto-sort-sub1'>Vector</h4>
+
+
 <h4 class = 'auto-sort-sub1'>ArrayList</h4>
 
-初始默认长度为 10, 扩展后的长度为原来的 1.5 倍
+```java
+private void grow(int minCapacity) {
+    // overflow-conscious code
+    int oldCapacity = elementData.length;
+    // 扩展为 1.5 倍
+    int newCapacity = oldCapacity + (oldCapacity >> 1);
+    if (newCapacity - minCapacity < 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE > 0)
+        newCapacity = hugeCapacity(minCapacity);
+    // minCapacity is usually close to size, so this is a win:
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}
+```
+
+<div class="myTip">
+
+**ArrayList 和 Vector 的比较**  
+1. ArrayList 在功能上和 Vector 一样 
+1. Vector 是同步的，ArrayList 不是同步的。
+1. Vector 每次扩容为原来的 2 倍，而 ArrayList 是 1.5 倍。
+1. 可以使用 Collections.synchronizedList(); 得到一个线程安全的 ArrayList。
+</div>
+
+
+
 
 </div>
 </div>
+
 
 
 
