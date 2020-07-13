@@ -114,7 +114,13 @@ h6 .anchor span {
     background-image: linear-gradient(#f8f8f8, #bbb);
     font-family: monospace;
 }
-
+.markdown-section a {
+    color: darkslategrey;
+    font-weight: bolder;
+}
+.markdown-section blockquote {
+    border-left: 3px solid grey;
+}
 /* --------- `标记区` --------*/
 .myImportant,
 .markdown-section code {

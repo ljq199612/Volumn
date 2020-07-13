@@ -128,3 +128,5 @@ supremely happy with Him forever in the next.
 
 Amen 
 
+
+幸运的人一生都在被童年治愈，不幸的人一生都在治愈童年
