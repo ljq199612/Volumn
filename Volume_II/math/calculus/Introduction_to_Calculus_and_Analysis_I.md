@@ -623,7 +623,7 @@ $$ x_i - x_{i-1} = \Delta x_i  (i = 1, 2,..., n) $$
 </div>
 
 
-<div class="myProblem">
+<div class="myProblem no-shadow">
 <div class="myQuestion">
 </div>
 <button class="toggleAnswer answer-button">证明:</button>

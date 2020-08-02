@@ -16,6 +16,16 @@
 
 <div class='book-list-sub2'>
     <i class='nav-icon iconfont icon-book-open'></i>
+    <span> C</span>
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/c/the_C_Programming_Language" class="alive">
+        <i class='iconfont icon-page'></i>
+        C 语言程序设计</a>
+    </div>                                                            
+</div>                                                            
+
+<div class='book-list-sub2'>
+    <i class='nav-icon iconfont icon-book-open'></i>
     <span> JavaScript</span>
     <div class='book-list-sub3'>
         <a href="#/Volume_II/IT/javascript/javascript" class="alive">

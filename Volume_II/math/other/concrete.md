@@ -495,7 +495,9 @@ $$\psi(x\circ y)=\psi(x)\times\psi(y)$$
 设 $R\sube X\times X$ 如果 $xRy,\ yRz$, 则 $xRz$, 
 
 **关系的逆**  
-设 $R\sube X\times X$, $R^{-1}=\{(y,x)\mid(x,y)\in \R\}$
+设 $R\sube X\times X$, $R^{-1}=\{(y,x)\mid(x,y)\in \R\}$  
+
+设 $R$ 是集合 $X$ 上的二元关系，则 $R$ 为对称的 $\iff$ $R=R^{-1}$
 
 </div>
 
@@ -571,6 +573,8 @@ $$\psi(x\circ y)=\psi(x)\times\psi(y)$$
 
 
 <h3 class = 'auto-sort-sub'>关系的运算</h3>
+
+> 关系是集合的子集，所以集合的运算适用于关系
 
 </div>
 </div>

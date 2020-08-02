@@ -1,8 +1,9 @@
+- 以下软件默认的安装环境是 OpenSuse
 
-## 软件
+## 普通
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>RAR</h2>
+<h2 class = 'section-title'>RAR （压缩）</h2>
 <div class = 'folding-area'>
 
 [下载地址](http://www.rarlab.com/)
@@ -24,7 +25,7 @@ $ sudo ln -s /usr/local/rar/unrar /usr/local/bin/unrar
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>snapper</h2>
+<h2 class = 'section-title'>Snapper (系统回滚)</h2>
 <div class = 'folding-area'>
 
 **回滚 openSUSE 系统**  
@@ -40,8 +41,11 @@ sudo snapper rollback [NUM]
 </div>
 
 
+
+## IT
+
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>nodeJS</h2>
+<h2 class = 'section-title'>NodeJS</h2>
 <div class = 'folding-area'>
 
 1. **国内镜像**
@@ -265,3 +269,168 @@ $ bash <(curl -fsSL https://ljq199612.github.io/shell/hello.sh)
 </div>
 </div>
 
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>atom （开发工具）</h2>
+<div class = 'folding-area'>
+
+### 1. 安装 
+[ atom rpm 安装包](http://www.rpmfind.net/linux/rpm2html/search.php?query=atom)
+
+```bash
+sudo zypper install lsb
+sudo rpm  -ivh  atom.xx.rpm
+```
+
+### 2. 快捷键
+
+| 基本 |描述 |
+|:--|:--|
+| CTRL + \ | 显示或隐藏目录树|
+| CTRL + , | 进入 setting 页面 |
+| CTRL + B | 在打开的文件间切换 |
+| CTRL + 鼠标点击 | 增加多个光标 |
+| CTRL + M | 相应括号，html tag 标签间跳转 |
+| ALT + CTRL + , | 选择对应括号标签里的内容 |
+| ALT + CTRL + . | 关闭当前 XML/HTML 标签
+| CTRL + G | 光标移动到指定位置 |
+| CTRL + K, CTRL + U | 转大写 |
+| CTRL + K, CTRL + L | 转小写 |
+| CTRL + D | 选择文件中下一个选中的词 |
+| | |
+| CTRL + SHIFT + F | 整个项目里搜索 |
+| ALT + CTRL + ] \\ [ | 折叠展开代码块 |
+| ALT + CTRL + SHIFT + ] \\ [ | 折叠展开所有代码块 |
+| | |
+| CTRL + K, up | 向上添加编辑拆分面板 |
+| CTRL + W | 关闭当前面板 |
+| CTRL + SHIFT + L | 选择文件语法 |
+| | |
+| CTRL ] + ]\\[ | 展开（隐藏）当前目录 |
+| CTRL ] + ALT+ ]\\[ 或者 ALT + right \\ left| 递归展开（隐藏）目录 |
+
+
+### 3. 插件
+#### markdown
+
+- [markdown-preview-enhanced](https://atom.io/packages/markdown-preview-enhanced) --全面型 [(中文文档)](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)
+
+#### html
+
+- [emmet](https://atom.io/packages/emmet) -- html 代码快速生成
+
+#### javascript
+
+- [javascript-snippets](https://atom.io/packages/javascript-snippets) -- javascript & NodeJS 代码快速生成
+
+#### 正则表达式
+
+- [regex-railroad-diagram](https://atom.io/packages/regex-railroad-diagram)
+
+#### 浏览器关联
+
+- [open-in-browser](https://atom.io/packages/open-in-browser)
+
+
+#### 待处理
+- [Sublime-Style-Column-Selection](https://atom.io/packages/Sublime-Style-Column-Selection) --块状选择
+- [hyperclick](https://atom.io/packages/hyperclick) --快速跳转插件，配合js-hyperclick可以跳转到函数所在位置
+- [atom-bootstrap3](https://atom.io/packages/atom-bootstrap3) -- bootstrap3 html自动补全插件
+- [autocomplete-paths](https://atom.io/packages/autocomplete-paths) --自动补全文件路径
+- [color-picker](https://atom.io/packages/color-picker) --取色
+- [pigments](https://atom.io/packages/pigments) --编辑器中直接查看代码所代表的颜色
+
+</div>
+</div>
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>idea (开发工具)</h2>
+<div class = 'folding-area'>
+
+### 2. 插件
+
+
+</div>
+
+
+#### jrebel
+
+热部署插件
+
+<div class="myTip">
+
+收费插件，破解方式如下：  
+team url:  http://jrebel.cicoding.cn/4B068EB5-0941-4645-1E98-FC077D530A61
+
+</div>
+
+#### free Mybatis
+
+mybatis 中 Mapper 和 XML 的关联插件
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>zookeeper</h2>
+<div class = 'folding-area'>
+
+[下载地址](http://www.apache.org/dyn/closer.cgi/zookeeper/)
+
+1) 解压  
+
+2) 把 bin 目录下的 .sh 文件添加权限
+```bash
+chmod 755 *.sh
+```
+
+3) 在 conf 目录下添加 zoo.cfg 文件， 如
+```
+tickTime=2000
+initLimit=10
+syncLimit=5
+dataDir=/home/ljq/temp/zookeeper
+clientPort=2181
+```
+
+4) 添加执行环境, .bashrc 中添加
+```bash
+# zookeeper
+export ZK_HOME=/home/XXX/apache-zookerper/
+export PATH=$ZK_HOME/bin:$PATH
+alias  zookeeper-server='zkServer.sh'
+```
+
+5) 基本命令
+```bash
+zookeeper-server start
+zookeeper-server stop
+zookeeper-server restart
+zookeeper-server status
+```
+
+</div>
+</div>
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>ActiveMQ 消息队列</h2>
+<div class = 'folding-area'>
+
+[下载地址](http://activemq.apache.org/download-archives.html)
+
+1）解压
+
+2）基本命令
+```bash
+bin/activemq start
+bin/activemq stop
+
+# 可以建立软链接， 或者写入 .bashrc
+```
+3) 测试
+
+[localhost:8161/admin](http://127.0.0.1:8161/admin/)
+>用户：admin 
+>密码：admin
+
+
+
+</div>
+</div>

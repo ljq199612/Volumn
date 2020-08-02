@@ -121,6 +121,13 @@ h6 .anchor span {
 .markdown-section blockquote {
     border-left: 3px solid grey;
 }
+.markdown-section table tr{
+    background-color: white;
+}
+.markdown-section table th{
+    background-color: lightblue;
+}
+
 /* --------- `标记区` --------*/
 .myImportant,
 .markdown-section code {

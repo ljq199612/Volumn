@@ -168,7 +168,7 @@ a.makeSound();
 **要点：**
 - 观察者模式定义了对象之间一对多的关系。
 - 主题(也就是可观察者)用一个共同的接口来更新观察者。
-- 观察者和可观察者之间用松耦合方式结合(loosecoupl\-ing),`可观察者不知道观察者的细节,只知道观察者实现了观察者接口`。
+- 观察者和可观察者之间用松耦合方式结合(loosecoupling),`可观察者不知道观察者的细节,只知道观察者实现了观察者接口`。
 - 使用此模式时,你可从被观察者处推(push)或拉(pull)数据(然而,推的方式被认为更“正确”)。
 - 有多个观察者时,不可以依赖特定的通知次序。
 
@@ -287,7 +287,7 @@ public class Singleton {
 <h2 class = 'section-title'>适配器</h2>
 <div class = 'folding-area'>
 
-> 将一个类的接口，装换成客户期望的另一个接口。适配器可以让原本不兼容的类可以合作无间。
+> 将一个类的接口，转换成客户期望的另一个接口。适配器可以让原本不兼容的类可以合作无间。
 
 ✿ [适配器：用火鸡冒充鸭子](https://ljq199612.gitee.io/images/mind/design_patterns/09.png)  
 
@@ -298,7 +298,7 @@ public class Singleton {
 <h2 class = 'section-title'>外观</h2>
 <div class = 'folding-area'>
 
-> 提供了一个统一的接口，用来访问子系统z中的一群接口。外观定义了一个高层接口，让子系统更容易使用
+> 提供了一个统一的接口，用来访问子系统中的一群接口。外观定义了一个高层接口，让子系统更容易使用
 
 ✿ [外观模式：家庭影院](https://ljq199612.gitee.io/images/mind/design_patterns/10.png)  
 
@@ -344,7 +344,7 @@ public class Singleton {
 <h2 class = 'section-title'>状态</h2>
 <div class = 'folding-area'>
 
-> 允许对象在内部状态改变时改变它的行为，对象看起唉好像修改了它的类。
+> 允许对象在内部状态改变时改变它的行为，对象看起来好像修改了它的类。
 
 ✿ [状态模式：万能糖果机](https://ljq199612.gitee.io/images/mind/design_patterns/14.png)  
 </div>
@@ -358,7 +358,7 @@ public class Singleton {
 > 允许你将对象组合成树形结构来表现`整体与部分`层次结构。
 
 要点：
-- 在实现组合模式时，有许多设计上的则中，你要平衡安全性和透明性;
+- 在实现组合模式时，有许多设计上的折中，你要平衡安全性和透明性;
 - 组合模式 在具体实现上违背了设计模式 接口隔离原则 或 依赖倒置原则；
 
 ✿ [@blog: 组合模式](https://www.jianshu.com/p/c7f19e5310f9)  
