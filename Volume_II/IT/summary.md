@@ -26,6 +26,26 @@
 
 <div class='book-list-sub2'>
     <i class='nav-icon iconfont icon-book-open'></i>
+    <span> 算法</span>
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/algorithms/algorithms" class="alive">
+        <i class='iconfont icon-page'></i>
+        算法入门</a>
+    </div>                                                            
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/algorithms/Introduction_to_the_Design_and_Analysis_of_Algorithms" class="alive">
+        <i class='iconfont icon-page'></i>
+        算法设计与分析基础</a>
+    </div>                                                            
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/algorithms/Introduction_to_the_Design_and_Analysis_of_Algorithms_Problems" class="alive">
+        <i class='iconfont icon-page'></i>
+        算法设计与分析基础[题集]</a>
+    </div>                                                            
+</div>                                                            
+
+<div class='book-list-sub2'>
+    <i class='nav-icon iconfont icon-book-open'></i>
     <span> JavaScript</span>
     <div class='book-list-sub3'>
         <a href="#/Volume_II/IT/javascript/javascript" class="alive">

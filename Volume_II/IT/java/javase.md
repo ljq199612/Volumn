@@ -231,5 +231,195 @@ private void grow(int minCapacity) {
 </div>
 
 
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>第 <label class = 'block-number'>10</label> 章: 其他</h2>
+<div class = 'folding-area'>
+
+
+<h3 class = 'auto-sort-sub'>内省</h3>
+
+> 主要类: `Inteospector` `BeanInfo` `PropertyDescriptor` 
+
+内省(Introspector)是专门用来操作 JavaBean 属性的。`不是所有的字段(Field)都能被称之为属性`，只有某些字段具有 getXXX 或 setXXX 方法的才能称之为属性，当然要称为是一个 Bean 还需要有一个无参的构造器。
+
+
+例如: 
+```java
+public class Person {
+
+    private String name;
+
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+	public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getAbc() {
+        return null;
+    }
+
+}
+
+```
+
+**问：一共多少个属性？**  
+**答:** 4 个， 分别为 name, age, abc, class(Object 继承的getClass)
+
+
+<div class="myTip">
+
+当然仅仅操作是属性，可以按操作字段一样采用反射，但是采用内省会更加专业。
+</div>
+
+- 在 Java API 中有专门的一个类封装了内省的操作，这个类就是`Introspector`类，通过`getBeanInfo(…)`方法就可以将某个类中的属性封装到一个`BeanInfo`类中。
+- 取得 BeanInfo 对象后就相当于取得某个类的所有属性，那么再调用 BeanInfo 对象中的`getPropertyDescriptors()`方法获得PropertyDescriptor[] 数组对象，每个数组中的元素都是PropertyDescriptor实例(属性描述器)
+- `PropertyDescriptor`实例封装了每个属性特有的一些性质，比如调用`getReadMethod()`方法就能获得这个属性的get方法，调用`getWriteMethod()`方法就能获得这个属性的 set 方法。
+
+通过一段简单的代码来测试一下刚才 Person 这个 bean 对象到底有多少个属性：
+```java
+Person p = new Person();
+
+BeanInfo beanInfo = Introspector.getBeanInfo(p.getClass());
+
+PropertyDescriptor[] pds = beanInfo.getPropertyDescriptors();
+
+        for(PropertyDescriptor pd:pds) {
+            System.out.println(pd.getName());
+        }
+
+// ----------------------------------
+输出:
+abc
+age
+class
+name
+```
+
+<div class="myTip">
+
+- 如果我们不想继承父类的属性，比如上述的 class, 那么我们可以在给定的`断点`下对 JavaBean 进行内省。  
+getBeanInfo(Class<?> beanClass, Class<?> stopClass)  
+
+- 如果想直接操作一个 bean 的某个具体属性，可以直接使用属性描述器 PropertyDescriptor 的构造：
+
+```java
+PropertyDescriptor pd = new PropertyDescriptor("age", Person.class);
+Person p = new Person();
+Method setAgeMethod = pd.getWriteMethod();
+setAgeMethod.invoke(p,25);
+Method getAgeMethod = pd.getReadMethod();
+System.out.println(getAgeMethod.invoke(p, null));
+
+// -------------------------
+输出：25
+```
+
+</div>
+
+<h4 class = 'auto-sort-sub1'>BeanUtils 工具类</h4>
+
+BeanUtils 是由 Apache 公司开发的针对操作 JavaBean 的工具包，用以简化和丰富对 bean 属性的操作。
+
+```java
+Person p = new Person();
+BeanUtils.setProperty(p, "age", "25");
+System.out.println(p.getAge());
+
+// ------------------------
+输出：25
+```
+
+<div class="myWarning">
+
+在这个例子中，Person 的 age 属性类型为`int`，而在调用 setProperty 时使用的属性值为字符串，因此 BeanUtils 就将字符串`"25"`转换为了整数型 25 值。
+
+BeanUtils 对于字符串的转换只支持八大基本数据类型！
+</div>
+
+如果在 Person 中有一个 Date 类型的属性，可以使用 BeanUtils 包中的 ConvertUtils 注册一个转换器，使得字符串能够转换成日期 Date 类型。
+
+```java
+Person p = new Person();
+
+ConvertUtils.register(new Converter() {
+
+    @Override
+    public <T> T convert(Class<T> type, Object value) {
+        if(value == null) {
+            return null;
+        }
+        if(!(value instanceof String)) {
+            throw new ConversionException("传入类型错误");
+        }
+        String dateStr = (String) value;
+        if(dateStr.trim().equals("")) {
+            return null;
+        }
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            return (T)format.parse(dateStr);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+},Date.class);
+
+BeanUtils.setProperty(p, "birthday", "1991-7-1");
+System.out.println(p.getBirthday());
+
+```
+
+当然上面我们使用的是自己来写这个接口，对于 Apache 的 BeanUtils 来说，Converter 这个接口 Apache 已经帮我们写好了很多实现 Converter 接口的类了，因此我们可以使用这些现有的转换器类，比如有关日期的 DateConverter 或 DateLocaleConverter。
+
+```java
+ConvertUtils.register(new DateLocaleConverter(), Date.class);
+Person p = new Person();
+BeanUtils.setProperty(p, "birthday", "1991-7-2");
+System.out.println(p.getBirthday());
+```
+
+<div class="myWarning">
+
+上述的转换器有时候并不能满足我们的需求，比如我们将日期字符串设置为空字符就会抛出异常
+```java
+BeanUtils.setProperty(p, "birthday", "");
+```
+</div>
+
+BeanUtils 还能将 Map 集合中的值填充某个对象中的属性，只要 Map 集合的 Key 与属性名相同，这点非常适合 web 中的 Request 将数据封装到某个 bean 中。
+
+```java
+Map<String,String> map = new HashMap<>();
+map.put("name", "Ding");
+map.put("age", "25");
+map.put("birthday", "1991-7-1");
+
+ConvertUtils.register(new DateLocaleConverter(), Date.class);
+Person p = new Person();
+
+BeanUtils.populate(p, map);
+
+System.out.println(p.getName());
+System.out.println(p.getAge());
+System.out.println(p.getBirthday());
+```
+
+
+</div>
+</div>
 
 

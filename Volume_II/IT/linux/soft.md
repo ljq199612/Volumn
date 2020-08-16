@@ -1,6 +1,6 @@
-- 以下软件默认的安装环境是 OpenSuse
+> 以下软件默认的安装测试环境是 OpenSUSE, 默认在软件库下载安装软件
 
-## 普通
+# 普通
 
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>RAR （压缩）</h2>
@@ -14,6 +14,13 @@ $ sudo ln -s /usr/local/rar/unrar /usr/local/bin/unrar
 ```
 </div>
 </diV>
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>yakuake (下拉式终端模拟器)</h2>
+<div class = 'folding-area'>
+
+</div>
+</div>
 
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>Flatpak</h2>
@@ -40,9 +47,7 @@ sudo snapper rollback [NUM]
 </div>
 </div>
 
-
-
-## IT
+# IT 
 
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>NodeJS</h2>
@@ -62,33 +67,8 @@ cnpm config set prefix `npm config get prefix`
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>docsify</h2>
-<div class = 'folding-area'>
-
-[docsify 4.3.0](https://www.npmjs.com/package/docsify-cli/v/4.3.0)
-
-```bash
-# 切换到 root 后执行，sudo 执行好像不行
-# 安装 docsify 4.3.0
-cnpm install docsify-cli@4.3.0 -g
-
-# 初始化
-docsify init
-
-# 开启服务, localhost:3000 浏览
-docsify serve
-
-```
-
-</div>
-</div>
-
-<div class = 'data-section default-folding'>
 <h2 class = 'section-title'>GHex (16 进制编辑器)</h2>
 <div class = 'folding-area'>
-
-</div>
-</div>
 
 </div>
 </div>
@@ -97,7 +77,7 @@ docsify serve
 <h2 class = 'section-title'>Redis</h2>
 <div class = 'folding-area'>
 
-1. 确定系统中安装了 `gcc` `jemalloc`
+1. 确定系统中安装了 `gcc`
 
 1. [官网下载](https://redis.io/download)
 
@@ -108,103 +88,30 @@ $>  cd redis
 
 # 安装 
 $>  make
+$>  make install PREFIX=/home/XXX/redis/
+# 此时，生成 bin 目录
 ```
 
 1. 创建软链接
-```
-$>  ln -s  /home/xxx/redis/src/redis-server  ~/bin/redis-server
-$>  ln -s  /home/xxx/redis/src/redis-cli  ~/bin/redis
-```
-
-
-</div>
-</div>
-
-<div class = 'data-section default-folding'>
-<h2 class = 'section-title'>VirtualBox</h2>
-<div class = 'folding-area'>
-
-![在VirtualBox 中，如何在固定磁盘和动态磁盘之间装换](https://www.kutu66.com//Linux/article_13912)
-
 ```bash
-// 复制 kali.vdi 为固定虚拟盘 kali2.vdi
-$ VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Fixed
-// 复制 kali.vdi 为动态虚拟盘 kali2.vdi
-$ VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Standard
+$>  ln -s  /home/xxx/redis/bin/redis-server  ~/bin/redis-server
+$>  ln -s  /home/xxx/redis/bin/redis-cli  ~/bin/redis
 ```
-**virtualbox 增强功能**
-实验系统
-- 宿主机：opensuse  
-- 虚拟机：kali linux
+
+1. 启动服务
 ```bash
-# 虚拟机中安装 virtualbox
-$ sudo apt-get install virtualbox-*
-# 图形界面配置共享文件夹 + 重启电脑
-$ sudo mount -t public /mnt/public
+$>  redis-server
+
+# 或者后台启动，
+$>  redis-server &
 ```
 
+<div class="myTip">
+
+**后台运行的程序如何关闭？**  
+1. `ps -ef | grep redis` 查看进程
+1. `kill 进程ID`  关闭进程 
 </div>
-</div>
-
-
-<div class = 'data-section default-folding'>
-<h2 class = 'section-title'>split 大文件分割</label></h2>
-<div class = 'folding-area'>
-
-```bash
-# 将 windows7.ova 分割成 1G 大小的小文件
-$ split -db 1024m windows7.ova windows7.ova.part --verbose
-# 合并文件
-$ cat windows7.ova.part* > windows7.ova
-```
-</div>
-</div>
-
-<div class = 'data-section default-folding'>
-<h2 class = 'section-title'>git-lfs</h2>
-<div class = 'folding-area'>
-
-`解决git提交大文件的问题`
-[Git Large File Storage 官网](https://git-lfs.github.com/)  
-
-```bash
-# 在 git 项目根目录下执行
-$ git lfs install
-$ git lfs track "dir/*"
-# 此时会生成.gitattributes 文件
-$ git add .gitattributes
-$ git add .
-.....
-```
-
-</div>
-</div>
-
-<div class = 'data-section default-folding'>
-<h2 class = 'section-title'>pdf studio (pdf 编辑器）</h2>
-<div class = 'folding-area'>
-
-</div>
-</div>
-
-<div class = 'data-section default-folding'>
-<h2 class = 'section-title'>sdcv (终端下的词典)</h2>
-<div class = 'folding-area'>
-
-[使用方法](http://download.huzheng.org/)
-</div>
-</div>
-
-<div class = 'data-section default-folding'>
-<h2 class = 'section-title'>Image Burner ( usb刻录)</h2>
-<div class = 'folding-area'>
-
-</div>
-</div>
-
-<div class = 'data-section default-folding'>
-<h2 class = 'section-title'>yakuake (下拉式终端模拟器)</h2>
-<div class = 'folding-area'>
 
 </div>
 </div>
@@ -270,7 +177,7 @@ $ bash <(curl -fsSL https://ljq199612.github.io/shell/hello.sh)
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>atom （开发工具）</h2>
+<h2 class = 'section-title'>Atom （开发工具）</h2>
 <div class = 'folding-area'>
 
 ### 1. 安装 
@@ -344,7 +251,7 @@ sudo rpm  -ivh  atom.xx.rpm
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>idea (开发工具)</h2>
+<h2 class = 'section-title'>Idea (开发工具)</h2>
 <div class = 'folding-area'>
 
 ### 2. 插件
@@ -368,8 +275,11 @@ team url:  http://jrebel.cicoding.cn/4B068EB5-0941-4645-1E98-FC077D530A61
 
 mybatis 中 Mapper 和 XML 的关联插件
 
+</div>
+</div>
+
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>zookeeper</h2>
+<h2 class = 'section-title'>Zookeeper</h2>
 <div class = 'folding-area'>
 
 [下载地址](http://www.apache.org/dyn/closer.cgi/zookeeper/)
@@ -381,16 +291,18 @@ mybatis 中 Mapper 和 XML 的关联插件
 chmod 755 *.sh
 ```
 
-3) 在 conf 目录下添加 zoo.cfg 文件， 如
+3) 在 conf 目录下添加`zoo.cfg`文件， 如
 ```
 tickTime=2000
 initLimit=10
 syncLimit=5
 dataDir=/home/ljq/temp/zookeeper
 clientPort=2181
+# 默认是 8080 
+admin.serverPort=8888
 ```
 
-4) 添加执行环境, .bashrc 中添加
+4) 添加执行环境,`.bashrc`中添加
 ```bash
 # zookeeper
 export ZK_HOME=/home/XXX/apache-zookerper/
@@ -409,8 +321,96 @@ zookeeper-server status
 </div>
 </div>
 
+
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>ActiveMQ 消息队列</h2>
+<h2 class = 'section-title'>Dubbo-admin (Dubbo 管理)</h2>
+<div class = 'folding-area'>
+
+[下载地址 (Github)](https://github.com/apache/dubbo-admin)
+
+[新版 Dubbo admin 介绍](http://dubbo.apache.org/zh-cn/blog/dubbo-admin.html)
+
+环境依赖：
+- tomcat
+- maven
+- zookeeper
+- nodejs
+
+
+1) 解压
+
+2) 查看 `README.md` 文件，了解基本使用
+
+3）配置`dubbo-admin-server`
+
+修改`application.properties`, 注册`zookeeper`地址
+
+```properties
+# 默认为本地
+admin.registry.address=zookeeper://127.0.0.1:2181
+admin.config-center=zookeeper://127.0.0.1:2181
+admin.metadata-report.address=zookeeper://127.0.0.1:2181
+```
+
+4）启动服务器上的`zookeeper`
+
+5) 托管`dubbo-admin-server`到 tomcat
+
+<div class="myTip">
+
+**如何生成`war`包?**
+
+进入`dubbo-admin-server`目录，修改`pom.xml`
+
+```xml
+在 
+<artifactId>dubbo-admin-server</artifactId>
+后，添加
+<packaging>war</packaging>
+```
+
+运行
+
+```bash
+mvn package -Dmaven.skip.test=true
+# 在 target 目录下生成 `dubbo-admin-server.war` 文件
+```
+</div>
+
+6）配置`dubbo-admin-ui`界面  
+修改`dubbo-admin-ui/config/index.js`文件
+
+```
+修改默认服务地址 
+    http://localhost:8080 
+为 tomcat 配置下服务地址
+    http://XXX/dubbo-admin-server/
+
+```
+
+7）启动`dubbo-admin-ui`
+```
+$> npm run dev
+
+# 默认为 http://localhost:8081
+# 可通过 dubbo-admin-ui/config/index.js 修改
+http://localhost:8081
+```
+
+<div class="myTip">
+
+可以抽出`ui`目录，在`.bashrc` 文件添加别名运行
+```bash
+alias  dubbo-admin-cli-start='npm run dev --prefix ~/opt/dubbo-admin-ui/' 
+```
+</div>
+
+</div>
+</div>
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>ActiveMQ (消息队列)</h2>
 <div class = 'folding-area'>
 
 [下载地址](http://activemq.apache.org/download-archives.html)
@@ -434,3 +434,114 @@ bin/activemq stop
 
 </div>
 </div>
+
+# 其他
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>Docsify (文档生成)</h2>
+<div class = 'folding-area'>
+
+[docsify 4.3.0](https://www.npmjs.com/package/docsify-cli/v/4.3.0)
+
+```bash
+# 切换到 root 后执行，sudo 执行好像不行
+# 安装 docsify 4.3.0
+cnpm install docsify-cli@4.3.0 -g
+
+# 初始化
+docsify init
+
+# 开启服务, localhost:3000 浏览
+docsify serve
+
+```
+
+</div>
+</div>
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>VirtualBox</h2>
+<div class = 'folding-area'>
+
+![在VirtualBox 中，如何在固定磁盘和动态磁盘之间装换](https://www.kutu66.com//Linux/article_13912)
+
+```bash
+// 复制 kali.vdi 为固定虚拟盘 kali2.vdi
+$>  VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Fixed
+// 复制 kali.vdi 为动态虚拟盘 kali2.vdi
+$>  VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Standard
+```
+**virtualbox 增强功能**
+实验系统
+- 宿主机：opensuse  
+- 虚拟机：kali linux
+```bash
+# 虚拟机中安装 virtualbox
+$ sudo apt-get install virtualbox-*
+# 图形界面配置共享文件夹 + 重启电脑
+$ sudo mount -t public /mnt/public
+```
+
+</div>
+</div>
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>split (大文件分割)</label></h2>
+<div class = 'folding-area'>
+
+```bash
+# 将 windows7.ova 分割成 1G 大小的小文件
+$ split -db 1024m windows7.ova windows7.ova.part --verbose
+# 合并文件
+$ cat windows7.ova.part* > windows7.ova
+```
+</div>
+</div>
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>git-lfs</h2>
+<div class = 'folding-area'>
+
+`解决git提交大文件的问题`
+[Git Large File Storage 官网](https://git-lfs.github.com/)  
+
+```bash
+# 在 git 项目根目录下执行
+$ git lfs install
+$ git lfs track "dir/*"
+# 此时会生成.gitattributes 文件
+$ git add .gitattributes
+$ git add .
+.....
+```
+
+</div>
+</div>
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>pdf studio (pdf 编辑器）</h2>
+<div class = 'folding-area'>
+
+</div>
+</div>
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>sdcv (终端下的词典)</h2>
+<div class = 'folding-area'>
+
+[使用方法](http://download.huzheng.org/)
+</div>
+</div>
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>Image Burner ( usb刻录)</h2>
+<div class = 'folding-area'>
+
+</div>
+</div>
+
+
+
+

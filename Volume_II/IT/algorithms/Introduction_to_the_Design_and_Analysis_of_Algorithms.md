@@ -11,7 +11,7 @@
 
 <div class="myImage">
 
-![-image-](../images/algorithm/01.png)
+![-image-](../images/algorithms/algorithms_design/01.png)
 <label class="imageTitle">图示: 算法的概念 </label>
 </div>
 
@@ -688,4 +688,7 @@ $$\begin{aligned}
 
 </div>
 </div>
+
+
+
 
