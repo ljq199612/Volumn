@@ -76,7 +76,7 @@ private int newCapacity(int minCapacity) {
 
 <h3 class = 'auto-sort-sub'>HashMap</h3>
 
-✿ [HashMap 源码解析](https://ljq199612.gitee.io/Volume/Volume_II/IT/images/java/javase/collection/00.png)
+✿ [HashMap 源码解析](https://ljq199612.gitee.io/Volume/Volume_II/IT/images/java/javase/collection/08.png)
 
 
 <h4 class = 'auto-sort-sub1'>HashMap 的继承体系</h4>
@@ -154,6 +154,7 @@ hash 值为int，index 需要映射到`0 ～ length -1`，最直观的使用`取
 
 hash 值的计算
 ```java
+// HashMap 当 key 为 null 时，直接返回 0, 最后做`位运算`后，得到数组下标为 0  
 static final int hash(Object key) {
         int h;
         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
@@ -184,11 +185,18 @@ JDK 8 开始采用尾插法，之前采用头插法。
 
 <h4 class = 'auto-sort-sub1'>HashMap 与 HashTable 的比较</h4>
 
-HashMap类与HashTable大致等效，不同之处在于它是不同步的，并且允许为 null 和 null 键
+HashMap类与HashTable大致等效，不同之处在于它是不同步的，并且允许为 null 键 和 null 值
 - 如果需要线程安全，最好在创建的时候进行同步
 ```java
 Map m = Collections.synchronizedMap(new HashMap(...));
 ```
+
+<div class="myTip">
+
+
+**为什么同步的不支持 key 或者 value 为 null ？**  
+**答：**  ConcurrentHashmap 和 Hashtable 都是支持并发的，这样会有一个问题，当你通过 get(k) 获取对应的 value 时，如果获取到的是 null 时，`你无法判断，它是 put（k,v）的时候 value 为 null，还是这个 key 从来没有做过映射`。支持并发的 Map 在调用 m.contains（key）和 m.get(key), m 可能已经不同了。
+</div>
 
 <h3 class = 'auto-sort-sub'>List</h3>
 
@@ -197,6 +205,7 @@ Map m = Collections.synchronizedMap(new HashMap(...));
 
 <h4 class = 'auto-sort-sub1'>Vector</h4>
 
+✿ [Vector 源码解析](https://ljq199612.gitee.io/Volume/Volume_II/IT/images/java/javase/collection/09.png)
 
 <h4 class = 'auto-sort-sub1'>ArrayList</h4>
 
@@ -259,7 +268,7 @@ public class Person {
         this.name = name;
     }
     
-	public int getAge() {
+    public int getAge() {
         return age;
     }
 
@@ -281,7 +290,7 @@ public class Person {
 
 <div class="myTip">
 
-当然仅仅操作是属性，可以按操作字段一样采用反射，但是采用内省会更加专业。
+如果仅仅是操作属性，也可以采用反射，但是采用内省会更加专业。
 </div>
 
 - 在 Java API 中有专门的一个类封装了内省的操作，这个类就是`Introspector`类，通过`getBeanInfo(…)`方法就可以将某个类中的属性封装到一个`BeanInfo`类中。
@@ -332,6 +341,11 @@ System.out.println(getAgeMethod.invoke(p, null));
 <h4 class = 'auto-sort-sub1'>BeanUtils 工具类</h4>
 
 BeanUtils 是由 Apache 公司开发的针对操作 JavaBean 的工具包，用以简化和丰富对 bean 属性的操作。
+
+<div class="myWarning">
+
+网传 Apache BeanUtils 有坑，推荐用 Spring BeanUtils
+</div>
 
 ```java
 Person p = new Person();
