@@ -3,13 +3,14 @@
 <br>
 <p>
 
-<a href="#/Volume_II/welcome" class="js-name name alive">
-    <i class='iconfont icon-books-1'></i> Volume II</a>
+<span class="name">
+    <i class='iconfont icon-books-1'></i> Volume II
+</span>
 </div>
 
 <hr>
 
-<!-- VOLUME I -->
+<!-- VOLUME II -->
 
 <!---->
 <div class='book-list-sub1'>

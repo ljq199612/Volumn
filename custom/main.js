@@ -4,17 +4,6 @@ function customRun(){
         customContent();
 
 
-        $(".ttt").click(function(){
-            //alert(111);
-            $.ajax({
-                url: "summary.md",
-                success: function(result){
-                    //$(".ttt").html(result);
-                    alert(result);                          
-                }
-            });
-       });
-                                                                                               
     });
 
 }
@@ -691,9 +680,41 @@ function myProblem(){
             $(this).next().slideToggle('slow');
         });
     });
-
-
-
-
 }
+
+
+
+
+/* [Start] thought.md 专用 */
+function articleList_isShow(element){
+      if(element.innerHTML=='显示全部'){
+        element.previousElementSibling.className = 'article_content';
+        element.innerHTML='隐藏';
+      }
+      else{
+        element.previousElementSibling.classList.add('hidden_article');
+        element.innerHTML='显示全部';
+      }
+}
+
+// 是否显示「阅读」
+function articleList_readOnline(){
+    let reads = document.querySelectorAll(".readOnline");
+    let url = "";
+    for(let i=0 ;i < reads.length; i++ ){
+        if( reads[i].attributes["href"].value == '#'){
+           reads[i].style.display='none';
+        }
+    }
+}
+
+
+window.onload = function(){articleList_readOnline();}
+
+/* [End] thought.md */
+
+
+
+
+
 
