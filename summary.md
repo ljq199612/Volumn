@@ -14,7 +14,7 @@
     <a href="#/Volume_I/welcome" class="alive"> VOLUME I </a>
     <!---->
     <div class='book-list-sub1'>
-        <a href="#/Volume_I/reading/welcome" class="alive">
+        <a href="#/Volume_I/Reading/welcome" class="alive">
         <i class='iconfont icon-dir'></i>
         读书</a>
     </div>                                                            
