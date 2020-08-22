@@ -597,6 +597,10 @@ li.content-H6:hover {
   color: #204779;
 }
 
+.bookList li {
+  margin-left: 2rem;
+}
+
 .bookList a {
   color: unset;
   text-decoration: unset;
