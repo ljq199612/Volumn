@@ -591,8 +591,30 @@ li.content-H6:hover {
     border-radius: 50%;
 }
 
+/* ------------ 书籍列表 ------------*/
+.bookList {
+  font-size: 1.3rem;
+  color: #204779;
+}
 
+.bookList a {
+  color: unset;
+  text-decoration: unset;
+}
 
+.bookList img {
+  width: 0.6rem;
+}
+
+.bookList li {
+  list-style-type: hebrew;
+  padding-top: 0.4rem;
+}
+
+.book-pdf {
+  color: brown;
+  font-size: x-small;
+}
 
 
 
