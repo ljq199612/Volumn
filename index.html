@@ -51,7 +51,7 @@
   <script>
     window.$docsify = {
       loadSidebar: 'summary',                       // 文件树
-	  autoHead: true,                               // 文件树自动回顶部
+      autoHead: true,                               // 文件树自动回顶部
       loadNavbar: false,                            
       subMaxLevel: 0,                          // 文件树结构展开不展开，自定义文件树         
       homepage: 'welcome.md',
@@ -124,10 +124,14 @@
   -->
   <script src="js/docsify-tabs.js"></script>
 
-  <!-- note tip 等注释框
-  <script src="//unpkg.com/docsify-plugin-flexible-alerts"></script>
+  <!-- WARNING:
+    页面启动会长时间处于加载中，use.fontawesome.com 找不到
+    利用下面这个插件可以曲线救国
+
+    方案来源: https://github.com/fzankl/docsify-plugin-flexible-alerts/issues/15
   -->
-  <script src="js/flexible-alerts.min.js"></script>
+  <!-- note tip 等注释框 -->
+  <script src="//unpkg.com/docsify-plugin-flexible-alerts"></script>
 
   <!-- 代码复制
   <script src="//unpkg.com/docsify-copy-code"></script>   

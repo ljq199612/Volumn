@@ -2,8 +2,6 @@ function customRun(){
     $(document).ready(function(){
         customComponents();
         customContent();
-
-
     });
 
 }
@@ -510,6 +508,7 @@ function foldSide(){
         $(this).siblings('.book-list-sub3').slideToggle();
     });
 
+
     let isFold = true;
     $('.js-name').click(function(){
         if(isFold){
@@ -532,8 +531,11 @@ function foldSide(){
     
     let $getPage = $("a[href='"+thisHash+"']").parent();
     let isTarget = $getPage.hasClass("book-list-sub3") || $getPage.hasClass("book-list-sub2");
-    if(isTarget) $getPage.addClass("to-active");
-    
+    if(isTarget){
+        $getPage.addClass("to-active");
+        $getPage.parent('.book-list-sub2').children('.book-list-sub3').removeClass('hidden');
+        
+    }
     $('.book-list-sub2 a, .book-list-sub3 a').click(function(){
         let isThisPage = thisHash == $(this).attr('href');
         if(isThisPage){
@@ -544,10 +546,11 @@ function foldSide(){
             $('section').hide();
         }
     });
-
-
+    
 
 }
+
+// -------------------------------------------------
 
 function myTip(){
     $('.myTip').each(function(){
