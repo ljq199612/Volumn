@@ -77,10 +77,9 @@ cnpm config set prefix `npm config get prefix`
 <h2 class = 'section-title'>Redis</h2>
 <div class = 'folding-area'>
 
-1. 确定系统中安装了 `gcc`
+1.确定系统中安装了 `gcc`
 
-1. [官网下载](https://redis.io/download)
-
+2.[官网下载](https://redis.io/download), 解压安装
 ```bash
 $>  tar xzf redis-xxx.tar.gz
 
@@ -91,14 +90,12 @@ $>  make
 $>  make install PREFIX=/home/XXX/redis/
 # 此时，生成 bin 目录
 ```
-
-1. 创建软链接
+3.创建软链接
 ```bash
 $>  ln -s  /home/xxx/redis/bin/redis-server  ~/bin/redis-server
 $>  ln -s  /home/xxx/redis/bin/redis-cli  ~/bin/redis
 ```
-
-1. 启动服务
+4.启动服务
 ```bash
 $>  redis-server
 
@@ -115,6 +112,36 @@ $>  redis-server &
 
 </div>
 </div>
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>Oracle 客户端</h2>
+<div class = 'folding-area'>
+
+1.下载软件包 [Basic Package(ZIP)](https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html)
+
+2.配置环境 `.bashrc`
+
+```shell
+export ORACLE_HOME=/home/xxx/oracle-client/
+export TNS_ADMIN=$ORACLE_HOME/network/admin
+export NLS_LANG=AMERICAN_AMERICA.ZHS16GBK
+export NLS_LANG=AMERICAN_AMERICA.AL32UTF8
+export LD_LIBRARY_PATH=$ORACLE_HOME
+export PATH=$ORACLE_HOME:$PATH
+```
+
+<div class="myTip">
+
+1. 可以去官网下载基本的管理工具`SQL*PLus Package`，解压到 oracle 客户端解压的目录
+
+1. 利用图形管理工具连接 oracle 服务器，如 [DataGrip](https://www.jetbrains.com/datagrip/)
+
+</div>
+
+</div>
+</div>
+
 
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>mycli  (mysql 命令行提示和语法高)</h2>

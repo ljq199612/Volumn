@@ -16,7 +16,7 @@
 
 <div class='book-list-sub2'>
     <i class='nav-icon iconfont icon-book-open'></i>
-    <span> C</span>
+    <span> C/C++</span>
     <div class='book-list-sub3'>
         <a href="#/Volume_II/IT/c/the_C_Programming_Language" class="alive">
         <i class='iconfont icon-page'></i>
@@ -149,11 +149,20 @@
 
 <div class='book-list-sub2'>
     <i class='nav-icon iconfont icon-book-open' ></i>
-    <span> HTML </span>
+    <span> HTML/CSS </span>
     <div class='book-list-sub3'>
-        <a href="#/Volume_II/IT/web/html5+css3" class="alive">
+        <a href="#/Volume_II/IT/html/mastery_css" class="alive">
+        <i class='iconfont icon-page' ></i> 精通 CSS</a>
+    </div>
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/html/html5+css3" class="alive">
         <i class='iconfont icon-page' ></i> HTML5 + CSS3</a>
-    </div>                                                            
+    </div>
+    <div class='book-list-sub3'>
+        <a href="#/Volume_II/IT/html/tools" class="alive">
+        <i class='iconfont icon-page' ></i> 工具</a>
+    </div>
+    
 </div>                                                            
 
 <hr>

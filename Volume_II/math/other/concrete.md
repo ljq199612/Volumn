@@ -33,7 +33,7 @@ $\quad|A\times B|=|A|\cdot|B|$
 
 $\quad|A\cup B|=|A|+|B|-|A\cap B|$  
 
-**设 $f\ : \ X\to Y, A\sube Y, \ B\sube Y$, 则**  
+**设 $f:\ X\to Y, A\sube Y, \ B\sube Y$, 则**  
 
 $\quad f^{-1}(A\cup B)=f^{-1}(A)\cup f^{-1}(B)$  
 
@@ -204,7 +204,7 @@ $=(A\cap B\backslash C)\cup (A\cap C\backslash B)$
 $$\bigcup_{\alpha\in I}A_\alpha =\{x\mid \exist\alpha\in I 使得 x\in A_\alpha\}$$
 
 **集簇的交集**  
-$$\displaystyle\bigcup_{\alpha\in I}A_\alpha =\{x\mid \forall\alpha\in I,\ x\in A_\alpha\}$$
+$$\displaystyle\bigcap_{\alpha\in I}A_\alpha =\{x\mid \forall\alpha\in I,\ x\in A_\alpha\}$$
 
 - 例如，设 $I = \{x\in \R\mid 0\lt x\le 1\},\ \forall x\in \R, A_x=\{y\in\R\mid 0\lt y \lt x\}$, 则  
  $$\displaystyle\bigcup_{x\in I} A_x=\{x\in \R \mid 0\lt x\lt 1\},\ \displaystyle\bigcap_{x\in I}A_x=\empty$$
@@ -224,7 +224,7 @@ $\qquad Y\times X=\{(3,1),(3,2),(4,1),(4,2),(5,1),(5,2)\}$
 <div class="myFormula">
 
 设 $A, B$ 为有穷集, 则  
-$|A\times B|=|A|\cdot|B|$
+$|A\times B|=|A|\cdot|B|$  
 $|A\cup B|=|A|+|B|-|A\cap B|$  
 </div>
 
@@ -279,47 +279,47 @@ $1000 = 804+205+190-125-85-57+|A\cap B\cap C|$
 <div class="myFormula">
 
 **映射**  
-设 $X$ 和 $Y$ 为两个非空集合。有一法则 $f$, 使对于 $X$ 中的每个元素 $x$ 都有 $Y$ 中唯一确定的元素 $y$ 与之对应。则 $f$ 称为从 $X$ 到 $Y$ 的映射，通常记为 $f\ :\ X\to Y$
+设 $X$ 和 $Y$ 为两个非空集合。有一法则 $f$, 使对于 $X$ 中的每个元素 $x$ 都有 $Y$ 中唯一确定的元素 $y$ 与之对应。则 $f$ 称为从 $X$ 到 $Y$ 的映射，通常记为 $f:\ X\to Y$
 - 例如，设集合 $X=\{-1,0,1\}$, 集合 $Y=\{0,1,2\}$, $f=\{(-1,1),(0,0),(1,1)\}$, 则 $f$ 为从集合 $X$ 到集合 $Y$ 的映射
 
 **单射**  
-设 $f\ :\ X\to Y$, 如果 $\forall x_1,x_2\in X$, 只要 $x_1\not = x_2$, 就有 $f(x_1)\not = f(x_2)$, 则称 $f$ 为从 $X$ 到 $Y$ 的单射
+设 $f:\ X\to Y$, 如果 $\forall x_1,x_2\in X$, 只要 $x_1\not = x_2$, 就有 $f(x_1)\not = f(x_2)$, 则称 $f$ 为从 $X$ 到 $Y$ 的单射
 
 **满射**  
-设 $f\ : \ X\to Y$, 如果 $\forall y\in Y,\ \exist x\in X$, 使得 $f(x)=y$, 则称 $f$ 为从 $X$ 到 $Y$的满射
+设 $f:\ X\to Y$, 如果 $\forall y\in Y,\ \exist x\in X$, 使得 $f(x)=y$, 则称 $f$ 为从 $X$ 到 $Y$的满射
 
 **双射（一一对应）**  
 `单射`+`满射`
 
 **象**  
-设 $f$ 为从集合 $X$ 到集合 $Y$ 的映射 $f\ :\ X\to Y$, 如果 $y=f(x)$, 则称 $y$ 为 $x$ 在 $f$ 下的象，称 $x$ 为 $y$ 下的`原象`, $X$ 称为 $f$ 的`定义域`; 集合 $\{f(x)\mid x\in X\}$ 称为 $f$ 的`值域`，记为 $Im(f)$
+设 $f$ 为从集合 $X$ 到集合 $Y$ 的映射 $f:\ X\to Y$, 如果 $y=f(x)$, 则称 $y$ 为 $x$ 在 $f$ 下的象，称 $x$ 为 $y$ 下的`原象`, $X$ 称为 $f$ 的`定义域`; 集合 $\{f(x)\mid x\in X\}$ 称为 $f$ 的`值域`，记为 $Im(f)$
 
-设 $f\ :\ X\to Y,\ A\sube X,\ A$ 在 $f$ 下的象定义为
+设 $f:\ X\to Y,\ A\sube X,\ A$ 在 $f$ 下的象定义为
 $$f(A)=\{f(x)\mid x\in A\}$$
-- 例如，设 $f\ :\ \{-1,0,1\}\to \{-1,0,1\}, \ f(x)=x^2$, 则 $f(\{-1,0\})=\{0,1\}$  
+- 例如，设 $f:\ \{-1,0,1\}\to \{-1,0,1\}, \ f(x)=x^2$, 则 $f(\{-1,0\})=\{0,1\}$  
 
 **限制**  
-设 $f\ :\ X\to Y,\ A\sube X$, 当把 $f$ 的定义域限制在 $A$ 上时，就得到了一个 $\psi: A\to Y, \forall x\in A, \psi(x)=f(x),\  \psi$ 称为 $f$ 在 $A$ 上的限制，常用 $f|A$ 表示
+设 $f:\ X\to Y,\ A\sube X$, 当把 $f$ 的定义域限制在 $A$ 上时，就得到了一个 $\psi: A\to Y, \forall x\in A, \psi(x)=f(x),\  \psi$ 称为 $f$ 在 $A$ 上的限制，常用 $f|A$ 表示
 
 **恒等映射**  
-设 $f\ : \ X\to X$, 如果 $\forall x\in X,f(x)=x$, 则称 $f$ 为 $X$ 上的恒等映射，常记为 $I_X$
+设 $f:\ X\to X$, 如果 $\forall x\in X,f(x)=x$, 则称 $f$ 为 $X$ 上的恒等映射，常记为 $I_X$
 
 **复合**  
-设 $f\ :\ X\to Y, \ g\ :\ Y\to Z $ 为映射，映射 $f$ 与 $g$ 的复合$g\circ f\ :\ X\to Z$ 定义为 $(g\circ f)(x)=g(f(x))$
+设 $f:\ X\to Y, \ g:\ Y\to Z $ 为映射，映射 $f$ 与 $g$ 的复合 $g\circ f:\ X\to Z$ 定义为 $(g\circ f)(x)=g(f(x))$
 
 - $(h\circ g)\circ f=h\circ(g\circ f)$
 
 **逆**  
-若 $f\ ：\ X\to Y$ 为一个双射， 则 $g\ :\ Y\to X,\ g=\{(y,x)\mid(x,y)\in f\}$ 称为 $f$ 的逆映射，记为 $g=f^{-1}$
+若 $f:X\to Y$ 为一个双射， 则 $g:Y\to X,\ g=\{(y,x)\mid(x,y)\in f\}$ 称为 $f$ 的逆映射，记为 $g=f^{-1}$
 - 例如，$集合 X=\{1,2,3\},\ Y=\{4,5,6\},\ f=\{(1,4),(2,5),(3,6)\}$ 为从 $X$ 到 $Y$ 的双射，则 $f^{-1}=\{(4,1),(5,2),(6,3)\}$
 
 - $f\ 左可逆\iff f\ 为单射$  
-- $f\ 右左可逆\iff f\ 为满射$  
+- $f\ 右可逆\iff f\ 为满射$  
 
 </div>
 
 
-**设 $f\ : \ X\to Y, A\sube Y, \ B\sube Y$, 则**  
+**设 $f:\ X\to Y, A\sube Y, \ B\sube Y$, 则**  
 
 $\quad f^{-1}(A\cup B)=f^{-1}(A)\cup f^{-1}(B)$  
 
@@ -341,7 +341,7 @@ $\quad f^{-1}(A^c)=(f^{-1}(A))^c$
 **置换**  
 `有穷集合` $S$ 到自身的一一对应称为 $S$ 上的一个置换。如果 $|S|=n$, 则 $S$ 上的置换就说成是 $n$ 次置换
 
-设 $S=\{1,2,3,\dots,n\},\ \sigma\ :\ S\to S $ 为 $S$ 上的一个置换。 $\sigma(1)=k_1,\ \sigma(2)=k_2,\cdots,\ \sigma(n)=k_n$, (`列的次序无关紧要`)，即
+设 $S=\{1,2,3,\dots,n\},\ \sigma:\ S\to S $ 为 $S$ 上的一个置换。 $\sigma(1)=k_1,\ \sigma(2)=k_2,\cdots,\ \sigma(n)=k_n$, (`列的次序无关紧要`)，即
 $$
 \sigma=
 \begin{pmatrix}
@@ -430,11 +430,11 @@ $$(b+c)\circ a=b\circ a+c\circ a$$
 设 $(X,\circ)$ 为一个代数系，$\circ$ 有单位元素 $e,\ a\in X$, 如果 $\exist b\in X$, 使得 $a\circ b=b\circ a=e$,则称 $b$ 为 $a$ 的逆运算
 
 **同构**  
-设 $(S,+)$ 与 $(T, \oplus)$ 为两个代数系，如果存在一个一一对应 $\psi\ :\ S\to T$, 使得 $\forall x,y\in S$, 有 
+设 $(S,+)$ 与 $(T, \oplus)$ 为两个代数系，如果存在一个一一对应 $\psi:\ S\to T$, 使得 $\forall x,y\in S$, 有 
 $$\psi(x+y)=\psi(x)\oplus\psi(y)$$
 则称代数系 $(S, +)$ 与 $(T,\oplus)$ 同构，记为 $S\cong T$, $\psi$ 称为这两个代数系之间的一个同构
 
-- 设 $(S,+,\circ)$ 与 $(T, \oplus, \times)$ 为两个代数系，如果存在一个一一对应 $\psi\ :\ S\to T$, 使得 $\forall x,y\in S$, 有 
+- 设 $(S,+,\circ)$ 与 $(T, \oplus, \times)$ 为两个代数系，如果存在一个一一对应 $\psi:\ S\to T$, 使得 $\forall x,y\in S$, 有 
 $$\psi(x+y)=\psi(x)\oplus\psi(y)$$
 $$\psi(x\circ y)=\psi(x)\times\psi(y)$$
 则称代数系 $(S, +,\circ)$ 与 $(T,\oplus,\times)$ 同构，记为 $S\cong T$, $\psi$ 称为这两个代数系之间的一个同构
