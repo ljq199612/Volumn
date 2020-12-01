@@ -285,7 +285,34 @@ h6 .anchor span {
 .myNote, .myWarning, .myTip, .myExample {
   padding: 0.2rem 1rem;   
   border-left: 3px solid;
+  margin-bottom: 1.5rem;
 }
+
+.myTry {
+  background: yellow;
+  border: 1px solid;
+  padding: 3px 10px;
+  border-radius: 1rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.myColorDot {
+  padding: 0 0.6rem;
+  border-radius: 0.25rem;
+  margin: 0 0.2rem;
+  border: 1px solid #b0a0a0;
+  font-size: 0.8rem;
+}
+
+.myGrid {
+  display: grid;
+  margin-bottom: 1.5rem;
+  grid-column-gap:2rem;
+  grid-template-columns: 30% 70%;
+
+}
+
 
 .myNote .note,
 .myWarning .warning,

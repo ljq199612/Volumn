@@ -534,7 +534,6 @@ function foldSide(){
     if(isTarget){
         $getPage.addClass("to-active");
         $getPage.parent('.book-list-sub2').children('.book-list-sub3').removeClass('hidden');
-        
     }
     $('.book-list-sub2 a, .book-list-sub3 a').click(function(){
         let isThisPage = thisHash == $(this).attr('href');

@@ -4,11 +4,12 @@
 
 <div class="IT">
     <ul class="bookList">
+        <h2>基础</h2>
+        <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/Computer_Organization_and_Arch.pdf">Computer Organization and Architecture (10ed)</a> <i class="book-pdf iconfont icon-pdf"></i></li>
+        <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/algorithms/Algorithms.pdf">Algorithms</a> <i class="book-pdf iconfont icon-pdf"></i></li>
         <h2>JavaScript</h2>
         <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/JavaScript高级程序设计.pdf">JavaScript 高级程序设计 (第3版)</a> <i class="book-pdf iconfont icon-pdf"></i></li>
         <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/jQuery_In_Action.pdf">jQuery in Action (3ed)</a> <i class="book-pdf iconfont icon-pdf"></i></li>
-        <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/Computer_Organization_and_Arch.pdf">Computer Organization and Architecture (10ed)</a> <i class="book-pdf iconfont icon-pdf"></i></li>
-        <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/algorithms/Algorithms.pdf">Algorithms</a> <i class="book-pdf iconfont icon-pdf"></i></li>
         <h2>Html+CSS</h2>
         <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/CSS揭秘.pdf">CSS 揭秘</a> <i class="book-pdf iconfont icon-pdf"></i></li>
         <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/CSS重构：样式表性能调优.pdf">CSS 重构：样式表性能调优</a> <i class="book-pdf iconfont icon-pdf"></i></li>
