@@ -238,7 +238,7 @@ input, select, button {font: inherit;}
 ```
 
 <span class='myTry'>试一试 ☞</span>
-[play.csssecrets.io/translucent-borders](play.csssecrets.io/translucent-borders)
+[play.csssecrets.io/translucent-borders](http://play.csssecrets.io/translucent-borders)
 
 
 <h3 class = 'auto-sort-sub'>多重边框</h3>
@@ -262,7 +262,7 @@ box-shadow: 0 0 0 10px green,
 - 不会响应鼠标事件(可以给 box-shadow 属性加上`inset`关键字, 使投影绘制在元素`内圈`)
 </div>
 
-<span class='myTry'>试一试 ☞</span>  [play.csssecrets.io/multiple-borders](play.csssecrets.io/multiple-borders)
+<span class='myTry'>试一试 ☞</span>  [play.csssecrets.io/multiple-borders](http://play.csssecrets.io/multiple-borders)
 
 
 <h4 class = 'auto-sort-sub1'>online 方案</h4>
@@ -312,7 +312,7 @@ box-shadow: 0 0 0 10px green,
 ```
 
 <span class='myTry'>试一试 ☞</span>
-[play.csssecrets.io/extended-bg-position](play.csssecrets.io/extended-bg-position)
+[play.csssecrets.io/extended-bg-position](http://play.csssecrets.io/extended-bg-position)
 
 
 <h4 class = 'auto-sort-sub1'>background-origin 方案</h4>
@@ -331,7 +331,7 @@ box-shadow: 0 0 0 10px green,
 ```
 
 <span class='myTry'>试一试 ☞</span>
-[play.csssecrets.io/background-origin](play.csssecrets.io/background-origin)
+[play.csssecrets.io/background-origin](http://play.csssecrets.io/background-origin)
 
 
 <h4 class = 'auto-sort-sub1'>calc() 方案</h4>
@@ -349,13 +349,13 @@ box-shadow: 0 0 0 10px green,
 </div>
 
 <span class='myTry'>试一试 ☞</span>
-[play.csssecrets.io/background-position-calc](play.csssecrets.io/background-position-calc)
+[play.csssecrets.io/background-position-calc](http://play.csssecrets.io/background-position-calc)
 
 
 <h3 class = 'auto-sort-sub'>边框内圆角</h3>
 
 <span class='myTry'>试一试 ☞</span>
-[play.csssecrets.io/inner-rounding](play.csssecrets.io/inner-rounding)
+[play.csssecrets.io/inner-rounding](http://play.csssecrets.io/inner-rounding)
 
 
 <h3 class = 'auto-sort-sub'>条纹背景</h3>
@@ -592,7 +592,7 @@ SVG 可以内嵌到 CSS 中
 ```
 
 <span class='myTry'>试一试 ☞</span>
-[play.csssecrets.io/checkerboard-svg](play.csssecrets.io/checkerboard-svg)
+[play.csssecrets.io/checkerboard-svg](http://play.csssecrets.io/checkerboard-svg)
 
 <div class="myTip">
 
@@ -601,7 +601,7 @@ SVG 可以内嵌到 CSS 中
 **background: conic-gradient(red , yellow, lime, aqua, blue, fuchsia, red);**
 
 <span class='myTry'>测一测 ☞</span>
-[play.csssecrets.io/test-conic-gradient](play.csssecrets.io/test-conic-gradient)
+[play.csssecrets.io/test-conic-gradient](http://play.csssecrets.io/test-conic-gradient)
 
 </div>
 
@@ -728,7 +728,7 @@ SVG 可以内嵌到 CSS 中
 <!-- tabs:end -->
 
 <span class='myTry'>试一试 ☞</span>
-[play.csssecrets.io/parallelograms-pseudo](play.csssecrets.io/parallelograms-pseudo)
+[play.csssecrets.io/parallelograms-pseudo](http://play.csssecrets.io/parallelograms-pseudo)
 
 </div>
 </div>
@@ -745,7 +745,7 @@ SVG 可以内嵌到 CSS 中
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>附录</h2>
 
-在线实例 [play.csssecrets.io](play.csssecrets.io)
+在线实例 [play.csssecrets.io](http://play.csssecrets.io)
 
 [@blog Source Map](http://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html)
 
