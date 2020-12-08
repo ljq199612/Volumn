@@ -40,11 +40,18 @@
 
 }
 
+
 body {
     word-break: break-all;
     font-family: serif, sans-serif;
     background-image: linear-gradient(to right, #eee, #ddd, #eee);
 }
+
+
+body.windows {
+    font-family: 宋体, serif;
+}
+
 
 section {
     /*---- 加载过程中，页面不显示,
@@ -259,7 +266,7 @@ h6 .anchor span {
 .myProblem{
     margin-top: 1.7rem;
     margin-bottom: 0.7rem;
-    box-shadow: 4px 2px 5px 3px;
+    box-shadow: 1px 1px 5px 0;
     padding: 0.5rem;
 }
 

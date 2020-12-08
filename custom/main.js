@@ -1,10 +1,24 @@
 function customRun(){
     $(document).ready(function(){
+        checkFont();
         customComponents();
         customContent();
     });
 
 }
+
+function checkFont(){
+    let agent = window.navigator.userAgent;
+    agent.indexOf('Windows') >= 0 ? 
+        $('body').addClass('windows')
+        : agent.indexOf('Macintosh') >= 0 ?
+            $('body').addClass('mac')
+            :
+            $('body').addClass('linux')
+        ;
+
+}
+
 
 function customComponents(){
         addcomponents();         // 目录按钮、主菜单及按钮等的添加

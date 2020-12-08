@@ -669,7 +669,6 @@ SVG 可以内嵌到 CSS 中
 <a href="#" style="display: inline-block; background:cadetblue; transform: skewX(-45deg)">
     <div style="padding: 0.3rem 1.3rem; transform:skewX(45deg)">Click me</div>
 </a>
-
 </div>
 <div>
 
@@ -727,9 +726,159 @@ SVG 可以内嵌到 CSS 中
 ```
 <!-- tabs:end -->
 
+</div>
+</div>
+
 <span class='myTry'>试一试 ☞</span>
 [play.csssecrets.io/parallelograms-pseudo](http://play.csssecrets.io/parallelograms-pseudo)
 
+
+<h3 class = 'auto-sort-sub'>切角效果</h3>
+
+> TODO
+
+
+<h3 class = 'auto-sort-sub'>梯形标签页</h3>
+
+> TODO
+
+<h3 class = 'auto-sort-sub'>简单的饼图</h3>
+
+> TODO
+
+
+</div>
+</div>
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>第 <label class = 'block-number'>4</label> 章：视觉效果</h2>
+<div class = 'folding-area'>
+
+<h3 class = 'auto-sort-sub'>单侧投影</h3>
+
+<div class="myGrid">
+<div style="background:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 30px 15px 2px"></div>
+<div>
+
+1. 在该元素上面画出相同尺寸的灰色矩形
+1. 向右移 30px, 向下移动 15px
+1. 进行 2px 的模糊处理
+1. 剪切掉与原始元素的交集
+```css
+    background: white;
+    box-shadow: rgba(0,0,0,.5) 30px 15px 2px;
+```
+</div>
+</div>
+
+<div class="myGrid">
+<div style="background:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 0 5px 0 5px"></div>
+<div>
+
+1. 在该元素上面画出相同尺寸的灰色矩形
+1. 向右移 0, 向下移动 5px
+1. 不进行模糊处理
+1. 灰色矩形以中心点为原点，长宽各扩展 7px
+1. 剪切掉与原始元素的交集
+```css
+    background: white;
+    box-shadow: rgba(0,0,0,.5) 0 5px 0 5px;
+```
+</div>
+</div>
+
+<div class="myGrid">
+<div style="background:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 0 10px 3px -7px"></div>
+<div>
+
+1. 在该元素上面画出相同尺寸的灰色矩形
+1. 向右移 0, 向下移动 10px
+1. 进行 3px 模糊处理
+1. 灰色矩形以中心点为原点，长宽各缩小 7px
+1. 剪切掉与原始元素的交集
+```css
+    background: white;
+    box-shadow: rgba(0,0,0,.5) 0 10px 3px -7px;
+```
+</div>
+</div>
+
+<div class="myGrid">
+<div style="background:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 5px 0 3px -4px, rgba(0,0,0,0.5) -5px 0 3px -4px"></div>
+<div>
+
+> 双侧投影
+```css
+    background: white;
+    box-shadow: rgba(0,0,0,.5) 5px 0 3px -4px, 
+                rgba(0,0,0,.5) -5px 0 3px -4px;
+```
+</div>
+</div>
+
+<h3 class = 'auto-sort-sub'>不规则投影</h3>
+
+> TODO
+
+<h3 class = 'auto-sort-sub'>染色效果</h3>
+
+<h4 class = 'auto-sort-sub1'>基于滤镜的方案</h4>
+
+<span class='myTry'>试一试 ☞</span>
+[play.csssecrets.io/color-tint-filter](play.csssecrets.io/color-tint-filter)
+
+
+<div class="myTip">
+
+滤镜方案是行之有效的，但显示效果不是很好, 混合模式其实是更好的实现方式
+</div>
+
+<h4 class = 'auto-sort-sub1'>基于混合模式的方案</h4>
+
+当两个元素叠加时,`混合模式控制了上层元素的颜色与下层颜色进行混合`。用它来实现染色效果时，需要用到的混合模式是`luminosity`。这种 luminosity 混合模式会`保留上层元素的 HSL 亮度信息，并从它的下层吸取色相和饱和度信息`。
+
+<div class="myGrid">
+<div style=" ">
+<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger'/>
+<div style="height:0.5rem"></div>
+<span style="background: hsl(335, 100%, 50%);display:inline-block">
+    <img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="mix-blend-mode:luminosity;"/>
+</span>
+<div style="height:0.5rem"></div>
+<span style="background: hsl(335, 100%, 50%);display:inline-block">
+    <img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="mix-blend-mode:luminosity;display:block;"/>
+</span>
+</div>
+<div>
+
+```html
+<span style="background: hsl(335, 100%, 50%)">
+    <img src="01.png" alt='Tiger'/>
+</span>
+
+<style>
+    span {
+        background: hsl(335, 100%, 50%);
+        display: inline-block;
+    }
+
+    img {
+        mix-blend-mode: luminosity;
+        display: block; /* 如果不设置, img 会底部留白 */
+    }
+
+</style>
+
+```
+</div>
+</div>
+
+
+
+<span class='myTry'>试一试 ☞</span>
+[play.csssecrets.io/color-tint](play.csssecrets.io/color-tint)
+
 </div>
 </div>
 
@@ -737,8 +886,11 @@ SVG 可以内嵌到 CSS 中
 
 
 
-</div>
-</div>
+
+
+
+
+
 
 
 
