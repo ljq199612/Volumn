@@ -179,7 +179,7 @@ $$\begin{aligned}
 
 <div class="myImage">
 
-![-image-](..\images\algorithm\02.png)
+![-image-](../images/algorithms/algorithms_design/02.png)
 <label class="imageTitle">图示: 算法的设计和分析过程</label>
 </div>
 
@@ -275,7 +275,7 @@ $$\begin{aligned}
 
 <div class="myImage">
 
-![-image-](..\images\algorithm\03.png)
+![-image-](../images/algorithms/algorithms_design/03.png)
 <label class="imageTitle">符号 $\Theta\ : \ t(n)\in \Theta(g(n))$ </label>
 </div>
 
@@ -398,7 +398,7 @@ $$
 
 <div class="myImage">
 
-![-image-](..\images\algorithm\04.png)
+![-image-](../images/algorithms/algorithms_design/04.png)
 <label class="imageTitle">图示: 汉诺塔的递归解法</label>
 </div>
 
@@ -420,7 +420,7 @@ M(n)&=2M(n-1)+1\\
 
 <div class="myImage">
 
-![-image-](..\images\algorithm\05.png)
+![-image-](../images/algorithms/algorithms_design/05.png)
 <label class="imageTitle">图示: 汉诺塔递归算法的递归调用树</label>
 </div>
 
@@ -497,7 +497,7 @@ $$C(n)=\displaystyle{\sum_{i=0}^{n-2}\sum_{j=i+1}^{n-1}}1=\frac{(n-1)n}{2}$$
 
 <div class="myImage">
 
-![-image-](..\images\algorithm\06.png)
+![-image-](../images/algorithms/algorithms_design/06.png)
 <label class="imageTitle">图示: 选择排序的示例。每一行代表该算法的一次迭代，也就是说从尾部到竖线的一遍扫描，找到的最小元素用黑体字表示</label>
 </div>
  
@@ -535,7 +535,7 @@ $$S_{worst}=C(n)=\frac{(n-1)n}{2}$$
 
 <div class="myImage">
 
-![-image-](..\images\algorithm\07.png)
+![-image-](../images/algorithms/algorithms_design/07.png)
 <label class="imageTitle">图示: 冒泡排序示例</label>
 </div>
 
@@ -658,7 +658,7 @@ $$C(n)=\displaystyle{\sum_{i=1}^{n-1}\sum_{j=i+1}^{n}}2=(n-1)n\in\Theta(n^2)$$
 
 <div class="myImage">
 
-![-image-](..\images\algorithm\08.png)
+![-image-](../images/algorithms/algorithms_design/08.png)
 <label class="imageTitle">图示: 用橡皮筋来解释凸包</label>
 </div>
 

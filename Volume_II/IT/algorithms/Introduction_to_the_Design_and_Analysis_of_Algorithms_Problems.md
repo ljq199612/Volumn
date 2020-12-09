@@ -215,7 +215,7 @@ $$\frac{\displaystyle\sum_{i=1}^{n}x_i^2-(\displaystyle\sum_{i=1}^{n}x_i)^2 / n}
 
 <div class="myImage">
 
-![-image-](..\images\algorithm\ans_01.png)
+![-image-](../images/algorithms/algorithms_design/ans_01.png)
 <label class="imageTitle"></label>
 </div>
 </div>
@@ -243,7 +243,7 @@ $$\sum_{i=0}^n 4*i + 1$$
 
 <div class="myImage">
 
-![-image-](..\images\algorithm\ans_02.png)
+![-image-](../images/algorithms/algorithms_design/ans_02.png)
 <label class="imageTitle"></label>
 </div>
 
@@ -265,7 +265,7 @@ $$\sum_{i=0}^n 4*i + 1$$
 
 <div class="myImage">
 
-![-image-](..\images\algorithm\ans_03.png)
+![-image-](../images/algorithms/algorithms_design/ans_03.png)
 <label class="imageTitle"></label>
 </div>
 </div>
