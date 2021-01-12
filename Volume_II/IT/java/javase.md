@@ -160,7 +160,7 @@ static final int hash(Object key) {
         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
 ```
-当length的长度是2的n次方时，有以下的公式成立:
+当数组的长度是2的n次方时，有以下的公式成立:
 
 $$ num\ \%\ 2^n=num\ \&\ (2^n-1)$$
 
@@ -168,7 +168,7 @@ $$ num\ \%\ 2^n=num\ \&\ (2^n-1)$$
 
 <h4 class = 'auto-sort-sub1'>HashMap 扩容方式</h4>
 
-当 HashMap中的元素个数超过数组大小 * loadFactor 时，就会进行数组扩容，默认情况下，loadFactor 的值为 0.75，数组大小为 16，那么当 HashMap 中元素个数超过 16 * 0.75=12 的时候，就把数组的大小扩展为2 * 16=32，即扩大一倍，然后`重新计算每个元素在数组中的位置，而这是一个非常消耗性能的操作`，所以如果我们已经预知 HashMap 中元素的个数，那么预设元素的个数能够有效的提高 HashMap 的性能。
+当 HashMap 中的元素个数超过`数组长度与 loadFactor 乘积`时，就会进行数组扩容，默认情况下，loadFactor 的值为 0.75，数组大小为 16，那么当 HashMap 中元素个数超过 16 * 0.75=12 的时候，就把数组的大小扩展为2 * 16=32，即扩大一倍，然后`重新计算每个元素在数组中的位置，而这是一个非常消耗性能的操作`，所以如果我们已经预知 HashMap 中元素的个数，那么预设元素的个数能够有效的提高 HashMap 的性能。
 
 <div class="myWarning">
 
@@ -181,7 +181,7 @@ $$ num\ \%\ 2^n=num\ \&\ (2^n-1)$$
 JDK 8 开始采用尾插法，之前采用头插法。
 
 ##### HashMap 遍历方式
-一个槽（包括槽下面的列表）一个槽地遍历
+一个槽（包括槽下面的链表表）一个槽地遍历, 所以在外看来是无序的
 
 <h4 class = 'auto-sort-sub1'>HashMap 与 HashTable 的比较</h4>
 
@@ -285,7 +285,7 @@ public class Person {
 ```
 
 **问：一共多少个属性？**  
-**答:** 4 个， 分别为 name, age, abc, class(Object 继承的getClass)
+**答:** 4 个， 分别为 name, age, abc, class(从 Object 继承的getClass)
 
 
 <div class="myTip">

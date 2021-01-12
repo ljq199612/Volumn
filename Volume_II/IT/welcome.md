@@ -6,7 +6,7 @@
     <ul class="bookList">
         <h2>基础</h2>
         <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/Computer_Organization_and_Arch.pdf">Computer Organization and Architecture (10ed)</a> <i class="book-pdf iconfont icon-pdf"></i></li>
-        <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/algorithms/Algorithms.pdf">Algorithms</a> <i class="book-pdf iconfont icon-pdf"></i></li>
+        <li><a target="_blank" href="https://ljq199612.gitee.io/book/mathematic/algorithms/Algorithms.pdf">Algorithms</a> <i class="book-pdf iconfont icon-pdf"></i></li>
         <h2>JavaScript</h2>
         <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/JavaScript高级程序设计.pdf">JavaScript 高级程序设计 (第3版)</a> <i class="book-pdf iconfont icon-pdf"></i></li>
         <li><a target="_blank" href="https://ljq199612.gitee.io/book/IT/jQuery_In_Action.pdf">jQuery in Action (3ed)</a> <i class="book-pdf iconfont icon-pdf"></i></li>

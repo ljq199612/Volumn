@@ -732,11 +732,276 @@ SVG 可以内嵌到 CSS 中
 <span class='myTry'>试一试 ☞</span>
 [play.csssecrets.io/parallelograms-pseudo](http://play.csssecrets.io/parallelograms-pseudo)
 
+<h3 class = 'auto-sort-sub'>菱形图片</h3>
+
+<div class="myGrid">
+<div style="margin-top:2rem;">
+
+<div style="width:12rem;height:12rem;transform:rotate(45deg);overflow:hidden;">
+<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="height:inherit;width:inherit;transform:rotate(-45deg);"/>
+</div>
+
+<div style="margin-top:2rem;width:12rem;height:12rem;transform:rotate(45deg) scale(calc(1 / 1.42));overflow:hidden;">
+<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="height:inherit;width:inherit;transform:rotate(-45deg) scale(1.42);"/>
+</div>
+
+<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="margin-top:2rem;clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); "/>
+
+</div>
+
+<div>
+
+<!-- tabs: start -->
+
+### **不推荐**
+
+1. div 顺时针旋转 45 度
+1. img 逆时针旋转 45 度 (正八边形)
+1. div 与 img 尺寸比设定为 1:1.42 （对角线）
+
+```html
+<div class="picture">  <img src="tiger.png"alt="..." /></div>
+
+<style>
+.picture { 
+	/* 图片必须是正方形, 这里固定宽高比为一比一 */
+	width: 12rem;
+	height: 12rem;
+	transform: rotate(45deg) 
+			   /* div 尺寸缩小为 1/1.42 倍 */
+	           scale(calc(1 / 1.42));
+	overflow: hidden;
+}
+.picture > img{ 
+	width: inherit;
+	height: inherit
+	transform: rotate(-45deg)
+	/* 尺寸放大为 1.42, 这里就变成 12rem */
+	           scale(1.42);
+}
+</style>
+```
+
+### **推荐**
+> 优点:  
+> - 简单
+> - 不需要图片为正边形
+> - 可以设置动画
+> - 可以切任意多边形
+
+```css
+img {
+	clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+```
+
+
+**动画效果, 鼠标悬停, 恢复原来样式**
+```css
+img {
+	clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+	transition: 1s clip-path;
+}
+img :hover {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+```
+<!-- tabs: end -->
+
+</div>
+</div>
+
+
+<div class="myNote">
+
+
+**利用 clip-path 绘制 10 个顶点, 制作成五边形**
+
+<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="
+width:12rem;height:12rem;margin:3rem 0 0 3rem;clip-path: polygon(50% 0, 61.23% 34.55%, 97.55% 34.55%, 64.69% 54.77%, 79.39% 90.45%, 50% 69.1%, 20.61% 90.45%, 35.31% 54.77%, 2.45% 34.55%, 38.77% 34.55%); "/>
+
+```css
+
+img {
+  width:12rem;
+  height:12rem;
+  clip-path: polygon(
+				50%    0, 
+				61.23% 34.55%, 
+				97.55% 34.55%, 
+				64.69% 54.77%, 
+				79.39% 90.45%, 
+				50%    69.1%, 
+				20.61% 90.45%, 
+				35.31% 54.77%, 
+				2.45%  34.55%, 
+				38.77% 34.55%);
+}
+```
+
+</div>
+
 
 <h3 class = 'auto-sort-sub'>切角效果</h3>
 
-> TODO
+<h4 class = 'auto-sort-sub1'>渐变法</h4>
 
+<div class="myGrid">
+<div style="margin-top:2rem;">
+<div style="background: linear-gradient(-45deg,transparent 15px, #58a 0); text-align:center; padding:1rem 0;">
+大漠孤烟直，<br>
+长河落日圆。<br>
+萧关逢厚骑，<br>
+都护在燕然。<br>
+</div>
+</div>
+<div>
+
+```css
+div {
+	background: 
+		linear-gradient(-45deg, transparent 15px, #58a 0);
+}
+```
+</div>
+</div>
+
+
+<div class="myTip">
+
+transparent 是表示颜色透明，background 的默认属性
+</div>
+
+<div class="myGrid">
+<div style="margin-top:2rem;">
+<div style="background: linear-gradient(45deg,transparent 15px, #58a 0) left, linear-gradient(-45deg, transparent 15px, #655 0) right; background-size: 50% 100%; background-repeat: no-repeat; text-align:center; padding:1rem 0;">
+大漠孤烟直，<br>
+长河落日圆。<br>
+萧关逢厚骑，<br>
+都护在燕然。<br>
+</div>
+</div>
+<div>
+
+```css
+div {
+	background: 
+		linear-gradient(45deg, transparent 15px, #58a 0) left,
+		linear-gradient(-45deg, transparent 15px, #655 0) right;
+	background-size: 50% 100%;
+	background-repeat: no-repeat;
+}
+```
+</div>
+</div>
+
+<div class="myGrid">
+<div style="margin-top:2rem;">
+<div style="background: linear-gradient(135deg,transparent 15px, #58a 0) top left, linear-gradient(-135deg, transparent 15px, grey 0) top right, linear-gradient(-45deg, transparent 15px, yellow 0) bottom right, linear-gradient(45deg, transparent 15px, #655 0) bottom left; background-size: 50% 50%; background-repeat: no-repeat; text-align:center; padding:1rem 0;">
+大漠孤烟直，<br>
+长河落日圆。<br>
+萧关逢厚骑，<br>
+都护在燕然。<br>
+</div>
+</div>
+<div>
+
+```css
+div {
+	background: 
+		linear-gradient(135deg, transparent 15px, #58a 0) 
+			top left,
+		linear-gradient(-135deg, transparent 15px, grey 0) 
+			top right,
+		linear-gradient(-45deg, transparent 15px, yellow 0) 
+			bottom right,
+		linear-gradient(45deg, transparent 15px, #655 0) 
+			bottom left;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+}
+```
+</div>
+</div>
+
+<div class="myGrid">
+<div style="margin-top:2rem;">
+<div style="background: radial-gradient(circle at bottom right,transparent 15px, #58a 0) top left, radial-gradient(circle at bottom left, transparent 15px, grey 0) top right, radial-gradient(circle at top left, transparent 15px, yellow 0) bottom right, radial-gradient(circle at top right, transparent 15px, #655 0) bottom left; background-size: 50% 50%; background-repeat: no-repeat; text-align:center; padding:1rem 0;">
+大漠孤烟直，<br>
+长河落日圆。<br>
+萧关逢厚骑，<br>
+都护在燕然。<br>
+</div>
+</div>
+<div>
+
+```css
+div {
+	background: 
+		radial-gradient(circle at bottom right,transparent 15px, #58a 0) 
+			top left, 
+		radial-gradient(circle at bottom left, transparent 15px, grey 0) 
+			top right, 
+		radial-gradient(circle at top left, transparent 15px, yellow 0) 
+			bottom right, 
+		radial-gradient(circle at top right, transparent 15px, #655 0) 
+			bottom left; 
+		background-size: 50% 50%; 
+		background-repeat: no-repeat; 
+}
+```
+</div>
+</div>
+
+<div class="myNote">
+
+SCSS 的 mixin 预处理可以帮助我们减少代码的重复
+```css
+@mixin beveled-corners($bg,$tl:0, $tr:$tl,$br:$tl,$bl:$tr) {
+	background: $bg;
+	background: 
+		linear-gradient(135deg, transparent $tl,$bg 0) top left,
+		linear-gradient(225deg, transparent $tr,$bg 0) top right,
+		linear-gradient(-45deg, transparent $br,$bg 0) bottom right,
+		linear-gradient(45deg, transparent $bl,$bg 0)  bottom left;   
+		background-size: 50% 50%; background-repeat: no-repeat;
+	}
+
+/* 调用 */
+@includebeveled-corners(#58a, 15px, 5px);
+```
+</div>
+
+<h4 class = 'auto-sort-sub1'>内嵌 SVG 法</h4>
+
+```css
+div {
+	border: 20px solid #58a;
+	border-image: 1 url('data:image/svg+xml,\
+		<svg xmlns="http://www.w3.org/2000/svg"\
+			width="3" height="3" fill="%2358a">\
+		<polygon points="0,1 1,0 2,0 3,1 3,2 2,3 1,3 0,2"/>\
+		</svg>');
+	background: #58a;
+	background-clip: padding-box;
+}
+```
+
+
+
+<div class="myTip">
+
+CSS4 将引入`corner-shape`属性，用来解决切角问题。
+ 
+```css
+{
+	border-radius: 15px;
+	corner-shape: bevel;
+}
+```
+
+</div>
 
 <h3 class = 'auto-sort-sub'>梯形标签页</h3>
 
@@ -825,6 +1090,36 @@ SVG 可以内嵌到 CSS 中
 
 <h4 class = 'auto-sort-sub1'>基于滤镜的方案</h4>
 
+<div class="myGrid">
+<div style='margin-top:2rem'>
+<div class="myImage">
+<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger'/>
+<label class="imageTitle"></label>
+<img src="Volume_II/IT/html/../images/html/css_secret/01.png" style='transition:0.5s filter; filter: sepia(1) saturate(4) hue-rotate(295deg);' alt='Tiger'/>
+<label class="imageTitle">滤镜方案</label>
+</div>
+</div>
+
+<div>
+
+```css
+img {
+    transition: .5s filter;
+    filter: sepia(1) saturate(4) hue-rotate(295deg);
+}
+/*
+img:hover,
+img:focus {
+    filter: none;
+}
+*/
+```
+</div>
+</div>
+
+
+<div>
+
 <span class='myTry'>试一试 ☞</span>
 [play.csssecrets.io/color-tint-filter](play.csssecrets.io/color-tint-filter)
 
@@ -839,9 +1134,9 @@ SVG 可以内嵌到 CSS 中
 当两个元素叠加时,`混合模式控制了上层元素的颜色与下层颜色进行混合`。用它来实现染色效果时，需要用到的混合模式是`luminosity`。这种 luminosity 混合模式会`保留上层元素的 HSL 亮度信息，并从它的下层吸取色相和饱和度信息`。
 
 <div class="myGrid">
-<div style=" ">
-<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger'/>
-<div style="height:0.5rem"></div>
+<div style='margin-top:2rem'>
+
+<div class="myImage">
 <span style="background: hsl(335, 100%, 50%);display:inline-block">
     <img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="mix-blend-mode:luminosity;"/>
 </span>
@@ -849,6 +1144,8 @@ SVG 可以内嵌到 CSS 中
 <span style="background: hsl(335, 100%, 50%);display:inline-block">
     <img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="mix-blend-mode:luminosity;display:block;"/>
 </span>
+<label class="imageTitle">混合模式</label>
+</div>
 </div>
 <div>
 
@@ -874,7 +1171,28 @@ SVG 可以内嵌到 CSS 中
 </div>
 </div>
 
+<div class="myNote">
 
+混合模式动态模拟
+
+```html
+<div class="tinted-image"style="background-image:url(tiger.jpg)"></div>
+
+<style>
+    .tinted-image {
+        width: 640px;
+        height: 440px;
+        background-size: cover;
+        background-color: hsl(335, 100%, 50%); 
+        background-blend-mode: luminosity;
+        transition: .5s background-color;
+    }
+    .tinted-image:hover {
+        background-color: transparent;
+    }
+</style>
+```
+</div>
 
 <span class='myTry'>试一试 ☞</span>
 [play.csssecrets.io/color-tint](play.csssecrets.io/color-tint)
@@ -883,11 +1201,61 @@ SVG 可以内嵌到 CSS 中
 </div>
 
 
+<h3 class = 'auto-sort-sub'>毛玻璃效果</h3>
+
+<div class="myGrid">
+<div style='margin-top:2rem'>
+
+> 给文字背景设置 30% 的不透明度, 文字模糊, 效果不好
+</div>
+
+<div style='background: url("Volume_II/IT/html/../images/html/css_secret/02.png") no-repeat; background-size:cover; background-position:center;'>
+<div style="background:hsla(0,0%,100%,.3); padding:1.5rem; border-radius:0.5rem; position:relative; top:17%; margin:0 auto; width:80%; height:60%;">
+<div style="word-break:break-word; max-height:100%; overflow:hidden;">
+It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way...
+</div>
+</div>
+</div>
+
+</div>
+
+> TODO
+
+
+<h3 class = 'auto-sort-sub'>折角效果</h3>
+
+> TODO
 
 
 
 
 
+</div>
+</div>
+
+
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>第 <label class = 'block-number'>5</label> 章: 字体排印</h2>
+<div class = 'folding-area'>
+
+<h3 class = 'auto-sort-sub'>连字符断行</h3>
+
+
+<div class="myGrid">
+<div style="margin-top:2rem;">
+It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way
+</div>
+<div>
+
+</div>
+</div>
+
+
+
+</div>
+</div>
 
 
 
