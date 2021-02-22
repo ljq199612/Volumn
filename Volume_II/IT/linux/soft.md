@@ -2,6 +2,15 @@
 
 # 普通
 
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>Flameshot (截图)</h2>
+<div class = 'folding-area'>
+
+[github 源码](https://github.com/flameshot-org/flameshot#installation)
+</div>
+</div>
+
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>RAR （压缩）</h2>
 <div class = 'folding-area'>
@@ -142,6 +151,26 @@ export PATH=$ORACLE_HOME:$PATH
 </div>
 </div>
 
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>mysql</h2>
+<div class = 'folding-area'>
+
+通过 [官网](https://dev.mysql.com/downloads/) 了解需要下载的版本，通过清华镜像[下载](https://mirror.tuna.tsinghua.edu.cn/mysql/downloads/)
+
+安装  
+(1) mysql-xxx-common-xxx.rpm  
+(2) mysql-xxx-libs-xxx.rpm  
+(3) mysql-xxx-client-xxx.rpm  
+(4) mysql-xxx-server-xxx.rpm  
+
+```bash
+# root 安装
+# --force --nodeps 强制安装, 不然会报错
+$> rpm -ivh  xxx.rpm    --force  --nodeps
+
+```
+</div>
+</div>
 
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>mycli  (mysql 命令行提示和语法高)</h2>
