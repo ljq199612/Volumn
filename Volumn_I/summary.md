@@ -4,18 +4,18 @@
 <p>
 
 <span class="name">
-    <i class='iconfont icon-books-1'></i> Volume I
+    <i class='iconfont icon-books-1'></i> Volumn I
 </span>
 
 </div>
 
 <hr>
 
-<!-- VOLUME I -->
+<!-- VOLUMN I -->
 
 <!---->
 <div class='book-list-sub1'>
-    <a href="#/Volume_I/Reading/welcome" class="alive">
+    <a href="#/Volumn_I/Reading/welcome" class="alive">
     <i class='iconfont icon-dir'></i>
     读书</a>
 </div>                                              

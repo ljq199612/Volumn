@@ -117,11 +117,11 @@ function _slideMeun(){
         +"     </div>                                                                                                                               "
         +"     <div class='slide-meun-content'>                                                                                                     "
         +"          <ul class='first-list'>                                                                                                         "
-        +"              <li><label>0</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volume/'>Volume Home</a></li>                       "                                  
-        +"              <li><label>1</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volume/#/Volume_I/welcome'>Volume I</a></li>        "                                  
-        +"              <li><label>2</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volume/#/Volume_II/welcome'>Volume II </a></li>     "                                
-      //  +"              <li><label>3</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volume/#/Volume_III/welcome'>Volume III </a></li>   "                               
-      //  +"              <li><label>4</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volume/#/Volume_IV/welcome'>Volume IV </a></li>     "                              
+        +"              <li><label>0</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volumn/'>Volumn Home</a></li>                       "                                  
+        +"              <li><label>1</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volumn/#/Volumn_I/welcome'>Volumn I</a></li>        "                                  
+        +"              <li><label>2</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volumn/#/Volumn_II/welcome'>Volumn II </a></li>     "                                
+      //  +"              <li><label>3</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volumn/#/Volumn_III/welcome'>Volumn III </a></li>   "                               
+      //  +"              <li><label>4</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volumn/#/Volumn_IV/welcome'>Volumn IV </a></li>     "                              
         +"          </ul>                                                                                                                           "
         +"          <ul class='second-list'>                                                                                                        "
         +"              <li><label>t</label>&nbsp; ➣ &nbsp;<a href='#'>回到顶部</a></li>                       "                                  
@@ -223,13 +223,13 @@ function componentsKeyBind(){
                         return false;                     // 取消按<space>向下滚动
                 }
             }
-            if (event.keyCode === 96 || event.keyCode === 48){    // 按 0 跳到 Volume Home
+            if (event.keyCode === 96 || event.keyCode === 48){    // 按 0 跳到 Volumn Home
                 window.location.href = $('.first-list li:first a').attr('href');
             }
-            if (event.keyCode === 97 || event.keyCode === 49){    // 按 1 跳到 Volume I
+            if (event.keyCode === 97 || event.keyCode === 49){    // 按 1 跳到 Volumn I
                 window.location.href = $('.first-list li:eq(1) a').attr('href');
             }
-            if (event.keyCode === 98 || event.keyCode === 50){    // 按 2 跳到 Volume II
+            if (event.keyCode === 98 || event.keyCode === 50){    // 按 2 跳到 Volumn II
                 window.location.href = $('.first-list li:eq(2) a').attr('href');
             }
             if (event.keyCode === 84){    // 按 t 关闭窗口

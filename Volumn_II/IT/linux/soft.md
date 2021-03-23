@@ -67,7 +67,7 @@ sudo snapper rollback [NUM]
 # 安装 淘宝镜像源
 sudo npm install -g cnpm --registry=https://registry.npm.taobao.org
 # 设置 cnpm 全局模块地址为 npm 模块地址
-# 切换到 root 后执行，sudo 执行好像不行
+# [WARING] 切换到 root 后执行，sudo 执行好像不行
 # 解决 cnpm uninstall 报错
 cnpm config set prefix `npm config get prefix`
 ```
@@ -124,6 +124,16 @@ $>  redis-server &
 
 
 <div class = 'data-section default-folding'>
+<h2 class = 'section-title'>DBeaver 数据库管理</h2>
+<div class = 'folding-area'>
+
+[官网](https://dbeaver.io/)
+</div>
+</div>
+
+
+
+<div class = 'data-section default-folding'>
 <h2 class = 'section-title'>Oracle 客户端</h2>
 <div class = 'folding-area'>
 
@@ -155,7 +165,23 @@ export PATH=$ORACLE_HOME:$PATH
 <h2 class = 'section-title'>mysql</h2>
 <div class = 'folding-area'>
 
-通过 [官网](https://dev.mysql.com/downloads/) 了解需要下载的版本，通过清华镜像[下载](https://mirror.tuna.tsinghua.edu.cn/mysql/downloads/)
+通过 [官网](https://dev.mysql.com/downloads/) 了解需要下载的版本，
+通过中科大清华镜像[下载](http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/)
+
+**(1) 免安装版本**  
+如: `mysql-8.0.21-linux-glibc2.12-x86_64.tar`  
+
+1. 创建 my.cnf 文件
+
+```bash
+# 初始化 
+$> ./bin/mysqld --user=ljq --basedir=/home/ljq/opt/mysql8 --datadir=/home/ljq/opt/mysql8/data --initialize
+
+```
+
+
+libinfo.so.5 [下载地址](https://pkgs.org/download/libtinfo.so.5)
+
 
 安装  
 (1) mysql-xxx-common-xxx.rpm  
@@ -501,9 +527,8 @@ bin/activemq stop
 [docsify 4.3.0](https://www.npmjs.com/package/docsify-cli/v/4.3.0)
 
 ```bash
-# 切换到 root 后执行，sudo 执行好像不行
-# 安装 docsify 4.3.0
-cnpm install docsify-cli@4.3.0 -g
+# [WARINING] 切换到 root 后执行，sudo 执行好像不行
+cnpm install docsify-cli -g
 
 # 初始化
 docsify init
@@ -520,7 +545,7 @@ docsify serve
 <h2 class = 'section-title'>VirtualBox</h2>
 <div class = 'folding-area'>
 
-![在VirtualBox 中，如何在固定磁盘和动态磁盘之间装换](https://www.kutu66.com//Linux/article_13912)
+[在VirtualBox 中，如何在固定磁盘和动态磁盘之间装换](https://www.kutu66.com//Linux/article_13912)
 
 ```bash
 // 复制 kali.vdi 为固定虚拟盘 kali2.vdi
@@ -528,8 +553,8 @@ $>  VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Fixed
 // 复制 kali.vdi 为动态虚拟盘 kali2.vdi
 $>  VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Standard
 ```
-**virtualbox 增强功能**
-实验系统
+### virtualbox 增强功能
+实验系统  
 - 宿主机：opensuse  
 - 虚拟机：kali linux
 ```bash
@@ -538,6 +563,18 @@ $ sudo apt-get install virtualbox-*
 # 图形界面配置共享文件夹 + 重启电脑
 $ sudo mount -t public /mnt/public
 ```
+### 虚拟机使用宿主机网络服务
+
+1. 查看主机名
+```bash
+$> hostname
+```
+2. 把虚拟机的网络设置为 NAT
+3. 虚拟机中用主机名访问  
+例如: 192.168.2.106:3000
+
+
+
 
 </div>
 </div>

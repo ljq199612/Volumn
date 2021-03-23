@@ -4,11 +4,11 @@
 <br>
 <p>
 
-<a href="#/Volume_II/welcome" class="name alive">
-    <i class='iconfont icon-books-1'></i> Volume II
+<a href="#/Volumn_II/welcome" class="name alive">
+    <i class='iconfont icon-books-1'></i> Volumn II
 </a>
 
-<a href="#/Volume_II/math/welcome" class="js-name name alive name-sub">
+<a href="#/Volumn_II/math/welcome" class="js-name name alive name-sub">
      数学
 </a>
 </div>
@@ -19,12 +19,12 @@
     <i class='nav-icon iconfont icon-book-open'></i>
     <span> 数学分析</span>
     <div class='book-list-sub3'>
-        <a href="#/Volume_II/math/calculus/Introduction_to_Calculus_and_Analysis_I" class="alive">
+        <a href="#/Volumn_II/math/calculus/Introduction_to_Calculus_and_Analysis_I" class="alive">
         <i class='iconfont icon-page'></i>
         微积分和数学分析引论 第一卷</a>
     </div>                                                            
     <div class='book-list-sub3'>
-        <a href="#/Volume_II/math/calculus/Introduction_to_Calculus_and_Analysis_Problems" class="alive">
+        <a href="#/Volumn_II/math/calculus/Introduction_to_Calculus_and_Analysis_Problems" class="alive">
         <i class='iconfont icon-page'></i>
         微积分和数学分析引论 习题</a>
     </div>                                                            
@@ -34,7 +34,7 @@
     <i class='nav-icon iconfont icon-book-open'></i>
     <span> 数理统计</span>
     <div class='book-list-sub3'>
-        <a href="#/Volume_II/math/statistics/Introduction_to_probability" class="alive">
+        <a href="#/Volumn_II/math/statistics/Introduction_to_probability" class="alive">
         <i class='iconfont icon-page'></i>
         概率导论</a>
     </div>                                                            
@@ -44,7 +44,7 @@
     <i class='nav-icon iconfont icon-book-open'></i>
     <span> 杂篇</span>
     <div class='book-list-sub3'>
-        <a href="#/Volume_II/math/other/concrete" class="alive">
+        <a href="#/Volumn_II/math/other/concrete" class="alive">
         <i class='iconfont icon-page'></i>
         具体数学</a>
     </div>                                                            

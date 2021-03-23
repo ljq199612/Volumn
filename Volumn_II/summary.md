@@ -4,29 +4,29 @@
 <p>
 
 <span class="name">
-    <i class='iconfont icon-books-1'></i> Volume II
+    <i class='iconfont icon-books-1'></i> Volumn II
 </span>
 </div>
 
 <hr>
 
-<!-- VOLUME II -->
+<!-- VOLUMN II -->
 
 <!---->
 <div class='book-list-sub1'>
-    <a href="#/Volume_II/IT/welcome" class="alive">
+    <a href="#/Volumn_II/IT/welcome" class="alive">
     <i class='iconfont icon-dir'></i>
     计算机</a>
 </div>                                                            
 <!---->
 <div class='book-list-sub1'>
-    <a href="#/Volume_II/math/welcome" class="alive">
+    <a href="#/Volumn_II/math/welcome" class="alive">
     <i class='iconfont icon-dir'></i>
     数学</a>
 </div>                                                            
 
 <div class='book-list-sub1'>
-    <a href="#/Volume_II/chemistry/welcome" class="alive">
+    <a href="#/Volumn_II/chemistry/welcome" class="alive">
     <i class='iconfont icon-dir'></i>
     化学</a>
 </div>                                                            

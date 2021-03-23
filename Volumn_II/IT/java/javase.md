@@ -76,7 +76,7 @@ private int newCapacity(int minCapacity) {
 
 <h3 class = 'auto-sort-sub'>HashMap</h3>
 
-✿ [HashMap 源码解析](https://ljq199612.gitee.io/Volume/Volume_II/IT/images/java/javase/collection/08.png)
+✿ [HashMap 源码解析](https://ljq199612.gitee.io/Volumn/Volumn_II/IT/images/java/javase/collection/08.png)
 
 
 <h4 class = 'auto-sort-sub1'>HashMap 的继承体系</h4>
@@ -205,7 +205,7 @@ Map m = Collections.synchronizedMap(new HashMap(...));
 
 <h4 class = 'auto-sort-sub1'>Vector</h4>
 
-✿ [Vector 源码解析](https://ljq199612.gitee.io/Volume/Volume_II/IT/images/java/javase/collection/09.png)
+✿ [Vector 源码解析](https://ljq199612.gitee.io/Volumn/Volumn_II/IT/images/java/javase/collection/09.png)
 
 <h4 class = 'auto-sort-sub1'>ArrayList</h4>
 

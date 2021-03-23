@@ -738,14 +738,14 @@ SVG 可以内嵌到 CSS 中
 <div style="margin-top:2rem;">
 
 <div style="width:12rem;height:12rem;transform:rotate(45deg);overflow:hidden;">
-<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="height:inherit;width:inherit;transform:rotate(-45deg);"/>
+<img src="Volumn_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="height:inherit;width:inherit;transform:rotate(-45deg);"/>
 </div>
 
 <div style="margin-top:2rem;width:12rem;height:12rem;transform:rotate(45deg) scale(calc(1 / 1.42));overflow:hidden;">
-<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="height:inherit;width:inherit;transform:rotate(-45deg) scale(1.42);"/>
+<img src="Volumn_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="height:inherit;width:inherit;transform:rotate(-45deg) scale(1.42);"/>
 </div>
 
-<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="margin-top:2rem;clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); "/>
+<img src="Volumn_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="margin-top:2rem;clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); "/>
 
 </div>
 
@@ -818,7 +818,7 @@ img :hover {
 
 **利用 clip-path 绘制 10 个顶点, 制作成五边形**
 
-<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="
+<img src="Volumn_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="
 width:12rem;height:12rem;margin:3rem 0 0 3rem;clip-path: polygon(50% 0, 61.23% 34.55%, 97.55% 34.55%, 64.69% 54.77%, 79.39% 90.45%, 50% 69.1%, 20.61% 90.45%, 35.31% 54.77%, 2.45% 34.55%, 38.77% 34.55%); "/>
 
 ```css
@@ -1093,9 +1093,9 @@ CSS4 将引入`corner-shape`属性，用来解决切角问题。
 <div class="myGrid">
 <div style='margin-top:2rem'>
 <div class="myImage">
-<img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger'/>
+<img src="Volumn_II/IT/html/../images/html/css_secret/01.png" alt='Tiger'/>
 <label class="imageTitle"></label>
-<img src="Volume_II/IT/html/../images/html/css_secret/01.png" style='transition:0.5s filter; filter: sepia(1) saturate(4) hue-rotate(295deg);' alt='Tiger'/>
+<img src="Volumn_II/IT/html/../images/html/css_secret/01.png" style='transition:0.5s filter; filter: sepia(1) saturate(4) hue-rotate(295deg);' alt='Tiger'/>
 <label class="imageTitle">滤镜方案</label>
 </div>
 </div>
@@ -1138,11 +1138,11 @@ img:focus {
 
 <div class="myImage">
 <span style="background: hsl(335, 100%, 50%);display:inline-block">
-    <img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="mix-blend-mode:luminosity;"/>
+    <img src="Volumn_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="mix-blend-mode:luminosity;"/>
 </span>
 <div style="height:0.5rem"></div>
 <span style="background: hsl(335, 100%, 50%);display:inline-block">
-    <img src="Volume_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="mix-blend-mode:luminosity;display:block;"/>
+    <img src="Volumn_II/IT/html/../images/html/css_secret/01.png" alt='Tiger' style="mix-blend-mode:luminosity;display:block;"/>
 </span>
 <label class="imageTitle">混合模式</label>
 </div>
@@ -1209,7 +1209,7 @@ img:focus {
 > 给文字背景设置 30% 的不透明度, 文字模糊, 效果不好
 </div>
 
-<div style='background: url("Volume_II/IT/html/../images/html/css_secret/02.png") no-repeat; background-size:cover; background-position:center;'>
+<div style='background: url("Volumn_II/IT/html/../images/html/css_secret/02.png") no-repeat; background-size:cover; background-position:center;'>
 <div style="background:hsla(0,0%,100%,.3); padding:1.5rem; border-radius:0.5rem; position:relative; top:17%; margin:0 auto; width:80%; height:60%;">
 <div style="word-break:break-word; max-height:100%; overflow:hidden;">
 It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way...
