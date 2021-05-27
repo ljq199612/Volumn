@@ -265,7 +265,7 @@ box-shadow: 0 0 0 10px green,
 <span class='myTry'>试一试 ☞</span>  [play.csssecrets.io/multiple-borders](http://play.csssecrets.io/multiple-borders)
 
 
-<h4 class = 'auto-sort-sub1'>online 方案</h4>
+<h4 class = 'auto-sort-sub1'>outline 方案</h4>
 
 ```css
 /* 黄色背景，10px 黑色边框，5px 绿色外边框 */
@@ -367,7 +367,7 @@ box-shadow: 0 0 0 10px green,
 假设我们有一条基本的垂直线性渐变，颜色从<span class='myColorDot' style="background:#fb3"></span>#fb3过渡到<span class='myColorDot' style="background:#58a"></span>#58a
 
 <div class="myGrid">
-<div style="background:linear-gradient(#fb3, #58a);"></div>
+<div style="min-height:150px; background:linear-gradient(#fb3, #58a);"></div>
 <div>
 
 渐变占比为 100%
@@ -380,7 +380,7 @@ box-shadow: 0 0 0 10px green,
 </div>
 
 <div class="myGrid">
-<div style="background:linear-gradient(#fb3 20%, #58a 80%);"></div>
+<div style="min-height:150px; background:linear-gradient(#fb3 20%, #58a 80%);"></div>
 <div>
 
 渐变占比为 60%
@@ -393,7 +393,7 @@ box-shadow: 0 0 0 10px green,
 </div>
 
 <div class="myGrid">
-<div style="background:linear-gradient(#fb3 50%, #58a 50%);"></div>
+<div style="min-height:150px; background:linear-gradient(#fb3 50%, #58a 50%);"></div>
 <div>
 
 渐变占比为 0
@@ -411,7 +411,7 @@ box-shadow: 0 0 0 10px green,
 > 背景默认情况下是重复平铺的
 
 <div class="myGrid">
-<div style="background:linear-gradient(#fb3 50%, #58a 50%); background-size: 100% 30%;"></div>
+<div style="min-height:150px; background:linear-gradient(#fb3 50%, #58a 50%); background-size: 100% 30%;"></div>
 <div>
 
 ```css
@@ -424,7 +424,7 @@ box-shadow: 0 0 0 10px green,
 </div>
 
 <div class="myGrid">
-<div style="background:linear-gradient(to right, #fb3 50%, #58a 50%); background-size: 30% 100%;"></div>
+<div style="min-height:150px; background:linear-gradient(to right, #fb3 50%, #58a 50%); background-size: 30% 100%;"></div>
 <div>
 
 ```css
@@ -438,7 +438,7 @@ box-shadow: 0 0 0 10px green,
 </div>
 
 <div class="myGrid">
-<div style="background: linear-gradient(#fb3 25%, #58a 0, #58a 50%,  #fb3 0, #fb3 75%, #58a 0);"></div>
+<div style="min-height:150px; background: linear-gradient(#fb3 25%, #58a 0, #58a 50%,  #fb3 0, #fb3 75%, #58a 0);"></div>
 <div>
 
 > 多重渐变
@@ -454,7 +454,7 @@ box-shadow: 0 0 0 10px green,
 </div>
 
 <div class="myGrid">
-<div style="background:linear-gradient(45deg, #fb3 50%, #58a 50%); background-size: 4rem 4rem;"></div>
+<div style="min-height:150px; background:linear-gradient(45deg, #fb3 50%, #58a 50%); background-size: 4rem 4rem;"></div>
 <div>
 
 ```css
@@ -468,7 +468,7 @@ box-shadow: 0 0 0 10px green,
 
 
 <div class="myGrid">
-<div style="background: repeating-linear-gradient(45deg, #fb3 0, #fb3 3rem, #58a 0, #58a 6rem);"></div>
+<div style="min-height:150px; background: repeating-linear-gradient(45deg, #fb3 0, #fb3 3rem, #58a 0, #58a 6rem);"></div>
 <div>
 
 > 斜角条纹
@@ -509,7 +509,7 @@ linear-gradient 只能模拟 45 度角 条纹，repeating-linear-gradient 可以
 
 <br>
 <div class="myGrid">
-<div style=" background: #58a; background-image: repeating-linear-gradient(30deg, hsla(0,0%,100%,.1), hsla(0,0%,100%,.1) 3rem, transparent 0, transparent 6rem);"></div>
+<div style="min-height:150px;  background: #58a; background-image: repeating-linear-gradient(30deg, hsla(0,0%,100%,.1), hsla(0,0%,100%,.1) 3rem, transparent 0, transparent 6rem);"></div>
 <div>
 
 > 同系色条纹
@@ -622,7 +622,7 @@ SVG 可以内嵌到 CSS 中
 > 往往不愿意对一个元素指定固定的宽度和高度，因为我们希望它能根据其内容自动调整并适应
 
 <div class="myGrid">
-<div style="background:#fb3; margin:auto; width:60%; height:60%; border-radius:50%;"></div>
+<div style="min-height:150px; background:#fb3; margin:auto; width:60%; height:60%; border-radius:50%;"></div>
 <div>
 
 ```css
@@ -635,7 +635,7 @@ SVG 可以内嵌到 CSS 中
 </div>
 
 <div class="myGrid">
-<div style="background:#fb3; margin:auto; width:60%; height:60%; border-radius: 50% / 100% 100% 0 0;"></div>
+<div style="min-height:150px; background:#fb3; margin:auto; width:60%; height:60%; border-radius: 50% / 100% 100% 0 0;"></div>
 <div>
 
 ```css
@@ -648,7 +648,7 @@ SVG 可以内嵌到 CSS 中
 </div>
 
 <div class="myGrid">
-<div style="background:#fb3; margin:auto; width:60%; height:60%; border-radius: 100% 0 0 0;"></div>
+<div style="min-height:150px; background:#fb3; margin:auto; width:60%; height:60%; border-radius: 100% 0 0 0;"></div>
 <div>
 
 ```css
@@ -764,20 +764,20 @@ SVG 可以内嵌到 CSS 中
 
 <style>
 .picture { 
-	/* 图片必须是正方形, 这里固定宽高比为一比一 */
-	width: 12rem;
-	height: 12rem;
-	transform: rotate(45deg) 
-			   /* div 尺寸缩小为 1/1.42 倍 */
-	           scale(calc(1 / 1.42));
-	overflow: hidden;
+    /* 图片必须是正方形, 这里固定宽高比为一比一 */
+    width: 12rem;
+    height: 12rem;
+    transform: rotate(45deg) 
+               /* div 尺寸缩小为 1/1.42 倍 */
+               scale(calc(1 / 1.42));
+    overflow: hidden;
 }
 .picture > img{ 
-	width: inherit;
-	height: inherit
-	transform: rotate(-45deg)
-	/* 尺寸放大为 1.42, 这里就变成 12rem */
-	           scale(1.42);
+    width: inherit;
+    height: inherit
+    transform: rotate(-45deg)
+    /* 尺寸放大为 1.42, 这里就变成 12rem */
+               scale(1.42);
 }
 </style>
 ```
@@ -791,7 +791,7 @@ SVG 可以内嵌到 CSS 中
 
 ```css
 img {
-	clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
 }
 ```
 
@@ -799,11 +799,11 @@ img {
 **动画效果, 鼠标悬停, 恢复原来样式**
 ```css
 img {
-	clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-	transition: 1s clip-path;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    transition: 1s clip-path;
 }
 img :hover {
-	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 ```
@@ -827,16 +827,16 @@ img {
   width:12rem;
   height:12rem;
   clip-path: polygon(
-				50%    0, 
-				61.23% 34.55%, 
-				97.55% 34.55%, 
-				64.69% 54.77%, 
-				79.39% 90.45%, 
-				50%    69.1%, 
-				20.61% 90.45%, 
-				35.31% 54.77%, 
-				2.45%  34.55%, 
-				38.77% 34.55%);
+                50%    0, 
+                61.23% 34.55%, 
+                97.55% 34.55%, 
+                64.69% 54.77%, 
+                79.39% 90.45%, 
+                50%    69.1%, 
+                20.61% 90.45%, 
+                35.31% 54.77%, 
+                2.45%  34.55%, 
+                38.77% 34.55%);
 }
 ```
 
@@ -860,8 +860,8 @@ img {
 
 ```css
 div {
-	background: 
-		linear-gradient(-45deg, transparent 15px, #58a 0);
+    background: 
+        linear-gradient(-45deg, transparent 15px, #58a 0);
 }
 ```
 </div>
@@ -886,11 +886,11 @@ transparent 是表示颜色透明，background 的默认属性
 
 ```css
 div {
-	background: 
-		linear-gradient(45deg, transparent 15px, #58a 0) left,
-		linear-gradient(-45deg, transparent 15px, #655 0) right;
-	background-size: 50% 100%;
-	background-repeat: no-repeat;
+    background: 
+        linear-gradient(45deg, transparent 15px, #58a 0) left,
+        linear-gradient(-45deg, transparent 15px, #655 0) right;
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
 }
 ```
 </div>
@@ -909,17 +909,17 @@ div {
 
 ```css
 div {
-	background: 
-		linear-gradient(135deg, transparent 15px, #58a 0) 
-			top left,
-		linear-gradient(-135deg, transparent 15px, grey 0) 
-			top right,
-		linear-gradient(-45deg, transparent 15px, yellow 0) 
-			bottom right,
-		linear-gradient(45deg, transparent 15px, #655 0) 
-			bottom left;
-	background-size: 50% 50%;
-	background-repeat: no-repeat;
+    background: 
+        linear-gradient(135deg, transparent 15px, #58a 0) 
+            top left,
+        linear-gradient(-135deg, transparent 15px, grey 0) 
+            top right,
+        linear-gradient(-45deg, transparent 15px, yellow 0) 
+            bottom right,
+        linear-gradient(45deg, transparent 15px, #655 0) 
+            bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
 }
 ```
 </div>
@@ -938,17 +938,17 @@ div {
 
 ```css
 div {
-	background: 
-		radial-gradient(circle at bottom right,transparent 15px, #58a 0) 
-			top left, 
-		radial-gradient(circle at bottom left, transparent 15px, grey 0) 
-			top right, 
-		radial-gradient(circle at top left, transparent 15px, yellow 0) 
-			bottom right, 
-		radial-gradient(circle at top right, transparent 15px, #655 0) 
-			bottom left; 
-		background-size: 50% 50%; 
-		background-repeat: no-repeat; 
+    background: 
+        radial-gradient(circle at bottom right,transparent 15px, #58a 0) 
+            top left, 
+        radial-gradient(circle at bottom left, transparent 15px, grey 0) 
+            top right, 
+        radial-gradient(circle at top left, transparent 15px, yellow 0) 
+            bottom right, 
+        radial-gradient(circle at top right, transparent 15px, #655 0) 
+            bottom left; 
+        background-size: 50% 50%; 
+        background-repeat: no-repeat; 
 }
 ```
 </div>
@@ -959,14 +959,14 @@ div {
 SCSS 的 mixin 预处理可以帮助我们减少代码的重复
 ```css
 @mixin beveled-corners($bg,$tl:0, $tr:$tl,$br:$tl,$bl:$tr) {
-	background: $bg;
-	background: 
-		linear-gradient(135deg, transparent $tl,$bg 0) top left,
-		linear-gradient(225deg, transparent $tr,$bg 0) top right,
-		linear-gradient(-45deg, transparent $br,$bg 0) bottom right,
-		linear-gradient(45deg, transparent $bl,$bg 0)  bottom left;   
-		background-size: 50% 50%; background-repeat: no-repeat;
-	}
+    background: $bg;
+    background: 
+        linear-gradient(135deg, transparent $tl,$bg 0) top left,
+        linear-gradient(225deg, transparent $tr,$bg 0) top right,
+        linear-gradient(-45deg, transparent $br,$bg 0) bottom right,
+        linear-gradient(45deg, transparent $bl,$bg 0)  bottom left;   
+        background-size: 50% 50%; background-repeat: no-repeat;
+    }
 
 /* 调用 */
 @includebeveled-corners(#58a, 15px, 5px);
@@ -977,14 +977,14 @@ SCSS 的 mixin 预处理可以帮助我们减少代码的重复
 
 ```css
 div {
-	border: 20px solid #58a;
-	border-image: 1 url('data:image/svg+xml,\
-		<svg xmlns="http://www.w3.org/2000/svg"\
-			width="3" height="3" fill="%2358a">\
-		<polygon points="0,1 1,0 2,0 3,1 3,2 2,3 1,3 0,2"/>\
-		</svg>');
-	background: #58a;
-	background-clip: padding-box;
+    border: 20px solid #58a;
+    border-image: 1 url('data:image/svg+xml,\
+        <svg xmlns="http://www.w3.org/2000/svg"\
+            width="3" height="3" fill="%2358a">\
+        <polygon points="0,1 1,0 2,0 3,1 3,2 2,3 1,3 0,2"/>\
+        </svg>');
+    background: #58a;
+    background-clip: padding-box;
 }
 ```
 
@@ -996,8 +996,8 @@ CSS4 将引入`corner-shape`属性，用来解决切角问题。
  
 ```css
 {
-	border-radius: 15px;
-	corner-shape: bevel;
+    border-radius: 15px;
+    corner-shape: bevel;
 }
 ```
 
@@ -1023,7 +1023,7 @@ CSS4 将引入`corner-shape`属性，用来解决切角问题。
 <h3 class = 'auto-sort-sub'>单侧投影</h3>
 
 <div class="myGrid">
-<div style="background:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 30px 15px 2px"></div>
+<div style="min-height:150px; background:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 30px 15px 2px"></div>
 <div>
 
 1. 在该元素上面画出相同尺寸的灰色矩形
@@ -1038,7 +1038,7 @@ CSS4 将引入`corner-shape`属性，用来解决切角问题。
 </div>
 
 <div class="myGrid">
-<div style="background:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 0 5px 0 5px"></div>
+<div style="min-height:150px; ackground:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 0 5px 0 5px"></div>
 <div>
 
 1. 在该元素上面画出相同尺寸的灰色矩形
@@ -1054,7 +1054,7 @@ CSS4 将引入`corner-shape`属性，用来解决切角问题。
 </div>
 
 <div class="myGrid">
-<div style="background:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 0 10px 3px -7px"></div>
+<div style="min-height:150px; background:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 0 10px 3px -7px"></div>
 <div>
 
 1. 在该元素上面画出相同尺寸的灰色矩形
@@ -1070,7 +1070,7 @@ CSS4 将引入`corner-shape`属性，用来解决切角问题。
 </div>
 
 <div class="myGrid">
-<div style="background:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 5px 0 3px -4px, rgba(0,0,0,0.5) -5px 0 3px -4px"></div>
+<div style="min-height:150px; background:white;margin:auto;width:70%;height:70%;box-shadow:rgba(0, 0, 0, 0.5) 5px 0 3px -4px, rgba(0,0,0,0.5) -5px 0 3px -4px"></div>
 <div>
 
 > 双侧投影
@@ -1240,20 +1240,176 @@ It was the best of times, it was the worst of times, it was the age of wisdom, i
 <h2 class = 'section-title'>第 <label class = 'block-number'>5</label> 章: 字体排印</h2>
 <div class = 'folding-area'>
 
+
 <h3 class = 'auto-sort-sub'>连字符断行</h3>
 
 
-<div class="myGrid">
+<div class="myGrid s3-7">
+<div style="margin-top:2rem;font:130%/1.4 Baskerville, serif; text-align:justify">
+It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way.
+</div>
+<div>
+<br><br>
+
+```css
+{
+    margin-top: 2rem;
+    font: 130% / 1.4 Baskerville, serif;
+    text-align: justify;
+    hyphens: auto;  
+    /* 为了确保它奏效，你需要在HTML标签的lang属性中指定合适的语言 */  
+    /* TODO: 未生成连字符*/
+}
+
+```
+
+</div>
+</div>
+
+<div class="myTip">
+
+未来 CSS4 会添加连字符的行为, 比如  
+`hyphenate-limit-lines`  `hyphenate-limit-chars` `hyphenate-limit-zone` `hyphenate-limit-last` `hyphenate-character`
+</div>
+
+
+<h3 class = 'auto-sort-sub'>插入换行</h3>
+
+<div class="myGrid s3-7">
 <div style="margin-top:2rem;">
-It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way
+
+
+<div style="margin:2rem">
+
+
+<dl>  
+    <dt style="display:inline">Name:</dt>
+    <dd style="display:inline; margin:0; font-weight:bold;">Someone</dd> <br>
+    <dt style="display:inline;">Email:</dt>    
+    <dd style="display:inline; margin:0; font-weight:bold;">some@one.me, </dd>
+    <dd style="display:inline; margin:0; font-weight:bold;">Chinese</dd> 
+</dl>
+</div>
+
 </div>
 <div>
 
+```html
+
+<dl>  
+    <dt>Name:</dt> 
+    <dd>Someone</dd> 
+    <dt>Email:</dt>    
+    <dd>some@one.me</dd> 
+    <dd>Chinese</dd> 
+</dl>
+
+<style>
+    dt, dd { display: inline; } 
+    dd { 
+        margin: 0; 
+        font-weight: bold; 
+    } 
+    dd + dt::before { 
+        content: '\A';  /* 相当于 \n */ 
+        white-space: pre;  /*保留源码中的空白符和换行*/
+    } 
+    dd + dd::before { 
+        content: ', '; 
+        margin-left: -.25em;
+        font-weight: normal; 
+    }
+</style>
+```
+
 </div>
 </div>
 
 
+</div>
+</div>
+<!------->
 
+
+
+
+
+<h3 class = 'auto-sort-sub'>文本行的斑马条纹</h3>
+
+<div class="myGrid" style="grid-template-columns:40% 60%">
+<div style="font:130% Baskerville, serif; text-align:justify; 
+            line-height: 1.5; background: beige; padding: 0 0.2em;
+            background-image: linear-gradient(rgba(0,0,0,.2) 50%, transparent 0); 
+            background-size: auto 3em;"
+>
+It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way.
+
+</div>
+<div>
+
+```css
+{
+    padding:0 0.2em; 
+    line-height: 1.5; 
+    background: beige; 
+    background-image: linear-gradient(rgba(0,0,0,.2) 50%, transparent 0); 
+    background-size: auto 3em; /* 与 line-height 影响*/
+}
+```
+
+</div>
+</div>
+
+<h3 class = 'auto-sort-sub'>自定义下划线</h3>
+<div class="myGrid s4-6">
+<div style="margin-top:2rem;font:130% Baskerville, serif; text-align:justify;">
+
+
+text-decoration 生成下划线: 
+
+"The only way to <span style=" text-decoration: underline solid gray;">get rid of a temptation<span> is to yield to it"
+
+<br>
+
+linux fireFox 下, 利用 background 生成下划线:   
+
+"The only way to <span style="background: linear-gradient(gray, gray) no-repeat; background-size: 100% 1px; background-position: 0 1.22em; text-shadow: .05em 0 white, -.05em 0 white;">get rid of a temptation<span> is to yield to it"
+
+<br>
+
+"The only way to <span style="background: linear-gradient(90deg, gray 66%, transparent 0) repeat-x; background-size: .4em 2px; background-position: 0 1.32em;">get rid of a temptation<span> is to yield to it"
+
+
+</span>
+
+</div>
+<div>
+
+> text-decoration 实现下划线是最简洁可靠的方式:  
+> ```css
+> { 
+>     text-decoration: underline dotted gray;
+> }
+> ```
+
+
+```css
+
+/* Linux 版 firefox 表现良好, Linux 版 Chrome 下表现糟糕(字体渲染原因)  */
+{
+    background: linear-gradient(gray, gray) no-repeat; 
+    background-size: 100% 1px; 
+    background-position: 0 1.22em; 
+    text-shadow: .05em 0 white, -.05em 0 white; /* 下划线遇到 p y 等字母时, 下半部自动断开避让 */
+}
+
+
+{
+    background: linear-gradient(90deg, gray 66%, transparent 0) repeat-x; 
+    background-size: .2em 2px; 
+    background-position: 0 1.32em;
+}
+```
 </div>
 </div>
 

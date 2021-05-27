@@ -162,37 +162,100 @@ export PATH=$ORACLE_HOME:$PATH
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>mysql</h2>
+<h2 class = 'section-title'>MySQL</h2>
 <div class = 'folding-area'>
 
-通过 [官网](https://dev.mysql.com/downloads/) 了解需要下载的版本，
+> 通过 [官网](https://dev.mysql.com/downloads/) 了解需要下载的版本，
 通过中科大清华镜像[下载](http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/)
 
-**(1) 免安装版本**  
-如: `mysql-8.0.21-linux-glibc2.12-x86_64.tar`  
 
-1. 创建 my.cnf 文件
+1. 下载压缩版, 如[MySQL-8.0.20](https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.20-linux-glibc2.12-x86_64.tar.xz) 
 
+1. 创建用户组及授权
 ```bash
-# 初始化 
-$> ./bin/mysqld --user=ljq --basedir=/home/ljq/opt/mysql8 --datadir=/home/ljq/opt/mysql8/data --initialize
+root$> groupadd mysql
+root$> useradd -g mysql mysql
+root$> chown -R mysql.mysql  /opt/mysql8
+```
+
+1. 初始化 (5.7+)
+```bash
+# 方式一: 生成临时密码(显示在终端日志中), 密码过期时间为180天
+root$> ./bin/mysqld --user=ljq --basedir=/opt/mysql8 --datadir=/opt/mysql8/data --initialize
+  
+#方式二: 管理员密码为空(推荐)
+root$> ./bin/mysqld  --initialize-insecure  --user=ljq --basedir=/opt/mysql8 --datadir=/opt/mysql8/data --initialize
+
 
 ```
+此时生成 ./support-files/ 文件夹, 修改`./support-files/mysql.server`文件, 修改文件里的`basedir=''` `basedata=''`为 MySQL 位置(默认位置为 /esr/local/)
+
+1. 编辑 my.cnf 配置文件, 如
+```bash
+[mysqld]
+basedir=/opt/mysql8
+datadir=/opt/mysql8/data
+character-set-server=UTF8MB4
+#socket=/tmp/mysql.sock
+#设置忽略大小写,默认不区分大小写
+#lower_case_table_names = 1
+# 登陆时跳过权限验证
+[mysqld_safe]
+log-error=/opt/mysql8/log/error.log
+```
+1. 添加服务到系统
+```bash
+root$> cp -a ./support-files/mysql.server  /etc/init.d/
+root$> chmod +x /etc/init.d/mysql.server
+root$> chkconfig --add mysql.server
+```
+
+1. 服务启动
+```bash
+root$> service mysql start
+```
+
+1. 登陆 mysql
+```bash
+user$> mysql -uroot -p 
+```
+
+<div class="myTip">
+
+**问: 密码忘记该怎么办?**  
+
+**答:**  
+1. 在配置文件 my.cnf [mysqld] 下添加 skip-grant-tables
+2. 重启 mysql 服务
+3. 登入 mysql 重空密码
+```bash
+mysql> use mysql;
+# 查看用户信息
+mysql> select host, user, authentication_string, plugin from user;  
+# 设置密码为空
+mysql> update user set authentication_string='' where user='root';  
+```
+4. 修改密码
+```bash
+# 方式一
+mysql> ALTER user 'root'@'localhost' IDENTIFIED BY '123456'  
+  
+# 方式二
+root$> mysqladmin -uroot -p password 123456
+```
+<br>
+**问: my.cnf在哪创建?**  
+**答:** my.cnf 可以在安装路径下创建, 也可以在 /etc/ 路径下创建, 详细位置可以执行
+```bash
+user$> mysql --help | grep my.cnf
+```
+
+</div>
+
 
 
 libinfo.so.5 [下载地址](https://pkgs.org/download/libtinfo.so.5)
 
-
-安装  
-(1) mysql-xxx-common-xxx.rpm  
-(2) mysql-xxx-libs-xxx.rpm  
-(3) mysql-xxx-client-xxx.rpm  
-(4) mysql-xxx-server-xxx.rpm  
-
-```bash
-# root 安装
-# --force --nodeps 强制安装, 不然会报错
-$> rpm -ivh  xxx.rpm    --force  --nodeps
 
 ```
 </div>
@@ -545,14 +608,10 @@ docsify serve
 <h2 class = 'section-title'>VirtualBox</h2>
 <div class = 'folding-area'>
 
-[在VirtualBox 中，如何在固定磁盘和动态磁盘之间装换](https://www.kutu66.com//Linux/article_13912)
+### VirtualBox 扩展包
+源里安装软件后, 去官网下载扩增包[VirtualBox Extension Pack.vbox-extpack](http://download.virtualbox.org/virtualbox/6.1.0/), 
+然后, 启动 VirtualBox, `全局设置 -> 扩展` 安装扩展包. 
 
-```bash
-// 复制 kali.vdi 为固定虚拟盘 kali2.vdi
-$>  VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Fixed
-// 复制 kali.vdi 为动态虚拟盘 kali2.vdi
-$>  VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Standard
-```
 ### virtualbox 增强功能
 实验系统  
 - 宿主机：opensuse  
@@ -562,6 +621,15 @@ $>  VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Standard
 $ sudo apt-get install virtualbox-*
 # 图形界面配置共享文件夹 + 重启电脑
 $ sudo mount -t public /mnt/public
+```
+
+[在VirtualBox 中，如何在固定磁盘和动态磁盘之间装换](https://www.kutu66.com//Linux/article_13912)
+
+```bash
+// 复制 kali.vdi 为固定虚拟盘 kali2.vdi
+$>  VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Fixed
+// 复制 kali.vdi 为动态虚拟盘 kali2.vdi
+$>  VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Standard
 ```
 ### 虚拟机使用宿主机网络服务
 

@@ -312,14 +312,30 @@ h6 .anchor span {
   font-size: 0.8rem;
 }
 
-.myGrid {
-  display: grid;
-  margin-bottom: 1.5rem;
-  grid-column-gap:2rem;
-  grid-template-columns: 30% 70%;
 
+@media screen and (min-width: 900px) {
+    .myGrid {
+      display: grid;
+      margin-bottom: 1.5rem;
+      grid-column-gap:2rem;
+      grid-template-columns: 30% 70%;
+    }
+    .s3-7 {
+       grid-template-columns: 30% 70%;
+    }
+    .s4-6 {
+       grid-template-columns: 40% 60%;
+    }
+    .s5-5 {
+       grid-template-columns: 50% 50%;
+    }
+    .s6-4 {
+       grid-template-columns: 60% 40%;
+    }
+    .s7-3 {
+       grid-template-columns: 70% 30%;
+    }
 }
-
 
 .myNote .note,
 .myWarning .warning,
