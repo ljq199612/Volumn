@@ -1,6 +1,6 @@
  
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章：字符串</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label>字符串</h2>
 <div class = 'folding-area'>
 
 String 底层是 `final char[]`, 它是不可变的
@@ -27,7 +27,7 @@ private int newCapacity(int minCapacity) {
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>2</label> 章：集合</h2>
+<h2 class = 'section-title'><label class = 'block-number'>2</label>集合</h2>
 <div class = 'folding-area'>
 
 <div class="myImage">
@@ -241,7 +241,7 @@ private void grow(int minCapacity) {
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>10</label> 章: 其他</h2>
+<h2 class = 'section-title'><label class = 'block-number'>10</label> 其他</h2>
 <div class = 'folding-area'>
 
 

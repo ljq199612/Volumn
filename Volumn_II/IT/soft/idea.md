@@ -1,7 +1,7 @@
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章: 常用设定</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label> 常用设定</h2>
 <div class = 'folding-area'>
 
 

@@ -1,6 +1,6 @@
  
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章: C 语言基本概念</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label> C 语言基本概念</h2>
 <div class = 'folding-area'>
 
 > 要点: 在任何需要数值的地方，都可以使用具有相同类型的表达式
@@ -239,7 +239,7 @@ American National Standards Institute
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>2</label> 章：类型、运算符与表达式</h2>
+<h2 class = 'section-title'><label class = 'block-number'>2</label>类型、运算符与表达式</h2>
 <div class = 'folding-area'>
 
 - 运算符用于指定要对变量与常量进行的操作

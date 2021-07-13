@@ -1,7 +1,7 @@
 # java 虚拟机
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章： 类的加载机制</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label> 类的加载机制</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>加载</h3>
@@ -389,7 +389,7 @@ a = 4
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>2</label> 章： 字节码</h2>
+<h2 class = 'section-title'><label class = 'block-number'>2</label> 字节码</h2>
 <div class = 'folding-area'>
 
 //TODO
@@ -398,7 +398,7 @@ a = 4
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>3</label> 章：内存模型</h2>
+<h2 class = 'section-title'><label class = 'block-number'>3</label>内存模型</h2>
 <div class = 'folding-area'>
 
 //TODO

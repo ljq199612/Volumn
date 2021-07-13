@@ -26,6 +26,16 @@
 
 <div class='book-list-sub2'>
     <i class='nav-icon iconfont icon-book-open'></i>
+    <span> 数据库</span>
+    <div class='book-list-sub3 hidden'>
+        <a href="#/Volumn_II/IT/sql/sql反模式" class="alive">
+        <i class='iconfont icon-page'></i>
+        sql 反模式</a>
+    </div>                                                            
+</div>                                                            
+
+<div class='book-list-sub2'>
+    <i class='nav-icon iconfont icon-book-open'></i>
     <span> 算法</span>
     <div class='book-list-sub3 hidden'>
         <a href="#/Volumn_II/IT/algorithms/algorithms" class="alive">

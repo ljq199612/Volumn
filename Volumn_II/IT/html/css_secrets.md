@@ -2,7 +2,7 @@
 # CSS 揭秘
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章：引言</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label>引言</h2>
 <div class = 'folding-area'>
 
 
@@ -219,7 +219,7 @@ input, select, button {font: inherit;}
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>2</label> 章：背景与边框</h2>
+<h2 class = 'section-title'><label class = 'block-number'>2</label>背景与边框</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>半透明边框</h3>
@@ -237,7 +237,7 @@ input, select, button {font: inherit;}
 
 ```
 
-<span class='myTry'>试一试 ☞</span>
+<span class='myTry'></span>
 [play.csssecrets.io/translucent-borders](http://play.csssecrets.io/translucent-borders)
 
 
@@ -262,7 +262,7 @@ box-shadow: 0 0 0 10px green,
 - 不会响应鼠标事件(可以给 box-shadow 属性加上`inset`关键字, 使投影绘制在元素`内圈`)
 </div>
 
-<span class='myTry'>试一试 ☞</span>  [play.csssecrets.io/multiple-borders](http://play.csssecrets.io/multiple-borders)
+<span class='myTry'></span>  [play.csssecrets.io/multiple-borders](http://play.csssecrets.io/multiple-borders)
 
 
 <h4 class = 'auto-sort-sub1'>outline 方案</h4>
@@ -311,7 +311,7 @@ box-shadow: 0 0 0 10px green,
 }
 ```
 
-<span class='myTry'>试一试 ☞</span>
+<span class='myTry'></span>
 [play.csssecrets.io/extended-bg-position](http://play.csssecrets.io/extended-bg-position)
 
 
@@ -330,7 +330,7 @@ box-shadow: 0 0 0 10px green,
 }
 ```
 
-<span class='myTry'>试一试 ☞</span>
+<span class='myTry'></span>
 [play.csssecrets.io/background-origin](http://play.csssecrets.io/background-origin)
 
 
@@ -348,13 +348,13 @@ box-shadow: 0 0 0 10px green,
 为了向前兼容，cale() 函数内部`-` `+` 运算符两侧都要加`空白符`，未来，在 cale() 内部可能会允许使用关键字
 </div>
 
-<span class='myTry'>试一试 ☞</span>
+<span class='myTry'></span>
 [play.csssecrets.io/background-position-calc](http://play.csssecrets.io/background-position-calc)
 
 
 <h3 class = 'auto-sort-sub'>边框内圆角</h3>
 
-<span class='myTry'>试一试 ☞</span>
+<span class='myTry'></span>
 [play.csssecrets.io/inner-rounding](http://play.csssecrets.io/inner-rounding)
 
 
@@ -591,7 +591,7 @@ SVG 可以内嵌到 CSS 中
 }
 ```
 
-<span class='myTry'>试一试 ☞</span>
+<span class='myTry'></span>
 [play.csssecrets.io/checkerboard-svg](http://play.csssecrets.io/checkerboard-svg)
 
 <div class="myTip">
@@ -600,7 +600,7 @@ SVG 可以内嵌到 CSS 中
 , 目前可以通过插件实现
 **background: conic-gradient(red , yellow, lime, aqua, blue, fuchsia, red);**
 
-<span class='myTry'>测一测 ☞</span>
+<span class='myTry'></span>
 [play.csssecrets.io/test-conic-gradient](http://play.csssecrets.io/test-conic-gradient)
 
 </div>
@@ -614,7 +614,7 @@ SVG 可以内嵌到 CSS 中
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>3</label> 章：形状</h2>
+<h2 class = 'section-title'><label class = 'block-number'>3</label>形状</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>自适应椭圆</h3>
@@ -729,7 +729,7 @@ SVG 可以内嵌到 CSS 中
 </div>
 </div>
 
-<span class='myTry'>试一试 ☞</span>
+<span class='myTry'></span>
 [play.csssecrets.io/parallelograms-pseudo](http://play.csssecrets.io/parallelograms-pseudo)
 
 <h3 class = 'auto-sort-sub'>菱形图片</h3>
@@ -1017,7 +1017,7 @@ CSS4 将引入`corner-shape`属性，用来解决切角问题。
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>4</label> 章：视觉效果</h2>
+<h2 class = 'section-title'><label class = 'block-number'>4</label>视觉效果</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>单侧投影</h3>
@@ -1120,7 +1120,7 @@ img:focus {
 
 <div>
 
-<span class='myTry'>试一试 ☞</span>
+<span class='myTry'></span>
 [play.csssecrets.io/color-tint-filter](play.csssecrets.io/color-tint-filter)
 
 
@@ -1194,7 +1194,7 @@ img:focus {
 ```
 </div>
 
-<span class='myTry'>试一试 ☞</span>
+<span class='myTry'></span>
 [play.csssecrets.io/color-tint](play.csssecrets.io/color-tint)
 
 </div>
@@ -1237,7 +1237,7 @@ It was the best of times, it was the worst of times, it was the age of wisdom, i
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>5</label> 章: 字体排印</h2>
+<h2 class = 'section-title'><label class = 'block-number'>5</label> 字体排印</h2>
 <div class = 'folding-area'>
 
 
@@ -1326,14 +1326,6 @@ It was the best of times, it was the worst of times, it was the age of wisdom, i
 </div>
 
 
-</div>
-</div>
-<!------->
-
-
-
-
-
 <h3 class = 'auto-sort-sub'>文本行的斑马条纹</h3>
 
 <div class="myGrid" style="grid-template-columns:40% 60%">
@@ -1365,13 +1357,13 @@ It was the best of times, it was the worst of times, it was the age of wisdom, i
 <div style="margin-top:2rem;font:130% Baskerville, serif; text-align:justify;">
 
 
-text-decoration 生成下划线: 
+> text-decoration 生成下划线: 
 
 "The only way to <span style=" text-decoration: underline solid gray;">get rid of a temptation<span> is to yield to it"
 
 <br>
 
-linux fireFox 下, 利用 background 生成下划线:   
+> 利用 background 生成下划线:   
 
 "The only way to <span style="background: linear-gradient(gray, gray) no-repeat; background-size: 100% 1px; background-position: 0 1.22em; text-shadow: .05em 0 white, -.05em 0 white;">get rid of a temptation<span> is to yield to it"
 
@@ -1412,6 +1404,454 @@ linux fireFox 下, 利用 background 生成下划线:
 ```
 </div>
 </div>
+
+
+
+
+
+
+
+
+<h3 class = 'auto-sort-sub'>文字效果</h3>
+
+<h4 class = 'auto-sort-sub1'>凸版印刷</h4>
+
+> 凸版印刷尤其适合中等亮度背景配上深色文字的, 出现在底部的浅色投影(或出现在顶部的暗色投影)会让人产生`物体是凹进平面内的错觉`; 出现在底部的暗色(或出现在顶部的浅色投影)会让人产生`物体从平面上凸起的错觉`
+
+
+<div class="myTip">
+
+我们在现实世界中早习惯了光源在头顶上, 在这种环境下,凸起物的下方会产生阴影, 而凹陷的底部边缘则会被打亮.
+</div>
+
+
+<div class="myGrid s3-7">
+<div style="padding: 0.3rem; margin-top:2rem; background: hsl(210 , 13%, 60%); color: hsl(210 , 13%, 30%); width:80%; height: 90%; min-height: 150px">
+加效果前: <br>
+<div style="padding:0 1rem 0"> "The only way to get rid of a temptation is to yield to it" </div>
+<br>加效果后: <br> 
+<div style="padding:0 1rem 0; text-shadow: 0 1px 1px hsla(0,0%,100%,.8);">"The only way to get rid of a temptation is to yield to it" </div>
+
+</div>
+<div>
+
+
+
+> 文字比背景色深，在文字底部加上浅色投影通常效果最佳  
+
+> 背景色 <span class='myColorDot' style="background:hsl(210, 13%, 60%)"></span>hsl(210, 13%, 60%)  
+> 文字颜色 <span class='myColorDot' style="background:hsl(210, 13%, 30%)"></span>hsl(210, 13%, 30%)  
+> 投影色 <span class='myColorDot' style="background:hsl(0, 0%, 100%, .8)"></span>hsl(0, 0%, 100%, .8) 
+
+```css
+{
+    background: hsl(210 , 13%, 60%); 
+    color: hsl(210 , 13%, 30%); 
+    text-shadow: 0 1px 1px hsla(0,0%,100%,.8);
+}
+```
+
+</div>
+</div>
+
+<div class="myGrid s3-7">
+<div style="padding: 0.3rem; margin-top:2rem; background: hsl(210 , 13%, 40%); color: hsl(210 , 13%, 75%); width:80%; height: 90%; min-height: 150px">
+加效果前: <br>
+<div style="padding:0 1rem 0"> "The only way to get rid of a temptation is to yield to it" </div>
+<br>加效果后: <br> 
+<div style="padding:0 1rem 0; text-shadow: 0 -1px 1px black;">"The only way to get rid of a temptation is to yield to it" </div>
+
+</div>
+<div>
+
+> 文字比背景色深，在文字底部加上浅色投影通常效果最佳  
+
+> 背景色 <span class='myColorDot' style="background:hsl(210, 13%, 40%)"></span>hsl(210, 13%, 40%)  
+> 文字颜色 <span class='myColorDot' style="background:hsl(210, 13%, 75%)"></span>hsl(210, 13%, 75%)  
+> 投影色 <span class='myColorDot' style="background:black"></span>black 
+
+```css
+{
+    background: hsl(210 , 13%, 40%); 
+    color: hsl(210 , 13%, 75%); 
+    text-shadow: 0 -1px 1px black;
+}
+```
+
+</div>
+</div>
+
+<h4 class = 'auto-sort-sub1'>空心字(描边)</h4>
+
+<div class="myGrid s3-7">
+<div style="margin-top:2rem; font-size: 400%">
+<div style="padding:0 2rem; background: deeppink; color: white; text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;">CSS</div>
+
+</div>
+<div>
+
+```css
+{
+    background: deeppink; 
+    color: white; 
+    text-shadow: 1px 1px black, -1px -1px black,
+                 1px -1px black, -1px 1px black;
+}
+```
+</div>
+</div>
+
+<div class="myGrid s3-7">
+<div style="margin-top:2rem; font-size: 400%">
+<div style="padding:0 2rem; background: deeppink; color: white; text-shadow: 0 0 2px black;">CSS</div>
+</div>
+<div>
+
+```css
+{
+    background: deeppink; 
+    color: white; 
+    text-shadow: 0 0  2px black;
+}
+```
+
+</div>
+</div>
+
+
+<h4 class = 'auto-sort-sub1'>文字外发光</h4>
+
+<div class="myGrid s3-7">
+<div style="margin-top:2rem; font-size: 400%">
+<div style="padding:0 2rem; background: #203; color: #ffc; text-shadow: 0 0 .1em, 0 0 .3em;">CSS</div>
+</div>
+<div>
+
+```css
+{
+    background: deeppink; 
+    color: white; 
+    text-shadow: 0 0 .1em, 0 0 .3em;
+}
+```
+
+</div>
+</div>
+
+<h4 class = 'auto-sort-sub1'>文字凸起</h4>
+
+<div class="myGrid s3-7">
+<div style="margin-top:2rem; font-size: 400%">
+<div style="padding:0 2rem; background: #58a; color: white; text-shadow: 0 1px hsl(0,0%,85%), 0 2px hsl(0,0%,80%), 0 3px hsl(0,0%,75%), 0 4px hsl(0,0%,70%),0 5px hsl(0,0%,65%), 0 5px 10px black;">CSS</div>
+</div>
+<div>
+
+```css
+{
+    background: #58a; 
+    color: white; 
+    text-shadow: 0 1px hsl(0,0%,85%), 
+                 0 2px hsl(0,0%,80%),
+                 0 3px hsl(0,0%,75%),
+                 0 4px hsl(0,0%,70%),
+                 0 5px hsl(0,0%,65%),
+                 0 5px 10px black;
+}
+```
+</div>
+</div>
+
+<div class="myTip">
+
+SCSS 预处理器的 mixin 写法
+
+```css
+@mixin text-3d($color: white, $depth: 5) {
+    $shadows: (); 
+    $shadow-color: $color; 
+
+    @for$i from 1 through $depth {  
+        $shadow-color: darken($shadow-color, 10%);
+        $shadows: append($shadows,
+                0 ($i * 1px) $shadow-color, comma);
+    } 
+
+    color: $color; 
+    text-shadow: append($shadows,
+                    0 ($depth * 1px) 10px black, comma);
+} 
+
+h1 { @includetext-3d(#eee, 4); }
+
+```
+</div>
+
+<div class="myGrid s3-7">
+<div style="margin-top:2rem; font-size: 400%">
+<div style="padding:0 2rem; color: white; background: hsl(0,50%,45% ); text-shadow: 1px 1px black, 2px 2px black,              3px 3px black, 4px 4px black, 5px 5px black, 6px 6px black, 7px 7px black, 8px 8px black;">CSS</div>
+</div>
+<div>
+
+```css
+{
+    color: white; 
+    background: hsl(0,50%,45% ); 
+    text-shadow: 1px 1px black, 2px 2px black,
+                 3px 3px black, 4px 4px black,
+                 5px 5px black, 6px 6px black,
+                 7px 7px black, 8px 8px black;
+}
+```
+</div>
+</div>
+
+<h3 class = 'auto-sort-sub'>环形文字</h3>
+
+<div class="myGrid s3-7">
+<div style="margin-top:2rem;">
+
+<div class="circular" style="margin: 3em auto; width:60%;"> 
+    <svg viewBox="0 0 100 100" style="overflow:visible; display: block"> 
+        <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle"  fill="none"/> 
+        <text><textPath xlink:href="#circle">
+            circular reasoning works because ...
+        </textPath></text>
+    </svg>
+</div>
+</div>
+<div>
+
+```html
+<div class="circular"> 
+    <svg viewBox="0 0 100 100"> 
+        <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle"/> 
+        <text><textPath xlink:href="#circle">
+            circular reasoning works because ...
+        </textPath></text>
+    </svg>
+</div>
+```
+```css
+.circular {   
+    width: 30em;
+    height: 30em; 
+    margin: 3em auto 0;
+}
+
+.circular path { fill: none; }
+
+.circular svg {  
+    display: block;
+    overflow: visible; 
+}
+```
+</div>
+</div>
+
+</div>
+</div>
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'><label class = 'block-number'>6</label> 用户体验</h2>
+<div class = 'folding-area'>
+
+<h3 class = 'auto-sort-sub'>扩大可点击区域</h3>
+<div class="myGrid s3-7">
+<div style="margin-top:2rem;">
+
+<button style="background: #1ecaca; background-clip: border-box; height: 3rem;  width: 3rem; border-radius: 2rem; border: 10px solid transparent; box-shadow: 0 0 0 1px rgba(0,0,0,.3) inset; background-clip: padding-box; cursor: pointer;"></button>
+
+
+</div>
+<div>
+
+<!-- tabs:start -->
+
+### **不推荐**
+
+> 边框影响布局; 某些情况无法使用边框.
+
+```css
+
+button {
+    border: 10px solid transparent; 
+    box-shadow: 0 0 0 1px rgba(0,0,0,.3) inset;
+    background-clip: padding-box;
+}
+
+
+
+
+
+
+
+
+
+```
+
+### **推荐**
+> 可以把点击区设置为任何想要的尺寸、位置或形状，甚至可以脱离元素原有的位置！
+
+```css
+button {
+    position: relative; 
+        /* [其余样式] */
+} 
+button::before { 
+    content: '';   
+    position: absolute;  
+    top: -10px; 
+    right: -10px;  
+    bottom: -10px; 
+    left: -10px; 
+}
+```
+
+
+<!-- tabs:end -->
+
+</div>
+</div>
+
+
+<h3 class = 'auto-sort-sub'>自定义复选框</h3>
+
+
+<input type="checkbox" id= "awesome" checked="checked"/>
+<label for="awesome">Awesome!</label>
+<div>
+
+```html
+<input type="checkbox" id= "awesome"  checked="checked"/>
+<label for="awesome">Awesome!</label>
+```
+
+<div class="myTip">
+
+Linux 下 firefox 渲染效果不是很好, 复选框位置偏上
+</div>
+
+```css
+input[type="checkbox"] + label::before {  
+    content: '\a0'; /* 不换行空格 */
+    display: inline-block;  
+    vertical-align: .2em; 
+    width: .8em; 
+    height: .8em; 
+    margin-right: .2em;  
+    border-radius: .2em;  
+    background: silver; 
+    text-indent: .15em;  
+    line-height: .65; 
+}
+
+input[type="checkbox"]:checked + label::before { 
+    content: '\2713'; /* 勾 */ 
+    background: yellowgreen; 
+}
+
+/* 隐藏默认复选框 */
+input[type="checkbox"] {  
+    position: absolute; 
+    clip: rect(0,0,0,0); 
+}
+
+
+/* 进一步优化效果 */
+input[type="checkbox"]:focus + label::before {  
+    box-shadow: 0 0 .1em .1em #58a; 
+} 
+
+input[type="checkbox"]:disabled + label::before { 
+    background: gray;  
+    box-shadow: none;  
+    color: #555; 
+}
+
+
+
+```
+
+</div>
+
+
+<div class="myTip">
+
+**问: 伪类选择符`:checked`和属性选择符`[checked]`之间的区别？**  
+**答:** [checked] 不会根据用户的交互行为进行更新的，因为用户的交互并不会影响到 HTML 标签上的属性。
+</div>
+
+
+<h3 class = 'auto-sort-sub'>通过阴影来弱化背景</h3>
+// TODO
+
+<h3 class = 'auto-sort-sub'>通过模糊来弱化背景</h3>
+
+<h3 class = 'auto-sort-sub'>滚动提示</h3>
+
+<h3 class = 'auto-sort-sub'>交互式的图片对比控件</h3>
+
+</div>
+</div>
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'><label class = 'block-number'>7</label> 结构与布局</h2>
+<div class = 'folding-area'>
+
+</div>
+</div>
+<!---------->
+
+
+<h3 class = 'auto-sort-sub'>自适应内部属性</h3>
+
+<div class="myGrid s4-6">
+<div style="margin-top:2rem;">
+
+<figure style="width: min-content; margin: auto;">
+    <img style="max-width: inherit" src="Volumn_II/IT/html/../images/html/css_secret/01.png"/>    
+    <figcaption>        
+        The great Sir Adam Catlace was named after Countess Ada Lovelace, the first programmer.    
+    </figcaption>
+</figure>
+
+</div>
+<div>
+
+```html
+<figure>
+    <img src="Volumn_II/IT/html/../images/html/css_secret/01.png"/>    
+    <figcaption>        
+        The great Sir Adam Catlace was named after Countess Ada Lovelace, the first programmer.    
+    </figcaption>
+</figure>
+```
+
+```css
+figure {
+    width: min-content;
+    margin: auto;
+}
+figure > img {
+    max-width: inherit;
+}
+```
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

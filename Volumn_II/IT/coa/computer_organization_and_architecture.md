@@ -1,7 +1,7 @@
 <h1 class='header-part'>引入</h1>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章：基本概念和计算机演化</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label>基本概念和计算机演化</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>计算机的功能</h3>
@@ -131,7 +131,7 @@
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>2</label> 章：性能问题</h2>
+<h2 class = 'section-title'><label class = 'block-number'>2</label>性能问题</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>性能平衡</h3>
@@ -252,7 +252,7 @@ $$ Throughout = \frac{WIP}{LeadTime}$$
 <h1 class='header-part'>计算机系统</h1>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>3</label> 章：计算机功能和交互的顶层视图</h2>
+<h2 class = 'section-title'><label class = 'block-number'>3</label>计算机功能和交互的顶层视图</h2>
 <div class = 'folding-area'>
 
 <div class="myImage">
@@ -422,7 +422,7 @@ PDP-11 处理器包含一条指令， 其符号表示为 " ADD B,A " , 它将存
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>4</label> 章：高速缓存</h2>
+<h2 class = 'section-title'><label class = 'block-number'>4</label>高速缓存</h2>
 <div class = 'folding-area'>
 <h3 class = 'auto-sort-sub'>计算机存储器系统概述</h3>
 
@@ -829,7 +829,7 @@ Dirty: CPU Cache 里 line 数据与主存不一致。
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>5</label> 章：内
+<h2 class = 'section-title'><label class = 'block-number'>5</label>内
 部存储器</h2>
 <div class = 'folding-area'>
 
@@ -1061,7 +1061,7 @@ CPU 与主存储器存取资料时的`工作时脉 Clock` 相同， 故称为`�
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>6</label> 章：外部存储器</h2>
+<h2 class = 'section-title'><label class = 'block-number'>6</label>外部存储器</h2>
 <div class = 'folding-area'>
 
  ✿ [电脑外置存储器进化历史回顾：从 bit 到 GB](https://www.jb51.net/diannaojichu/348634.html)
@@ -1233,7 +1233,7 @@ $$  T_a = T_s + \frac{1}{2r} + \frac{b}{rN} $$
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>7</label> 章：输入/输出</h2>
+<h2 class = 'section-title'><label class = 'block-number'>7</label>输入/输出</h2>
 <div class = 'folding-area'>
 
 一个 I/O 模块不是简单地将设备连接到系统总线的一组物理连接器，而是包含了执行设备与系统总线之间通信功能的逻辑。

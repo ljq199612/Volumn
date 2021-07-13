@@ -1,6 +1,6 @@
 # 题集
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章：绪论</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label>绪论</h2>
 <div class = 'folding-area'>
 
 <div class="myProblem no-shadow">
@@ -177,7 +177,7 @@ $$\begin{aligned}
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>2</label> 章：算法效率分析基础</h2>
+<h2 class = 'section-title'><label class = 'block-number'>2</label>算法效率分析基础</h2>
 <div class = 'folding-area'>
 
 <div class="myProblem no-shadow">
@@ -231,7 +231,7 @@ $$\sum_{i=0}^n 4*i + 1$$
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>3</label> 章：蛮力法</h2>
+<h2 class = 'section-title'><label class = 'block-number'>3</label>蛮力法</h2>
 <div class = 'folding-area'>
 
 <div class="myProblem no-shadow">

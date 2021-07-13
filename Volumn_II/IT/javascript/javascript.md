@@ -1,7 +1,34 @@
 # JavaScript 高级程序设计
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class='block-number'>2</label> 章：在 HTML 中使用 JavaScript </h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label>什么是 JavaScript</h2>
+<div class = 'folding-area'>
+
+> JavaScript = ECMAScript + DOM + BOM  (核心 + 文档对象模型 + 浏览器对象模型)
+
+Web 浏览器只是 ECMAScript 实现的一种宿主环境(host environment)。宿主环境提供
+ECMAScript 的标准实现以及一些扩展(比如 DOM)语法。其他宿主环境还有服务器端 JavaScript 平台 Node.js 
+
+文档对象模型(DOM,Document Object Model)是一个应用编程接口(API), DOM 可以将 HTML 页面抽象成一组分层节点.
+
+
+<div class="myNote">
+
+其他实现 DOM 标准的语言  
+- 可伸缩矢量图(SVG,Scalable Vector Graphics)
+- 数学标记语言(MathML,Mathematical Markup Language)
+- 同步多媒体集成语言(SMIL,Synchronized Multimedia Integration Language)
+
+</div>
+ 
+
+
+</div>
+</div>
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'><label class = 'block-number'>2</label>在 HTML 中使用 JavaScript </h2>
 <div class = 'folding-area'>
 
 <h3 class='auto-sort-sub'>&lt;script&gt;元素</h3>
@@ -17,13 +44,55 @@
     </head>
     <body>
     <!-- 这里放内容 -->
-        <script type="text/javascript" src="example1.js"></script>
-        <script type="text/javascript" src="example2.js"></script>
+        <script src="example1.js"></script>
+        <script src="example2.js"></script>
     </body>
 </html>
 ```
 这样,在解析包含的 JavaScript 代码之前,页面的内容将完全呈现在浏览器中。而用户也会因为浏 览器窗口显示空白页面的时间缩短而感到打开页面的速度加快了。
 
+
+<h4 class = 'auto-sort-sub1'>延迟执行脚本</h4>
+
+`defer` 属性会使脚本延迟到整个页面都解析完毕后再运行
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example HTML Page</title>
+        <script defer src="example1.js"></script>
+        <script defer src="example2.js"></script>
+    </head>
+    <body>
+    <!-- 这里是页面内容 -->
+    </body>
+</html>
+
+```
+
+<div class="myTip">
+
+对于 XHTML 文档,指定 defer 属性时应该写成 defer="defer"。
+</div>
+
+<h4 class = 'auto-sort-sub1'>动态加载脚本</h4>
+
+```javascript
+let script = document.createElement('script');
+script.src = 'gibberish.js';
+script.async = false; // 默认为 true
+document.head.appendChild(script);
+```
+
+<div class="myWarning">
+
+这种方式不会利用到浏览器预加载器, 可能会严重影响性能。要想让预加载器知道这些
+动态请求文件的存在,可以在文档头部显式声明它们:
+```html
+<link rel="preload" href="gibberish.js">
+```
+</div>
 
 <h4 class = 'auto-sort-sub1'>html 引入 javascript</h4>
 
@@ -45,6 +114,9 @@
 但是,不能在`HTML`文档使用这种语法。原因是这种语法不符合 HTML 规范,而且也得不到某些浏览器(尤其是 IE)的正确解析。
 
 </div>
+
+
+
 
 <h4 class = 'auto-sort-sub1'>xhtml 引入 javascript </h4>
 
@@ -112,14 +184,13 @@ function compare(a, b) {
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class='block-number'>3</label> 章：基本概念</h2>
+<h2 class = 'section-title'><label class = 'block-number'>3</label>基本概念</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>语法</h3>
 <h4 class = 'auto-sort-sub1'>严格模式</h4>
 
-ECMAScript 5 引入了严格模式(strict mode)的概念。在严格模式下,ECMAScript 3 中的一些不确定的行为将得到处理,而且对某些不安全
-的操作也会抛出错误。
+ECMAScript 5 引入了严格模式(strict mode)的概念。在严格模式下,ECMAScript 3 中的一些不确定的行为将得到处理,而且对某些不安全的操作也会抛出错误。
 
 ```javascript
 // 要在整个脚本中启用严格模式,可以在顶部添加如下代码:
@@ -148,9 +219,63 @@ if (test){
 </div>
 
 
+<h3 class = 'auto-sort-sub'>变量</h3>
+<h4 class = 'auto-sort-sub1'>var 关键字</h4>
+
+##### var 声明提升
+
+```javascript
+// 合法, 不提倡
+function foo() {
+console.log(age);
+var age = 26;  // 自动提升到函数首行
+}
+```
+
+<h4 class = 'auto-sort-sub1'>let 声明</h4>
+
+>  let 声明的范围是块作用域
+
+```javascript
+if (true) {
+    var name = 'Matt';
+}
+console.log(name);   // Matt
+ 
+if (true) {
+    let age = 26;
+}
+console.log(age);   // ReferenceError: age 没有定义
+```
+
+<div class="myTip">
+**let 与 var 的区别?**  
+
+1. 暂时性死区
+```javascript
+// name 会被提升
+console.log(name); // undefined
+var name = 'Matt';
+
+// age 不会被提升
+console.log(age); // ReferenceError:age 没有定义, 暂时性死区
+let age = 26;
+```
+2. 全局声明
+```javascript
+var name = 'Matt';
+console.log(window.name); // 'Matt'
+
+let age = 26;
+console.log(window.age); // undefined
+// 使用 let 在全局作用域中声明的变量不会成为 window 对象的属性
+
+```
+</div>
+
 <h3 class = 'auto-sort-sub'>数据类型</h3>
 
-ECMAScript 中有 5 种简单数据类型(也称为基本数据类型):`Undefined`、`Null`、`Boolean`、`Number`和`String`。还有 1 种复杂数据类型`Object` 
+ECMAScript 中有 6 种简单数据类型(也称为基本数据类型):`Undefined`、`Null`、`Boolean`、`Number` `String` 和 `Symbol`。还有 1 种复杂数据类型`Object` 
 
 <h4 class = 'auto-sort-sub1'>typeof 操作符</h4>
 
@@ -215,8 +340,8 @@ var message = "Hello world!";
 var messageAsBoolean = Boolean(message);
 
 var message = "Hello world!";
-if (message){
-    alert("Value is true");    // 自动装换
+if (message){  // 自动装换
+    alert("Value is true");  
 }
 ```
 
@@ -260,7 +385,7 @@ alert(isNaN(true));      // false(可以被转换成数值 1)
 
 <div class="myNote">
 
-尽管有点儿不可思议,但 isNaN()确实也适用于对象。在基于对象调用 isNaN() 函数时,会首先调用对象的 valueOf()方法,然后确定该方法返回的值是否可以转 换为数值。如果不能,则基于这个返回值再调用 toString()方法,再测试返回值。 而这个过程也是 ECMAScript 中内置函数和操作符的一般执行流程。
+尽管有点儿不可思议,但 isNaN()确实也适用于对象。在基于对象调用 isNaN() 函数时,会首先调用对象的`valueOf()`方法,然后确定该方法返回的值是否可以转换为数值。如果不能, 则基于这个返回值再调用`toString()`方法, 再测试返回值。 而这个过程也是 ECMAScript 中内置函数和操作符的一般执行流程。
 </div>
 
 ```javascript
@@ -284,7 +409,7 @@ var num2 = parseInt("AF");            //NaN
 
 <div class="myTip">
 
-不指定基数意味着让 parseInt() 决定如何解析输入的字符串,因此为了避免错误的解析,我们建议无论在什么情况下都明确指定基数。
+不指定基数意味着让 parseInt() 决定如何解析输入的字符串, 因此为了避免错误的解析, 我们建议无论在什么情况下都明确指定基数。
 </div>
 
 
@@ -310,12 +435,14 @@ alert(String(value4));        // "undefined"
 
 <div class="myNote">
 
-在不知道要转换的值是不是 null 或 undefined 的情况下,还可以使用转型函数 String(),这个函数能够将任何类型的值转换为字符串。String()函数遵循下列转换规则:  
-1. 如果值有 toString()方法,则调用该方法(没有参数)并返回相应的结果;
-2. 如果值是 null,则返回"null";
-3. 如果值是 undefined,则返回"undefined"。
+在不知道要转换的值是不是 null 或 undefined 的情况下, 还可以使用转型函数 String(), 这个函数能够将任何类型的值转换为字符串。String() 函数遵循下列转换规则:  
+1. 如果值有 toString() 方法, 则调用该方法(没有参数)并返回相应的结果;
+2. 如果值是 null, 则返回 "null";
+3. 如果值是 undefined, 则返回 "undefined"。
 </div>
 
+<h4 class = 'auto-sort-sub1'>Symbol</h4>
+// TODO
 
 <h4 class = 'auto-sort-sub1'>Object 类型</h4>
 
@@ -336,7 +463,7 @@ null === undefined;             // false
 
 <div class="myTip">
 
-由于相等和不相等操作符存在类型转换问题,而为了保持代码中数据类型的完整性,我们推荐使用全等和不全等操作符。
+由于相等和不相等操作符存在类型转换问题, 而为了保持代码中数据类型的完整性, 推荐使用全等和不全等操作符。
 </div>
 
 
@@ -359,7 +486,7 @@ alert(num); //95
 
 <div class="myTip">
 
-虽然联用 break、continue 和 label 语句能够执行复杂的操作,但如果使用过度,也会给调试带来麻烦。在此,我们建议如果使用 label 语句,一定要使用描述性的标签,同时不要嵌套过多的循环。
+虽然联用 break、continue 和 label 语句能够执行复杂的操作, 但如果使用过度, 也会给调试带来麻烦。在此, 我们建议如果使用 label 语句, 一定要使用描述性的标签, 同时不要嵌套过多的循环。
 </div>
 
 
@@ -367,7 +494,7 @@ alert(num); //95
 
 <div class="myNote">
 
-虽然 ECMAScript 中的 switch 语句借鉴自其他语言,但这个语句也有自己的特色。首先,可以在switch 语句中使用任何数据类型(在很多其他语言中只能使用数值),无论是字符串,还是对象都没有问题。其次,每个 case 的值不一定是常量,可以是变量,甚至是表达式。
+虽然 ECMAScript 中的 switch 语句借鉴自其他语言, 但这个语句也有自己的特色。首先, 可以在 switch 语句中使用任何数据类型(在很多其他语言中只能使用数值), 无论是字符串, 还是对象都没有问题。其次, 每个 case 的值不一定是常量, 可以是变量, 甚至是表达式。
 </div>
 
 ```javascript
@@ -399,9 +526,9 @@ switch (true) {
 }
 ```
 
-<div class="myTip">
+<div class="myWarning">
 
-switch 语句在比较值时使用的是全等操作符,因此不会发生类型转换(例如,字符串"10"不等于数值 10)。
+switch 语句在比较值时使用的是全等操作符, 因此不会发生类型转换(例如, 字符串 "10" 不等于数值 10)。
 </div>
 
 
@@ -410,7 +537,7 @@ switch 语句在比较值时使用的是全等操作符,因此不会发生类型
 
 <div class="myNote">
 
-ECMAScript 函数的参数与大多数其他语言中函数的参数有所不同。ECMAScript 函数不介意传递进来多少个参数,也不在乎传进来参数是什么数据类型。之所以会这样,原因是 ECMAScript 中的参数在内部是用一个叫`arguments`数组来表示的。
+ECMAScript 函数的参数与大多数其他语言中函数的参数有所不同。ECMAScript 函数不介意传递进来多少个参数, 也不在乎传进来参数是什么数据类型。之所以会这样,原因是 ECMAScript 中的参数在内部是用一个叫`arguments`数组来表示的。
 </div>
 
 ```javascript
@@ -436,25 +563,23 @@ doAdd(30, 20);    //50
 
 <div class="myTip">
 
-ECMAScript 中的所有参数传递的都是值,不可能通过引用传递参数。
-ECMAScript 不能重载，后定义的会覆盖前面的相同方法, 通过检查传入函数中参数的类型和数量并作出不同的反应,可以模仿方法的重载。
+ECMAScript 中的所有参数传递的都是值, 不可能通过引用传递参数。
+ECMAScript 不能重载，后定义的会覆盖前面的相同方法, 通过检查传入函数中参数的类型和数量并作出不同的反应, 可以模仿方法的重载。
 </div>
 
 </div>
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>4</label> 章：变量、作用域和内存问题</h2>
+<h2 class = 'section-title'><label class = 'block-number'>4</label>变量、作用域和内存问题</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>基本类型和引用类型的值</h3>
 <h4 class = 'auto-sort-sub1'>复制变量值</h4>
 
-```javascript
-// 基本类型，num2 中的 5 与 num1 中的 5 是完全独立的,该值只是 num1 中 5 的一个副本。
-var num1 = 5;
-var num2 = num1;
+> ECMAScript 中的 String 不是引用类型
 
+```javascript
 // 引用类型
 var obj1 = new Object();
 var obj2 = obj1;
@@ -488,7 +613,7 @@ alert(person.name); //"Nicholas"
 
 <div class="myTip">
 
-在把 person 传递给setName()后,其 name 属性被设置为 "Nicholas"。然后,又将一个新对象赋给变量 obj,同时将其 name 属性设置为 "Greg"。如果 person 是按引用传递的,那么 person 就会自动被修改为指向其 name 属性值为"Greg"的新对象。但是,当接下来再访问 person.name 时,显示的值仍然是"Nicholas"。这说明即使在函数内部修改了参数的值,但原始的引用仍然保持未变。实际上,当在函数内部重写 obj 时,这个变量引用的就是一个局部对象了。而这个局部对象会在函数执行完毕后立即被销毁。
+在把 person 传递给setName()后, 其 name 属性被设置为 "Nicholas"。然后, 又将一个新对象赋给变量 obj, 同时将其 name 属性设置为 "Greg"。如果 person 是按引用传递的, 那么 person 就会自动被修改为指向其 name 属性值为 "Greg" 的新对象。但是, 当接下来再访问 person.name 时,显示的值仍然是 "Nicholas"。这说明即使在函数内部修改了参数的值,但原始的引用仍然保持未变。实际上, 当在函数内部重写 obj 时, 这个变量引用的就是一个局部对象了。而这个局部对象会在函数执行完毕后立即被销毁。
 </div>
 
 <h4 class = 'auto-sort-sub1'>检测类型</h4>
@@ -514,26 +639,45 @@ alert(colors instanceof Array);    // 变量 colors 是 Array 吗?
 alert(pattern instanceof RegExp);  // 变量 pattern 是 RegExp 吗?
 ```
 
-<h3 class = 'auto-sort-sub'>执行环境及作用域</h3>
-<h4 class = 'auto-sort-sub1'>没有块级作用域</h4>
+<h3 class = 'auto-sort-sub'>执行上下文及作用域</h3>
 
+1. 变量或函数的上下文决定了它们可以访问哪些数据,以及它们的行为。每个上下文都有一个关联的变量对象(variable object)
+而这个上下文中定义的所有变量和函数都存在于这个对象上。
+1. 全局上下文是最外层的上下文。根据 ECMAScript 实现的宿主环境,表示全局上下文的对象可能不一
+样。在浏览器中, 全局上下文就是我们常说的 window 对象, 因此所有通过 var 定义的全局变量和函数都会成为 window 对象的属性和方法。上下文在其所有代码都执行完毕后会被销毁,包括定义在它上面的所有变量和函数(全局上下文在应用程序退出前才会被销毁, 比如关闭网页或退出浏览器)。
+每个函数调用都有自己的上下文。当代码执行流进入函数时, 函数的上下文被推到一个上下文栈上。在函数执行完之后, 上下文栈会弹出该函数上下文, 将控制权返还给之前的执行上下文。ECMAScript 程序的执行流就是通过这个上下文栈进行控制的。
+1. 上下文中的代码在执行的时候,会创建变量对象的一个作用域链(scope chain)。这个作用域链决定了各级上下文中的代码在访问变量和函数时的顺序。代码正在执行的上下文的变量对象始终位于作用域链的最前端。`如果上下文是函数,则其活动对象(activation object) 用作变量对象。活动对象最初只有 一个定义变量: arguments (全局上下文中没有这个变量)`
+1. 代码执行时的标识符解析是通过沿作用域链逐级搜索标识符名称完成的。搜索过程始终从作用域链的最前端开始,然后逐级往后,直到找到标识符。(如果没有找到标识符,那么通常会报错)
+
+看一看下面这个例子:
 ```javascript
-if (true) {
-    var color = "blue";
+var color = "blue";
+function changeColor() {
+    if (color === "blue") {
+    color = "red";
+    } else {
+        color = "blue";
+    }
 }
-alert(color); //"blue"
+changeColor();
 
-for (var i=0; i < 10; i++){
-    doSomething(i);
-}
-alert(i); //10
+/* 
+ * 函数 changeColor() 的作用域中有 2 个对象, 
+ * 一个是全局上下文变量 color, 一个是函数定义的变量 arguments 
+ */
 ```
 
-<div class="myTip">
+<h4 class = 'auto-sort-sub1'>作用域链增强</h4>
 
-对于有块级作用域的语言来说, for 语句初始化变量的表达式所定义的变量,只会存在于循环的环境之中。而对于 JavaScript 来说,由 for 语句创建的变量 i 即使在 for 循环执行结束后,也依旧会存在于循环外部的执行环境中。
-</div>
+- 全局上下文
+- 函数上下文
+- eval() 调用
+- try / catch 语句中的 catch 块
+- with 语句
 
+对 with 语句来说,会向作用域链前端添加指定的对象; 对 catch 语句而言, 则会创建一个新的变量对象, 这个变量对象会包含要抛出的错误对象的声明。
+
+##### 标识符查找
 ```javascript
 
 var color = "blue";
@@ -578,27 +722,493 @@ globalPerson = null;
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>5</label> 章：引用类型</h2>
+<h2 class = 'section-title'><label class = 'block-number'>5</label>基本引用类型</h2>
 <div class = 'folding-area'>
+
+>  引用类型是把数据和功能组织到一起的结构, 虽然从技术上讲 JavaScript 是一门面向对象语言
+> - ECMAScript 缺少传统的面向对象编程语言所具备的某些基本结构,包括类和接口。
+> - 引用类型有时候也被称为对象定义, 因为它们描述了自己的对象应有的属性和方法。
+> - 函数也是一种引用类型
+
+<h3 class = 'auto-sort-sub'>Date 类型</h3>
+
+ECMAScript 中的 Date 类型是在早期 Java 中的 java.util.Date 类基础上构建的。为此,Date
+类型使用自 UTC(Coordinated Universal Time,国际协调时间)1970 年 1 月 1 日午夜(零时)开始经过
+的毫秒数来保存日期。
+
+> ECMAScript 的 Date 类型参考了 Java 早期版本中的 java.util.Date
+
+<div><span class="header5">Date.parse 和 Date.UTC <span></div>
+
+```javascript
+
+let someDate = new Date(Date.parse("May 23, 2019"));
+/* 等价于 */
+let someDate = new Date("May 23, 2019");  // 隐式调用 Date.parse
+
+
+// GMT 时间 2000 年 1 月 1 日零点
+let y2k = new Date(Date.UTC(2000, 0));
+// GMT 时间 2005 年 5 月 5 日下午 5 点 55 分 55 秒
+let allFives = new Date(Date.UTC(2005, 4, 5, 17, 55, 55));
+
+// 等价于
+// 本地时间 2000 年 1 月 1 日零点
+let y2k = new Date(2000, 0);      // 隐式调用 Date.UTC
+// 本地时间 2005 年 5 月 5 日下午 5 点 55 分 55 秒
+let allFives = new Date(2005, 4, 5, 17, 55, 55);
+
+```
+
+<div><span class="header5">执行时间<span></div>
+
+```javascript
+// 起始时间
+let start = Date.now();
+// 调用函数
+doSomething();
+// 结束时间
+let stop = Date.now(),
+result = stop - start;  //毫秒
+```
+
+<h4 class = 'auto-sort-sub1'>重写的方法</h4>
+
+- `toLocaleString()`返回与浏览器运行的本地环境一致的日期和时间。包含针对时间的 AM(上午)或 PM(下午), 但不包含时区信息(具体格式可能因浏览器而不同)
+
+- `toString()`通常返回带时区信息的日期和时间,而时间也是以 24 小时制(0~23)表示的。
+
+- `valueOf()` 返回的是日期的毫秒, 因此可以做 4 则运算
+
+
+<div class="myTip">
+
+不同的浏览器对 Date 类型的实现有很多问题。比如,很多浏览器会选择用当前日
+期替代越界的日期,因此有些浏览器会将"January 32, 2019"解释为 "February 1,
+2019"。Opera 则会插入当前月的当前日,返回"January 当前日, 2019"。就是说,如
+果是在 9 月 21 日运行代码,会返回"January 21, 2019"。
+</div>
+
+
+<h4 class = 'auto-sort-sub1'>日期格式化方法</h4>
+
+- toDateString() 显示日期中的周几、月、日、年(格式特定于实现)
+- toTimeString() 显示日期中的时、分、秒和时区(格式特定于实现)
+- toLocaleDateString() 显示日期中的周几、月、日、年(格式特定于实现和地区)
+- toLocaleTimeString() 显示日期中的时、分、秒(格式特定于实现和地区)
+- toUTCString() 显示完整的 UTC 日期(格式特定于实现) [新代码使用]
+- toGMTString() 是 toUTCString() 兼容写法
+
+<div class="myTip">
+
+以上方法与 toLocaleString() toString() 一样, 会因浏览器不同而显示不同
+</div>
+
+<h3 class = 'auto-sort-sub'>RegExp 类型</h3>
+
+<div class="myNote">
+
+**var expression = / pattern / flags ;**  
+
+**flags 有三个值**  
+- `g` 表示全局(global)模式,即模式将被应用于所有字符串,而非在发现第一个匹配项时立即停止;  
+- `i` 表示不区分大小写(case-insensitive)模式;  
+- `m` 表示多行(multiline)模式,即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。
+- `y` 粘附模式, 表示只查找从 lastIndex 开始及之后的字符串。
+- `u` Unicode 模式, 启用 Unicode 匹配。
+- `s` dotAll 模式, 表示元字符.匹配任何字符(包括\n 或\r)
+
+
+</div>
+
+<div class="myTip">
+
+**贪婪匹配和非贪婪匹配**  
+
+例如： {ab}{cd}{de}{ef}
+
+{[\s\S]*} ==>  {ab}{bc}{cd}{de}  
+
+{[\s\S]*?} ==> {ab}
+
+</div>
+
+<div><span class='header5'>[1] 使用字面量定义<span></div>
+
+```javascript
+// 匹配第一个" [bc]at",不区分大小写
+let pattern2 = /\[bc\]at/i;
+
+// 匹配所有以"at"结尾的 3 个字符的组合,不区分大小写
+let pattern3 = /.at/gi;
+
+// 匹配所有".at",不区分大小写
+let pattern4 = /\.at/gi;
+```
+
+<div><span class='header5'>[2] 使用构造函数<span></div>
+
+```javascript
+// NOTICE 需双重转义
+let pattern2 = new RegExp("\"\[bc\\]at", "i");
+```
+
+<h4 class = 'auto-sort-sub1'>RegExp 实例方法</h4>
+
+<div><span class='header5'>exec()<span></div>
+
+```javascript
+let text = "mom and dad and baby";
+let pattern = /mom( and dad( and baby)?)?/gi;
+let matches = pattern.exec(text);
+matches.index;  //->  0
+matches.input;  //->  "mom and dad and baby"
+matches[0];     //->  "mom and dad and baby"
+matches[1];     //->  " and dad and baby"
+matches[2];     //->  " and baby"
+
+
+// [2]
+// 对于 exec() 方法而言,即使在模式中设置了全局标志(g),
+// 它每次也只会返回一个匹配项。在不设置全局标志的情况下,
+// 在同一个字符串上多次调用 exec()将始终返回第一个匹配项的信息。
+
+let text = "cat, bat, sat, fat";
+let pattern1 = /.at/;       // [-]
+let matches = pattern1.exec(text);
+matches.index;        //->  0
+matches[0];           //->  cat
+pattern1.lastIndex;   //->  0
+matches = pattern1.exec(text);
+matches.index;        //->  0
+matches[0];           //->  cat
+pattern1.lastIndex;   //->  0
+
+let pattern2 = /.at/g;      // [-]
+let matches = pattern2.exec(text);
+matches.index;        //->  0
+matches[0];           //->  cat
+pattern2.lastIndex;   //->  3
+matches = pattern2.exec(text);
+matches.index;        //->  5
+matches[0];           //->  bat
+pattern2.lastIndex;   //->  8
+```
+
+
+<div><span class='header5'>test()<span></div>
+
+```javascript
+let text = "000-00-0000";
+let pattern = /\d{3}-\d{2}-\d{4}/;
+pattern.test(text);        //->  true
+```
+
+
+<h4 class = 'auto-sort-sub1'>RegExp 构造函数属性</h4>
+<div class="myImage">
+
+![-image-](../images/javascript/01/ch05_01.png)
+<label class="imageTitle">图示5-1: RegExp 构造函数的属性 </label>
+</div>
+
+
+```javascript
+let text = "this has been a short summer";
+let pattern = /(.)hort/g;
+/*
+* 注意:Opera 不支持 input、lastMatch、lastParen 和 multiline 属性
+* Internet Explorer 不支持 multiline 属性
+*/
+
+// [1]
+if (pattern.test(text)){
+    RegExp.input;         //->  "this hs been a short summer"
+    RegExp.leftContext;   //->  "this hs been a "
+    RegExp.rightContext;  //->  " summer"
+    RegExp.lastMatch;     //->  "short"
+    RegExp.lastParen;     //->  "s"
+}
+
+// [2]
+if (pattern.test(text)){
+    RegExp.$_;      //->  "this hs been a short summer"
+    RegExp["$&"];   //->  "short"
+    RegExp["$+"];   //->  "s"
+}
+
+// [3]
+let text = "this has been a short summer";
+let pattern = /(..)or(.)/g;
+if (pattern.test(text)){
+    RegExp.$1;         //->  "sh"
+    RegExp.$2;         //->  "t"
+}
+```
+
+<h3 class = 'auto-sort-sub'>基本包装类型</h3>
+
+ECMAScript 提供了 3 个特殊的引用类型:`Boolean`、`Number`、 `String`。
+```javascript
+// [1]
+var s1 = "some text";
+var s2 = s1.substring(2); // 自动包装
+
+// [2]
+// 自动创建的基本包装类型的对象,则只存在于一行代码的执行瞬间
+var s1 = "some text";
+s1.color = "red";
+s1.color;           //-> undefined
+```
+
+
+<div class="myNote">
+
+
+`"hello".substring(2);` 等价于
+```javascript
+let s1 = new String("some text");
+let s2 = s1.substring(2);
+s1 = null;
+```
+</div>
+
+
+<h4 class = 'auto-sort-sub1'>String 类型</h4>
+
+```javascript
+// indexOf
+let stringValue = "hello world";
+stringValue.indexOf("o");      //->  4
+stringValue.lastIndexOf("o");  //->  7
+stringValue.indexOf("o", 6);   //->  7
+```
+
+<div><span class='header5'>字符<span></div>
+
+JavaScript 字符由 16 位码元(code unit)组成。字符串的 length 属性表示字符串包含多少 16 位码元 
+- 16 位只能表示 65536 个字符。为了表示更多的字符, Unicode 采用了一个策略, 即每个字符使用另外 16 位去增补。这种每个
+字符使用两个 16 位码元的策略称为代理对。
+- 使用 codePointAt() 代替 charCodeAt(), 这样可以解析 32 位的字符 
+
+<div class="myWarning">
+
+-  数组 length 属性
+```javascript
+// 0x1F60A === 128522
+let str = "ab😊de";   
+str.length;           //->  6   //结果不符合预期
+[...str].length;      //->  5
+```
+
+- 利用 codePointAt() 代替 charCodeAt()
+```javascript
+"😊".charCodeAt(0);     //->  55357
+"😊".charCodeAt(1);     //->  56842
+"😊".codePointAt(0);     //->  128522
+"😊".codePointAt(1);     //->  56842
+```
+
+- 利用 fromCodePoint() 代替 fromCharCode()
+```javascript
+String.fromCharCode(97, 98, 55357, 56842, 100, 101);  //-> "ab😊de"
+String.fromCodePoint(97, 98, 128522, 100, 101);       //-> "ab😊de"
+```
+</div>
+
+<div><span class='header5'>normalize()<span></div>
+
+同一个 Unicode 字符可以有多种编码方式, 但不同编码方式得到的字符比较却不相等, 比如 Å
+
+```javascript
+let a1 = String.fromCharCode(0x00C5);          //->  Å
+let a2 = String.fromCharCode(0x212B));         //->  Å
+
+a1 === a2;                          //->  false
+a1.normalize() === a2.normalize();  //->  true
+```
+
+<div><span class='header5'>padStart 和 padEnd()<span></div>
+
+```javascript
+
+"22".padStart(3, "0");      //-> "022"
+"2222".padStart(3, "0");    //-> "2222"
+"22".padEnd(3, "0");        //-> "220"
+```
+
+<h4 class = 'auto-sort-sub1'>Number</h4>
+
+```javascript
+let num = 10;
+num.toString();    //->  "10"
+num.toString(16);  //->  "a"
+
+num.toFixed(2);    //->  "10.00"
+
+num.toExponential(1);   //-> "1.0e+1"
+// 自动调整科学计数
+num.toPrecision(1);     //-> "1.0e+1"
+num.toPrecision(2);     //-> "10"
+```
+
+```javascript
+let value = "25";
+let number = Number(value);   // 转型函数
+console.log(typeof number);   //-> "number"
+let obj = new Number(value);  // 构造函数
+console.log(typeof obj);      //-> "object"
+```
+
+<div class="myWarning">
+
+- 非必要时不要显示创建包装类型, 以免引起混乱(引用类型 or 基本类型)
+- 避免使用 Boolean 包装类型, 如下例
+```javascript
+new Boolean(false) && true;  //->  true
+```
+</div>
+
+<div><span class='header5'>isInteger() 函数与安全整数<span></div>
+
+```javascript
+Number.isInteger(1.00); //-> true
+Number.isInteger(1.01); //-> false
+
+Number.isSafeInteger(2 ** 53);       //-> false
+Number.isSafeInteger((2 ** 53) - 1); //-> true
+```
+
+<h3 class = 'auto-sort-sub'>单例内置对象</h3>
+
+<h4 class = 'auto-sort-sub1'>Global</h4>
+
+ECMAScript 中的 Global 对象在某种意义上是作为一个终极的“兜底儿对象”
+来定义的。事实上, 没有全局变量或全局函数; 所有在全局作用域中定义的属性和函数, 都是 Global 对象的属性。
+
+<div><span class='header5'>URI 编码方法<span></div>
+
+```javascript
+// [1]
+var uri = "http://www.wrox.com/illegal value.htm#start";
+
+// [-] 只有空格被替换成 %20
+encodeURI(uri);   
+//->  "http://www.wrox.com/illegal%20value.htm#start"
+
+// 所有非字母数字都替换
+encodeURIComponent(uri);  
+//->  "http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start"
+
+// [2]
+var uri = "http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start";
+decodeURI(uri);
+//->  "http%3A%2F%2Fwww.wrox.com%2Fillegal value.htm%23start"
+
+decodeURIComponent(uri);
+//->  "http://www.wrox.com/illegal value.htm#start"
+```
+
+<div class="myTip">
+
+URI 方法`encodeURI()` `encodeURIComponent()` `decodeURI()`和`decode-URIComponent()`用于替代已经被废弃的 escape() 和 unescape()方法。URI 方法能够编码所有 Unicode 字符, 而原来的方法只能正确地编码 ASCII 字符。因此在开发实践中, 特别是在产品级的代码中, 一定要使用 URI 方法, 不要使用 escape() 和 unescape()方法。
+</div>
+
+<div><span class='header5'>eval()<span></div>
+
+> 整个 ECMAScript 语言中最强大的一个方法  
+
+```javascript
+// [1]
+eval("function sayHi() { alert('hi'); }");
+sayHi();
+// [2]
+eval("let msg = 'hello world'; ");
+alert(msg);    //->  "hello world"
+```
+<div class="myTip">
+
+严格模式下,在外部访问不到 eval()中创建的任何变量或函数,因此前面两个例子都会导致错误。
+</div>
+
+<div><span class='header5'>Global 对象属性<span></div>
+
+Global 对象有很多属性, 像 undefined、 NaN 和 Infinity 等特殊值都是 Global 对象的属性。此外, 所有原生引用类型构造函数,比如 Object 和 Function, 也都是 Global 对象的属性。
+
+
+<div><span class='header5'>window 对象<span></div>
+
+> 浏览器将 window 对象实现为 Global 对象的代理。因此,所有全局作用域中声明的变量和函数都变成了 window 的属性
+
+```javascript
+var color = "red";
+function sayColor(){
+    window.color;      //->  "red"
+}
+window.sayColor();     //->  "red"
+```
+
+获取 Global 对象的实现
+```javascript
+let global = function() {
+    return this;
+}();
+```
+
+<div class="myTip">
+
+- window 对象在 JavaScript 中远不止实现的 ECMAScript 的 Global 对象
+- 当一个函数在没有明确 (通过成为某个对象的方法,或者通过 call()/apply())指定 this 值的情况下执行时, this 值等于
+Global 对象。
+
+</div>
+
+
+<h4 class = 'auto-sort-sub1'>Math</h4>
+
+Math 对象上提供的计算要比直接在 JavaScript 实现的快得多,因为 Math 对象上的计算使用了 JavaScript 引擎中更高效的实现和处理器指令。但使用 Math 计算的问题是精度会因浏览器、操作系统、指令集和硬件而异。
+
+
+<div class="myTip">
+
+如果为了加密而需要生成随机数(传给生成器的输入需要较高的不确定性),那么建议使用 window.crypto.getRandomValues() 而不是 Math.random()。
+</div>
+
+</div>
+</div>
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'><label class = 'block-number'>6</label>集合引用类型</h2>
+<div class = 'folding-area'>
+
 <h3 class = 'auto-sort-sub'>Object 类型</h3>
 
-**创建 Object 对象的两种方式**
+
+<div><span class='header5'>创建 Object 对象的两种方式<span></div>
+
 ```javascript
-// var person = {}; 与 new Object()相同
-var person = new Object();  
+// 使用构造函数
+let person = new Object();
 person.name = "Nicholas";
 person.age = 29;
 
 // 使用对象字面量表示法
 // NOTICE 属性名也可以使用字符串
-var person = {
-name : "Nicholas",
-age : 29
+let person = {
+    name : "Nicholas",
+    age : 29
 };
 ```
+
+<div class="myNote">
+
+在使用对象字面量表示法定义对象时,并不会实际调用 Object 构造函数。
+</div>
+
+
 ```javascript
 function displayInfo(args) {
-    var output = "";
+    let output = "";
     if (typeof args.name == "string"){
         output += "Name: " + args.name + "\n";
     }
@@ -606,28 +1216,17 @@ function displayInfo(args) {
         output += "Age: " + args.age + "\n";
     }
 }
-
-alert(output);
-displayInfo({
-    name: "Nicholas",
-    age: 29
-});
-
-displayInfo({
-    name: "Greg"
-});
-
 ```
 
 <div class="myTip">
 
 **对象属性的访问方式**  
 ```javascript
-alert(person["name"]); //"Nicholas"
-alert(person.name); //"Nicholas"
+person["name"];  //->  "Nicholas"
+person.name;     //->  "Nicholas"
 
 // 从功能上看,这两种访问对象属性的方法没有任何区别。但方括号语法的主要优点是可以通过变量来访问属性
-var propertyName = "name";
+let propertyName = "name";
 alert(person[propertyName]); //"Nicholas"
 person["first name"] = "Nicholas";
 ```
@@ -637,42 +1236,50 @@ person["first name"] = "Nicholas";
 
 <div class="myNote">
 
-ECMAScript 数组的每一项可以保存任何类型的数据,而且,ECMAScript 数组的大小是可以动态调整的,即可以随着数据的添加自动增长以容纳新增数据。
+ECMAScript 数组的每一项可以保存任何类型的数据, 而且, ECMAScript 数组的大小是可以动态调整的, 即可以随着数据的添加自动增长以容纳新增数据。
 </div>
 
-**创建数组的基本方式有两种**  
 
-方式一：使用 Array 构造函数
+<h4 class = 'auto-sort-sub1'>创建数组的基本方式有两种</h4>
+<div><span class='header5'>使用构造函数<span></div>
+
 ```javascript
 // new 关键字可以省略
-var colors = new Array();
-var colors = new Array("red", "blue", "green");
-var colors = new Array(3); // 创建一个包含 3 项的数组
-var names = new Array("Greg"); // 创建一个包含 1 项,即字符串"Greg"的数组
-```
-方式二：数组字面量表示法
-```javascript
-// [1]
-var colors = ["red", "blue", "green"]; // 创建一个包含 3 个字符串的数组
-var names = [];      // 创建一个空数组
-// [2]
-var colors = ["red", "blue", "green"]; // 定义一个字符串数组
-alert(colors[0]); // 显示第一项
-colors[2] = "black"; // 修改第三项
-colors[colors.length] = "black";  //(在位置 3)添加一种颜色
-colors[colors.length] = "brown";  //(在位置 3)添加一种颜色
+let colors = new Array();
+let colors = new Array(3);   // 初始化长度为 3
+let colors = new Array("red", "blue", "green");
 ```
 
+<div><span class='header5'>字面量表示<span></div>
+
+```javascript
+let names = [];      // 创建一个空数组
+let colors = ["red", "blue", "green"]; // 创建一个包含 3 个字符串的数组
+```
 <div class="myWarning">
 
-**不要这样创建数组**  
+- 在使用数组字面量表示法创建数组不会调用 Array 构造函数。
+
+- 不要这样创建数组  
 ```javascript
-var values = [1,2,]; // 不要这样!这样会创建一个包含 2 或 3 项的数组
-var options = [,,,,,]; // 不要这样!这样会创建一个包含 5 或 6 项的数组
+let values = [1,2,];   // 不要这样!这样会创建一个包含 2 或 3 项的数组
+let options = [,,,,,]; // 不要这样!这样会创建一个包含 5 或 6 项的数组
 ```
 在 IE 中, values 会成为一个包含 3 个项且每项的值分别为 1、2 和 undefined 的数组;在其他浏览器中,values 会成为一个包含 2 项且值分别为 1 和 2 的数组。原因是 IE8 及之前版本中的 ECMAScript 实现在数组字面量方面存在 bug。
 </div>
 
+
+<h4 class = 'auto-sort-sub1'>from() 与 to()</h4>
+
+```javascript
+let a = [1, 2, 3];
+Array.from(a);             //->  [ 1, 2, 3 ]
+Array.from(a, x => x*2);   //->  [2, 4, 6]
+
+// Array.of() 用于替代在 ES6 之前常用的 Array.prototype.slice.call(arguments)
+Array.of(1, 2, 3);         //->  [1, 2, 3]
+Array.of(undefined);       //->  [undefined]
+```
 <h4 class = 'auto-sort-sub1'>检测数组</h4>
 
 ```javascript
@@ -680,6 +1287,42 @@ if (Array.isArray(value)){
     //对数组执行某些操
 }
 ```
+
+<h4 class = 'auto-sort-sub1'>迭代器方法</h4>
+
+在 ES6 中, Array 的原型上暴露了 3 个用于检索数组内容的方法: keys() 、 values() 和 entries()。
+
+```javascript
+const a = ["foo", "bar", "baz"];
+
+// 因为这些方法都返回迭代器,所以可以将它们的内容
+// 通过 Array.from()直接转换为数组实例
+const aKeys = Array.from(a.keys());       //->  [0, 1, 2]
+const aValues = Array.from(a.values());   //->  ["foo", "bar", "baz"]
+const aEntries = Array.from(a.entries()); //->  [[0, "foo"], [1, "bar"], [2, "baz"]]
+```
+
+<h4 class = 'auto-sort-sub1'>copyWithin() 和 fill()</h4>
+
+```javascript
+const zeroes = [0, 0, 0, 0, 0];
+zeroes.fill(5);     //->  [5, 5, 5, 5, 5]
+zeroes.fill(6, 3);  //->  [0, 0, 0, 6, 6]
+```
+
+```javascript
+let ints,
+reset = () => ints = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+reset();
+// 从 ints 中复制索引 0 开始的内容,插入到索引 5 开始的位置
+// 在源索引或目标索引到达数组边界时停止
+ints.copyWithin(5);     //->  [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
+reset();
+ints.copyWithin(0, 5);  //->  [5, 6, 7, 8, 9, 5, 6, 7, 8, 9]
+```
+
+
+
 <h4 class = 'auto-sort-sub1'>转换方法</h4>
 
 ```javascript
@@ -887,139 +1530,7 @@ alert(sum); //15
 // 第二次, prev 是 3(1 加 2 的结果), cur 是 3(数组的第三项)。
 ```
 
-<h3 class = 'auto-sort-sub'>Date 类型</h3>
 
-ECMAScript 中的 Date 类型是在早期 Java 中的 java.util.Date 类基础上构建的。为此,Date
-类型使用自 UTC(Coordinated Universal Time,国际协调时间)1970 年 1 月 1 日午夜(零时)开始经过
-的毫秒数来保存日期。
-
-// TODO
-
-
-<h3 class = 'auto-sort-sub'>RegExp 类型</h3>
-
-<div class="myNote">
-
-**var expression = / pattern / flags ;**  
-
-**flags 有三个值**  
-- `g` 表示全局(global)模式,即模式将被应用于所有字符串,而非在发现第一个匹配项时立即停止;  
-- `i` 表示不区分大小写(case-insensitive)模式;  
-- `m` 表示多行(multiline)模式,即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。
-</div>
-
-<div class="myTip">
-
-**贪婪匹配和非贪婪匹配**  
-
-例如： {ab}{cd}{de}{ef}
-
-{[\s\S]*} ==>  {ab}{bc}{cd}{de}  
-
-{[\s\S]*?} ==> {ab}
-
-</div>
-
-**[1] 使用字面量定义**
-```javascript
-// 匹配第一个" [bc]at",不区分大小写
-var pattern2 = /\[bc\]at/i;
-
-// 匹配所有以"at"结尾的 3 个字符的组合,不区分大小写
-var pattern3 = /.at/gi;
-
-// 匹配所有".at",不区分大小写
-var pattern4 = /\.at/gi;
-```
-
-**[2] 使用构造函数**
-```javascript
-// NOTICE 需双重转义
-var pattern2 = new RegExp("\"\[bc\\]at", "i");
-```
-
-<h4 class = 'auto-sort-sub1'>RegExp 实例方法</h4>
-
-```javascript
-var text = "mom and dad and baby";
-var pattern = /mom( and dad( and baby)?)?/gi;
-var matches = pattern.exec(text);
-alert(matches.index); // 0
-alert(matches.input); // "mom and dad and baby"
-alert(matches[0]); // "mom and dad and baby"
-alert(matches[1]); // " and dad and baby"
-alert(matches[2]); // " and baby"
-
-
-// [2]
-// 对于 exec() 方法而言,即使在模式中设置了全局标志(g),
-// 它每次也只会返回一个匹配项。在不设置全局标志的情况下,
-// 在同一个字符串上多次调用 exec()将始终返回第一个匹配项的信息。
-
-var text = "cat, bat, sat, fat";
-var pattern1 = /.at/;       // [-]
-var matches = pattern1.exec(text);
-alert(matches.index); //0
-alert(matches[0]); //cat
-alert(pattern1.lastIndex); //0
-matches = pattern1.exec(text);
-alert(matches.index); //0
-alert(matches[0]); //cat
-alert(pattern1.lastIndex); //0
-
-var pattern2 = /.at/g;      // [-]
-var matches = pattern2.exec(text);
-alert(matches.index); //0
-alert(matches[0]); //cat
-alert(pattern2.lastIndex); //3
-matches = pattern2.exec(text);
-alert(matches.index); //5
-alert(matches[0]); //bat
-alert(pattern2.lastIndex); //8
-```
-
-<h4 class = 'auto-sort-sub1'>RegExp 构造函数属性</h4>
-<div class="myImage">
-
-![-image-](../images/javascript/01/ch05_01.png)
-<label class="imageTitle">图示5-1: RegExp 构造函数的属性 </label>
-</div>
-
-
-```javascript
-var text = "this has been a short summer";
-var pattern = /(.)hort/g;
-/*
-* 注意:Opera 不支持 input、lastMatch、lastParen 和 multiline 属性
-* Internet Explorer 不支持 multiline 属性
-*/
-
-// [1]
-if (pattern.test(text)){
-    alert(RegExp.input); // this has been a short summer
-    alert(RegExp.leftContext); // this has been a
-    alert(RegExp.rightContext); // summer
-    alert(RegExp.lastMatch); // short
-    alert(RegExp.lastParen); // s
-    alert(RegExp.multiline); // false
-}
-
-// [2]
-if (pattern.test(text)){
-    alert(RegExp.$_);
-    alert(RegExp["$&"]);
-    alert(RegExp["$+"]);
-    alert(RegExp["$*"]);
-}
-
-// [3]
-var text = "this has been a short summer";
-var pattern = /(..)or(.)/g;
-if (pattern.test(text)){
-    alert(RegExp.$1);  // sh
-    alert(RegExp.$2);  // t
-}
-```
 
 <h3 class = 'auto-sort-sub'>Function 类型</h3>
 
@@ -1203,98 +1714,6 @@ var objectSayColor = sayColor.bind(o);  // [-]
 objectSayColor(); //blue
 ```
 
-<h3 class = 'auto-sort-sub'>基本包装类型</h3>
-
-ECMAScript 提供了 3 个特殊的引用类型:`Boolean`、`Number`、 `String`。
-```javascript
-// [1]
-var s1 = "some text";
-var s2 = s1.substring(2); // 自动包装
-
-// [2]
-// 自动创建的基本包装类型的对象,则只存在于一行代码的执行瞬间
-var s1 = "some text";
-s1.color = "red";
-alert(s1.color); //undefined
-```
-
-<h4 class = 'auto-sort-sub1'>String 类型</h4>
-
-```javascript
-// indexOf
-var stringValue = "hello world";
-alert(stringValue.indexOf("o")); //4
-alert(stringValue.lastIndexOf("o")); //7
-alert(stringValue.indexOf("o", 6)); //7
-
-// trim
-var stringValue = "  hello world  ";
-var trimmedStringValue = stringValue.trim();  // [-]
-alert(trimmedStringValue); //"hello world"
-
-// fromCharCode 与 charCodeAt 相反
-alert(String.fromCharCode(104, 101, 108, 108, 111)); //"hello"
-```
-
-<h3 class = 'auto-sort-sub'>单体内置对象</h3>
-
-<h4 class = 'auto-sort-sub1'>Global 对象</h4>
-
-ECMAScript 中的 Global 对象在某种意义上是作为一个终极的“兜底儿对象”
-来定义的。事实上,没有全局变量或全局函数;所有在全局作用域中定义的属性和函数,都是 Global 对象的属性。
-
-##### URI 编码方法
-```javascript
-// [1]
-var uri = "http://www.wrox.com/illegal value.htm#start";
-
-// [-] 只有空格被替换成 %20
-alert(encodeURI(uri));
-//"http://www.wrox.com/illegal%20value.htm#start"
-
-// 所有非字母数字都替换
-alert(encodeURIComponent(uri));
-//"http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start"
-
-// [2]
-var uri = "http%3A%2F%2Fwww.wrox.com%2Fillegal%20value.htm%23start";
-//http%3A%2F%2Fwww.wrox.com%2Fillegal value.htm%23start
-alert(decodeURI(uri));
-
-alert(decodeURIComponent(uri));
-//http://www.wrox.com/illegal value.htm#start
-```
-
-<div class="myTip">
-
-URI 方法 encodeURI()、 encodeURIComponent()、 decodeURI()和 decode-URIComponent()用于替代已经被 ECMA-262 第 3 版废弃的 escape()和 unescape()方法。URI 方法能够编码所有 Unicode 字符,而原来的方法只能正确地编码 ASCII 字符。因此在开发实践中,特别是在产品级的代码中,一定要使用 URI 方法,不要使用 escape()和 unescape()方法。
-</div>
-
-##### eval()方法 
-整个 ECMAScript 语言中最强大的一个方法  
-
-```javascript
-// [1]
-eval("function sayHi() { alert('hi'); }");
-sayHi();
-// [2]
-eval("var msg = 'hello world'; ");
-alert(msg); //"hello world"
-```
-<div class="myTip">
-
-严格模式下,在外部访问不到 eval()中创建的任何变量或函数,因此前面两个例子都会导致错误。
-</div>
-
-##### window 对象
-```javascript
-var color = "red";
-function sayColor(){
-    alert(window.color);
-}
-window.sayColor(); //"red"
-```
-
 <h4 class = 'auto-sort-sub1'>Math 对象</h4>
 
 </div>
@@ -1302,7 +1721,7 @@ window.sayColor(); //"red"
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>6</label> 章：面向对象的程序设计</h2>
+<h2 class = 'section-title'><label class = 'block-number'>6</label>面向对象的程序设计</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>理解对象</h3>
@@ -1608,7 +2027,7 @@ alert(instance.getSuperValue()); //true
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>7</label> 章：函数表达式</h2>
+<h2 class = 'section-title'><label class = 'block-number'>7</label>函数表达式</h2>
 <div class = 'folding-area'>
 
 ```javascript
@@ -1815,7 +2234,7 @@ someFunction();
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>8</label> 章：BOM</h2>
+<h2 class = 'section-title'><label class = 'block-number'>8</label>BOM</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>window 对象</h3>
@@ -1901,7 +2320,7 @@ location.reload(true); //重新加载(从服务器重新加载)
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>9</label> 章：浏览器检测</h2>
+<h2 class = 'section-title'><label class = 'block-number'>9</label>浏览器检测</h2>
 <div class = 'folding-area'>
 
 // TODO
@@ -1910,7 +2329,7 @@ location.reload(true); //重新加载(从服务器重新加载)
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>10</label> 章：DOM</h2>
+<h2 class = 'section-title'><label class = 'block-number'>10</label>DOM</h2>
 <div class = 'folding-area'>
 
 </div>
@@ -1918,7 +2337,7 @@ location.reload(true); //重新加载(从服务器重新加载)
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>11</label> 章：DOM 扩展</h2>
+<h2 class = 'section-title'><label class = 'block-number'>11</label>DOM 扩展</h2>
 <div class = 'folding-area'>
 
 

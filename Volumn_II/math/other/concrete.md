@@ -50,7 +50,7 @@ $\quad f^{-1}(A^c)=(f^{-1}(A))^c$
 </div>
   
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章：集合及其运算</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label>集合及其运算</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>集合的概念</h3>
@@ -255,7 +255,7 @@ $1000 = 804+205+190-125-85-57+|A\cap B\cap C|$
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>2</label> 章：映射</h2>
+<h2 class = 'section-title'><label class = 'block-number'>2</label>映射</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>命题</h3>
@@ -446,7 +446,7 @@ $$\psi(x\circ y)=\psi(x)\times\psi(y)$$
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>3</label> 章：关系</h2>
+<h2 class = 'section-title'><label class = 'block-number'>3</label>关系</h2>
 <div class = 'folding-area'>
 
 > 关系是笛卡尔乘积的子集

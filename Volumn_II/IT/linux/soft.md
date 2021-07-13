@@ -182,11 +182,8 @@ root$> chown -R mysql.mysql  /opt/mysql8
 ```bash
 # 方式一: 生成临时密码(显示在终端日志中), 密码过期时间为180天
 root$> ./bin/mysqld --user=ljq --basedir=/opt/mysql8 --datadir=/opt/mysql8/data --initialize
-  
 #方式二: 管理员密码为空(推荐)
 root$> ./bin/mysqld  --initialize-insecure  --user=ljq --basedir=/opt/mysql8 --datadir=/opt/mysql8/data --initialize
-
-
 ```
 此时生成 ./support-files/ 文件夹, 修改`./support-files/mysql.server`文件, 修改文件里的`basedir=''` `basedata=''`为 MySQL 位置(默认位置为 /esr/local/)
 
@@ -239,7 +236,6 @@ mysql> update user set authentication_string='' where user='root';
 ```bash
 # 方式一
 mysql> ALTER user 'root'@'localhost' IDENTIFIED BY '123456'  
-  
 # 方式二
 root$> mysqladmin -uroot -p password 123456
 ```
@@ -252,12 +248,8 @@ user$> mysql --help | grep my.cnf
 
 </div>
 
-
-
 libinfo.so.5 [下载地址](https://pkgs.org/download/libtinfo.so.5)
 
-
-```
 </div>
 </div>
 
@@ -623,13 +615,22 @@ $ sudo apt-get install virtualbox-*
 $ sudo mount -t public /mnt/public
 ```
 
+### 共享文件夹
+添加组 vboxsf, 把用户加入组
+```bash
+$> groupadd xxx
+$> sudo usermod -aG xxx $(whoami)
+```
+
+
+
 [在VirtualBox 中，如何在固定磁盘和动态磁盘之间装换](https://www.kutu66.com//Linux/article_13912)
 
 ```bash
 // 复制 kali.vdi 为固定虚拟盘 kali2.vdi
-$>  VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Fixed
+$>  VBoxManage clonemedium disk ~/xxx/kali.vdi ~/xxx/kali2.vdi -variant Fixed
 // 复制 kali.vdi 为动态虚拟盘 kali2.vdi
-$>  VBoxManage clonemedium disk ~/.../kali.vdi ~/.../kali2.vdi -variant Standard
+$>  VBoxManage clonemedium disk ~/xxx/kali.vdi ~/xxx/kali2.vdi -variant Standard
 ```
 ### 虚拟机使用宿主机网络服务
 
@@ -648,15 +649,26 @@ $> hostname
 </div>
 
 
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>Ventoy (多系统启动盘)</h2>
+<div class = 'folding-area'>
+
+- [官网](https://www.ventoy.net/cn/index.html)下载安装
+
+
+</div>
+</div>
+
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>split (大文件分割)</label></h2>
 <div class = 'folding-area'>
 
 ```bash
 # 将 windows7.ova 分割成 1G 大小的小文件
-$ split -db 1024m windows7.ova windows7.ova.part --verbose
+user$> split -db 1024m windows7.ova windows7.ova.part --verbose
 # 合并文件
-$ cat windows7.ova.part* > windows7.ova
+user$> cat windows7.ova.part* > windows7.ova
 ```
 </div>
 </div>

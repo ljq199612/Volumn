@@ -2,7 +2,7 @@
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章： 注册中心</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label> 注册中心</h2>
 <div class = 'folding-area'>
 
 > 服务的注册中心有很多，如 zookeep, nacos, eureka ...

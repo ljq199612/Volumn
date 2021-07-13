@@ -61,7 +61,7 @@ $\qquad P(A\cup B\cup C) = P(A)+P(A^c \cup B)+P(A^c \cap B^c \cap C)$
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章： 样本空间与概率</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label> 样本空间与概率</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>概率模型</h3>

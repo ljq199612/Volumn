@@ -44,7 +44,9 @@
 body {
     word-break: break-all;
     font-family: serif, sans-serif;
-    background-image: linear-gradient(to right, #eee, #ddd, #eee);
+    font-size: 1rem;
+	background-image: linear-gradient(to right, #eee, #ddd, #eee);
+
 }
 
 
@@ -109,6 +111,41 @@ h5 .anchor span {
 h6 .anchor span {
     font-size: var(--h6-size);
     color: var(--h6-color);
+}
+
+/* 单/复选框 */
+input[type="checkbox"] + label::before {  
+    content: '\a0'; /* 不换行空格 */
+    display: inline-block;  
+    vertical-align: .2em; 
+    width: .8em; 
+    height: .8em; 
+    margin-right: .2em;  
+    border-radius: .2em;  
+    background: silver; 
+    text-indent: .15em;  
+    line-height: .65; 
+}
+
+input[type="checkbox"]:checked + label::before { 
+    content: '\2713'; /* 勾 */ 
+    background: yellowgreen; 
+}
+
+/* 隐藏默认复选框 */
+input[type="checkbox"] {  
+    position: absolute; 
+    clip: rect(0,0,0,0); 
+}
+
+input[type="checkbox"]:focus + label::before {  
+    box-shadow: 0 0 .1em .1em #58a; 
+} 
+
+input[type="checkbox"]:disabled + label::before { 
+    background: gray;  
+    box-shadow: none;  
+    color: #555; 
 }
 
 
@@ -251,6 +288,23 @@ h6 .anchor span {
 .hidden {
     display: none;
 }
+/*  --------------------------------*/
+
+.header5 {
+    font-size: var(--h5-size);
+    color: var(--h5-color);
+    font-weight: bold;
+}
+
+.header5::before {
+    content: "ღ \00A0";
+}
+
+
+
+
+
+
 
 /*  --------------------------------*/
 .myImage {
@@ -303,6 +357,11 @@ h6 .anchor span {
   font-style: italic;
   font-weight: bold;
 }
+
+.myTry::before {
+	content:"试一试 ☞ ";
+}
+
 
 .myColorDot {
   padding: 0 0.6rem;
@@ -411,6 +470,15 @@ h6 .anchor span {
 }
 
 /* --- 内容折叠区域   ---*/
+
+.block-number::before {
+    content: "第 ";
+}
+
+.block-number::after {
+    content: " 章: ";
+}
+
 h1.header-part {
     font-size: var(--h1-size);
     color: var(--h1-color);

@@ -1,7 +1,7 @@
  
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章：绪论</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label>绪论</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>什么是算法</h3>
@@ -238,7 +238,7 @@ $$\begin{aligned}
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>2</label> 章：算法效率分析基础</h2>
+<h2 class = 'section-title'><label class = 'block-number'>2</label>算法效率分析基础</h2>
 <div class = 'folding-area'>
 
 > 不是所有能计算的都有价值，不是所有有价值的都能被计算
@@ -456,7 +456,7 @@ $$当\ n\gt 1\ 时，\ A(n)=A(\lfloor n/2 \rfloor)+1$$
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>3</label> 章：蛮力法</h2>
+<h2 class = 'section-title'><label class = 'block-number'>3</label>蛮力法</h2>
 <div class = 'folding-area'>
 
 这里的`力`是指计算机的计算能力，而不是人的智力。

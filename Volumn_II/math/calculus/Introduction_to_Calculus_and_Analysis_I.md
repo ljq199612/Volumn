@@ -58,7 +58,7 @@ $$
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章：引 言</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label>引 言</h2>
 <div class = 'folding-area'>
 
 自古以来，关于连续地变化、生长和运动的直观概念，一直在向科学的见解挑战。但是，直到 17 世纪，当现代科学和微积分以及数学分析迅速发展起来时，才开辟了一条理解连续变化的道路。
@@ -554,7 +554,7 @@ $\xLeftrightarrow{等价于}$ 实数的连续性公理
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>2</label> 章：积分学和积分学的基本概念</h2>
+<h2 class = 'section-title'><label class = 'block-number'>2</label>积分学和积分学的基本概念</h2>
 <div class = 'folding-area'>
 
 微分和积分是微积分中两种基本的极限过程，这两种过程是`彼此互逆`地联系着的。

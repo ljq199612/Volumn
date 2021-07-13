@@ -1,6 +1,6 @@
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>2</label> 章：对象的创建和销毁</h2>
+<h2 class = 'section-title'><label class = 'block-number'>2</label>对象的创建和销毁</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort'>使用静态工厂方法代替构造方法</h3>
@@ -391,7 +391,7 @@ Finalizer 机制是不可预知的，往往是危险的，而且通常是不必�
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>3</label> 章：对象的通用方法</h2>
+<h2 class = 'section-title'><label class = 'block-number'>3</label>对象的通用方法</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort'>使用 try-with-resources 语句代替 try-finally 语句</h3>
@@ -579,14 +579,14 @@ static Comparator<Object> hashCodeOrder =
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>4</label> 章：类和接口</h2>
+<h2 class = 'section-title'><label class = 'block-number'>4</label>类和接口</h2>
 <div class = 'folding-area'>
 
 </div>
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>5</label> 章：泛型</h2>
+<h2 class = 'section-title'><label class = 'block-number'>5</label>泛型</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort'>不要使用原始类型</h3>
@@ -858,7 +858,7 @@ private static <E> void swapHelper(List<E> list, int i, int j) {
 </div>
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>6</label> 章：枚举类型和注解类型</h2>
+<h2 class = 'section-title'><label class = 'block-number'>6</label>枚举类型和注解类型</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort'>使用枚举类型替代整型常量</h3>
@@ -1118,7 +1118,7 @@ private static void test(Collection<? extends Operation> opSet,
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>7</label> 章：Lambda 和 Stream</h2>
+<h2 class = 'section-title'><label class = 'block-number'>7</label>Lambda 和 Stream</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort'>lambda 表达式优于匿名类</h3>
@@ -1199,7 +1199,7 @@ Stream pipeline 通常是`惰性`（lazily）计算求值：直到终结操作�
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>8</label> 章：方法</h2>
+<h2 class = 'section-title'><label class = 'block-number'>8</label>方法</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort'>检查参数有效性</h3>
@@ -1232,7 +1232,7 @@ public BigInteger mod(BigInteger m) {
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>9</label> 章：通用编程</h2>
+<h2 class = 'section-title'><label class = 'block-number'>9</label>通用编程</h2>
 <div class = 'folding-area'>
 
 

@@ -1,6 +1,6 @@
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第 <label class = 'block-number'>1</label> 章： MyBatis 基础使用</h2>
+<h2 class = 'section-title'><label class = 'block-number'>1</label> MyBatis 基础使用</h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>XML 版</h3>

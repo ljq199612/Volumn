@@ -54,17 +54,16 @@
                 <i class='iconfont icon-page'></i> 叔本华：关于独处</a>
         </div>                                                            
 </div>                                                            
-
+<!--
 <div class='book-list-sub2'>
     <i class='nav-icon iconfont icon-book-open'></i>
     <span> 读后感</span>
-        <!---->
         <div class='book-list-sub3'>
             <a href="#/Volumn_I/Reading/thoughts/thoughts" class="alive">
                 <i class='iconfont icon-page'></i> 读后感</a>
         </div>                                                            
 </div>
-
+-->
 </div>
 
 
