@@ -1,18 +1,14 @@
-<br>
-<div style="text-align: center">
+<div class="book-home">
 <a href="#"><img style="width:7rem;border-radius:50%;" src="favicon.gif"></img></a>
-<br>
-
-<a href="#/Volumn_II/welcome" class="name alive">
+<a href="#/Volumn_II/welcome" class="js-nav-1 name alive">
     <i class='iconfont icon-books-1'></i> Volumn II
 </a>
 
 <a href="#/Volumn_II/IT/welcome" class="js-name name alive name-sub">
-     计算机
+     计算机  
 </a>
 </div>
 
-<hr>
 
 <div class='book-list-sub2'>
     <i class='nav-icon iconfont icon-book-open'></i>
@@ -127,7 +123,16 @@
     <span> COA</span>
     <div class='book-list-sub3 hidden'>
         <a href="#/Volumn_II/IT/coa/computer_organization_and_architecture" class="alive">
-        <i class='iconfont icon-page' ></i> 计算机组织与体系结构</a>
+        <i class='iconfont icon-page' ></i>计算机组织与体系结构</a>
+    </div>                                                            
+</div>                                                            
+
+<div class='book-list-sub2'>
+    <i class='nav-icon iconfont icon-book-open' ></i>
+    <span> 软件工程</span>
+    <div class='book-list-sub3 hidden'>
+        <a href="#/Volumn_II/IT/project/seriously_good_software" class="alive">
+        <i class='iconfont icon-page' ></i>软件工程基础规范</a>
     </div>                                                            
 </div>                                                            
 

@@ -1,11 +1,9 @@
-<div style="text-align: center">
-<a href="#"><img style="width:7rem;border-radius:50%;" src="favicon.gif"></img></a>
-<p>
+<div class='book-home'>
+<a  href="#"><img style="width:7rem;border-radius:50%;" src="favicon.gif"></img></a>
 <a href="#" class="js-name name alive">
     <i class='iconfont icon-home'></i> Home</a>
 </div>
 
-<hr>
 
 <!-- VOLUMN I -->
 

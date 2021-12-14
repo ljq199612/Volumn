@@ -62,7 +62,8 @@ sudo snapper rollback [NUM]
 <h2 class = 'section-title'>NodeJS</h2>
 <div class = 'folding-area'>
 
-1. **国内镜像**
+1. 源里安装 npm
+1. 安装国内镜像
 ```bash
 # 安装 淘宝镜像源
 sudo npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -131,6 +132,41 @@ $>  redis-server &
 </div>
 </div>
 
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>ORACLE 数据库</h2>
+<div class = 'folding-area'>
+
+1. 试验环境
+- CentOS 8.4
+- ORACLE 19C
+
+1. 下载软件包
+
+1. 前期准备
+安装包 `ksh` `libaio-devel` `libstdc++-devel` `sysstat` `libnsl` `compat-libstdc++` `compat-libcap1`
+
+1. 安装
+```bash
+# 1.安装依赖包
+[root@  ~] yum install oracle-database-preinstall-19c-1.0-1.el7.x86_64.rpm
+
+# 2.安装数据库软件
+[root@  ~] yum install oracle-database-ee-19c-1.0-1.x86_64.rpm
+
+# 3.配置数据库实例
+[root@  ~] /etc/init.d/oracledb_ORCLCDB-19c configure
+```
+
+<div class="myWarning">
+
+
+</div>
+
+
+</div>
+</div>
 
 
 <div class = 'data-section default-folding'>
@@ -546,6 +582,75 @@ alias  dubbo-admin-cli-start='npm run dev --prefix ~/opt/dubbo-admin-ui/'
 </div>
 
 
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>Dokcer</h2>
+<div class = 'folding-area'>
+
+- 下载安装
+<span class='header5'></span>源里下载 docker
+
+- 配置
+<span class='header5'></span>修改默认存储路径, 以及 docker hub 国内镜像
+编辑`/etc/docker/daemon.json` 文件, 如
+
+```json
+{
+  "data-root":"/opt/mnt/docker",
+  "registry-mirrors": ["https://qg7ml934.mirror.aliyuncs.com"]
+}
+~       
+```
+
+- 图形监控
+<span class="header5"></span>[portainer](https://www.portainer.io/)
+
+安装
+```bash
+root> docker volume create portainer_data
+
+root> docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+
+
+```
+<div class="myTip">
+
+ 如果忘记密码, 先停止 portainer 容器, 再执行以下命令
+> docker run --rm -v portainer_data:/data portainer/helper-reset-password
+</div>
+
+访问地址 `localhost:9000`
+
+
+
+</div>
+</div>
+
+
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>RabbitMQ (消息队列)</h2>
+<div class = 'folding-area'>
+
+- 下载安装
+<span class='header5'></span>源里下载 
+
+- 配置图形管理
+```bash
+$user > sudo rabbitmq-plugins enable rabbitmq_management 
+```
+
+- 图形管理
+[localhost:15672](localhost:15672)
+
+默认账户: guest  
+默认密码: guest
+
+
+
+</div>
+</div>
+
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>ActiveMQ (消息队列)</h2>
 <div class = 'folding-area'>
@@ -605,15 +710,6 @@ docsify serve
 然后, 启动 VirtualBox, `全局设置 -> 扩展` 安装扩展包. 
 
 ### virtualbox 增强功能
-实验系统  
-- 宿主机：opensuse  
-- 虚拟机：kali linux
-```bash
-# 虚拟机中安装 virtualbox
-$ sudo apt-get install virtualbox-*
-# 图形界面配置共享文件夹 + 重启电脑
-$ sudo mount -t public /mnt/public
-```
 
 ### 共享文件夹
 添加组 vboxsf, 把用户加入组
@@ -632,6 +728,7 @@ $>  VBoxManage clonemedium disk ~/xxx/kali.vdi ~/xxx/kali2.vdi -variant Fixed
 // 复制 kali.vdi 为动态虚拟盘 kali2.vdi
 $>  VBoxManage clonemedium disk ~/xxx/kali.vdi ~/xxx/kali2.vdi -variant Standard
 ```
+
 ### 虚拟机使用宿主机网络服务
 
 1. 查看主机名

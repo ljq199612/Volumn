@@ -7,7 +7,7 @@
 > JavaScript = ECMAScript + DOM + BOM  (核心 + 文档对象模型 + 浏览器对象模型)
 
 Web 浏览器只是 ECMAScript 实现的一种宿主环境(host environment)。宿主环境提供
-ECMAScript 的标准实现以及一些扩展(比如 DOM)语法。其他宿主环境还有服务器端 JavaScript 平台 Node.js 
+ECMAScript 的标准实现以及一些扩展(比如 DOM)语法。其他宿主环境, 如服务器端 JavaScript 平台 Node.js 
 
 文档对象模型(DOM,Document Object Model)是一个应用编程接口(API), DOM 可以将 HTML 页面抽象成一组分层节点.
 
@@ -43,13 +43,17 @@ ECMAScript 的标准实现以及一些扩展(比如 DOM)语法。其他宿主环
         <title>Example HTML Page</title>
     </head>
     <body>
-    <!-- 这里放内容 -->
+    
+    <!-- 
+        这里是页面内容 
+    -->
+
         <script src="example1.js"></script>
         <script src="example2.js"></script>
     </body>
 </html>
 ```
-这样,在解析包含的 JavaScript 代码之前,页面的内容将完全呈现在浏览器中。而用户也会因为浏 览器窗口显示空白页面的时间缩短而感到打开页面的速度加快了。
+这样,在解析包含的 JavaScript 代码之前,页面的内容将完全呈现在浏览器中。而用户也会因为浏览器窗口显示空白页面的时间缩短而感到打开页面的速度加快了。
 
 
 <h4 class = 'auto-sort-sub1'>延迟执行脚本</h4>
@@ -65,13 +69,17 @@ ECMAScript 的标准实现以及一些扩展(比如 DOM)语法。其他宿主环
         <script defer src="example2.js"></script>
     </head>
     <body>
-    <!-- 这里是页面内容 -->
+    
+    <!-- 
+        这里是页面内容 
+    -->
+    
     </body>
 </html>
 
 ```
 
-<div class="myTip">
+<div class="myWarning">
 
 对于 XHTML 文档,指定 defer 属性时应该写成 defer="defer"。
 </div>
@@ -87,8 +95,7 @@ document.head.appendChild(script);
 
 <div class="myWarning">
 
-这种方式不会利用到浏览器预加载器, 可能会严重影响性能。要想让预加载器知道这些
-动态请求文件的存在,可以在文档头部显式声明它们:
+这种方式不会利用到浏览器预加载器, 可能会严重影响性能。要想让预加载器知道这些动态请求文件的存在, 可以在文档头部显式声明它们:
 ```html
 <link rel="preload" href="gibberish.js">
 ```
@@ -138,8 +145,7 @@ function compare(a, b) {
 
 <div class="myNote">
 
-1. 在 XHTML(XML)中,`<![CDATA[  ]]>` 片段是文档中的一个特殊区域,这个区域中可以包含不需要解析的
-任意格式的文本内容。` //<![CDATA[    //]]>`是为了兼容不支持 XHTML 的浏览器。
+1. 在 XHTML(XML)中,`<![CDATA[  ]]>` 片段是文档中的一个特殊区域,这个区域中可以包含不需要解析的任意格式的文本内容。` //<![CDATA[    //]]>`是为了兼容不支持 XHTML 的浏览器。
 </div>
 
 
@@ -177,7 +183,7 @@ function compare(a, b) {
     </body>
 </html>
 ```
-这个页面会在脚本无效的情况下向用户显示一条消息。而在启用了脚本的浏览器中,用户永远也不会看到它——尽管它是页面的一部分。
+这个页面会在脚本无效的情况下向用户显示一条消息。而在启用了脚本的浏览器中,用户永远也不会看到它。
 
 
 </div>
@@ -198,12 +204,11 @@ ECMAScript 5 引入了严格模式(strict mode)的概念。在严格模式下,EC
 
 // 该函数严格模式
 function doSomething(){
-"use strict";
-//函数体
+    "use strict";
+    //函数体
 }
 ```
 
-<div class="myTip">
 
 ```javascript
 var sum = a + b        // 即使没有分号也是有效的语句——不推荐
@@ -216,19 +221,15 @@ if (test){
     alert(test);       //推荐使用
 }
 ```
-</div>
-
 
 <h3 class = 'auto-sort-sub'>变量</h3>
 <h4 class = 'auto-sort-sub1'>var 关键字</h4>
 
-##### var 声明提升
-
+<span class='large bold'> var 声明提升 (合法, 不提倡) </span> <i class="my-no-should iconfont icon-bug"></i> 
 ```javascript
-// 合法, 不提倡
 function foo() {
-console.log(age);
-var age = 26;  // 自动提升到函数首行
+    console.log(age);
+    var age = 26;  // 自动提升到函数首行
 }
 ```
 
@@ -249,9 +250,11 @@ console.log(age);   // ReferenceError: age 没有定义
 ```
 
 <div class="myTip">
+
 **let 与 var 的区别?**  
 
 1. 暂时性死区
+
 ```javascript
 // name 会被提升
 console.log(name); // undefined
@@ -261,13 +264,15 @@ var name = 'Matt';
 console.log(age); // ReferenceError:age 没有定义, 暂时性死区
 let age = 26;
 ```
+
 2. 全局声明
+
 ```javascript
 var name = 'Matt';
 console.log(window.name); // 'Matt'
 
 let age = 26;
-console.log(window.age); // undefined
+console.log(window.age);  // undefined
 // 使用 let 在全局作用域中声明的变量不会成为 window 对象的属性
 
 ```
@@ -275,15 +280,15 @@ console.log(window.age); // undefined
 
 <h3 class = 'auto-sort-sub'>数据类型</h3>
 
-ECMAScript 中有 6 种简单数据类型(也称为基本数据类型):`Undefined`、`Null`、`Boolean`、`Number` `String` 和 `Symbol`。还有 1 种复杂数据类型`Object` 
+ECMAScript6 中有 6 种简单数据类型(也称为基本数据类型):`Undefined`、`Null`、`Boolean`、`Number`、`String` 和 `Symbol`。还有 1 种复杂数据类型`Object` 
 
 <h4 class = 'auto-sort-sub1'>typeof 操作符</h4>
 
 ```javascript
 var message = "some string";
-alert(typeof message); // "string"
-alert(typeof(message)); // "string"
-alert(typeof 95); // "number"
+typeof message;  //  "string"
+typeof(message); //  "string"
+typeof 95;       //  "number"
 ```
 
 <div class="myNote">
@@ -300,46 +305,44 @@ alert(typeof 95); // "number"
 <h4 class = 'auto-sort-sub1'>undifined 类型</h4>
 
 ```javascript
-var message;                  // 这个变量声明之后默认取得了 undefined 值
-// var age                    // 未声明
-alert(message == undefined);  //true
-alert(age);                   // 产生错误
-alert(typeof message);        // "undefined"
-alert(typeof age);            // "undefined"  // NOTICE
+let message;           // 这个变量声明之后默认取得了 undefined 值
+message == undefined;  // true
+age;                   //  未声明, 产生错误
+typeof message;        // "undefined"
+typeof age;            // "undefined"  // NOTICE
 ```
 
 
 <div class="myNote">
 
-即便未初始化的变量会自动被赋予 undefined 值,但显式地初始化变量依然是明智的选择。如果能够做到这一点,那么当 typeof 操作符返回"undefined"值时, 我们就知道被检测的变量还没有被声明,而不是尚未初始化。
+即便未初始化的变量会自动被赋予 undefined 值, 但显式地初始化变量依然是明智的选择。如果能够做到这一点, 那么当 typeof 操作符返回 "undefined" 值时, 我们就知道被检测的变量还没有被声明, 而不是尚未初始化。
 </div>
 
 
 <h4 class = 'auto-sort-sub1'>null 类型</h4>
 
-从逻辑角度来看,null 值表示一个空对象指针,而这也正是使用 typeof 操作符检测 null 值时会返回"object"的原因。
+从逻辑角度来看, null 值表示一个空对象指针, 而这也正是使用 typeof 操作符检测 null 值时会返回"object"的原因。
 ```javascript
 if (car != null){
     // 对 car 对象执行某些操作
 }
 
 // undefined 值是派生自 null 值的,因此 ECMA-262 规定对它们的相等性测试要返回 true:
-alert(null == undefined); //true
+null == undefined; //->  true
 ```
 
 <div class="myNote">
 
-只要意在保存对象的变量还没有真正保存对象,就应该明确地让该变量保存 null 值。这样做不仅可以体现 null 作为空对象指针的惯例,而且也有助于进一步区分 null 和 undefined。
+只要变量还没有真正保存对象, 就应该明确地让该变量保存 null 值。这样做不仅可以体现 null 作为空对象指针的惯例, 而且也有助于进一步区分 null 和 undefined。
 </div>
 
 
 <h4 class = 'auto-sort-sub1'>Boolean 类型</h4>
 
 ```javascript
-var message = "Hello world!";
-var messageAsBoolean = Boolean(message);
+let message = "Hello world!";
+let messageAsBoolean = Boolean(message);
 
-var message = "Hello world!";
 if (message){  // 自动装换
     alert("Value is true");  
 }
@@ -348,63 +351,59 @@ if (message){  // 自动装换
 <h4 class = 'auto-sort-sub1'>number 类型</h4>
 
 ```javascript
-var octalNum1 = 070;    // 八进制的 56
-var octalNum2 = 079;    // 无效的八进制数值——解析为79
+let octalNum1 = 070;    // 八进制的 56
+let octalNum2 = 079;    // 无效的八进制数值——解析为79
 
-var hexNum1 = 0xA;      // 十六进制的 10
+let hexNum1 = 0xA;      // 十六进制的 10
 
-var floatNum2 = 0.1;
-var floatNum3 = .1;     // 有效,但不推荐
+let floatNum2 = 0.1;
+let floatNum3 = .1;     // 有效,但不推荐
 
-var floatNum1 = 1.;     // 自动将浮点数转化为整数，解析为 1
-var floatNum2 = 10.0;   // 整数——解析为 10
-```
+let floatNum1 = 1.;     // 自动将浮点数转化为整数，解析为 1
+let floatNum2 = 10.0;   // 整数, 解析为 10
 
-<div class="myWarning">
+// --------------------------------------------------------------
 
-```javascript
 if (a + b == 0.3){  // 不要做这样的测试, 浮点数不精确!
     alert("You got 0.3.");
 }
 
-alert(NaN == NaN);       // false
+NaN == NaN;       //  false
+0/0;              //   NAN
+10/-0;            //   -Infinity  [ NOTICE 和 java 等其他语言不同 ]
 
-alert(0/0);              // NAN
-alert(10/-0);            // -Infinity  // NOTICE 和 java 等其他语言不同
-```
-</div>
+// --------------------------------------------------------------
 
-```javascript
-var result = Number.MAX_VALUE + Number.MAX_VALUE;
-alert(isFinite(result)); // false
+let result = Number.MAX_VALUE + Number.MAX_VALUE;
+isFinite(result);  // false
 
-alert(isNaN("10"));      // false(可以被转换成数值 10)
-alert(isNaN("blue"));    //true(不能转换成数值)
-alert(isNaN(true));      // false(可以被转换成数值 1)
+isNaN("10");       // false
+isNaN("blue");     // true
+isNaN(true);       // false
 ```
 
-<div class="myNote">
+<div class="myWarning">
 
-尽管有点儿不可思议,但 isNaN()确实也适用于对象。在基于对象调用 isNaN() 函数时,会首先调用对象的`valueOf()`方法,然后确定该方法返回的值是否可以转换为数值。如果不能, 则基于这个返回值再调用`toString()`方法, 再测试返回值。 而这个过程也是 ECMAScript 中内置函数和操作符的一般执行流程。
+尽管有点儿不可思议, 但 isNaN()确实也适用于对象。在基于对象调用 isNaN() 函数时, 会首先调用对象的`valueOf()`方法, 然后确定该方法返回的值是否可以转换为数值。如果不能, 则基于这个返回值再调用`toString()`方法, 再测试返回值。 而这个过程也是 ECMAScript 中内置函数和操作符的一般执行流程。
 </div>
 
 ```javascript
 // 数据转换
 
-var num1 = Number("Hello world!");    // NAN
-var num2 = Number("");                // 0
-var num3 = Number("000011");          // 11
-var num4 = Number(true);              // 1
+Number("Hello world!");    //  NAN
+Number("");                //  0
+Number("000011");          //  11
+Number(true);              //  1
 
 
-var num1 = parseInt("1234blue");      // 1234
-var num2 = parseInt("");              // 0
-var num3 = parseInt("0xA");           // 10
-var num4 = parseInt(22.5);            // 22
+parseInt("1234blue");      //  1234
+parseInt("");              //  0
+parseInt("0xA");           //  10
+parseInt(22.5);            //  22
 
-var num = parseInt("0xAF", 16);       //175
-var num1 = parseInt("AF", 16);        //175
-var num2 = parseInt("AF");            //NaN
+parseInt("0xAF", 16);      //  175
+parseInt("AF", 16);        //  175
+parseInt("AF");            //  NaN
 ```
 
 <div class="myTip">
@@ -417,48 +416,49 @@ var num2 = parseInt("AF");            //NaN
 
 ```javascript
 var num = 10;
-alert(num.toString());        // "10"
-alert(num.toString(2));       // "1010"
-alert(num.toString(8));       // "12"
-alert(num.toString(10));      // "10"
-alert(num.toString(16));      // "a"
+num.toString();    // "10"
+num.toString(2);   // "1010"
+num.toString(8);   // "12"
+num.toString(10);  // "10"
+num.toString(16);  // "a"
 
-var value1 = 10;
-var value2 = true;
-var value3 = null;
-var value4;
-alert(String(value1));        // "10"
-alert(String(value2));        // "true"
-alert(String(value3));        // "null"
-alert(String(value4));        // "undefined"
+var value;
+String(10);        // "10"
+String(true);      // "true"
+String(null);      // "null"
+String(value));    // "undefined"
 ```
 
 <div class="myNote">
 
-在不知道要转换的值是不是 null 或 undefined 的情况下, 还可以使用转型函数 String(), 这个函数能够将任何类型的值转换为字符串。String() 函数遵循下列转换规则:  
+在不知道要转换的值是不是 null 或 undefined 的情况下, 还可以使用转型函数`String()`, 这个函数能够将任何类型的值转换为字符串。String() 函数遵循下列转换规则:  
 1. 如果值有 toString() 方法, 则调用该方法(没有参数)并返回相应的结果;
 2. 如果值是 null, 则返回 "null";
 3. 如果值是 undefined, 则返回 "undefined"。
 </div>
 
-<h4 class = 'auto-sort-sub1'>Symbol</h4>
+<h4 class = 'auto-sort-sub1'>Symbol [TODO]</h4>
 // TODO
 
 <h4 class = 'auto-sort-sub1'>Object 类型</h4>
 
 ```javascript
-var o = new Object();
-var o = new Object; // 有效,但不推荐省略圆括号
+let a = new Object();
+let b = new Object; // 有效,但不推荐省略圆括号
 
 ```
+详细请参考第 6 章
+
+
+
 <h3 class = 'auto-sort-sub'>操作符</h3>
 <h4 class = 'auto-sort-sub1'>相等操作符号</h4>
 
 ```javascript
-var result1 = ("55" == 55);     // true,因为转换后相等
-var result2 = ("55" === 55);    // false,因为不同的数据类型不相等
-null == undefined;              // true
-null === undefined;             // false
+"55" == 55;         // true, 因为转换后相等
+"55" === 55;        // false, 因为不同的数据类型不相等
+null == undefined;  // true
+null === undefined; // false
 ```
 
 <div class="myTip">
@@ -481,7 +481,8 @@ outermost:
             num++;
         }
     }
-alert(num); //95
+
+alert(num); // 95
 ```
 
 <div class="myTip">
@@ -722,7 +723,7 @@ globalPerson = null;
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'><label class = 'block-number'>5</label>基本引用类型</h2>
+<h2 class = 'section-title'><label class = 'block-number'>5</label>引用类型</h2>
 <div class = 'folding-area'>
 
 >  引用类型是把数据和功能组织到一起的结构, 虽然从技术上讲 JavaScript 是一门面向对象语言
@@ -1174,15 +1175,7 @@ Math 对象上提供的计算要比直接在 JavaScript 实现的快得多,因�
 如果为了加密而需要生成随机数(传给生成器的输入需要较高的不确定性),那么建议使用 window.crypto.getRandomValues() 而不是 Math.random()。
 </div>
 
-</div>
-</div>
-
-<div class = 'data-section default-folding'>
-<h2 class = 'section-title'><label class = 'block-number'>6</label>集合引用类型</h2>
-<div class = 'folding-area'>
-
 <h3 class = 'auto-sort-sub'>Object 类型</h3>
-
 
 <div><span class='header5'>创建 Object 对象的两种方式<span></div>
 
@@ -1328,9 +1321,9 @@ ints.copyWithin(0, 5);  //->  [5, 6, 7, 8, 9, 5, 6, 7, 8, 9]
 ```javascript
 // [1]
 var colors = ["red", "blue", "green"]; // 创建一个包含 3 个字符串的数组
-alert(colors.toString()); // red,blue,green
-alert(colors.valueOf()); // red,blue,green
-alert(colors); // red,blue,green
+colors.toString();  // red,blue,green
+colors.valueOf();   // red,blue,green
+colors;             // red,blue,green
 
 // [2]
 var person1 = {
@@ -1351,15 +1344,15 @@ var person2 = {
     }
 };
 var people = [person1, person2];
-alert(people);               //Nicholas,Greg
-alert(people.toString());    //Nicholas,Greg
-alert(people.toLocaleString());  //Nikolaos,Grigorios
+people;                   // Nicholas,Greg
+people.toString();        // Nicholas,Greg
+people.toLocaleString();  // Nikolaos,Grigorios
 ```
 数组继承的 toLocaleString() 、toString() 和 valueOf()方法,在默认情况下都会以逗号分隔的字符串的形式返回数组项。而如果使用 join() 方法,则可以使用不同的分隔符来构建这个字符串。 
 ```javascript
 var colors = ["red", "green", "blue"];
-alert(colors.join(",")); //red,green,blue
-alert(colors.join("||")); //red||green||blue
+colors.join(",");   // red,green,blue
+colors.join("||");  // red||green||blue
 ```
 
 
@@ -1374,21 +1367,21 @@ alert(colors.join("||")); //red||green||blue
 // 栈
 var colors = ["red", "blue"];
 colors.push("brown");      // 添加另一项
-alert(colors.length);      // 3
+colors.length;             // 3
 var item = colors.pop();   // 取得最后一项
-alert(item);               //"brown"
-alert(colors.length);      // 2
+item;                      // "brown"
+colors.length;             // 2
 ```
 
 ```javascript
 // 队列
-var colors = new Array(); //创建一个数组
-var count = colors.push("red", "green"); //推入两项
-alert(count);   //2
+var colors = new Array();                 // 创建一个数组
+var count = colors.push("red", "green");  // 推入两项
+count;                                    // 2
 count = colors.push("black");
-alert(count);   //3
-var item = colors.shift();  // 取得第一项
-alert(item);                // "red"
+count;                                    // 3
+var item = colors.shift();                // 取得第一项
+item;                                     // "red"
 ```
 
 <div class="myNote">
@@ -1400,18 +1393,18 @@ alert(item);                // "red"
 </div>
 
 
-<h4 class = 'auto-sort-sub1'>重排序方法</h4>
+<h4 class = 'auto-sort-sub1'>排序方法</h4>
 
 ```javascript
 // [1]
 var values = [1, 2, 3, 4, 5];
-values.reverse();  // [-]
-alert(values);     //5,4,3,2,1
+values.reverse();    // 具有破坏性
+values;              //->  5,4,3,2,1
 
 // [2]
 var values = [0, 1, 5, 10, 15];
-values.sort();     // [-]
-alert(values); //0,1,10,15,5
+values.sort();      // 具有破坏性
+values;             //->  0,1,10,15,5
 
 // [3]
 function compare(value1, value2) {
@@ -1424,8 +1417,8 @@ function compare(value1, value2) {
     }
 }
 var values = [0, 1, 5, 10, 15];
-values.sort(compare);     // [-]
-alert(values); //0,1,5,10,15
+values.sort(compare);     // ES6 后可用 lamda 表达式代替比较函数
+values;            //->  0,1,5,10,15
 ```
 
 <h4 class = 'auto-sort-sub1'>操作方法</h4>
@@ -1433,33 +1426,29 @@ alert(values); //0,1,5,10,15
 ```javascript
 // [1]  concat()
 var colors = ["red", "green", "blue"];
-var colors2 = colors.concat("yellow", ["black", "brown"]);  // [-]
-alert(colors2);  //red,green,blue,yellow,black,brown
+var colors2 = colors.concat("yellow", ["black", "brown"]);   //  red,green,blue,yellow,black,brown
 
 // [2]  slice()
 var colors = ["red", "green", "blue", "yellow", "purple"];
-var colors2 = colors.slice(1);      // [-]
-var colors3 = colors.slice(1,4);    // [-]
-var colors4 = colors.slice(-2,-1);  // [-]
-alert(colors2);      // green,blue,yellow,purple
-alert(colors3);      // green,blue,yellow
-alert(colors4);      // yellow,purple
+var colors2 = colors.slice(1);      // green,blue,yellow,purple
+var colors3 = colors.slice(1,4);    // green,blue,yellow
+var colors4 = colors.slice(-2,-1);  // yellow,purple
 ```
 ```javascript
 // splice()  // 具破坏性
 // [1]
 var colors = ["red", "green", "blue"];
 var removed = colors.splice(0,1);  // [-] 删除第一项
-alert(colors);    // green,blue
-alert(removed);   // red,返回的数组中只包含一项
+colors;     // green,blue
+removed;    // red,返回的数组中只包含一项
 // [2]
 removed = colors.splice(1, 0, "yellow", "orange"); // [-] 从位置 1 开始插入两项
-alert(colors);   // green,yellow,orange,blue
-alert(removed);  // 返回的是一个空数组
+colors;    // green,yellow,orange,blue
+removed;   // 返回的是一个空数组
 // [3]
 removed = colors.splice(1, 1, "red", "purple"); // [-] 插入两项,删除一项
-alert(colors); // green,red,purple,orange,blue
-alert(removed); // yellow,返回的数组中只包含一项
+colors;    // green,red,purple,orange,blue
+removed;   // yellow,返回的数组中只包含一项
 ```
 
 <h4 class = 'auto-sort-sub1'>位置方法</h4>
@@ -1468,57 +1457,62 @@ alert(removed); // yellow,返回的数组中只包含一项
 ```javascript
 // 
 var numbers = [1,2,3,4,5,4,3,2,1];
-alert(numbers.indexOf(4));        //3
-alert(numbers.lastIndexOf(4));    //5
-alert(numbers.indexOf(4, 4));     // [-] 5
-alert(numbers.lastIndexOf(4, 4)); //3
+numbers.indexOf(4);        // 3
+numbers.lastIndexOf(4);    // 5
+numbers.indexOf(4, 4);     // 5
+numbers.lastIndexOf(4, 4); // 3
 ```
 
 <h4 class = 'auto-sort-sub1'>迭代方法</h4>
-ECMAScript 5 为数组定义了 5 个迭代方法。每个方法都接收两个参数:要在每一项上运行的函数和(可选的)运行该函数的作用域对象——影响 this 的值。传入这些方法中的函数会接收三个参数:数组项的值、该项在数组中的位置和数组对象本身。根据使用的方法不同,这个函数执行后的返回值可能会也可能不会影响方法的返回值。以下是这 5 个迭代方法的作用。
 
-- `every()`对数组中的每一项运行给定函数,如果该函数对每一项都返回 true,则返回 true。
-- `filter()`对数组中的每一项运行给定函数,返回该函数会返回 true 的项组成的数组。
+ECMAScript 5 为数组定义了 5 个迭代方法。每个方法都接收两个参数: 即在迭代项上运行的函数和(可选的)运行该函数的作用域对象(影响 this 的值)。  
+传入这些方法中的函数会接收三个参数:`数组项的值` `该项在数组中的位置` `数组对象本身`
+
+根据使用的方法不同, 这个函数执行后的返回值可能会影响方法的返回值。以下是这 5 个迭代方法的作用。
+
+- `every()`对数组中的每一项运行给定函数, 如果该函数对每一项都返回 true,则返回 true。
+- `filter()`对数组中的每一项运行给定函数, 返回该函数会返回 true 的项组成的数组。
 - `forEach()`对数组中的每一项运行给定函数。这个方法没有返回值。
-- `map()`对数组中的每一项运行给定函数,返回每次函数调用的结果组成的数组。
-- `some()`对数组中的每一项运行给定函数,如果该函数对任一项返回 true,则返回 true。
+- `map()`对数组中的每一项运行给定函数, 返回每次函数调用的结果组成的数组。
+- `some()`对数组中的每一项运行给定函数, 如果该函数对任一项返回 true,则返回 true。
 
 ```javascript
-var numbers = [1,2,3,4,5,4,3,2,1];
+
+let numbers = [1,2,3,4,5,4,3,2,1];
 // [1]
-var everyResult = numbers.every(function(item, index, array){   // [-]
+let everyResult = numbers.every(function(item, index, array){  // ES6 推荐用 lamda 表达式
     return (item > 2);
 });
-alert(everyResult); //false
+everyResult; // false
 
 // [2]
-var someResult = numbers.some(function(item, index, array){    // [-]
+let someResult = numbers.some(function(item, index, array){ 
     return (item > 2);
 });
-alert(someResult); //true
+someResult; // true
 
 // [3]
-var filterResult = numbers.filter(function(item, index, array){  // [-]
+let filterResult = numbers.filter(function(item, index, array){
     return (item > 2);
 });
-alert(filterResult); //[3,4,5,4,3]
+filterResult; // [3,4,5,4,3]
 
 // [4]
-var mapResult = numbers.map(function(item, index, array){  // [-]
+let mapResult = numbers.map(function(item, index, array){
     return item * 2;
 });
-alert(mapResult); //[2,4,6,8,10,8,6,4,2]
+mapResult;  //  [2,4,6,8,10,8,6,4,2]
 
 // [5]
 // 本质上与使用 for 循环迭代数组
-numbers.forEach(function(item, index, array){  // [-]
+numbers.forEach(function(item, index, array){
     //执行某些操作
 });
 ```
 
 <h4 class = 'auto-sort-sub1'>归并方法</h4>
 
-`reduce()`和`reduceRight()`的4 个参数:前一个值、当前值、项的索引和数组对象。
+`reduce()`和`reduceRight()`的 4 个参数:`前一个值` `当前值` `项的索引`和`数组对象`。
 ```javascript
 var values = [1,2,3,4,5];
 var sum = values.reduce(function(prev, cur, index, array){
@@ -1534,7 +1528,7 @@ alert(sum); //15
 
 <h3 class = 'auto-sort-sub'>Function 类型</h3>
 
-ECMAScript 中函数实际上是对象。每个函数都是 Function 类型的实例,而且都与其他引用类型一样具有属性和方法。由于函数是对象,因此函数名实际上也是一个指向函数对象的指针,不会与某个函数绑定。
+ECMAScript 中函数实际上是对象。每个函数都是 Function 类型的实例, 而且都与其他引用类型一样具有属性和方法。由于函数是对象, 因此函数名实际上也是一个指向函数对象的指针, 不会与某个函数绑定。
 ```javascript
 // [1]
 function sum (num1, num2) {
@@ -1552,11 +1546,11 @@ var sum = new Function("num1", "num2", "return num1 + num2"); // 不推荐
 function sum(num1, num2){
     return num1 + num2;
 }
-alert(sum(10,10)); //20
+sum(10,10);         // 20
 var anotherSum = sum;
-alert(anotherSum(10,10)); //20
+anotherSum(10,10);  // 20
 sum = null;
-alert(anotherSum(10,10)); //20
+anotherSum(10,10);  // 20
 ```
 <h4 class = 'auto-sort-sub1'>作为值的函数</h4>
 
@@ -1568,8 +1562,7 @@ function callSomeFunction(someFunction, someArgument){
 function add10(num){
     return num + 10;
 }
-var result1 = callSomeFunction(add10, 10);
-alert(result1); //20
+var result1 = callSomeFunction(add10, 10);  // 20
 
 // [2]
 function createComparisonFunction(propertyName) {
@@ -1593,7 +1586,7 @@ function createComparisonFunction(propertyName) {
 
 // [1]
 function factorial(num){
-    if (num <=1) {
+    if (num <= 1) {
         return 1;
     } else {
         return num * factorial(num-1)
@@ -1602,7 +1595,7 @@ function factorial(num){
 
 // [2]
 function factorial(num){
-    if (num <=1) {
+    if (num <= 1) {
         return 1;
     } else {
         return num * arguments.callee(num-1)  // [-]
@@ -1613,19 +1606,25 @@ var trueFactorial = factorial;
 factorial = function(){
     return 0;
 };
-alert(trueFactorial(5)); //120
-alert(factorial(5)); //0
+
+trueFactorial(5);   // 120
+factorial(5);        // 0
 ```
-this 引用的是函数据以执行的环境对象——或者也可以说是 this 值(`当在网页的全局作用域中调用函数时, this 对象引用的就是 window`)
+this 引用的是函数据以执行的环境对象, 或者也可以说是 this 值(`当在网页的全局作用域中调用函数时, this 对象引用的就是 window`)
 ```javascript
 window.color = "red";
 var o = { color: "blue" };
+
 function sayColor(){
-    alert(this.color);
+    return this.color;
 }
-sayColor(); //"red"
+sayColor();             // "red"
 o.sayColor = sayColor;
-o.sayColor(); //"blue"
+o.sayColor();           // "blue"
+
+// 注意: 
+// 这里不能这么定义 let sayColor = () => this.color; 
+// 否则, o.sayColor -> "blue"
 ```
 ECMAScript 5 也规范化了另一个函数对象的属性:`caller`
 ```javascript
@@ -1633,20 +1632,20 @@ function outer(){
     inner();
 }
 function inner(){
-    alert(inner.caller);   // [-]  警告框中显示 outer() 函数的源代码
- // alert(arguments.callee.caller);  // 等价上一行，更高好的解耦
+    return inner.caller;             // 返回 outer() 函数的源代码
+ // return arguments.callee.caller;  // 等价上一行，更高好的解耦
 }
 outer();
 ```
 
 <div class="myTip">
 
-当函数在严格模式下运行时,访问 arguments.callee 会导致错误。ECMAScript 5 还定义了 arguments.caller 属性,但在严格模式下访问它也会导致错误,而在非严格模式下这个属性始终是 undefined。定义这个属性是为了分清 arguments.caller 和函数的 caller 属性。以上变化都是为了加强这门语言的安全性,这样第三方代码就不能在相同的环境里窥视其他代码了。严格模式还有一个限制:不能为函数的 caller 属性赋值,否则会导致错误。
+当函数在严格模式下运行时, 访问 arguments.callee 会导致错误。ECMAScript 5 还定义了 arguments.caller 属性, 但在严格模式下访问它也会导致错误, 而在非严格模式下这个属性始终是 undefined。定义这个属性是为了分清 arguments.caller 和函数的 caller 属性。以上变化都是为了加强这门语言的安全性, 这样第三方代码就不能在相同的环境里窥视其他代码了。严格模式还有一个限制: 不能为函数的 caller 属性赋值,否则会导致错误。
 </div>
 
 <h4 class = 'auto-sort-sub1'>函数属性和方法</h4>
 
-ECMAScript 中的函数是对象,因此函数也有属性和方法。每个函数都包含两个属性:`length`和`prototype`。
+ECMAScript 中的函数是对象, 因此函数也有属性和方法。每个函数都包含两个属性: `length`和`prototype`。
 ```javascript
 function sum(num1, num2){
     return num1 + num2;
@@ -1654,14 +1653,15 @@ function sum(num1, num2){
 function sayHi(){
     alert("hi");
 }
-alert(sum.length);    // 2
-alert(sayHi.length);  // 0
+sum.length;     // 2
+sayHi.length;   // 0
 ```
 
-```javascript
-// [1]  
-// apply()方法接收两个参数:一个是在其中运行函数的作用域,另一个是参数数组。
+<div><span class='header5'>apply() <span></div>
 
+apply()方法接收两个参数:一个是在其中运行函数的作用域,另一个是参数数组。
+
+```javascript
 function sum(num1, num2){
     return num1 + num2;
 }
@@ -1671,24 +1671,27 @@ function callSum1(num1, num2){
 function callSum2(num1, num2){
     return sum.apply(this, [num1, num2]);  // [-]
 }
-alert(callSum1(10,10)); //20
-alert(callSum2(10,10)); //20
+callSum1(10,10);    // 20
+callSum2(10,10);    // 20
+```
 
-// [2]
-// call()方法与 apply()方法的作用相同,它们的区别仅在于接收参数的方式不同。
- 
+<div><span class='header5'>call() <span></div>
+
+call() 方法与 apply() 方法的作用相同, 它们的区别仅在于接收参数的方式不同。
+
+```javascript
 function sum(num1, num2){
     return num1 + num2;
 }
 function callSum(num1, num2){
     return sum.call(this, num1, num2);
 }
-alert(callSum(10,10)); //20
+callSum(10,10);   // 20
 ```
 
 <div class="myTip">
 
-在严格模式下,未指定环境对象而调用函数,则 this 值不会转型为 window。除非明确把函数添加到某个对象或者调用 apply()或 call(),否则 this 值将是 undefined。
+在严格模式下, 未指定环境对象而调用函数, 则 this 值不会转型为 window。除非明确把函数添加到某个对象或者调用 apply() 或 call(), 否则 this 值将是 undefined。
 </div>
 
 `apply()` `call()`真正强大的地方是能够扩充函数赖以运行的作用域。
@@ -1696,25 +1699,26 @@ alert(callSum(10,10)); //20
 window.color = "red";
 var o = { color: "blue" };
 function sayColor(){
-    alert(this.color);
+    return this.color;
 }
 sayColor();              // red
 sayColor.call(this);     // red
 sayColor.call(window);   // red
 sayColor.call(o);        // blue
 ```
-ECMAScript 5 还定义了一个方法:`bind()`
+
+<div><span class='header5'>bind() <span></div>
+
+ECMAScript 5 还定义了一个方法: `bind()`
 ```javascript
 window.color = "red";
 var o = { color: "blue" };
 function sayColor(){
-    alert(this.color);
+    return this.color;
 }
 var objectSayColor = sayColor.bind(o);  // [-]
-objectSayColor(); //blue
+objectSayColor();         // blue
 ```
-
-<h4 class = 'auto-sort-sub1'>Math 对象</h4>
 
 </div>
 </div>
@@ -1726,7 +1730,7 @@ objectSayColor(); //blue
 
 <h3 class = 'auto-sort-sub'>理解对象</h3>
 
-`ECMAScript 中没有类的概念`,因此它的对象也与基于类的语言中的对象有所不同。
+`ECMAScript 中没有类的概念`, 因此它的对象也与基于类的语言中的对象有所不同。
 
 ```javascript
 var person = {
@@ -1734,7 +1738,7 @@ var person = {
     age: 29,
     job: "Software Engineer",
     sayName: function(){
-        alert(this.name);
+        return this.name;
     }
 };
 ```
@@ -1742,10 +1746,10 @@ var person = {
 <h4 class = 'auto-sort-sub1'>属性性质</h4>
 
 **数据属性**
-- `Configurable`:表示能否通过 delete 删除属性从而重新定义属性,能否修改属性的特性,或者能否把属性修改为访问器属性。默认为 true  
-- `Enumerable`:表示能否通过 for-in 循环返回属性。默认为 true  
-- `Writable`:表示能否修改属性的值, 默认为 true  
-- `Value`:包含这个属性的数据值。读取属性值的时候,从这个位置读;写入属性值的时候,把新值保存在这个位置。默认值为 undefined。
+- `Configurable`: 表示能否通过 delete 删除属性从而重新定义属性, 能否修改属性的特性, 或者能否把属性修改为访问器属性。默认为 true  
+- `Enumerable`: 表示能否通过 for-in 循环返回属性。默认为 true  
+- `Writable`: 表示能否修改属性的值, 默认为 true  
+- `Value`: 包含这个属性的数据值。读取属性值的时候, 从这个位置读; 写入属性值的时候, 把新值保存在这个位置。默认值为 undefined。
 
 
 ```javascript
@@ -1755,8 +1759,8 @@ Object.defineProperty(person, "name", {
     value: "Nicholas"
 });
 // 在非严格模式下什么也不会发生,而在严格模式下会导致错误。
-delete person.name;    // [1]  无法删除
-alert(person.name); //"Nicholas"
+delete person.name;    //  无法删除
+person.name;           // "Nicholas"
 ```
 
 <h4 class = 'auto-sort-sub1'>定义多个属性</h4>

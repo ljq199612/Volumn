@@ -5,43 +5,43 @@
 
 <h3 class = 'auto-sort'>使用静态工厂方法代替构造方法</h3>
 
-静态工厂方法和公共构造方法都有它们的用途，并且了解它们的相对优点是值得的。通常，静态工厂更可取，因此避免在没有考虑静态工厂的情况下，直接选择使用或提供公共构造方法。
+静态工厂方法和公共构造方法都有它们的用途，需要了解它们各自的优点。通常，优先考虑使用静态工厂。
 
-**优点**
+<h4 class = 'auto-sort-sub1'>优点</h4>
 
 > 有名字，更利于使用和阅读，
 
-如：返回一个可能为素数的 BigInter(int, int, Random) 构造方法可以更好的表示为 BigInter.probablePrime 静态工厂方法
+如：返回一个素数,  BigInter.probablePrime() 比 BigInter(int, int, Random) 好
 
-> 不需要每次调用时创建一个新对象，允许不可变类使用预先构建的实例
-
-<div class="myNote">
-
-静态工厂方法在重复调用时，可以让类在任何时候都能对实例保持严格控制。这样做的类被称为`实例控制类`。实例控制类可以保证一个类是`单例`或`不可实例化`，同时不会出现 `a==b 和 a.equals(b) 不一致的情况`
-</div>
-
-> 可以返回其返回类型的任何子类对象
+> 不会每次调用时创建一个新对象，允许不可变类使用预先构建的实例
 
 <div class="myNote">
 
-在 java 8 之前， 接口不能有静态方法。根据约定，一个名为 `Types` 的接口的静态方法被放入一个不可实例化的伴随类类 `Types 类` 中。从 java 8 开始， 接口可以包含公开的静态方法，所以没有理由为接口设计一个不可实例化的伴随类。但是，因为是公开的，接口的`静态方法`的实现还是应该放在单独的包的私有类中。`java 9 允许私有静态方法`
+静态工厂方法在重复调用时，可以让类在任何时候都能保持对实例的严格控制。这样的类被称为`实例控制类`。实例控制类可以保证一个类是`单例`或`不可实例化`，同时`不会出现 a==b 和 a.equals(b) 不一致的情况`
 </div>
 
-> 返回对象的类可以根据输入参数的不同而不同
+> 可以返回任何子类对象的返回类型
 
 <div class="myNote">
 
-`Enumset`类没有公共构造方法，只有静态工厂方法。在`openJDK`实现中，它们根据枚举类型的大小返回不同的子类实例。 若枚举类型不多于 64 个元素，静态工厂将返回一个`RegularEnumSet` 实例。如果枚举类型大于 64 个元素，静态工厂将返回`JumboEnumSet`，`这两个实现类对于客户端来说都是不可见的`。
+在 java 8 之前， 接口不能有静态方法。通常, 在一个`[Types]`接口里面设置一个不可实例化的伴随类`[Types]`。从 java 8 开始， 接口可以包含公开的静态方法，所以没有理由为接口设计一个不可实例化的伴随类。但是，因为是公开的，接口的`静态方法`的实现还是应该放在单独的包的私有类中。`java 9 允许私有静态方法`
 </div>
 
-> 在编写包含该方法的类时，返回的对象的类不需要存在
+> 返回的对象类形可以根据输入参数的不同而不同
+
+<div class="myNote">
+
+如: `Enumset`类没有公共构造方法，只有静态工厂方法。在`openJDK`实现中，它们根据枚举类型的大小返回不同的子类实例。 若枚举类型不多于 64 个元素，静态工厂将返回一个`RegularEnumSet` 实例。如果枚举类型大于 64 个元素，静态工厂将返回`JumboEnumSet`，这两个实现类对于客户端来说都是不可见的。
+</div>
+
+> 在编写包含该方法的类时，返回对象的类不需要存在
 
 <div class="myNote">
 
 这种灵活的静态工厂构成了服务提供者框架的基础，比如 `JDBC`。
 </div>
 
-**缺点**
+<h4 class = 'auto-sort-sub1'>缺点</h4>
 
 > 没有公共或受保护的构造方法的类不能被继承
 >
@@ -49,10 +49,10 @@
 
 <div class="myTip">
 
-虽然，不能使用继承，但有时可能是好事，因为这样可以鼓励程序员使用`组合（composition）`, 并且是`不可变类型锁`需要的
+有时不能使用继承可能是好事，因为这样可以鼓励程序员使用`组合（composition`, 并且是`不可变类型`所需要的
 </div>
 
-**常用方法**
+<h4 class = 'auto-sort-sub1'>常用方法</h4>
 
 > from —— 类型转换方法
 
@@ -74,34 +74,34 @@
 
 除此之外该方法保证每次调用返回一个新的实例，例如：Object newArray = Array.newInstance(classObject, arrayLen);
 
-> getType —— 与 getInstance 类似，但是在工厂方法处于不同的类中的时候使用。
+> get[Type] —— 与 getInstance 类似，但是在工厂方法处于不同类的时候使用。
 
-getType 中的 Type 是工厂方法返回的对象类型，例如：FileStore fs = Files.getFileStore(path);
+get[Type] 中的 Type 是工厂方法返回的对象类型，例如：FileStore fs = Files.getFileStore(path);
 
-> newType —— 与 newInstance 类似，但是在工厂方法处于不同的类中的时候使用。
+> new[Type] —— 与 newInstance 类似，但是在工厂方法处于不类的时候使用。
 
-newType 中的 Type 是工厂方法返回的对象类型，例如：BufferedReader br = Files.newBufferedReader(path);
+new[Type] 中的 [Type] 是工厂方法返回的对象类型，例如：BufferedReader br = Files.newBufferedReader(path);
 
-> type —— getType 和 newType 简洁的替代方式
+> [type] —— get[Type] 和 new[Type] 简洁的替代方式
 
 例如：List litany = Collections.list(legacyLitany);
+
 
 <h3 class = 'auto-sort'>当构造方法参数过多时使用 builder 模式</h3>
 
 静态工厂和构造方法都有一个限制：在可选参数很多的情况下，无法很好的扩展。下面以包装食品的营养成分为例来讲解。
 
-**使用可伸缩的构造方法**
+
+<h4 class = 'auto-sort-sub1'>使用可伸缩的构造方法<i class="my-no-should iconfont icon-bug"></i></h4>
 
 ```java
-//telescoping constructor
-
 public class NutritionFacts {
-    private final int servingSize;  // (mL)            required
-    private final int servings;     // (per container) required
-    private final int calories;     // (per serving)   optional
-    private final int fat;          // (g/serving)     optional
-    private final int sodium;       // (mg/serving)    optional
-    private final int carbohydrate; // (g/serving)     optional
+    private final int servingSize;  // (mL)            必须
+    private final int servings;     // (per container) 必须
+    private final int calories;     // (per serving)   可选
+    private final int fat;          // (g/serving)     可选
+    private final int sodium;       // (mg/serving)    可选
+    private final int carbohydrate; // (g/serving)     可选
 
     public NutritionFacts(int servingSize, int servings) {
         this(servingSize, servings, 0);
@@ -140,13 +140,13 @@ public class NutritionFacts {
 </div>
 
 
-**使用 javaBean**
+<h4 class = 'auto-sort-sub1'>使用 javaBean <i class="my-no-should iconfont icon-bug"></i></h4>
 
 ```java
 public class NutritionFacts {
-    // Parameters initialized to default values (if any)
-    private int servingSize  = -1; // Required; no default value
-    private int servings     = -1; // Required; no default value
+    // 参数默认初始化
+    private int servingSize  = -1; // 非默认值
+    private int servings     = -1; // 非默认值
     private int calories     = 0;
     private int fat          = 0;
     private int sodium       = 0;
@@ -154,7 +154,6 @@ public class NutritionFacts {
 
     public NutritionFacts() { }
 
-    // Setters
     public void setServingSize(int val)  { servingSize = val; }
     public void setServings(int val)    { servings = val; }
     public void setCalories(int val)    { calories = val; }
@@ -167,13 +166,12 @@ public class NutritionFacts {
 
 <div class="myTip">
 
-这种模式没有伸缩构造方法模式的缺点。有点冗长，但创建实例很容易，并且易于阅读。但是,`由于构造方法被分割成了多次调用，所以在构造过程中 JavaBean 可能处于不一致的状态`。在不一致的状态下尝试使用对象可能会导致一些错误，这些错误与平常代码的 BUG 很是不同，因此很难调试。同时，JavaBeans 模式破坏了类的不可变性，需要程序员增加工作以确保线程安全。
+JavaBean 模式有点冗长，但创建实例很容易，并且易于阅读。但是,`由于构造方法被分割成了多次调用，所以在构造过程中 JavaBean 可能处于不一致的状态`。在不一致的状态下尝试使用对象可能会导致一些错误，这些错误很难调试。同时，JavaBeans 模式破坏了类的不可变性，需要程序员增加工作以确保线程安全。
 </div>
 
-**builder 模式**
+<h4 class = 'auto-sort-sub1'>builder 模式<i class="my-should iconfont icon-yes"></i></h4>
 
 ```java
-// Builder Pattern
 public class NutritionFacts {
     private final int servingSize;
     private final int servings;
@@ -183,11 +181,11 @@ public class NutritionFacts {
     private final int carbohydrate;
 
     public static class Builder {
-        // Required parameters
-        private final int servingSize;
+        // 必须
+		private final int servingSize;
         private final int servings;
 
-        // Optional parameters - initialized to default values
+        // 可选, 初始化默认值
         private int calories      = 0;
         private int fat           = 0;
         private int sodium        = 0;
@@ -250,13 +248,79 @@ NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8)
 
 <h3 class = 'auto-sort'>依赖注入优于硬连接</h3>
 
-不要用单例和静态工具类来实现依赖一个或多个底层资源的类，且该资源的行为会影响到该类的行为；也不要直接用这个类来创建这些资源。而应该将这些资源或者工厂传给构造器（或者静态工厂，或者构建器），通过它们来创建类。这个实践就被称作依赖注人，它极大地提升了类的灵活性、可重用性和可测试性。
+<div class="myNote">
+
+
+1. 不要用单例和静态工具类来实现依赖一个或多个底层资源的类，且该资源的行为会影响到该类的行为；
+1. 不要直接用这个类来创建这些资源。
+1. 应该将这些资源或者工厂传给构造器（或者静态工厂，或者构建器），通过它们来创建类。这个实践就被称作依赖注人，它极大地提升了类的灵活性、可重用性和可测试性。
+</div>
+
+<span class="large bold">如何实现一个拼写检测器，其中拼写检查器依赖于字典 </span>
+<i class="my-ask iconfont icon-question"/></i> 
+
+
+<span class='large bold'> 方式一: 静态方法实现类对其他资源的依赖 <span>
+<i class="my-no-should iconfont icon-bug"></i>
 
 ```java
-// Dependency injection provides flexibility and testability
+public class SpellChecker {
+	// 静态方法
+    private static final Lexicon dictionary = ...;
+    private SpellChecker() {}
+    public static boolean isValid(String word) { ... }
+    public static List<String> suggestions(String typo) { ... }
+}
+```
+
+<span class='large bold'>方式二: 单例模式</span>
+<i class="my-no-should iconfont icon-bug"></i>
+
+```java
+    public class SpellChecker {
+    private final Lexicon dictionary = ...;
+    private SpellChecker(...) {}
+    public static INSTANCE = new SpellChecker(...);
+    public boolean isValid(String word) { ... }
+    public List<String> suggestions(String typo) { ... }
+}
+```
+
+<div class="myWarning">
+
+上述两种方式的问题在于只能用一部字典, 但在实际当中，每一种语言都有它自己的字典，尤其是有些用于特殊词汇的字典。
+</div>
+
+<span class='large bold'>方式三: getter/setter 方式</span>
+<i class="my-no-should iconfont icon-bug"></i>
+
+```java
+public class SpellChecker {
+    private  Lexicon dictionary = ...;
+    private SpellChecker(...) {}
+    public static INSTANCE = new SpellChecker(...);
+    public boolean isValid(String word) { ... }
+    public List<String> suggestions(String typo) { ... }
+
+	public void setDictionary(Lexicon dictionary){this.dictionary = dictionary}
+	public Lexicon getDictionary(){return this.dictionary}
+}
+
+
+<div class="myWarning">
+
+1. 繁杂,容易出错
+1. 并发不可用
+</div>
+
+<span class='large bold'>方式四: 构造函数实现依赖注入</span> 
+<i class="my-should iconfont icon-yes"></i>
+
+```java
 public class SpellChecker {
     private final Lexicon dictionary;
 
+	// 依赖注入
     public SpellChecker(Lexicon dictionary) {
         this.dictionary = Objects.requireNonNull(dictionary);
     }
@@ -265,6 +329,10 @@ public class SpellChecker {
     public List<String> suggestions(String typo) { ... }
 }
 ```
+<div class="myNote">
+
+这种模式的一个有用的变体是，往构造器里传入一个资源工厂。这个工厂是一个能被重复调用并产生某个类型实例的对象。这些工厂是工厂方法模式的体现。Java 8 中引入的 Supplier<T> 接口就能很好地表示这些工厂。
+</div>
 
 <h3 class = 'auto-sort'>避免创建不必要的对象</h3>
 
@@ -373,7 +441,7 @@ public Object pop() {
 
 **缓存**
 
-一旦将对象引用放入缓存中，很容易忘记它的存在，并且在它变得无关紧要之后，仍然保留在缓存中。对于这个问题有几种解决方案。如果你正好想实现了一个缓存：只要在缓存之外存在对某个项（entry）的键（key）引用，那么这项就是明确有关联的，就可以用`WeakHashMap`来表示缓存；这些项在过期之后自动删除。记住，只有当缓存中某个项的生命周期是由外部引用到键（key）而不是值（value）决定时，WeakHashMap 才有用。
+一旦将对象引用放入缓存中，很容易忘记它的存在，并且在它变得无关紧要之后，仍然保留在缓存中。对于这个问题有几种解决方案。如果你正好实现了一个缓存：只要在缓存之外存在对某个项（entry）的键（key）引用，那么这项就是明确有关联的，就可以用`WeakHashMap`来表示缓存；这些项在过期之后自动删除。记住，只有当缓存中某个项的生命周期是由外部引用到键（key）而不是值（value）决定时，WeakHashMap 才有用。
 
 更常见的情况是，缓存项有用的生命周期不太明确，随着时间的推移一些项变得越来越没有价值。在这种情况下，缓存应该偶尔清理掉已经废弃的项。这可以通过一个后台线程 (也许是 ScheduledThreadPoolExecutor) 或将新的项添加到缓存时顺便清理。LinkedHashMap 类使用它的 removeEldestEntry 方法实现了后一种方案。对于更复杂的缓存，可能直接需要使用 java.lang.ref。
 
@@ -386,6 +454,8 @@ public Object pop() {
 
 Finalizer 机制是不可预知的，往往是危险的，而且通常是不必要的。 它们的使用会导致不稳定的行为，糟糕的性能和移植性问题。 从 Java 9 开始，Finalizer 机制已被弃用，但仍被 Java 类库所使用。 Java 9 中 Cleaner 机制代替了 Finalizer 机制。 Cleaner 机制不如 Finalizer 机制那样危险，但仍然是不可预测，运行缓慢并且通常是不必要的。
 
+对于封装了需要终止使用的资源（比如文件或者线程），我们只需让类继承`AutoCloseable`接口即可
+
 
 </div>
 </div>
@@ -396,9 +466,8 @@ Finalizer 机制是不可预知的，往往是危险的，而且通常是不必�
 
 <h3 class = 'auto-sort'>使用 try-with-resources 语句代替 try-finally 语句</h3>
 
-在处理必须关闭的资源时，使用 try-with-resources 语句替代 try-finally 语句。 生成的代码更简洁，更清晰，并且生成的异常更有用。 try-with-resources 语句在编写必须关闭资源的代码时会更容易，也不会出错，而使用 try-finally 语句实际上是不可能的。
+<span class='large bold'>使用 try-finally 关闭资源</span><i class="my-no-should iconfont icon-bug"></i>
 
-**使用 try-finally 关闭资源的缺点**  
 ```java
 // 最明显的缺点：多资源关闭时，丑!
 static void copy(String src, String dst) throws IOException {
@@ -419,11 +488,10 @@ static void copy(String src, String dst) throws IOException {
 }
 ```
 
-**使用 try-with-resource 语句**  
+<span class='large bold'>使用 try-with-resource 语句</span><i class='my-should iconfont icon-yes'></i> 
 
 `Java 7` 引入了 try-with-resources 语句，要使用这个构造，资源必须实现`AutoCloseable`接口，该接口由一个返回为 void 的`close`组成。Java 类库和第三方类库中的许多类和接口现在都实现或继承了 AutoCloseable 接口。如果你编写的类表示必须关闭的资源，那么这个类也应该实现 AutoCloseable 接口。
 ```java
-// try-with-resources on multiple resources - short and sweet
 static void copy(String src, String dst) throws IOException {
     try (InputStream   in = new FileInputStream(src);
          OutputStream out = new FileOutputStream(dst)) {
@@ -450,7 +518,7 @@ static void copy(String src, String dst) throws IOException {
 - 一致性： 对于任何非空引用 x 和 y，如果在 equals 比较中使用的信息没有修改，则 x.equals(y) 的多次调用必须始终返回 true 或始终返回 false。
 - 对于任何非空引用 x，x.equals(null) 必须返回 false。
 
-<div class="myWarning">
+<div class="myNote">
 
 **(1) 当重写 equals 方法时，同时也要重写 hashCode 方法**  
 
@@ -459,13 +527,12 @@ static void copy(String src, String dst) throws IOException {
 
 **(2) 不要让 equals 方法试图太聪明**  
 
-**(3) 在 equal 时方法声明中，不要将参数 Object 替换成其他类型**
+**(3) 在 equal 方法声明中，不要将参数 Object 替换成其他类型**
 
 ```java
 // Warning : 如果不加 @Override 可能就会通过编译，到时候找起错误来可能麻烦
 @Override 
 public boolean equals(MyClass o) {
-    …
 }
 
 ```
@@ -473,12 +540,6 @@ public boolean equals(MyClass o) {
 <br>
 
 <div class="myTip">
-
-编写和测试 equals（和 hashCode）方法很繁琐，生的代码也很普通。替代手动编写和测试这些方法的优雅的手段是，使用谷歌 [AutoValue](https://github.com/google/auto/blob/master/value/userguide/index.md) 开源框架
-</div>
-<br>
-
-<div class="myWarning">
 
 Java 类库中的许多类（例如 String 和 Integer）都将 hashCode 方法返回的确切值指定为实例值的函数。 这不是一个好主意，而是一个我们不得不忍受的错误：它妨碍了在未来版本中改进哈希函数的能力。 如果未指定细节并在散列函数中发现缺陷，或者发现了更好的哈希函数，则可以在后续版本中对其进行更改。
 </div>
@@ -501,7 +562,7 @@ System.out.println("Failed to connect to " + phoneNumber);
 
 <h3 class = 'auto-sort'>谨慎地重写 clone 方法</h3>
 
-通常，复制功能最好由构造方法或工厂提供。 这个规则的一个明显的例外是数组，它最好用 clone 方法复制。
+通常，复制功能最好由构造方法或工厂提供。 但数组是个例外，它最好用 clone 方法复制。
 
 //TODO
 
@@ -515,7 +576,7 @@ public interface Comparable<T> {
 }
 ```
 ```java
-// 如果一个类有多个重要的属性，那么比较他们的顺序是至关重要的。 
+// 如果一个类有多个重要的属性，那么他们的比较顺序是至关重要的。 
 // 从最重要的属性开始，逐步比较所有的重要属性。
 public int compareTo(PhoneNumber pn) {
     int result = Short.compare(areaCode, pn.areaCode);
@@ -531,10 +592,10 @@ public int compareTo(PhoneNumber pn) {
 
 <div class="myWarning">
 
-强烈推荐 (x.compareTo(y) == 0) == (x.equals(y))，但不是必需的。 一般来说，任何实现了 Comparable 接口的类违反了这个条件都应该清楚地说明这个事实。 
+推荐实现 (x.compareTo(y) == 0) == (x.equals(y))，任何实现了 Comparable 接口的类如果不能实现这个条件需要都应该清楚地说明这个事实。 
 </div>
 
-在 Java 8 中 `Comparator 接口`提供了一系列比较器方法，可以使比较器流畅地构建。
+在 Java 8 中 `Comparator 接口`提供了一系列比较器方法。
 ```java
 // Comparable with comparator construction methods
 private static final Comparator<PhoneNumber> COMPARATOR =
@@ -547,7 +608,7 @@ public int compareTo(PhoneNumber pn) {
 }
 ```
 
-不要通过两个值之间的差值进行比较
+<span class='large bold'>不要通过两个值之间的差值进行比较</span> <i class="my-no-should iconfont icon-bug"></i> 
 ```java
 // Dangerous: 它可能会导致整数最大长度溢出和 IEEE 754 浮点运算失真的危险
 static Comparator<Object> hashCodeOrder = new Comparator<>() {
@@ -555,9 +616,10 @@ static Comparator<Object> hashCodeOrder = new Comparator<>() {
         return o1.hashCode() - o2.hashCode();
     }
 };
+```
 
 
-
+```java
 // 可以使用使用静态 compare 方法
 static Comparator<Object> hashCodeOrder = new Comparator<>() {
     public int compare(Object o1, Object o2) {

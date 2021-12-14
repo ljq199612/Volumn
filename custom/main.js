@@ -3,6 +3,8 @@ function customRun(){
         checkFont();
         customComponents();
         customContent();
+
+
     });
 
 }
@@ -24,10 +26,11 @@ function customComponents(){
         addcomponents();         // 目录按钮、主菜单及按钮等的添加
         componentsInit();
         extNav();                  // 右侧导航
-//        slideMeunToggle();       // 主菜单
+        //topNav.call();                  // 顶部导航
 //        componentsKeyBind();     // 快捷键操作绑定
 } 
 
+/** 页面上额外添加的挂载点 */
 function addcomponents(){
     let $customComponents = $(".custom-components");
     $customComponents.html(
@@ -249,6 +252,97 @@ function componentsKeyBind(){
 }
 
 
+
+// 顶部导航栏                                    
+topNav = {
+    call: function(){
+        this.hook();
+        this.topNav();
+        this.event();
+    },
+    hook: function() {
+        let $customComponents = $(".custom-components");
+        $customComponents.append(
+              "<div id='top-nav'></div> "  
+        );
+    },
+    topNav: function() {
+        let navData =  $('.sidebar-nav').html();
+        let $topNav = $('#top-nav');
+
+
+        let root = this.data.filter(item => item.parentId == -1);
+
+        let content = "<div class='volumn'><select class=''>";
+
+        root.forEach(item => {
+            content += `<option value='${item.id}' class=''>${item.name}</option>`
+        });
+
+        content += `</select></div>`;
+
+        root.forEach(item => {
+            content += `<div class='list-book' id='volumn${item.id}'>`
+            let sub1 = this.data.filter(k => k.parentId == item.id);
+            sub1.forEach(item1 => {
+                content += `<div class='list-book1'><span><i class='${item1.icon}'></i>${item1.name}</span>`
+                let sub2 = this.data.filter(j => j.parentId == item1.id);
+                sub2.forEach(item2 => {
+                    content += `<div class='list-book2'><span><i class='${item2.icon}'></i>${item2.name}</span>`
+                    let sub3 = this.data.filter(m => m.parentId == item2.id);
+                    sub3.forEach(item3 => {
+                        content += `<div class='list-book3'><a href='${item3.link}'><i class='${item3.icon}'></i>${item3.name}`
+
+                        content += `</a></div>`;
+                    });
+
+                    content += `</a></div>`;
+                });
+                
+
+                content += `</div>`;
+            });
+            
+            content += `</div>`;
+
+        });
+
+        console.log("->>>>> ", content);
+
+        $topNav.append(content);
+
+    },
+    event: function(){
+        $('option').on('click', function(){
+            let volumnId = "#volumn" + $(this).val();
+            $(volumnId).siblings('.list-book').hide();
+            $(volumnId).show();
+        
+        });
+        
+        //$('#top-nav .list-book1').hover( function(){
+               // $(this).children('span').first().siblings().toggle();
+        //});
+    },
+    data: [
+        { parentId: -1,    id: 1,        name: "Volumn I",        link: "#",  icon: "",    },
+        { parentId: -1,    id: 2,        name: "Volumn II",       link: "#",  icon: "",    },
+        { parentId: 1,     id: 101,      name: "读书",            link: "#",  icon: "iconfont icon-dir",    },
+        { parentId: 2,     id: 201,      name: "数学",            link: "#",  icon: "iconfont icon-dir",    },
+        { parentId: 2,     id: 202,      name: "计算机",          link: "#",  icon: "iconfont icon-dir",    },
+        { parentId: 2,     id: 203,      name: "化学",            link: "#",  icon: "iconfont icon-dir",    },
+        { parentId: 202,   id: 20201,    name: "C/C++",           link: "#",  icon: "iconfont icon-book-open",    },
+        { parentId: 202,   id: 20202,    name: "数据库",          link: "#",  icon: "iconfont icon-book-open",    },
+        { parentId: 20201, id: 2020101,  name: "C 语言程序设计",  link: "#",  icon: "",    },
+
+
+    ]
+
+
+}
+
+
+
 function extNav(){
     $('#ext-nav').html(
 
@@ -385,9 +479,9 @@ function scrollToThis(id){
 //=======================================================
 function customContent(){
     foldModule();
-    myNote();
-    myWarning();
-    myTip();
+    //myNote();
+    //myWarning();
+    //myTip();
     myProblem();
     myAnnotate();
     foldSide();
@@ -510,7 +604,7 @@ function foldModule(){
 
 function foldSide(){
     
-    $('.sidebar-nav .icon-books1').click(function(){
+    $('.sidebar-nav  > .icon-books1').click(function(){
         $(this).siblings('.book-list-sub1').slideToggle();
     });
 
@@ -524,16 +618,16 @@ function foldSide(){
 
 
     let isFold = true;
-    $('.js-name').click(function(){
+    $('.sidebar-nav > .js-name').click(function(){
         if(isFold){
-            $('.icon-book-open').siblings('.book-list-sub3').slideUp();
-            $('.icon-dir').siblings('.book-list-sub2').slideUp();
-            $('.icon-books1').siblings('.book-list-sub1').slideUp();
+            $('.sidebar-nav > .icon-book-open').siblings('.book-list-sub3').slideUp();
+            $('.sidebar-nav > .icon-dir').siblings('.book-list-sub2').slideUp();
+            $('.sidebar-nav > .icon-books1').siblings('.book-list-sub1').slideUp();
             isFold = false;
         }else{
-            $('.icon-book-open').siblings('.book-list-sub3').slideDown();
-            $('.icon-dir').siblings('.book-list-sub2').slideDown();
-            $('.icon-books1').siblings('.book-list-sub1').slideDown();
+            $('.sidebar-nav > .icon-book-open').siblings('.book-list-sub3').slideDown();
+            $('.sidebar-nav > .icon-dir').siblings('.book-list-sub2').slideDown();
+            $('.sidebar-nav > .icon-books1').siblings('.book-list-sub1').slideDown();
             isFold = true;
         }
     });
@@ -564,7 +658,7 @@ function foldSide(){
 }
 
 // -------------------------------------------------
-
+/*
 function myTip(){
     $('.myTip').each(function(){
         let $content = $(this).children().first();
@@ -588,7 +682,7 @@ function myWarning(){
         $content.html( temp + $content.html() );
     });
 }
-
+*/
 /* 鼠标点击、悬停在关键字的时候，弹出解释框*/
 function myAnnotate(){
     $('.myAnnotate').each(function () {
@@ -697,6 +791,7 @@ function myProblem(){
         });
     });
 }
+
 
 
 

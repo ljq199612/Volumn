@@ -237,7 +237,7 @@ input, select, button {font: inherit;}
 
 ```
 
-<span class='myTry'></span>
+<span class='myKey'>试一试</span>
 [play.csssecrets.io/translucent-borders](http://play.csssecrets.io/translucent-borders)
 
 
@@ -262,7 +262,7 @@ box-shadow: 0 0 0 10px green,
 - 不会响应鼠标事件(可以给 box-shadow 属性加上`inset`关键字, 使投影绘制在元素`内圈`)
 </div>
 
-<span class='myTry'></span>  [play.csssecrets.io/multiple-borders](http://play.csssecrets.io/multiple-borders)
+<span class='myKey'>试一试</span>  [play.csssecrets.io/multiple-borders](http://play.csssecrets.io/multiple-borders)
 
 
 <h4 class = 'auto-sort-sub1'>outline 方案</h4>
@@ -311,7 +311,7 @@ box-shadow: 0 0 0 10px green,
 }
 ```
 
-<span class='myTry'></span>
+<span class='myKey'>试一试</span>
 [play.csssecrets.io/extended-bg-position](http://play.csssecrets.io/extended-bg-position)
 
 
@@ -330,7 +330,7 @@ box-shadow: 0 0 0 10px green,
 }
 ```
 
-<span class='myTry'></span>
+<span class='myKey'>试一试</span>
 [play.csssecrets.io/background-origin](http://play.csssecrets.io/background-origin)
 
 
@@ -348,13 +348,13 @@ box-shadow: 0 0 0 10px green,
 为了向前兼容，cale() 函数内部`-` `+` 运算符两侧都要加`空白符`，未来，在 cale() 内部可能会允许使用关键字
 </div>
 
-<span class='myTry'></span>
+<span class='myKey'>试一试</span>
 [play.csssecrets.io/background-position-calc](http://play.csssecrets.io/background-position-calc)
 
 
 <h3 class = 'auto-sort-sub'>边框内圆角</h3>
 
-<span class='myTry'></span>
+<span class='myKey'>试一试</span>
 [play.csssecrets.io/inner-rounding](http://play.csssecrets.io/inner-rounding)
 
 
@@ -591,7 +591,7 @@ SVG 可以内嵌到 CSS 中
 }
 ```
 
-<span class='myTry'></span>
+<span class='myKey'>试一试</span>
 [play.csssecrets.io/checkerboard-svg](http://play.csssecrets.io/checkerboard-svg)
 
 <div class="myTip">
@@ -600,7 +600,7 @@ SVG 可以内嵌到 CSS 中
 , 目前可以通过插件实现
 **background: conic-gradient(red , yellow, lime, aqua, blue, fuchsia, red);**
 
-<span class='myTry'></span>
+<span class='myKey'>试一试</span>
 [play.csssecrets.io/test-conic-gradient](http://play.csssecrets.io/test-conic-gradient)
 
 </div>
@@ -729,7 +729,7 @@ SVG 可以内嵌到 CSS 中
 </div>
 </div>
 
-<span class='myTry'></span>
+<span class='myKey'>试一试</span>
 [play.csssecrets.io/parallelograms-pseudo](http://play.csssecrets.io/parallelograms-pseudo)
 
 <h3 class = 'auto-sort-sub'>菱形图片</h3>
@@ -1120,7 +1120,7 @@ img:focus {
 
 <div>
 
-<span class='myTry'></span>
+<span class='myKey'>试一试</span>
 [play.csssecrets.io/color-tint-filter](play.csssecrets.io/color-tint-filter)
 
 
@@ -1194,7 +1194,7 @@ img:focus {
 ```
 </div>
 
-<span class='myTry'></span>
+<span class='myKey'>试一试</span>
 [play.csssecrets.io/color-tint](play.csssecrets.io/color-tint)
 
 </div>

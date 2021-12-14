@@ -36,10 +36,8 @@
   --h5-size: 1.2rem;
   --h6-size: 1.1rem;
   
-  /*
-       --sidebar-background: linear-gradient(to right, #ddd, #eee);
-   */
-   --sidebar-color: currentColor;
+  --sidebar-background: linear-gradient(to right, #ddd, #eee);
+  --sidebar-color: currentColor;
 
 }
 
@@ -60,9 +58,8 @@ body {
     word-break: break-all;
     font-family: serif, sans-serif;
     font-size: 1rem;
-	/*
     background-image: linear-gradient(to right, #eee, #ddd, #eee);
-	*/
+
 }
 
 
@@ -184,9 +181,11 @@ input[type="checkbox"]:disabled + label::before {
 
 /* --------- 代码区 ----------*/
 .markdown-section pre {
+    background-image: linear-gradient(#f8f8f8, #bbb);
+    border-radius: 1rem;
 }
 .markdown-section pre > code {
-	border-re
+    background-image: linear-gradient(#f8f8f8, #bbb);
     font-family: monospace;
 }
 .markdown-section a {

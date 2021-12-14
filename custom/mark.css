@@ -1,0 +1,195 @@
+
+:root {
+	--warning-color: brown;
+	--note-color: green;
+	--tip-color: #17a2b8;
+	--bug-color: brown;
+	--forbiden-color: brown;
+
+}
+
+
+
+.myNote, 
+.myWarning,
+.myForbiden,
+.myBug,
+.myTip {
+  padding: 0.2rem 1rem;   
+  border: 1px dotted;
+  border-left: 3px solid;
+  margin-bottom: 1.5rem;
+}
+
+.myNote {
+    border-color: var(--note-color);
+}
+
+
+.myWarning {
+    border-color: var(--warning-color);
+}
+
+.myBug {
+    border-color: var(--bug-color);
+}
+
+.myTip {
+    border-color: var(--tip-color);
+}
+
+
+.myWarning:before, 
+.myNote:before, 
+.myBug:before, 
+.myForbiden:before, 
+.myTip:before 
+{
+  font-family: "iconfont" !important;
+  font-size: 19px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  white-space: pre;
+}
+
+.myBug:before {
+  content: "\e601  BUG ";
+}
+
+.myWarning:before {
+  content: "\e656";
+  color: var(--warning-color);
+}
+
+.myNote:before {
+  content: "\e627";
+  color: var(--note-color);
+}
+
+.myTip:before {
+  content: "\e62a";
+  color: var(--tip-color);
+}
+
+.myBug:before {
+  content: "\e601";
+  color: var(--bug-color);
+}
+
+.myForbiden:before {
+  content: "\e66b";
+  color: var(--forbiden-color);
+}
+
+
+.myKey{
+  background: yellow;
+  border: 1px solid;
+  padding: 3px 10px;
+  border-radius: 1rem;
+  font-style: italic;
+  font-weight: bold;
+  margin-right: 0.25rem;
+}
+
+.myKey::after {
+    content:" ☞";
+}
+
+
+.myExample {
+  border: 1px solid currentColor;
+}
+
+.myAnnotate {
+    cursor: help;
+    padding-bottom: 1px;
+    border-bottom: 1px dotted;
+    margin: 0 0.25rem;
+}
+
+.annotate {
+    background-color: whitesmoke;
+    position: fixed;
+    padding: 0.6rem;
+    min-width: 20%;
+    max-width: 50%;
+    max-height: 50%;
+    overflow: auto;
+    border: 2px solid;
+    border-radius: 1rem;
+    z-index: 100;
+}
+
+.myAnswer {
+   /* border-style: inset;*/
+    padding: 1rem;
+    margin: 0.5rem;
+}
+
+.answer-button {
+    background-image: linear-gradient(to bottom right, white, #ccc );
+    font-size: 1rem;
+    padding: 0.2rem 1rem;
+}
+
+.answer-button:hover {
+    background: #ccc;
+}
+
+.my-ask {
+	color: green;
+	font-size: 1.5rem;
+
+}
+.my-no-should {
+	color: brown;
+	font-size: 1.5rem;
+	margin: 0 0.5rem;
+}
+
+.my-should {
+	color: green;
+	font-size: 1.5rem;
+	margin: 0 0.5rem;
+}
+
+
+
+.myImage {
+    text-align: center;
+}
+
+.myFormula {
+    border: 1px solid;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.myProblem{
+    margin-top: 1.7rem;
+    margin-bottom: 0.7rem;
+    box-shadow: 1px 1px 5px 0;
+    padding: 0.5rem;
+}
+
+.no-shadow {
+    box-shadow: unset;
+}
+
+.myQuestion{
+    margin-bottom: 0.8rem;
+}
+
+.toggleAnswer {
+    margin-left: 0.7rem;
+}
+
+
+.imageTitle {
+    font-size: 0.8rem;
+    margin-top: 0;
+    display: block;
+}

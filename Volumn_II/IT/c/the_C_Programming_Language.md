@@ -209,7 +209,7 @@ flag = false;
 
 
 
-```c
+```C
 extern int a;     // 声明一个全局变量 a
 int a;            // 定义一个全局变量 a
 extern int a =0;  // 一旦给予赋值，一定是定义
@@ -253,100 +253,11 @@ American National Standards Institute
 - 全局变量使用长名字
 
 <h3 class = 'auto-sort-sub'>数据类型与大小</h3>
-
-在 C 语言中有如下几种基本数据类型：
-
-<!-- tabs:start -->
-
-### **C**
-
-|类型|描述|
-|:-|:-|
-|char|单字节1B, 整数类型 (-128 - 127 或 0 - 255)|
-|int| 特定机器的自然大小，一般 2B/4B|
-|float|单精度浮点数<br>      ![--image--](../images/c/c_programming/01.png)|
-|double|双精度浮点数<br>     ![--image--](../images/c/c_programming/02.png)|
-
-### **Java**
-
-|类型|描述|
-|:-|:-|
-|char| 2B, Unicode 字符|
-|byte| 1B, 整数（-128-127）|
-|short| 2B, 整数|
-|int| 4B, 整数|
-|long| 8B, 整数|
-|float|4B, 单精度浮点|
-|double|8B, 双精度浮点|
-|boolean|true, false|
-
-<!-- tabs:end -->
-
-<h4 class = 'auto-sort-sub1'>限定符</h4>
-
-- `short` int a;    
-- `long` int a;  $\qquad$ //这里的 `int` 都可以省略  
-- `long` double a;    
-- signed 与 unsigned 用于限定 `char` 或 `整数类型`，经 unsigned 限定符限定的数总是正的或0
-
-<h3 class = 'auto-sort-sub'>常量</h3>
-
-**int**: 1234  
-**long**: 123456789`L`, 123456789`l`  
-**unsigned long**: 12345678`UL`, 12345678`ul`  
-**float**: 123.4`F`, 1e-2`f`  
-**double**: 123.4  
-**long double**: 123.4`L`, 1e-2`l`  
-
-> 8 进制，`0`37  
-> 16 进制，`0x`1F `0X`FUL 
-
-
-<h4 class = 'auto-sort-sub1'>字符常量</h4>
-字符常量是一个整数。如，在 ASCII  字符集中， 字符 '0' 的值是 48, 与数值 0 没有关系。虽然字符常量一帮用于与其他字符进行比较，但字符常量也可以像整数一样参与数值运算。
-
-<div class="myTip">
-
-**转义字符**  
-`\000`  1～3 个 8 进制数字  
-`\xhh`  16 进制数  
-`\0`    其值为 0 的字符，即空字符， 为了`强调字符`的性质，我们通常用 `\0` 代替 数值 0  
-`\v`  纵向制表符  
-`\r`  横向制表符  
-</div>
-
-```c
-#define VTAB  '\013'  /* ASCII 纵向制表符*/  
-#define BELL  '\007'  /* ASCII 响铃符*/
-// 或者
-#define VTAB  '\xb'  /* ASCII 纵向制表符*/  
-#define BELL  '\x7'  /* ASCII 响铃符*/
-```
-
-<h4 class = 'auto-sort-sub1'>常量表达式</h4>
-
-可以在编译时计算而不必推迟到运行时， 例如
-
-```c
-#define MAXLINE 1000
-char line[MAXLINE +1];
-```
-
-
-<h4 class = 'auto-sort-sub1'>字符串常量</h4>
-
-字符串常量也叫字符串字面量，是用`""` 括住的字符序列，例如
-```c
-"I am a string"
-```
-
-<div class="myNote">
-
-- 从技术角度看，字符串常量就是`字符数组`，但内部表示字符串时要用一个空字符`\0`来结尾，故用来存储字符串的物理存储单元数会多一个。这样的表示方式说明`C 对 字符串的长度没有限制`，但程序必须扫描完整个字符串才能决定这个字符串的长度。 标准库函数 `strlen(s)` 用于返回其字符串变量 s 的长度，不包括末尾的 `\0`
+C 对字符串的长度没有限制`，但程序必须扫描完整个字符串才能决定这个字符串的长度。 标准库函数 `strlen(s)` 用于返回其字符串变量 s 的长度，不包括末尾的 `\0`
 
 - `'x'`表示产生字母 x 的数值，`"x"`表示包含字母 x 的数组
 
-```c
+```C
 /* 自定义函数 */
 /* strlen : 返回 s 的长度 */
 int strlen(char s[])
@@ -361,7 +272,7 @@ int strlen(char s[])
 
 <h4 class = 'auto-sort-sub1'>枚举常量</h4>
 
-```c
+```C
 enum boolean {No, YES}   // 0, 1
 enum months {JAN = 1, FEB, MAR} // FEB=2, MAR=3
 ```
@@ -375,7 +286,7 @@ enum months {JAN = 1, FEB, MAR} // FEB=2, MAR=3
 
 <h4 class = 'auto-sort-sub1'>const 限定符</h4>
 
-```c
+```C
 
 // 值不能改变
 const double e = 2.71828182845905; 
@@ -390,13 +301,105 @@ int strlen(const char[]);
 
 <h3 class = 'auto-sort-sub'>类型转换</h3>
 
+<h4 class = 'auto-sort-sub1'>隐式类型装换</h4>
+
 在执行算术运算时, 计算机要求操作数有相同的大小和相同的存储方式, 然而, C 语言在表达式中可以混合使用基本类型. 当然, 在这种情况下 C 编译器需要生成一些指令将某些操作数转换成不同类型,使硬件可以对表达式进行计算.
+
+```C
+    int a;
+    float b = 2.3;
+    a = b;  //->  2
+```
+<div class="myWarning">
+
+当有符号操作数和无符号操作数组合时, 会把有符号操作数装换为无符号的值. 这条规则可能导致隐蔽的编程错误. 所以最好避免使用无符号整数, 特别是不要把无符号整数与有符号整数混合使用.
+</div>
+
+<h4 class = 'auto-sort-sub1'>强制类型转换</h4>
+
+```C
+    float quotient;
+    int dividend = 11;
+    int divisor = 5;
+    quotient = dividend / divisor;  //->  2
+    quotient = (float)dividend / divisor;  //->  2.2
+```
+
+```C
+    long i;
+	int j = 100000;
+
+	i = j * j;   //  WRONG, 值溢出 返回错误值, j*j 的值没有自动升级为 long 类型
+	i = (long)j * j;  // 强制类型转换 
+```
 
 
 <div class="myWarning">
 
-当有符号操作数和无符号操作数组合时, 会把有符号操作数装换为无符号的值. 这条规则可能导致隐蔽的编程错误. 所以最好避免使用无符号整数,特别是不要把无符号整数与有符号整数混合使用.
+C 语言的赋值与 Java 的赋值是不一样的, 对于 i = j*j 的`=`应该理解为为操作符, 而不能理解为 Java 的赋值语句
 </div>
+
+
+<h3 class = 'auto-sort-sub'>类型定义 typedef</h3>
+
+```C
+typedef int Bool;
+
+Bool flag; /* Bool 类型等价于 int */
+```
+
+<div class="myTip">
+
+也可以利用宏来定义 `#define BOOL int`;
+</div>
+
+
+
+<h4 class = 'auto-sort-sub1'>类型定义的优点</h4>
+
+<div><span class='header5'>可读性强<span></div>
+<div><span class='header5'>容易修改<span></div>
+
+比如, 变量 cash_in 和 变量 cash_out 用于存储美元
+```C
+typedef float Dollars;      /* 利于修改, 如修改成 double 型 */
+
+Dollars cash_in, cash_out;  /* 可读性更强 */
+```
+
+<div><span class='header5'>可移植性<span></div>
+
+比如, `int`对于不同的机器可以是 32 位或 16 位, 为了更大的可移植性可以考虑使用 typedef 定义新的整数类型名
+
+
+<div class="myTip">
+
+C 语言库自身使用`typedef`为那些由于不同 C 语言实现而不同的类型创建类型名； 这些类型名通常以`_t`结尾, 比如ptrdiff_t, size_t, wchat_t
+
+```C
+typedef long int ptrdiff_t;
+typedef unsigned long int size_t;
+typedef int wchar_t;
+```
+
+<span class="myKey"> C99 </span>
+ <stdint.h> 使用 typedef 定义了固定位数的整数类型名. 如, `int32_t`
+</div>
+
+
+<h3 class = 'auto-sort-sub'>sizeof 运算符</h3>
+
+> sizeof 运算符允许程序存储指定类型值所需空间的大小
+
+```C
+sizeof(int);   // 一般为 4
+sizeof(i+j);
+```
+<span class='myKey'>C89</span>
+最安全写法 `printf("Size of int: %lu\n", (unsigned long) sizeof(int));`
+
+<span class='myKey'>C99</span>
+ `printf("Size of int: %zu\n", sizeof(int));`
 
 
 </div>
