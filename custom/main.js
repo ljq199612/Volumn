@@ -1,6 +1,6 @@
 function customRun(){
     $(document).ready(function(){
-        checkFont();
+        // checkFont();
         customComponents();
         customContent();
 
@@ -692,12 +692,9 @@ function myAnnotate(){
         $(this).hover(
             function () { 
                 let flag = 1;
-                $annotate = $(this).next();
-                for(let t=1; t<1000; t++){
-                    let isAnnotate = $annotate.hasClass('js-annotate');
-                    if(isAnnotate){ break; }
-                    $annotate = $annotate.next();
-                } 
+                
+                $annotate = $(this).next('.js-annotate');
+
                 // TODO 想用 fadeIn() fadeOut() 做淡入淡出效果，
                 // 但是发现存在以下 bug：
                 // 对于大的弹出框，会有显示 2 次的动作
@@ -743,12 +740,7 @@ function myAnnotate(){
         $(this).click(
             function () { 
                 if(flag==1){
-                    $annotate = $(this).next();
-                    for(let t=1; t<1000; t++){
-                        let isAnnotate = $annotate.hasClass('js-annotate');
-                        if(isAnnotate){ break; }
-                        $annotate = $annotate.next();
-                    } 
+                    $annotate = $(this).next('.js-annotate');
                     $annotate.show(); 
                     $(this).mousemove(function(e){
                         let left = e.clientX + 25;

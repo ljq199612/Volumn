@@ -9,6 +9,8 @@ kafka 服务器的官方名字`broker`
 </div>
 
 
+
+
 <div class="myNote">
 
 Kafka 如何实现高吞吐量、低延时的目标？  
@@ -37,6 +39,15 @@ Kafka 如何实现高吞吐量、低延时的目标？
 
 
 ----------------------------------------------------------
+
+<span class='header5'>理解原型<span>
+
+<span class='large bold'> 倡 </span> <i class="my-no-should iconfont icon-bug"></i> 
+
+<h4 class = 'auto-sort-sub1'>builder 模式<i class="my-should iconfont icon-yes"></i></h4>
+
+
+
 
 <!-- tabs:start -->
 

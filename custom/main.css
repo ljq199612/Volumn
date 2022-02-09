@@ -55,19 +55,29 @@ a:focus
 }
 
 
+@font-face{
+    font-family: my-han-serif-sc;
+    src: url("../fonts/SiYuanSongTiRegular/SimplifiedChinese/SourceHanSerifSC-Regular.otf");
+    font-weight: normal;
+    /*font-style: normal;*/
+}
 
-body {
-    word-break: break-all;
-    font-family: serif, sans-serif;
-    font-size: 1rem;
-	/*
-    background-image: linear-gradient(to right, #eee, #ddd, #eee);
-	*/
+@font-face{
+    font-family: my-han-serif-sc;
+    src: url("../fonts/SiYuanSongTiRegular/SimplifiedChinese/SourceHanSerifSC-SemiBold.otf");
+    font-weight: bold;
+    /*font-style: normal;*/
 }
 
 
-body.windows {
-    font-family: 仿宋, serif;
+body {
+    word-break: break-all;
+    font-family: my-han-serif-sc, serif, sans-serif;
+    font-size: 1rem;
+    
+	/*
+    background-image: linear-gradient(to right, #eee, #ddd, #eee);
+	*/
 }
 
 

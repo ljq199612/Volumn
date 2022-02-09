@@ -58,6 +58,11 @@
         <i class='iconfont icon-page'></i>
         JavaScript 高级程序设计</a>
     </div>                                                            
+    <div class='book-list-sub3 hidden'>
+        <a href="#/Volumn_II/IT/javascript/javascript_tip" class="alive">
+        <i class='iconfont icon-page'></i>
+        JavaScript 编程技巧</a>
+    </div>                                                            
 </div>                                                            
 
 <div class='book-list-sub2'>
@@ -77,6 +82,11 @@
         <a href="#/Volumn_II/IT/java/jvm" class="alive">
         <i class='iconfont icon-page'></i>
         JVM</a>
+    </div>                                                            
+    <div class='book-list-sub3 hidden'>
+        <a href="#/Volumn_II/IT/java/java_concurrency" class="alive">
+        <i class='iconfont icon-page'></i>
+        Java 并发性和多线程</a>
     </div>                                                            
     <div class='book-list-sub3 hidden'>
         <a href="#/Volumn_II/IT/java/head_first_design_pattern" class="alive">

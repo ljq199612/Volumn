@@ -11,6 +11,16 @@
 </div>
 </div>
 
+ 
+<div class = 'data-section default-folding'>
+<h2 class = 'section-title'>WPS</h2>
+<div class = 'folding-area'>
+
+官网下载 rpm 包安装后， 需要添加字体， 可以把 windows 下的字体复制到 `/usr/share/fonts/` 目录下
+</div>
+</div>
+
+
 <div class = 'data-section default-folding'>
 <h2 class = 'section-title'>RAR （压缩）</h2>
 <div class = 'folding-area'>
@@ -706,7 +716,7 @@ docsify serve
 <div class = 'folding-area'>
 
 ### VirtualBox 扩展包
-源里安装软件后, 去官网下载扩增包[VirtualBox Extension Pack.vbox-extpack](http://download.virtualbox.org/virtualbox/6.1.0/), 
+源里安装软件后, 去官网下载扩增包[VirtualBox Extension Pack.vbox-extpack](http://download.virtualbox.org/virtualbox/), 
 然后, 启动 VirtualBox, `全局设置 -> 扩展` 安装扩展包. 
 
 ### virtualbox 增强功能
@@ -714,9 +724,11 @@ docsify serve
 ### 共享文件夹
 添加组 vboxsf, 把用户加入组
 ```bash
-$> groupadd xxx
+$> sudo groupadd xxx
 $> sudo usermod -aG xxx $(whoami)
 ```
+
+### USB 设置
 
 
 
