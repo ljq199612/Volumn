@@ -4,13 +4,24 @@
  * @import url('../js/font-awesome.css');  */
 /* ---------------------------------------*/
 
-@import url('custom/icons.css');        /* 各类图标 */
+@import url('icons.css');        /* 各类图标 */
 /* TODO 未加载完时遮罩 */
 /* @import url('custom/loading.css'); */
 
-@import url('custom/thoughts.css');
+@import url('thoughts.css');
 
-@import url('custom/mark.css');
+@import url('mark.css');
+
+/* -------------------------- 字体 --------------------------- */
+/* 思源宋体 */
+@import url('https://fonts.font.im/css?family=Noto+Serif');
+/* 思源黑体 */
+@import url('https://fonts.font.im/css?family=Noto+Sans');
+
+/* 手写英文 */
+@import url('https://fonts.font.im/css?family=Caveat');
+
+/* ------------------------------------------------------------*/
 
 :root {
 /*
@@ -54,25 +65,9 @@ a:focus
   color: inherit;
 }
 
-
-@font-face{
-    font-family: my-han-serif-sc;
-    src: url("./fonts/SiYuanSongTiRegular/SimplifiedChinese/SourceHanSerifSC-Regular.otf");
-    font-weight: normal;
-    /*font-style: normal;*/
-}
-
-@font-face{
-    font-family: my-han-serif-sc;
-    src: url("./fonts/SiYuanSongTiRegular/SimplifiedChinese/SourceHanSerifSC-SemiBold.otf");
-    font-weight: bold;
-    /*font-style: normal;*/
-}
-
-
 body {
     word-break: break-all;
-    font-family: my-han-serif-sc, serif, sans-serif;
+    font-family: 'Noto Serif', serif, sans-serif;
     font-size: 1rem;
     
 	/*
