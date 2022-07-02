@@ -735,5 +735,17 @@ li.content-H6:hover {
 
 
 
+div.footer .modify-date::before {
+    content: "最后修改日期 \00A0";
+}
+
+div.footer .modify-date {
+    font-size: small;
+    font-style: italic;
+    padding: 1rem 0 0 0;
+    float: right;
+}
+
+
 
 

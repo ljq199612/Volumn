@@ -1,6 +1,6 @@
 # Java 并发性和多线程
 
-原文地址 [http://tutorials.jenkov.com/java-concurrency/index.html](http://tutorials.jenkov.com/java-concurrency/index.html)
+参考 [http://tutorials.jenkov.com/java-concurrency/index.html](http://tutorials.jenkov.com/java-concurrency/index.html)
 
 
 
@@ -753,7 +753,7 @@ public class ThreadTest {
 
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'><label class = 'block-number'>11</label> 线程通信</h2>
+<h2 class = 'section-title'><label class = 'block-number'>11</label> 线程通信 (TODO)</h2>
 <div class = 'folding-area'>
 
 线程通信的目标是使线程间能够互相发送信号。例如，线程 B 可以等待线程A的一个信号，这个信号会通知线程 B 数据已经准备好了。
@@ -787,20 +787,212 @@ public class MySignal{
 
 <h3 class = 'auto-sort-sub'>忙等待</h3>
 
+忙等待即是一个线程在等待另外一个线程所给出的信号，而这个信号必然是在一个共享对象中存在的，这样才能达到多线程的信息共享。当等到信号之后才会进行下一步运行的情况。当然，这里也就涉及到了另外一种情况，如果一直等不到呢，那么就会进入我们常说的 死锁 状态。下面来看一下我所写的忙等待实例：
 
+<span class='large bold'>不推荐</span> <i class="my-no-should iconfont icon-bug"></i> 
+
+```java
+/************************** 
+ * 实体类（共享对象）代码 *
+ **************************/
+public class MyProcess {
+    
+    private boolean flag = false;
+
+    public synchronized boolean getProcess(){
+        return this.flag;
+    }
+    public synchronized void setProcess(boolean bool){
+        this.flag = bool;
+    }
+}
+
+/***************************
+ * 实体类                  *
+ * *************************/
+public class BusyWait {
+    
+    
+    /**  忙等待 */
+    public static void main(String[] args) {
+        //实例共享对象
+        final MyProcess mp = new MyProcess();
+        Thread thread1 = new Thread("AA"){
+            @Override
+            public void run() {
+                try {
+                    //睡眠五秒
+                    Thread.currentThread().sleep(5000);
+                    mp.setProcess(true);
+                    System.out.println("当前线程为:"+Thread.currentThread().getName()+",并已设置共享对象信号属性flag为true！");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        
+        Thread thread2 = new Thread("BB")
+        {
+            @Override
+            public void run() {
+                // [WARNING] 无限循环
+                while (true) {
+                    // [WAINING] 注意这里的睡眠, 考虑下这样实现是明智的选择吗？
+                    try {
+                        Thread.currentThread().sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if(mp.getProcess()){
+                        System.out.println("当前线程为:"+Thread.currentThread().getName()+",已经获得其他线程的信号！");
+                        break;
+                    }
+                    else{
+                        System.out.println("当前线程为:"+Thread.currentThread().getName()+",正在等待其他线程的信号......"); 
+                    }
+                }
+            }
+        };
+        
+        //开始忙等待....
+        thread1.start();
+        thread2.start();
+    }
+    
+}
+```
+
+<h3 class = 'auto-sort-sub'>wait(), notify() 和 notifyAll()</h3>
+
+> 忙等待没有对运行等待线程的CPU进行有效的利用，除非平均等待时间非常短。否则，让等待线程进入睡眠或者非运行状态更为明智，直到它接收到它等待的信号。
+
+Java有一个内建的等待机制来允许线程在等待信号的时候变为非运行状态。java.lang.Object 类定义了三个方法，wait()、notify() 和 notifyAll() 来实现这个等待机制。
+一个线程一旦调用了任意对象的 wait() 方法，就会变为非运行状态，直到另一个线程调用了同一个对象的 notify() 方法。为了调用 wait() 或者 notify()，线程必须先获得那个对象的锁。也就是说，线程必须在同步块里调用 wait() 或者 notify()。
+
+// TODO
+
+<h3 class = 'auto-sort-sub'>信号丢失（Missed Signals）</h3>
+
+notify() 和 notifyAll() 方法不会保存调用它们的方法，因为当这两个方法被调用时，有可能没有线程处于等待状态。通知信号过后便丢弃了。因此，`如果一个线程先于被通知线程调用 wait() 前调用了 notify()，等待的线程将错过这个信号`。在某些情况下，这可能使等待线程永远在等待，不再醒来，因为线程错过了唤醒信号。为了避免丢失信号，必须把它们保存在信号类里。
+
+
+<span class='large bold'>不推荐</span> <i class="my-no-should iconfont icon-bug"></i> 
+```java
+public class MyWaitNotify2{
+
+  MonitorObject myMonitorObject = new MonitorObject();
+  
+  /**
+   * 为了避免信号丢失， 用一个变量来保存是否被通知过。
+   * 在 notify 前，设置自己已经被通知过。
+   * 在 wait 后，设置自己没有被通知过，需要等待通知。
+   */
+  boolean wasSignalled = false;
+
+  public void doWait(){
+    synchronized(myMonitorObject){
+      if(!wasSignalled){
+        try{
+          myMonitorObject.wait();
+         } catch(InterruptedException e){...}
+      }
+      wasSignalled = false;
+    }
+  }
+
+  public void doNotify(){
+    synchronized(myMonitorObject){
+      wasSignalled = true;
+      myMonitorObject.notify();
+    }
+  }
+}
+
+```
+
+<h3 class = 'auto-sort-sub'>假唤醒</h3>
+
+> 由于莫名其妙的原因，线程有可能在没有调用过 notify() 和 notifyAll() 的情况下醒来。这就是所谓的假唤醒（spurious wakeups）。
+
+如果在上节中 MyWaitNotify2 的 doWait() 方法里发生了假唤醒，等待线程即使没有收到正确的信号，也能够执行后续的操作。这可能导致你的应用程序出现严重问题。`为了防止假唤醒，保存信号的成员变量将在一个 while 循环里接受检查，而不是在 if 表达式里`。这样的一个 while 循环叫做
+<span class="myAnnotate">
+自旋锁
+</span>
+，被唤醒的线程会自旋直到自旋锁(while循环) 里的条件变为 false。以下 MyWaitNotify2 的修改版本展示了这点： 
+<div class="js-annotate annotate hidden">
+目前的 JVM 实现自旋会消耗 CPU，如果长时间不调用 doNotify 方法，doWait 方法会一直自旋，CPU 会消耗太大
+</div>
+
+```java
+
+public class MyWaitNotify3{
+
+  MonitorObject myMonitorObject = new MonitorObject();
+  boolean wasSignalled = false;
+
+  public void doWait(){
+    synchronized(myMonitorObject){
+      /**
+       * wait()方法是在 while 循环里，而不在if表达式里。如果等待线程没有收到信号就唤醒，
+       * wasSignalled 变量将变为 false, while 循环会再执行一次，促使醒来的线程回到等待状态。
+       */
+      while(!wasSignalled){
+        try{
+          myMonitorObject.wait();
+         } catch(InterruptedException e){...}
+      }
+      wasSignalled = false;
+    }
+  }
+
+  public void doNotify(){
+    synchronized(myMonitorObject){
+      wasSignalled = true;
+      myMonitorObject.notify();
+    }
+  }
+}
+
+```
+
+<h3 class = 'auto-sort-sub'>多个线程等待相同信号</h3>
+如果你有多个线程在等待，被 notifyAll() 唤醒，但只有一个被允许继续执行，使用 while 循环也是个好方法。每次只有一个线程可以获得监视器对象锁，意味着只有一个线程可以退出 wait() 调用并清除 wasSignalled 标志（设为 false）。一旦这个线程退出 doWait() 的同步块，其他线程退出 wait() 调用，并在 while 循环里检查 wasSignalled 变量值。但是，这个标志已经被第一个唤醒的线程清除了，所以其余醒来的线程将回到等待状态，直到下次信号到来。
+
+<h3 class = 'auto-sort-sub'>不要在字符串常量或全局对象中调用 wait()</h3>
+
+```java
+public class MyWaitNotify{
+
+  String myMonitorObject = "";
+  boolean wasSignalled = false;
+
+  public void doWait(){
+    synchronized(myMonitorObject){
+      while(!wasSignalled){
+        try{
+          myMonitorObject.wait();
+         } catch(InterruptedException e){...}
+      }
+      //clear signal and continue running.
+      wasSignalled = false;
+    }
+  }
+
+  public void doNotify(){
+    synchronized(myMonitorObject){
+      wasSignalled = true;
+      myMonitorObject.notify();
+    }
+  }
+}
+
+```
+
+// TODO
 
 </div>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
+<div class='footer'><i class='modify-date'>2022-02-11<i></div>
 

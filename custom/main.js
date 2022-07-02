@@ -694,6 +694,9 @@ function myAnnotate(){
                 let flag = 1;
                 
                 $annotate = $(this).next('.js-annotate');
+                if($annotate[0] == undefined){
+                  $annotate = $(this).parent().next('.js-annotate');
+                }
 
                 // TODO 想用 fadeIn() fadeOut() 做淡入淡出效果，
                 // 但是发现存在以下 bug：
@@ -741,6 +744,9 @@ function myAnnotate(){
             function () { 
                 if(flag==1){
                     $annotate = $(this).next('.js-annotate');
+                    if($annotate[0] == undefined){
+                      $annotate = $(this).parent().next('.js-annotate');
+                    }
                     $annotate.show(); 
                     $(this).mousemove(function(e){
                         let left = e.clientX + 25;

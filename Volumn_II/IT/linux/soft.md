@@ -598,10 +598,10 @@ alias  dubbo-admin-cli-start='npm run dev --prefix ~/opt/dubbo-admin-ui/'
 <h2 class = 'section-title'>Dokcer</h2>
 <div class = 'folding-area'>
 
-- 下载安装
+### 下载安装  
 <span class='header5'></span>源里下载 docker
 
-- 配置
+### 配置  
 <span class='header5'></span>修改默认存储路径, 以及 docker hub 国内镜像
 编辑`/etc/docker/daemon.json` 文件, 如
 
@@ -610,18 +610,18 @@ alias  dubbo-admin-cli-start='npm run dev --prefix ~/opt/dubbo-admin-ui/'
   "data-root":"/opt/mnt/docker",
   "registry-mirrors": ["https://qg7ml934.mirror.aliyuncs.com"]
 }
-~       
+       
 ```
 
-- 图形监控
+### 常用工具
 <span class="header5"></span>[portainer](https://www.portainer.io/)
+ (图形监控工具)  
 
-安装
+安装  
 ```bash
-root> docker volume create portainer_data
-
-root> docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
-
+# 宿主机会自动创建卷 portainer_data
+root> docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always   \
+	  -v portainer_data:/data  -v /var/run/docker.sock:/var/run/docker.sock  portainer/portainer-ce  
 
 ```
 <div class="myTip">
@@ -631,6 +631,21 @@ root> docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always 
 </div>
 
 访问地址 `localhost:9000`
+<hr>
+
+<span class="header5"></span>[jenkins](https://www.jenkins.io/zh/)
+(持续集成工具)
+
+安装
+```bash
+root> docker run   -d  --name jenkins  -u root  -p 8080:8080   -v jenkins_home:/var/jenkins_home   \
+      -v /var/run/docker.sock:/var/run/docker.sock   -v "$HOME":/home   jenkinsci/blueocean
+
+```
+访问地址 `localhost:8080`
+<hr>
+
+
 
 
 

@@ -15,6 +15,25 @@ QFileSystemWatcher::removePaths: list is empty
 解决办法： 去 kwalletmanager 把里面记住的账号密码删了
 
 
+
+
+<h2 class = 'auto-sort'>opensuse 看不了视频</h2>
+
+1. 添加 pampack 源头, 如 [opensuse 滚动版(镜像)]（https://mirrors.bfsu.edu.cn/packman/suse/openSUSE_Tumbleweed/）
+```
+sudo zypper ar -fcg https://mirrors.bfsu.edu.cn/packman/suse/openSUSE_Tumbleweed/  PACKMAN
+sudo zypper refresh
+
+```
+
+1. 安装解码器：
+```
+zypper install --allow-vendor-change ffmpeg-3 lame gstreamer-plugins-bad gstreamer-plugins-ugly gstreamer-plugins-ugly-orig-addon gstreamer-plugins-libav libavdevice58 vlc-codecs
+
+```
+
+
+
 <h2 class = 'auto-sort'>puppy linux 口袋系统无法启动</h2>
 
 
