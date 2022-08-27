@@ -23,37 +23,6 @@
 
 /* ------------------------------------------------------------*/
 
-:root {
-/*
-  --h1-color: brown;
-  --h2-color: #226A98;
-  --h3-color: #5F87D7;
-  --h4-color: #866FAB;
-  --h5-color: #5F87D7;
-  --h6-color: #0F7961;
-*/
-
-  --h1-color: rgba(0, 0, 0, 0.90);
-  --h2-color: rgba(0, 0, 0, 0.86);
-  --h3-color: rgba(0, 0, 0, 0.82);
-  --h4-color: rgba(0, 0, 0, 0.79);
-  --h5-color: rgba(0, 0, 0, 0.77);
-  --h6-color: rgba(0, 0, 0, 0.75);
-
-  --h1-size: 2.2rem;
-  --h2-size: 1.9rem;
-  --h3-size: 1.6rem;
-  --h4-size: 1.4rem;
-  --h5-size: 1.2rem;
-  --h6-size: 1.1rem;
-  
-  /*
-       --sidebar-background: linear-gradient(to right, #ddd, #eee);
-   */
-   --sidebar-color: currentColor;
-
-}
-
 a, 
 a:link,
 a:visited,
@@ -69,10 +38,8 @@ body {
     word-break: break-all;
     font-family: 'Noto Serif', serif, sans-serif;
     font-size: 1rem;
-    
-	/*
-    background-image: linear-gradient(to right, #eee, #ddd, #eee);
-	*/
+    color: var(--body-font-color);
+    background-image: var(--body-background-image);
 }
 
 
@@ -100,11 +67,12 @@ section {
 }
 
 .sidebar {
-    background-image: var(--sidebar-background);
+    color: var(--sidebar-color);
+    background: var(--sidebar-background);
 }
 
 .sidebar-toggle {
-    background-color: rgba(224, 224, 224, 0.7);
+    background-color: var(--sidebar-toggle-background-color);
 }
 
 .sidebar-toggle {
@@ -128,7 +96,7 @@ h1 .anchor span {
 
 h2 .anchor span {
     font-size: var(--h2-size);
-    color: var(--h2-color);
+    color: var(--h2-color) !important;
 }
 
 h3 .anchor span {
@@ -388,6 +356,11 @@ input[type="checkbox"]:disabled + label::before {
     }
 }
 
+/* ------------------------- */
+  .markdown-section h2 {
+    color: var(--markdown-section-font-color) !important; 
+    font-weight: 600;
+  }
 /* --- 内容折叠区域   ---*/
 
 .block-number::before {
@@ -405,10 +378,10 @@ h1.header-part {
 }
 
 div.collapse {
-    border: 1px solid #eee;
+    border: var(--collapse-border);
     margin: 0.6rem  -1.1rem;
     display: flex;
-    background-image: linear-gradient(#ededed, #999);
+    background-image: var(--collapse-background-image);
     border-radius: 0 5rem 5rem 0;
 }
 
@@ -416,14 +389,14 @@ div.collapse {
 div.collapse button {
     font-size: 1.5rem;
     border: none;
-    color: var(--h2-color);
-    background-image: linear-gradient(#f8f8f8, #bbb);
+    color: var(--h2-color) !important;
+    background-image: var(--collapse-background-image);
 }
 
 h2.section-title {
     font-size: var(--h2-size);
     margin: auto 10px;
-    color: var(--h2-color);
+    color: var(--h2-color) !important;
 }
 
 h3.section-title {
@@ -444,8 +417,8 @@ h4.autosort {
 .data-section .toHide {
     border: none;
     width: 100%;
-    background-image: linear-gradient(white, grey);
-    color: #1b1d1d;
+    background-image: var(--data-section-toHide-background-image);
+    color: var(--data-section-toHide-font-size);
     border-radius: 1rem;
     padding-top: 6px;
     font-weight: bolder;
@@ -605,6 +578,25 @@ li.content-H6:hover {
     border-bottom:1px solid;
 }
 
+/* ------------ 主题 ------------- */
+#ext-nav  .skin-items {
+    margin: 0 0 4rem 0;
+}
+
+#ext-nav  .skin-items .skin {
+    margin: 1rem 0.75rem;
+    padding: 0.8rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+}
+
+#ext-nav  .skin-items .skin.default{
+    background: silver;
+}
+#ext-nav  .skin-items .skin.skin-1{
+    background: green;
+}
+
 /* --------- 右下角按钮 ---------- */
 .right-bottom-button {
     position: fixed;
@@ -632,7 +624,7 @@ li.content-H6:hover {
 
 .bookList {
   font-size: 1.3rem;
-  color: #204779;
+  color: var(--bookList-color);
 }
 
 .bookList li {

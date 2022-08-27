@@ -1,14 +1,44 @@
+//////////////////// 入口函数 /////////////////////////////
 function customRun(){
     $(document).ready(function(){
         // checkFont();
+        // 主题设置
+        customSkin();
+
         customComponents();
         customContent();
+
 
 
     });
 
 }
+//////////////////////////////////////////////////////////
 
+function customSkin(){
+    let usedSkin = localStorage.getItem("volumn-main-style");
+    if(undefined != usedSkin){
+        loadStyle(usedSkin);
+    }
+}
+
+function loadStyle(url){
+    let $head = document.querySelector("head");
+    let $link = document.createElement("link");
+    $link.href = url;
+    $link.rel = 'stylesheet';
+    $link.type = 'text/css';
+    $head.appendChild($link);
+
+}
+
+
+
+
+
+/**
+ * 判断操作系统, 用来去除不同平台字体渲染效果的不同
+ */
 function checkFont(){
     let agent = window.navigator.userAgent;
     agent.indexOf('Windows') >= 0 ? 
@@ -347,6 +377,11 @@ function extNav(){
     $('#ext-nav').html(
 
          "          <div class='nav'>                                                      "
+        +"            <div class='skin-items'>                                                 "
+        +"                <div class='skin default' title='默认主题'></div>                           "
+        +"                <div class='skin skin-1' title='主题1'></div>                           "
+        +"            </div>                                                                 "
+
         +"            <div class='contents-button nav-button' title='目录'>                "
         +"              <i class='nav-icon iconfont icon-contents'></i>                   "
         +"            </div>                                                               "
@@ -409,6 +444,24 @@ function extNav(){
 
     });
 
+    // 设置主题
+    $("#ext-nav .nav  .skin").click(function(){
+        if($(this).hasClass("default")){
+            localStorage.setItem("volumn-main-style", "custom/skin_default.css");
+        }
+        if($(this).hasClass("skin-1")){
+            localStorage.setItem("volumn-main-style", "custom/skin_1.css");
+        }
+        let useSkinUrl = localStorage.getItem("volumn-main-style");
+        if(undefined != useSkinUrl){
+            // 先去除已有主题
+            $("link").remove("[href^='custom/skin_']");
+            // 设置主题
+            loadStyle(useSkinUrl);
+        }
+    });
+
+
     $('.fold-button').click(function(){
         _foldAll();
     });
@@ -463,6 +516,9 @@ function _contents() {
     $('#ext-nav .contents').html(contents);
 
 }
+
+
+
 
 function scrollToThis(id){
     let isH2 = $(id).prop('tagName') == 'H2';

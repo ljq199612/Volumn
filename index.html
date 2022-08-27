@@ -40,7 +40,9 @@
 
 
 <!-- 自定义 -->
-<link rel="stylesheet" href="custom/main.css">
+<link rel="stylesheet" href="custom/skin_base.css">
+<link rel="stylesheet" href="custom/skin_default.css">
+
 <script type="text/javascript" src="custom/main.js"></script>
 
 </head>
@@ -64,7 +66,6 @@
       
       plugins: [
         function(hook) {
-
           hook.doneEach(function() {
             customRun();
           });

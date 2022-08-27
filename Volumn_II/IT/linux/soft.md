@@ -621,7 +621,7 @@ alias  dubbo-admin-cli-start='npm run dev --prefix ~/opt/dubbo-admin-ui/'
 ```bash
 # 宿主机会自动创建卷 portainer_data
 root> docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always   \
-	  -v portainer_data:/data  -v /var/run/docker.sock:/var/run/docker.sock  portainer/portainer-ce  
+      -v portainer_data:/data  -v /var/run/docker.sock:/var/run/docker.sock  portainer/portainer-ce  
 
 ```
 <div class="myTip">
@@ -634,7 +634,7 @@ root> docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always 
 <hr>
 
 <span class="header5"></span>[jenkins](https://www.jenkins.io/zh/)
-(持续集成工具)
+(持续集成工具) (推荐看[官方文档](https://www.jenkins.io/zh/doc/))
 
 安装
 ```bash
@@ -645,9 +645,35 @@ root> docker run   -d  --name jenkins  -u root  -p 8080:8080   -v jenkins_home:/
 访问地址 `localhost:8080`
 <hr>
 
+安装MySQL
+```bash
+root> docker run --name mysql8 -p 3306:3306 \
+       -v /opt/container/volumn/mysql8/_var/lib/mysql:/var/lib/mysql  \
+       -v /opt/container/volumn/mysql8/_etc/mysql/conf.d:/etc/mysql/config.d   \
+       -v /opt/container/volumn/mysql8/_var/log/mysql:/var/log/mysql  \
+       -d mysql:8.0    \
+       -e MYSQL_ROOT_PASSWORD=123456
+```
 
+安装Redis
+```bash
+root> docker run --name redis7  -p 6379:6379  \
+      -v /opt/container/volumn/redis7/_etc/redis/redis.conf:/etc/redis/redis.conf \
+      -v /opt/container/volumn/redis7/_data:/data \
+      -d redis:7.0
+```
 
+安装 SQL Server
+```bash
+# 注意：-e 选项要在前面，不然会出问题，如端口号问题
+root> docker run   --name 'sqlserver2017'   -p 1433:1433  \
+      -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=199612'   \
+      -v /opt/container/volumn/sqlserver2017/_var/opt/mssql:/var/opt/mssql    \
+      -d mcr.microsoft.com/mssql/server:2017-latest 
 
+```
+参考 [sql server 官方文档 docker 安装](https://docs.microsoft.com/en-us/sql/linux/tutorial-restore-backup-in-sql-server-container?view=sql-server-ver16)
+,包括密码修改等
 
 </div>
 </div>

@@ -1,0 +1,40 @@
+/* ------------------------------------------------------------*/
+
+:root {
+
+  --h1-color: rgba(255, 255, 255, 0.90);
+  --h2-color: rgba(255, 255, 255, 0.86);
+  --h3-color: rgba(255, 255, 255, 0.82);
+  --h4-color: rgba(255, 255, 255, 0.79);
+  --h5-color: rgba(255, 255, 255, 0.77);
+  --h6-color: rgba(255, 255, 255, 0.75);
+
+  --h1-size: 2.2rem;
+  --h2-size: 1.9rem;
+  --h3-size: 1.6rem;
+  --h4-size: 1.4rem;
+  --h5-size: 1.2rem;
+  --h6-size: 1.1rem;
+  
+
+  --body-font-color: rgba(255, 255, 255, 0.8);
+  --body-background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
+
+  --sidebar-color: currentColor;
+  --sidebar-background: rgba(0, 0, 0, 0.1);
+  --sidebar-toggle-background-color: rgba(224, 224, 224, 0.7);
+
+
+  --collapse-background-image: linear-gradient(rgba(18, 18, 18, 1), rgba(97, 97, 97, 1));
+  --collapse-border: 1px solid rgba(17, 17, 17, 1);
+  --collapse-button-background-image: linear-gradient(rgba(7, 7, 7, 1), rgba(68, 68, 68, 1));
+
+  --data-section-toHide-background-image: linear-gradient(black, grey);
+  --data-section-toHide-font-size: rgba(225, 225, 225, 1);
+
+  --markdown-section-font-color:  rgba(215, 180, 125, 0.9);
+  --bookList-color: rgba(215, 180, 125, 1);
+  
+
+}
+
