@@ -649,7 +649,7 @@ root> docker run   -d  --name jenkins  -u root  -p 8080:8080   -v jenkins_home:/
 ```bash
 root> docker run --name mysql8 -p 3306:3306 \
        -v /opt/container/volumn/mysql8/_var/lib/mysql:/var/lib/mysql  \
-       -v /opt/container/volumn/mysql8/_etc/mysql/conf.d:/etc/mysql/config.d   \
+       -v /opt/container/volumn/mysql8/_etc/mysql/config.d:/etc/mysql/config.d   \
        -v /opt/container/volumn/mysql8/_var/log/mysql:/var/log/mysql  \
        -d mysql:8.0    \
        -e MYSQL_ROOT_PASSWORD=123456
