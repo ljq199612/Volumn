@@ -614,6 +614,11 @@ alias  dubbo-admin-cli-start='npm run dev --prefix ~/opt/dubbo-admin-ui/'
 ```
 
 ### 常用工具
+
+<div class="myWarning">
+
+docker 挂载卷默认创建的是文件夹，如果要挂载文件，必须先创建该文件
+</div>
 <span class="header5"></span>[portainer](https://www.portainer.io/)
  (图形监控工具)  
 
@@ -647,12 +652,11 @@ root> docker run   -d  --name jenkins  -u root  -p 8080:8080   -v jenkins_home:/
 
 安装MySQL
 ```bash
-root> docker run --name mysql8 -p 3306:3306 \
+root> docker run --name mysql8 -p 3306:3306  \
+       -v /opt/container/volumn/mysql8/_etc/mysql/my.cnf:/etc/mysql/my.cnf \
        -v /opt/container/volumn/mysql8/_var/lib/mysql:/var/lib/mysql  \
-       -v /opt/container/volumn/mysql8/_etc/mysql/config.d:/etc/mysql/config.d   \
        -v /opt/container/volumn/mysql8/_var/log/mysql:/var/log/mysql  \
-       -d mysql:8.0    \
-       -e MYSQL_ROOT_PASSWORD=123456
+       -e MYSQL_ROOT_PASSWORD=123456 -d mysql:8.0
 ```
 
 安装Redis
