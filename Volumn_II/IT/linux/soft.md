@@ -652,12 +652,20 @@ root> docker run   -d  --name jenkins  -u root  -p 8080:8080   -v jenkins_home:/
 
 安装MySQL
 ```bash
-root> docker run --name mysql8 -p 3306:3306  \
-       -v /opt/container/volumn/mysql8/_etc/mysql/my.cnf:/etc/mysql/my.cnf \
-       -v /opt/container/volumn/mysql8/_var/lib/mysql:/var/lib/mysql  \
-       -v /opt/container/volumn/mysql8/_var/log/mysql:/var/log/mysql  \
-       -e MYSQL_ROOT_PASSWORD=123456 -d mysql:8.0
+root> mkdir /opt/container/volumn/mysql8/_etc/ -p
+root> touch /opt/container/volumn/mysql8/_etc/my.cnf
+root> docker run --name mysql8 -p 3306:3306      \
+       -v /opt/container/volumn/mysql8/_etc/my.cnf:/etc/my.cnf    \
+       -v /opt/container/volumn/mysql8/_var/log/mysql:/var/log/mysql    \
+       -v /opt/container/volumn/mysql8/_var/lib/mysql:/var/lib/mysql     \
+       -e MYSQL_ROOT_PASSWORD=123456   -d mysql:8.0  \
+       --lower_case_table_names=1 
 ```
+
+<div class="myWarning">
+
+docker 里面 MYSQL 表默认区分大小写， 通过 `--lower_case_table_names=1` 设置为不区分大小写
+</div>
 
 安装Redis
 ```bash
