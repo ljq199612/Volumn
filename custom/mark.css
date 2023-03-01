@@ -127,6 +127,7 @@
    /* border-style: inset;*/
     padding: 1rem;
     margin: 0.5rem;
+    border: 2px dashed silver;
 }
 
 .answer-button {
@@ -137,6 +138,7 @@
 
 .answer-button:hover {
     background: #ccc;
+    cursor: pointer;
 }
 
 .my-ask {

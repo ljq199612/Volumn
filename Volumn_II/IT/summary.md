@@ -63,6 +63,11 @@
         <i class='iconfont icon-page'></i>
         JavaScript 编程技巧</a>
     </div>                                                            
+    <div class='book-list-sub3 hidden'>
+        <a href="#/Volumn_II/IT/javascript/typescript" class="alive">
+        <i class='iconfont icon-page'></i>
+        TypeScript 语法速记</a>
+    </div>                                                            
 </div>                                                            
 
 <div class='book-list-sub2'>
@@ -119,10 +124,6 @@
     <i class='nav-icon iconfont icon-book-open' ></i>
     <span> linux</span>
     <div class='book-list-sub3 hidden'>
-        <a href="#/Volumn_II/IT/linux/soft" class="alive">
-        <i class='iconfont icon-page' ></i> soft</a>
-    </div>                                                            
-    <div class='book-list-sub3 hidden'>
         <a href="#/Volumn_II/IT/linux/problem" class="alive">
         <i class='iconfont icon-page' ></i> 常见问题</a>
     </div>                                                            
@@ -157,23 +158,6 @@
 
 <div class='book-list-sub2'>
     <i class='nav-icon iconfont icon-book-open' ></i>
-    <span> Soft</span>
-    <div class='book-list-sub3 hidden'>
-        <a href="#/Volumn_II/IT/soft/atom" class="alive">
-        <i class='iconfont icon-page' ></i> atom</a>
-    </div>                                                            
-    <div class='book-list-sub3 hidden'>
-        <a href="#/Volumn_II/IT/soft/idea" class="alive">
-        <i class='iconfont icon-page' ></i> IDEA</a>
-    </div>                                                            
-    <div class='book-list-sub3 hidden'>
-        <a href="#/Volumn_II/IT/soft/emacs/spacemacs-zh" class="alive">
-        <i class='iconfont icon-page' ></i> emacs</a>
-    </div>                                                            
-</div>                                                            
-
-<div class='book-list-sub2'>
-    <i class='nav-icon iconfont icon-book-open' ></i>
     <span> HTML/CSS </span>
     <div class='book-list-sub3 hidden'>
         <a href="#/Volumn_II/IT/html/css_secrets" class="alive">
@@ -192,6 +176,19 @@
         <i class='iconfont icon-page' ></i> 工具</a>
     </div>
     
+</div>                                                            
+
+<div class='book-list-sub2'>
+    <i class='nav-icon iconfont icon-book-open' ></i>
+    <span> Soft</span>
+    <div class='book-list-sub3 hidden'>
+        <a href="#/Volumn_II/IT/soft/linux" class="alive">
+        <i class='iconfont icon-page' ></i> linux</a>
+    </div>                                                            
+    <div class='book-list-sub3 hidden'>
+        <a href="#/Volumn_II/IT/soft/emacs/spacemacs-zh" class="alive">
+        <i class='iconfont icon-page' ></i> emacs</a>
+    </div>                                                            
 </div>                                                            
 
 <hr>

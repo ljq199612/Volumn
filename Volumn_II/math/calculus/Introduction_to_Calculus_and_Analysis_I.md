@@ -65,11 +65,11 @@ $$
 
 > 微积分的基本概念是`导数`和`积分`  
 > - 导数：对于变化速率的一种度量  
-> - 积分：对于`连续变化`过程总效果的度量
+> - 积分：对于`连续变化过程`总效果的度量
 
 <div class="myTip">
 
-理解导数和积分又有赖于对`极限`和`函数`的认识，而极限和函数又基于对数的`连续统`的了解。
+想要理解导数和积分需要理解`极限`和`函数`，而理解极限和函数又需要先了解`连续统`。
 </div>
 
 
@@ -78,14 +78,13 @@ $$
 > 自然数：1,2,3,...  
 > 自然数是计算一个总体或集合中元素的一种合适工具
 
-但是自然数没法对度量曲线长度、物体体积或重量等的度量。由于极其需要用称为`数`事物来表示`各种量的度量`，为此，不得不将数的概念加以扩充，以便能够描述`度量`的连续变化。这种扩充了的数系称为`数的连续统`或`实数系`。
-
 
 <h4 class = 'auto-sort-sub1'>自然数系及其扩展：计数和度量</h4>
 
 ##### 自然数和有理数
-对于我们来说自然数序列 1,2,3,...是已知的，不需要从哲学的观点去讨论它属于怎样的范。 对于同数学打交道的人来说，重要的只是知道一些规律或定理，根据这些规则和定理将一些自然数组合成另一些自然数。
+对于我们来说自然数序列 1,2,3,...是已知的，不需要从哲学的观点去讨论它属于怎样的范畴。 对于同数学打交道的人来说，重要的只是知道一些规律或定理，根据这些规则和定理将一些自然数组合成另一些自然数。
 
+但是自然数无法度量曲线长度、物体体积或重量等。由于极其需要用称为`数`事物来表示`各种量的度量`，为此，不得不将数的概念加以扩充，以便能够描述`度量`的连续变化。这种扩充了的数系称为`数的连续统`或`实数系`。
 <div class="myFormula">
 
 **加法和乘法法则**  
@@ -100,9 +99,9 @@ $$
 
 </div>
 
-> 逆运算（除法和减法），在`自然数`集合中是不封闭的，如`1-2不属于自然数`
+> 逆运算（除法和减法）在`自然数`集合中是不封闭的，如`1-2不属于自然数`
 
-为了使逆运算不受限制的进行，人们不得不发明了`0`和`负`整数以及`分数`来扩充数的概念,这些数的全体被称为`有理数系`或`有理数集合`
+为了使逆运算不受限制的进行，人们不得不发明了`0`和`负整数`以及`分数`来扩充数的概念,这些数的全体被称为`有理数系`或`有理数集合`
 
 <div class="myTip">
 
@@ -135,13 +134,15 @@ $$
 
 <div class="myTip">
 
-原则上我们只承认关于自然数的公理（包括数学归纳法原理），这时，有理数和实数都是在这个基础上被构造出来的。因此，关于实数的"公理", 实际上是关于自然数的一些需要证明的`定理`。
+原则上我们只承认关于自然数的公理（包括数学归纳法原理），而有理数和实数都是在这个基础上被构造出来的。因此，关于实数的"公理", 实际上是关于自然数的一些需要证明的`定理`。
 </div>
 
 <h4 class = 'auto-sort-sub1'>实数和区间套</h4>
 
 <div class="myFormula">
-<b>区间套公理</b>
+
+**区间套公理**  
+
 如果 $I_1, I_2, I_3,\dots$ 是一个具有有理端点的
 <span class="myAnnotate">
 区间套序列
@@ -152,7 +153,7 @@ $$
 </div>
 </div>
 
-<div class="myTip">
+<div class="myWaring">
 
 这是一个`连续性公理`，这个公理保证了实轴上没有空隙存在, 我们把这个公理作为实数连续统的特征。这个公理还有许多其他的表达方式。
 </div>
@@ -160,7 +161,7 @@ $$
 
 <h4 class = 'auto-sort-sub1'>复数</h4>
 
-为了使每一个代数方程都有具体的解，我们不得不引入复数，如希望方程 $x^2=1=0$ 具有根，我们不得不引入新的符号 $i$ 和 $-i$ 作为根。
+为了使每一个代数方程都有具体的解，我们不得不引入复数，如希望方程 $x^2+1=0$ 具有根，我们不得不引入新的符号 $i$ 和 $-i$ 作为根。
 
 <div class="myImage">
 
@@ -168,7 +169,7 @@ $$
 <label class="imageTitle">图示: 复数 $c = x+iy$ 及其共轭复数的几何表示</label>
 </div>
 
-<div class="myWarning">
+<div class="myTip">
 
 **极坐标表示**  
 $\qquad c = r(\cos\theta+i\sin\theta)$  
@@ -178,10 +179,10 @@ $\qquad\bar{c} = r(\cos\theta-i\sin\theta)$
 
 <h3 class = 'auto-sort-sub'>函数的概念</h3>
 
-只要一些量 a,b,c,... 的值由另一些量 x,y,z,... 的值来确定，我们就说 a,b,c,...依赖于 x,y,z,..., 或者说是 x,y,z,... 的函数。
+> 1. 只要一些量 a,b,c,... 的值由另一些量 x,y,z,... 的值来确定，我们就说 a,b,c,...依赖于 x,y,z,..., 或者说是 x,y,z,... 的函数。  
+> 1. 函数是对于自变量的给定值确定因变量的唯一值的数学规律;  
+> 1. $y$ 通过函数`关系`依赖于 $x$ ，常常简单地表述为：$y$ 是 $x$ 的函数  
 
-> 函数：对于自变量的给定值确定因变量的唯一值的数学规律  
-> $y$ 通过函数关系依赖于 $x$ ，常常简单地表述为：$y$ 是 $x$ 的函数
 
 <div class="myTip">
 
@@ -244,7 +245,7 @@ $\qquad\bar{c} = r(\cos\theta-i\sin\theta)$
 </div>
 
 **多值函数**  
-对于几何上可绘制的曲线，例如：$x^2+y^2=1$, 曲线的整个图形不是由一个（单值)函数给出的, 而是由两个函数 $y=\sqrt{1-x^2}$ 和 $y=-\sqrt{1-x^2}$ 来表述。这种曲线没用明确的规定对应的函数， 我们有时说，这种曲线是由`多值函数`表示的，这时，表示一条曲线的各个函数，称为对应于该曲线的多值函数的单值`分枝`
+对于几何上可绘制的曲线，例如：$x^2+y^2=1$, 曲线的整个图形不是由一个（单值)函数给出的, 而是由两个函数 $y=\sqrt{1-x^2}$ 和 $y=-\sqrt{1-x^2}$ 来表述。这种曲线没有明确规定对应的函数， 我们有时说，这种曲线是由`多值函数`表示的，这时，表示一条曲线的各个函数，称为对应于该曲线的多值函数的单值`分枝`
 
 <div class="myTip">
 
@@ -257,6 +258,7 @@ $\qquad\bar{c} = r(\cos\theta-i\sin\theta)$
 <div class="myFormula">
 
 **局部连续性**  
+
 对于 $\forall \,\epsilon^+, \exist \,\delta^+$, 对定义域中满足 $|x-x_0|\lt\delta$ 的一切
  $x$ 值，有 $|f(x)-f(x_0)|\lt\epsilon$ 成立，则函数 $f(x)$ 在其定义域中的点 $x_0$ 是连续的
 </div>
@@ -264,7 +266,7 @@ $\qquad\bar{c} = r(\cos\theta-i\sin\theta)$
 <div class="myNote">
 
 存在量 $\delta$ 称为`连续性的模`, 一般来说，这个 $\delta=\delta(\epsilon)$ 不仅依赖于 $\epsilon$, 而且还依赖于 $x_0$ 的值。
-连续性的模表明了 $f$ 对 $x$ 的变化的敏感度。显然对于相同的 $x_0$ 和 $\epsilon$ 总能用任意更小的正值 $\delta'$ 来代替。
+连续性的模表明了 $f$ 对 $x$ 的`变化的敏感度`。显然对于相同的 $x_0$ 和 $\epsilon$ 总能用任意更小的正值 $\delta'$ 来代替。
 对于各种实际目的，如数值计算中，我们所关心的可能是 $\delta$ 的特定选择，如，$\delta$ 的最大值。另一方面， 如果我们仅仅想要证实 $f$ 在 $x_0$ 是连续的这一事实，那么只须找到任意一个连续模即可。
 </div>
 
@@ -280,9 +282,13 @@ $\qquad\bar{c} = r(\cos\theta-i\sin\theta)$
 <label class="imageTitle">图示: x-y 平面 $y=f(x)$ 在点 $x_0$ 的连续性</label>
 </div>
 
+<br>
+<div class="myFormula">
 
-**跳跃性间断性**: 当 $x$ 趋近与 $\xi$ 时，$f(\xi-\delta) \not = f(\xi+\delta)$ 或者 $f(\xi\pm\delta)\not = f(\xi)$,
-其中 $\delta \to 0$
+**跳跃性间断性**  
+
+当 $x$ 趋近与 $\xi$ 时，$f(\xi-\delta) \not = f(\xi+\delta)$ 或者 $f(\xi\pm\delta)\not = f(\xi)$, 其中 $\delta \to 0$
+</div>
 
 <div class="myImage">
 
@@ -305,10 +311,11 @@ $\qquad\bar{c} = r(\cos\theta-i\sin\theta)$
 <div class="myFormula">
 
 **一致连续性**  
-如果对于每一个正数 $\epsilon$, 存在一个正数 $\delta$, 使得 $|f(x)-f(x_0)|\lt\delta$,其中 $x$ 和 $x_0$ 是某个区间中满足 $|x-x_0|\lt\delta$ 的`任意两个点`，则 $f(x)$ 在此区间上是一致连续的。
+
+如果对于 $\forall \ \epsilon^+$,  $\exist \ \delta^+$, 使得 $|f(x)-f(x_0)|\lt\delta$, 其中 $x$ 和 $x_0$ 是某个区间中满足 $|x-x_0|\lt\delta$ 的`任意两个点`，则 $f(x)$ 在此区间上是一致连续的。
 </div>
 
-例如，函数 $f(x)=5x+3$, 对于自变量的一切值来说，是一致连续的。因为 当取 $|x-x_0|\lt\frac{1}{5}\epsilon$ 时，$|f(x)-f(x_0)|=5|x-x_0)\lt\epsilon$, 于是，$\delta(\epsilon)=\frac{1}{5}\epsilon$ 表示一致连续模。
+例如，函数 $f(x)=5x+3$, 对于自变量的一切值来说，是一致连续的。因为 当取 $|x-x_0|\lt\frac{1}{5}\epsilon$ 时，$|f(x)-f(x_0)|=5(x-x_0)\lt\epsilon$, 于是，$\delta(\epsilon)=\frac{1}{5}\epsilon$ 表示一致连续模。
 
 <div class="myTip">
 
@@ -318,6 +325,7 @@ $\qquad\bar{c} = r(\cos\theta-i\sin\theta)$
 <div class="myFormula">
 
 **李普希兹连续性**  
+
 对于区间 [a, b] 上的一切 $x_1, x_2$, 以及固定的值 $L$, 函数满足李普希兹条件：
 $$|f(x_2)-f(x_1)|\le L|x_2-x_1|$$
 即，表达式 $\delta(\epsilon)=\frac{\epsilon}{L}$ 是可能有的连续模。
@@ -330,6 +338,7 @@ $$|f(x_2)-f(x_1)|\le L|x_2-x_1|$$
 <div class="myFormula">
 
 **霍尔德尔连续性**  
+
 对于区间 [a, b] 上的一切 $x_1, x_2$, 以及固定的值 $L$, 函数满足霍尔德尔条件：
 $$|f(x_2)-f(x_1)|\le L|x_2-x_1|^\alpha$$
 其中，霍尔德尔指数 $\alpha$ 的取值限于 $0\lt\alpha\le 1$. 
@@ -346,10 +355,10 @@ $$|f(x_2)-f(x_1)|\le L|x_2-x_1|^\alpha$$
 <div class="myFormula">
 
 **中值定理**
+
 对于某区间的每个点都连续的函数 $f(x)$, 设 $a$ 和 $b$ 是此区间的任意两个点，而 $\eta$ 是 $f(a)$ 和 $f(b)$ 之间的任意一个数，则在 $a$ 和 $b$ 之间存在数值 $\xi$, 使得 $f(\xi)=\eta$
 </div>
-
-<div class="myProblem">
+<div class="myProblem no-shadow">
 <div class="myQuestion">
 </div>
 <button class="toggleAnswer answer-button">证明:</button>
@@ -361,28 +370,37 @@ $$|f(x_2)-f(x_1)|\le L|x_2-x_1|^\alpha$$
 
 
 <h3 class = 'auto-sort-sub'>初等函数</h3>
+
+> 通过反复进行初等运算(加法和乘法)而得到的函数
+
 <h4 class = 'auto-sort-sub1'>有理函数</h4>
 
-**多项式函数**  
-$$y=a_0+a_1x+\dots +a_nx^n\,. $$
-最简单的多项式函数，即线性函数：$y=ax+b$
+**多项式函数（最基本的函数）**  
+$$y=a_0+a_1x+\dots +a_nx^n\, $$
+> 最简单的多项式函数，即线性函数：$y=ax+b$
 
-$y=\frac{1}{x}$ 是除多项式函数外最简单的有理函数。
+一般的有理函数:
+
+$$y=\frac{a_0+a_1x+\dots +a_nx^n}{b_0+b_1x+\dots +b_nx^n}\, $$
+
+> $y=\frac{1}{x}$ 是除多项式函数外最简单的有理函数。
 
 <h4 class = 'auto-sort-sub1'>代数函数</h4>
 
 为了解决寻求有理函数的反函数问题，我们不得不超出有理函数集合的范围。
 代数函数的一般形式如下，
-$$y=\sqrt[n]{R(n)}$$
+$$y=\sqrt[n]{R(n)} \>\> ,其中 R(n) 为有理数 $$
+> 常见函数: $y=x+\sqrt{x^2 + 1}$
 
-<h4 class = 'auto-sort-sub1'>代数函数</h4>
+<h4 class = 'auto-sort-sub1'>初等超越函数</h4>
 
-有理函数和代数函数是由初等函数直接定义的，而几何学则首次产生了另一些函数，即
+有理函数和代数函数是由初等运算直接定义的，而几何学则首次产生了另一些函数，即
 <span class="myAnnotate">
 超越函数
 </span>
+, 初等超越函数有`三角函数`、`指数函数`和`对数函数`。
 <div class="js-annotate annotate hidden">
-"超越" 仅仅指这些函数的定义超过了初等运算, 初等超越函数，有 三角函数、指数函数和对数函数
+"超越" 仅仅指这些函数的定义超过了初等运算
 </div>
 
 ##### 三角函数
@@ -405,13 +423,45 @@ $$y=\sqrt[n]{R(n)}$$
 <label class="imageTitle"></label>
 </div>
 
-**三角函数的分析定义**
+
+
+<div class="myTip">
+
+1. "超越" 一词并不意味着任何特殊深奥与神秘，它仅仅指出这些函数的定义超出了初等运算。  
+2. 以上只是三角函数的几何定义, 以下给出三角函数的分析定义：
 
 //TODO
+</div>
 
-##### 指数函数
 
-//TODO
+##### 指数函数和对数函数
+
+指数函数：$$y = a^x $$
+及其反函数(对数函数)：
+$$x = \log_a y$$
+
+
+<div class="myNote">
+<br>
+<b>这里给出定义指数函数的一种"初等"方法,<b>
+<button class="toggleAnswer answer-button">如下</button>
+<div class="myAnswer hidden">
+
+$$
+\begin{aligned}
+&如果\ x = \frac{p}{q} \in \mathbb{Q},\ p\in\Z^+,\ q\in\Z^+, \ a \in \R,\> 则\ a^x = \sqrt[q]{{\large a}^p} = {\large a}\frac{p}{q} \\
+&因为 \> 有理数\ x\ 是处处稠密的， 如果我们可以将\ y\ 的作用域扩展到无理数上（大胆假设小心证明），即\ x \in \R^+, \\
+&则就定义的一个连续的函数 y=a^x(指数函数) \\
+&于是， 当 y \lt 0 时， 函数 x = \log_xy 可以被定义为指数函数的反函数 \\
+\end{aligned}
+$$
+</div>
+
+
+如何定义指数函数？\\TODO
+
+</div>
+
 
 <h4 class = 'auto-sort-sub1'>复合函数和反函数</h4>
 
@@ -449,14 +499,22 @@ $g\psi x = x$ ， $g$ 称为 $\psi$ 的`逆或反函数`
 
 <div class="myFormula">
 
-如果 $g$ 和 $\psi$ 都是连续的，则 $g(\psi(x)$ （在定义处）是连续的。
+如果 $g$ 和 $\psi$ 都是连续的，则 $g(\psi(x))$ （在定义处）是连续的。
+</div>
+
+<div class="myTip">
+
+通过这个一般性的定理，我们可以把复杂的函数拆分成复合函数来证明它的连续性，这比试图直接作出此函数的连续模要容易的多。
 </div>
 
 <h3 class = 'auto-sort-sub'>序列</h3>
 
-整个数学分析归到底所依据的基本概念，乃是无穷序列 $a_n$ 的极限概念。
+整个数学分析归根到底所依据的基本概念，乃是无穷序列 $a_n$ 的极限概念。
 
-序列由一串矩形来描述是很方便的，如下图所示：
+
+
+<h4 class = 'auto-sort-sub1'>$a_n=\frac{1}{n}$</h4>
+序列由一串矩形来描述是很方便的，如下图所示的序列 $a_n=\frac{1}{n}$ ：
 
 <div class="myImage">
 
@@ -468,6 +526,30 @@ $g\psi x = x$ ， $g$ 称为 $\psi$ 的`逆或反函数`
 
 当然也可以选取四周边线 $x=n, x=n+1,y=a_n, y=0$ 的矩形来表示 $a_n$
 </div>
+
+
+<h4 class = 'auto-sort-sub1'>$a_n=\sqrt[n]{p}$</h4>
+<div class="myFormula">
+
+如果 $h\in \R^+$, $n \in \Z^+$, 则
+$$(1+h)^n \ge 1 + nh $$
+</div>
+
+
+<div class="myProblem no-shadow">
+<div class="myQuestion">
+如果序列 $a_n = \sqrt[n]{p}$, 其中 p > 0, 则 
+$$\lim_{n \to \infty}a_n = \lim_{n \to \infty}\sqrt[n]{p} = 1 $$
+</div>
+<button class="toggleAnswer answer-button">证明:</button>
+<div class="myAnswer hidden">
+
+//TODO
+</div>
+</div>
+
+
+<h4 class = 'auto-sort-sub1'>$a_n = \alpha^n$</h4>
 
 
 <h4 class = 'auto-sort-sub1'>极限</h4>
@@ -511,9 +593,8 @@ $\xLeftrightarrow{等价于}$ 实数的连续性公理
 序列 ${a_n}$ 收敛 $\xLeftrightarrow{充分必要条件}$ 对于 $\epsilon\gt 0, \exist N=N(\epsilon), N\in\N$, 使得 $n \gt N, m \gt N$ 时，有 $|a_n=a_m|\lt\epsilon$
 </div>
 
-<div class="myProblem">
+<div class="myProblem no-shadow">
 <div class="myQuestion">
-
 </div>
 <button class="toggleAnswer answer-button">证明:</button>
 <div class="myAnswer hidden">
@@ -668,14 +749,15 @@ $$|F_n - F_m| = |(F_n - F_N)+(F_N-F_m)|\le 2\epsilon(b-a)\,; $$
 柯西收敛判别法
 </span>
 <div class="js-annotate annotate hidden">
-
+//TODO
 </div>
 ，于是
 $$\lim_{n \to \infty}F_n = F $$
 证毕.
 
-**拓展**:
 <div class="myFormula">
+
+**拓展**:  
 为了使和式 $F_n = \sum f_i\Delta x_i$ 收敛于积分，$f_i$ 不一定是一个函数值; 而只要对区间 $[x_{i-1}, x_i]$ 上的某个点 $\xi_i$, 有 $|f_i - f(\xi_i)| \lt \delta(\epsilon) $ 就足够了, 当 $\epsilon\to 0$ 时, $\delta(\epsilon)\to 0$ 。
 </div>
 为了证明这个命题，只要指出由 $\xi'_v$ 和 $\xi''_v$ 的偏差而引起的近似和的改变量 $D$, 在极限情况下趋于 0 。

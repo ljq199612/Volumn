@@ -740,24 +740,28 @@ function myWarning(){
 }
 */
 /* 鼠标点击、悬停在关键字的时候，弹出解释框*/
+
 function myAnnotate(){
-    $('.myAnnotate').each(function () {
         let $annotate;
         let flag = 1;
         
-        $(this).hover(
+        $('.myAnnotate').hover(
             function () { 
                 let flag = 1;
-                
-                $annotate = $(this).next('.js-annotate');
+                // ? 是否有更好的写法
+
+                $annotate = $(this).next(".js-annotate");
                 if($annotate[0] == undefined){
-                  $annotate = $(this).parent().next('.js-annotate');
+                    $annotate = $(this).nextUntil('.js-annotate').last().next();
+                    if($annotate[0] == undefined){
+                        $annotate = $(this).parent().next(".js-annotate");
+                    }
                 }
 
                 // TODO 想用 fadeIn() fadeOut() 做淡入淡出效果，
                 // 但是发现存在以下 bug：
                 // 对于大的弹出框，会有显示 2 次的动作
-                $annotate.show();
+                 $annotate.show();
 
                 $(this).mousemove(function(e){
                     let left = e.clientX + 25;
@@ -796,13 +800,17 @@ function myAnnotate(){
             }
         );
 
-        $(this).click(
+        $('.myAnnotate').click(
             function () { 
                 if(flag==1){
-                    $annotate = $(this).next('.js-annotate');
+                    $annotate = $(this).next(".js-annotate");
                     if($annotate[0] == undefined){
-                      $annotate = $(this).parent().next('.js-annotate');
+                        $annotate = $(this).nextUntil('.js-annotate').last().next();
+                        if($annotate[0] == undefined){
+                            $annotate = $(this).parent().next(".js-annotate");
+                        }
                     }
+
                     $annotate.show(); 
                     $(this).mousemove(function(e){
                         let left = e.clientX + 25;
@@ -834,12 +842,11 @@ function myAnnotate(){
                     flag = 1;
                 }
             });
-    });
 
 }
 
 function myProblem(){
-    $('.myProblem .toggleAnswer').each(function(){
+    $('.toggleAnswer').each(function(){
         $(this).click(function(){
             $(this).next().slideToggle('slow');
         });
