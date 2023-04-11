@@ -2,13 +2,15 @@
 function customRun(){
     $(document).ready(function(){
         // checkFont();
-        // 主题设置
+        
+        ////////// 主题设置 ////////////
         customSkin();
 
+
         customComponents();
+        
+        
         customContent();
-
-
 
     });
 
@@ -60,6 +62,7 @@ function customComponents(){
 //        componentsKeyBind();     // 快捷键操作绑定
 } 
 
+
 /** 页面上额外添加的挂载点 */
 function addcomponents(){
     let $customComponents = $(".custom-components");
@@ -75,6 +78,7 @@ function addcomponents(){
         
     );
 }
+
 
 function componentsInit(){
     let $components =  $('.custom-components');
@@ -100,115 +104,6 @@ function componentsInit(){
 
 }
 
-
-function slideMeunToggle() {
-    let $slideNav =  $('.slide-nav');
-    $slideNav.css({
-        'margin-top': '0.5rem',
-        'position': 'fixed'
-    });
-
-    $('.mask-window').css({
-        'position': 'fixed',
-        'width':  document.body.clientWidth + 'px',
-        'height': document.body.clientHeight + 'px',
-        'background-color': 'black',
-        'display': 'none',
-        'opacity': '0.9'
-    });
-
-    $('.close-meun').css({
-        'color': 'currentColor',
-    });
-
-    $('.close-meun').click(function(){
-        $('.mask-window').fadeOut('slow');
-        $('.slide-meun').slideUp('slow');
-    });
-
-    _slideMeun();
-
-    let $sidebar = $('.sidebar');
-    $('.slide-meun-button').click( function () {
-        $('.mask-window').fadeIn('slow');
-        $('.slide-meun').slideDown('slow');
-    });
-
-
-
-}
-
-function _slideMeun(){
-    let $slideMeun = $('.slide-meun');
-    $slideMeun.html(
-         "     <div class='slide-meun-bar'>                                                                                                         "
-        +"                                                                                                                                        "
-        +"     <label class='ma'>ღ~ღ~ღ~ღ~ღ~ღ~~</label>                                                                                              "
-        +"     <label class='mb'>~~~ BE REAL ~~~</label>                                                                                            "
-        +"     <label class='ma'>~~ღ~ღ~ღ~ღ~ღ~ღ</label>                                                                                              "
-        +"                                                                                                                                        "
-        +"     </div>                                                                                                                               "
-        +"     <div class='slide-meun-content'>                                                                                                     "
-        +"          <ul class='first-list'>                                                                                                         "
-        +"              <li><label>0</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volumn/'>Volumn Home</a></li>                       "                                  
-        +"              <li><label>1</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volumn/#/Volumn_I/welcome'>Volumn I</a></li>        "                                  
-        +"              <li><label>2</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volumn/#/Volumn_II/welcome'>Volumn II </a></li>     "                                
-      //  +"              <li><label>3</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volumn/#/Volumn_III/welcome'>Volumn III </a></li>   "                               
-      //  +"              <li><label>4</label>&nbsp; ➣ &nbsp;<a href='https://ljq199612.github.io/Volumn/#/Volumn_IV/welcome'>Volumn IV </a></li>     "                              
-        +"          </ul>                                                                                                                           "
-        +"          <ul class='second-list'>                                                                                                        "
-        +"              <li><label>t</label>&nbsp; ➣ &nbsp;<a href='#'>回到顶部</a></li>                       "                                  
-        +"          </ul>                                                                                                                           "
-        +"     </div>                                                                                                                               "
-    );
-
-    $slideMeun.css({
-        'position': 'fixed',
-        'bottom':'0',
-        'width': $(document).width(),
-        'height': '10rem',
-       // 'box-shadow': '0 0 15px',
-        'background-color': '#1e1c1c',
-        'display': 'none',
-        'z-index': '50'
-    });
-
-    $('.slide-meun-bar').css({
-        'text-align': 'center',
-        'font-size': 'bold',
-        'width': '100%',
-        'height': '1.5rem',
-        'background-color': '#0f0b0b'
-    });
-
-    $('.slide-meun-bar .ma').css({
-        'background-color': 'rgba(9, 14, 17, 0.93)'
-    });
-
-    $('.slide-meun-bar .mb').css({
-        'color': 'rgb(19, 39, 39)',
-        'background-color': '#606466ed'
-    });
-
-    $('.slide-meun-content ul').css({
-        'float': 'left',
-        'font-size': 'medium',
-        'list-style': 'none'
-        //'text-align': 'center',
-        //'width': '100%',
-        //'height': '1.5rem',
-    });
-
-    $('.slide-meun-content ul label').css({
-        'color': 'blueviolet',
-        'font-weight': 'bolder'
-    });
-
-    $('.slide-meun-content ul a').css({
-        'color': 'mediumaquamarine',
-        'text-decoration': 'none'
-    });
-}
 
 function _gotoTop(){
     $('#goto-top-button').click(function(){
@@ -884,6 +779,9 @@ function articleList_readOnline(){
 window.onload = function(){articleList_readOnline();}
 
 /* [End] thought.md */
+
+
+
 
 
 

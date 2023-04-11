@@ -199,6 +199,16 @@
     `;
 
 
+    let $tabs_1 = {
+        regex: {
+                        // <!-- [[  {这里是换行后的内容} ]] -->  
+            codeMarkup: /(<!-+\s*?\[\[\s*?)[\r\n]+([\s|\S]*?)[\r\n\s]+(\s+\]\]\s*?-+>)/gm,
+        }
+    
+
+    }
+
+
 
     var $tabs = {
         regex: {
@@ -249,8 +259,102 @@
             }
         }));
         if ($tabs.settings.tabComments || $tabs.settings.tabHeadings) {
-            window.$docsify.plugins = [].concat(docsifyTabs, window.$docsify.plugins || []);
+            //window.$docsify.plugins = [].concat(docsifyTabs, window.$docsify.plugins || []);
+            window.$docsify.plugins = [].concat(docsifyTabs_1, window.$docsify.plugins || []);
+            
+
         }
+    }
+
+    // TODO 这里是要实验的地方
+    function docsifyTabs_1(hook, vm) {
+        var hasTabs = false;
+        hook.beforeEach((function(content) {
+            hasTabs = $tabs.regex.tabBlockMarkup.test(content);
+            if (hasTabs) {
+                content = renderTabsStage_1(content, vm);
+            }
+            return content;
+        }));
+        hook.afterEach((function(html, next) {
+            if (hasTabs) {
+                html = renderTabsStage2(html);
+            }
+            next(html);
+        }));
+        hook.doneEach((function() {
+            if (hasTabs) {
+                setDefaultTabs();
+            }
+        }));
+        hook.mounted((function() {
+            var tabsContainer = document.querySelector(".".concat($tabs.classNames.tabsContainer));
+            tabsContainer && tabsContainer.addEventListener("click", (function handleTabClick(evt) {
+                setActiveTab(evt.target);
+            }));
+            window.addEventListener("hashchange", setActiveTabFromAnchor, false);
+        }));
+    }
+
+    
+    /**
+     * @param  content -> 页面没有被渲染时的内容
+     */
+    function renderTabsStage_1(content, vm) {
+
+        // 匹配在 [codeMarkup] 标记中的数据, 即 ``` ``` 中的数据
+        let codeBlockMatch = content.match($tabs.regex.codeMarkup) || [];
+        var codeBlockMarkers = codeBlockMatch.map(
+            (item, i) =>  {
+                                                                    // <!-- tabs: replac CODEBLOCK0 -->
+                let codeMarker = "\x3c!-- ".concat($tabs.commentReplaceMark, " CODEBLOCK").concat(i, " --\x3e");
+                // 把 contnet 里的 数据内容替换成 [codeMarker]
+                content = content.replace(item, codeMarker);
+                return codeMarker;
+            }
+
+        );
+        
+        // 主题相关 css, 如 docsify-tabs--classic 
+        var tabTheme = $tabs.settings.theme ? "".concat($tabs.classNames.tabBlock, "--").concat($tabs.settings.theme) : "";
+
+
+        return content;
+    }
+
+
+///////////////////////////////
+
+
+
+    
+    function docsifyTabs(hook, vm) {
+        var hasTabs = false;
+        hook.beforeEach((function(content) {
+            hasTabs = $tabs.regex.tabBlockMarkup.test(content);
+            if (hasTabs) {
+                content = renderTabsStage1(content, vm);
+            }
+            return content;
+        }));
+        hook.afterEach((function(html, next) {
+            if (hasTabs) {
+                html = renderTabsStage2(html);
+            }
+            next(html);
+        }));
+        hook.doneEach((function() {
+            if (hasTabs) {
+                setDefaultTabs();
+            }
+        }));
+        hook.mounted((function() {
+            var tabsContainer = document.querySelector(".".concat($tabs.classNames.tabsContainer));
+            tabsContainer && tabsContainer.addEventListener("click", (function handleTabClick(evt) {
+                setActiveTab(evt.target);
+            }));
+            window.addEventListener("hashchange", setActiveTabFromAnchor, false);
+        }));
     }
 /****************************** [END] : 人口 ********************************/
 
@@ -446,34 +550,6 @@
     }
 
 
-   function docsifyTabs(hook, vm) {
-        var hasTabs = false;
-        hook.beforeEach((function(content) {
-            hasTabs = $tabs.regex.tabBlockMarkup.test(content);
-            if (hasTabs) {
-                content = renderTabsStage1(content, vm);
-            }
-            return content;
-        }));
-        hook.afterEach((function(html, next) {
-            if (hasTabs) {
-                html = renderTabsStage2(html);
-            }
-            next(html);
-        }));
-        hook.doneEach((function() {
-            if (hasTabs) {
-                setDefaultTabs();
-            }
-        }));
-        hook.mounted((function() {
-            var tabsContainer = document.querySelector(".".concat($tabs.classNames.tabsContainer));
-            tabsContainer && tabsContainer.addEventListener("click", (function handleTabClick(evt) {
-                setActiveTab(evt.target);
-            }));
-            window.addEventListener("hashchange", setActiveTabFromAnchor, false);
-        }));
-    }
     
 })();
 //# sourceMappingURL=docsify-tabs.js.map

@@ -43,7 +43,17 @@
 <link rel="stylesheet" href="custom/skin_base.css">
 <link rel="stylesheet" href="custom/skin_default.css">
 
+<script type="text/javascript" src="https://ljq199612.github.io/config/docsify/drawio.js"></script>
+
 <script type="text/javascript" src="custom/main.js"></script>
+<script type="text/javascript" src="custom/remoteFile.js"></script>
+
+
+
+
+
+
+
 
 </head>
 <body>
@@ -65,7 +75,13 @@
       //notFoundPage: 'my404.md',
       
       plugins: [
+
         function(hook) {
+		  hook.init(function() {
+          // 初始化完成后调用，只调用一次，没有参数。
+			loadRemoteData();
+		  });
+
           hook.doneEach(function() {
             customRun();
           });
