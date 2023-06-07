@@ -1,7 +1,7 @@
 # 具体数学
 
 <div class = 'data-section default-folding'>
-<h2 class = 'section-title'>第<label class = 'block-number'> 1 </label>章</h2>
+<h2 class = 'section-title'><label class = 'block-number'> 1 </label></h2>
 <div class = 'folding-area'>
 
 <h3 class = 'auto-sort-sub'>汉诺塔</h3>
