@@ -17,7 +17,7 @@
 
 <div class='book-list-sub2'>
     <i class='nav-icon iconfont icon-book-open'></i>
-    <span> 数学分析</span>
+    <span> 分析</span>
     <div class='book-list-sub3'>
         <a href="#/Volumn_II/math/calculus/Introduction_to_Calculus_and_Analysis_I" class="alive">
         <i class='iconfont icon-page'></i>
@@ -28,6 +28,16 @@
         <i class='iconfont icon-page'></i>
         微积分和数学分析引论 习题</a>
     </div>                                                            
+</div>                                                            
+
+<div class='book-list-sub2'>
+    <i class='nav-icon iconfont icon-book-open'></i>
+    <span> 代数</span>
+    <div class='book-list-sub3'>
+        <a href="#/Volumn_II/math/algebra/Introduction_to_Linear_Algebra" class="alive">
+        <i class='iconfont icon-page'></i>
+        线行代数导论</a>
+    </div>                                                           
 </div>                                                            
 
 <div class='book-list-sub2'>

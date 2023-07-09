@@ -20,8 +20,3 @@
     数学</a>
 </div>                                                            
 
-<div class='book-list-sub1'>
-    <a href="#/Volumn_II/chemistry/welcome" class="alive">
-    <i class='iconfont icon-dir'></i>
-    化学</a>
-</div>                                                            
